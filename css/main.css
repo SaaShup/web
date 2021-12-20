@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+    font-family: "Space Mono","Courier New",monaco,monospace;
+}
+
+#map-card {
+    background-color: #e1eefc;
+    color:white;
+}
+
+main {
+    background: url("/img/bg_yoctu.png") no-repeat;
+    background-size: cover;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    line-height: 1.4;
+}
+
+h5 {
+    line-height: 1.6;
+}
+
+.navbar .navbar-toggler {
+    border-color: #0dcaf0!important;
+    border-width: 3px;
+}
