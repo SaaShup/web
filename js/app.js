@@ -2,6 +2,13 @@ $(document).ready(function () {
     var Tawk_API = Tawk_API || {};
     var Tawk_LoadStart = new Date();
 
+    $('.nav-link').on('click', function() {
+        $( ".nav-link" ).each(function() { 
+            $(this).removeClass('active');
+        })
+        $(this).addClass('active')
+    })
+
     updateLang();
     $(".owl-carousel").owlCarousel({
         center: true,

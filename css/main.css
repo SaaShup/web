@@ -14,6 +14,18 @@ main {
     background-color: #fff;
 }
 
+.nav-link.active {
+    border-bottom: 3px solid #0d6efd;
+}
+
+.nav-link {
+    border-bottom: 3px solid white;
+}
+
+.nav-link:hover {
+    border-bottom: 3px solid #0d6efd;
+}
+
 a {
     text-decoration: none;
 }
