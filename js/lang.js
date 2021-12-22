@@ -7,7 +7,7 @@ const lang = {
         "navContact": "contact",
         "navJobs": "jobs",
         "first": "<b class='text-primary'>Do you have a SaaS ?</b> <br>Make SaaS our problem.<br>Focus on product and revenue while we provide you a Saas platform.<br>",
-        "intro": "Saas-ify now<br>your <span class='text-primary'>application</span>.<br><br>You can request a <span class='text-primary'>demo</span><br>and increase your <span class='text-primary'>selling</span><br> through your customized <span class='text-danger'>saas</span> with no hiding cost.",
+        "intro": "Saas-ify now<br>your <span class='text-primary'>application</span>.<br><br>You can request a <a href='https://demo.saashup.com' target='_blank'>demo</a><br>and increase your <span class='text-primary'>selling</span><br> through your customized <span class='text-danger'>saas</span> with no hiding cost.",
         "description": "<span class='text-info'>SaaShup</span> is a simple solution to <span class='text-primary'>saas-ify</span> your application.<br>We help you to expose your application and simplify the management. Build and develop your software and let us taking care of deploying it to your customer through your owned customized Saas. Our services remain flexible and scalable: we adapt the capacity to your activity.",
         "stage1-title": "Last Release",
         "stage2-title": "Testing",
