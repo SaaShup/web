@@ -40,6 +40,7 @@ $(document).ready(function () {
         $("#memory-value").text($("#slide-memory").val());
         $("#instance-value").text($("#slide-instance").val());
         $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
+        $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
     })
 
     $("#bronze-btn, #silver-btn, #gold-btn").on('click', function() {
@@ -49,5 +50,6 @@ $(document).ready(function () {
         $(this).addClass("btn-warning").addClass("text-white");
         Plan = parseFloat($(this).data('price'))
         $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
+        $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
     });
 })
