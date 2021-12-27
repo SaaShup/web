@@ -42,3 +42,7 @@ h5 {
     border-color: #0dcaf0!important;
     border-width: 3px;
 }
+
+.btn-outline-warning:hover {
+    color: white;
+}
