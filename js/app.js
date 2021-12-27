@@ -1,4 +1,4 @@
-var Plan = 0.25;
+var Plan = 0.2;
 
 $(document).ready(function () {
     var Tawk_API = Tawk_API || {};
@@ -41,6 +41,7 @@ $(document).ready(function () {
         $("#instance-value").text($("#slide-instance").val());
         $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
         $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
+        if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300)
     })
 
     $("#bronze-btn, #silver-btn, #gold-btn").on('click', function() {
@@ -51,5 +52,6 @@ $(document).ready(function () {
         Plan = parseFloat($(this).data('price'))
         $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
         $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
+        if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300)
     });
 })
