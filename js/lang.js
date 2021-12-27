@@ -16,6 +16,7 @@ const lang = {
         "stage1": "A centralized service delivery platform for containerized apps",
         "stage2": "Modern GPS tracking platform",
         "stage3": "La suite logicielle libre des ostéopathes",
+        "plan-title": "Plans",
         "pricing-title": "Pricing",
         "portainer-text": "A centralized service delivery platform for containerized apps",
         "nginx-text": "Advanced Load Balancer, Web Server, &amp; Reverse Proxy",
