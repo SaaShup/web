@@ -37,6 +37,6 @@ $(document).ready(function () {
     $("#slide-memory, #slide-instance").on('input', function() {
         $("#memory-value").text($("#slide-memory").val());
         $("#instance-value").text($("#slide-instance").val());
-        $("#pricing-value").text(parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * 0.2 + 20)
+        $("#pricing-value").text(parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * 0.2 + 50)
     })
 })
