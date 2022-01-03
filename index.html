@@ -38,7 +38,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" style="padding: 0 0 0 0;" href="https://www.saashup.com"><img src="/img/saashup2.png"
           height="48px" /></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -73,6 +73,18 @@
                 class="fas fa-battery-full"></i> <span id="navStatus"></span></a>
           </li>
         </ul>
+        <span class="pe-3 pt-2">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <img id="lang-flag" src="/img/en.png" width="32px"/>
+            </a>
+            <ul class="dropdown-menu" style="padding-left:2rem;" aria-labelledby="dropdownMenuLink">
+              <li class="p-2"><img id="lang-flag" src="/img/en.png" width="32px" onclick="updateLang('en');$('#lang-flag').attr('src', '/img/en.png');"/></li>
+              <li class="p-2"><img id="lang-flag" src="/img/fr.png" width="32px" onclick="updateLang('fr');$('#lang-flag').attr('src', '/img/fr.png');""/></li>
+              <li class="p-2"><img id="lang-flag" src="/img/de.png" width="32px" onclick="updateLang('de');$('#lang-flag').attr('src', '/img/de.png');""/></li>
+            </ul>
+          </div>
+        </span>
       </div>
     </div>
   </nav>
@@ -120,6 +132,14 @@
           <div class="card my-4">
             <div class="card-body">
               <h5 class="card-text p-2" id="description"></h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-body">
+              <h5 class="card-text p-2" id="explain"></h5>
             </div>
           </div>
         </div>
@@ -255,14 +275,14 @@
                 <div class="container">
                   <div class="row pb-3 text-center">
                     <div class="col-4">
-                      <button class="btn btn-outline-warning btn-warning text-white" id="bronze-btn"
+                      <button class="btn btn-outline-warning btn-warning text-white fw-bold" id="bronze-btn"
                         data-price="0.2">BRONZE</button>
                     </div>
                     <div class="col-4">
-                      <button class="btn btn-outline-warning" id="silver-btn" data-price="0.4">SILVER</button>
+                      <button class="btn btn-outline-warning fw-bold" id="silver-btn" data-price="0.4">SILVER</button>
                     </div>
                     <div class="col-4">
-                      <button class="btn btn-outline-warning" id="gold-btn" data-price="0.6">GOLD</button>
+                      <button class="btn btn-outline-warning fw-bold" id="gold-btn" data-price="0.6">GOLD</button>
                     </div>
                   </div>
                   <div class="row">
@@ -275,10 +295,10 @@
                       <input type="range" class="form-range" min="0" max="1000" step="1" id="slide-instance" value="50">
                       <br>
                     </div>
-                    <div class="col-sm-12 col-md-4 text-primary text-center">
-                      <br>
-                      <h1><span id="pricing-value">160.00</span></h1>€<span>/month (tax excl.)</span><br><span
-                        id="pricing-unit">3.20</span>€ per instance
+                    <div class="col-sm-12 col-md-4 text-center">
+                      You pay
+                      <h1><span id="pricing-value" class="text-primary">160.00</span></h1><span class="text-primary">€/month (tax excl.)</span><br> equivalent to<br><span
+                        id="pricing-unit" class="fw-bold">3.20</span><span>€ per instance</span>
                     </div>
                   </div>
                 </div>

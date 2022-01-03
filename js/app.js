@@ -11,7 +11,7 @@ $(document).ready(function () {
         $(this).addClass('active')
     })
 
-    updateLang();
+    updateLang('en');
     $(".owl-carousel").owlCarousel({
         center: true,
         items: 2,
