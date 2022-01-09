@@ -1,3 +1,5 @@
+var myLang = "en";
+
 const lang = {
     "en": { 
         "navHome": "home",
@@ -30,7 +32,11 @@ const lang = {
         "catalog-text": "You can browse in our <a href='/catalog.html'>catalog</a> to find an application with build saas.<br>If you dont find one or own one you want us to work on, pls contact us.<br>Find SaaS apps  and see what other people have done with SaaShup. ",
         "contact-title": "Contact",
         "contact-text-1": "There is many ways to contact us. You can use our website chat below or one of the messaging. <br><br>",
-        "contact-text-2": "<br>We are available 9 hours a day, 5 days a week.<br><br>"
+        "contact-text-2": "<br>We are available 9 hours a day, 5 days a week.<br><br>",
+        "help_app_support_title": "App Support",
+        "help_app_support_text": "<p>We can provide support to your application.</p><p>Our support team can respond to your customer about application issues, queries...</p><p>Provide procedures, knowledge bases, Faqs or any documents and we will provide Level 1 support, create tickets for follow up and escalate to your teams.</p>",
+        "help_saas_support_title": "SaaS Support",
+        "help_saas_support_text": "<p>We fully support your Saas.</p><p>Our support team can respond to your customer about saas issues, queries, requests...</p>"
     },
     "fr": {
         "first": "<b class='text-primary'>Avez-vous un SaaS ?</b> <br>Laissez-nous s'en occuper.<br>Travaillez sur votre produit et revenu pendant que l'on gere votre Saas.<br>",
@@ -49,7 +55,8 @@ function findLang(myid, langSelected) {
 }
 
 function updateLang(langSelected) {
-   for (let t in lang['en']) {
-       $('#'+t).html(findLang(t, langSelected))
-   }
+    myLang = langSelected;
+    for (let t in lang['en']) {
+        $('#'+t).html(findLang(t, langSelected))
+    }
 }

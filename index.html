@@ -20,8 +20,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"
     integrity="sha512-pax4MlgXjHEPfCwcJLQhigY7+N8rt6bVvWLFyUMuxShv170X53TRzGPmPkZmGBhk+jikR8WBM4yl7A9WMHHqvg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="/js/lang.js?v=1641720316"></script>
-  <script src="/js/app.js?v=1641720316"></script>
+  <script src="/js/lang.js?v=1641757887"></script>
+  <script src="/js/app.js?v=1641757887"></script>
   <script src="https://embed.tawk.to/61bf5e9180b2296cfdd26ed6/1fn9oiql4" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
     integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="/css/main.css?v=1641720316" rel="stylesheet">
+  <link href="/css/main.css?v=1641757887" rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column">
@@ -38,8 +38,9 @@
     <div class="container-fluid">
       <a class="navbar-brand" style="padding: 0 0 0 0;" href="https://www.saashup.com"><img src="/img/saashup2.png"
           height="48px" /></a>
-      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -75,13 +76,17 @@
         </ul>
         <span class="pe-3 pt-2">
           <div class="dropdown">
-            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              <img id="lang-flag" src="/img/en.png" width="32px"/>
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <img id="lang-flag" src="/img/en.png" width="32px" />
             </a>
             <ul class="dropdown-menu" style="padding-left:2rem;" aria-labelledby="dropdownMenuLink">
-              <li class="p-2"><img id="lang-flag" src="/img/en.png" width="32px" onclick="updateLang('en');$('#lang-flag').attr('src', '/img/en.png');"/></li>
-              <li class="p-2"><img id="lang-flag" src="/img/fr.png" width="32px" onclick="updateLang('fr');$('#lang-flag').attr('src', '/img/fr.png');""/></li>
-              <li class="p-2"><img id="lang-flag" src="/img/de.png" width="32px" onclick="updateLang('de');$('#lang-flag').attr('src', '/img/de.png');""/></li>
+              <li class="p-2"><img id="lang-flag" src="/img/en.png" width="32px"
+                  onclick="updateLang('en');$('#lang-flag').attr('src', '/img/en.png');" /></li>
+              <li class="p-2"><img id="lang-flag" src="/img/fr.png" width="32px"
+                  onclick="updateLang('fr');$('#lang-flag').attr('src', '/img/fr.png');""/></li>
+              <li class=" p-2"><img id="lang-flag" src="/img/de.png" width="32px"
+                  onclick="updateLang('de');$('#lang-flag').attr('src', '/img/de.png');""/></li>
             </ul>
           </div>
         </span>
@@ -89,364 +94,389 @@
     </div>
   </nav>
 
-  <br><br><br>
+  <div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalNotification">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header bg-white text-primary">
+                      <h5 class="modal-title" id="modalNotificationTitle"></h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p id="modalNotificationContent"></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                        id="modalNotificationOk">Ok</button>
+                    </div>
+                  </div>
+                </div>
+          </div>
 
-  <main>
+          <br><br><br>
 
-    <div class="container">
-      <div class="row">
+          <main>
 
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-body">
+            <div class=" container">
               <div class="row">
-                <div class="col-sm-12 col-md-3 text-center">
-                  <img src="img/saashup2.png" width="100%" />
-                </div>
-                <div class="col-sm-12 col-md-9">
-                  <h1 class="card-title text-info text-center">SaaShup</h1>
-                  <h2 class="card-text p-2 text-center" id="first"></h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-body">
-              <div class="row">
+                <div class="col-12">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-3 text-center">
+                          <img src="img/saashup2.png" width="100%" />
+                        </div>
+                        <div class="col-sm-12 col-md-9">
+                          <h1 class="card-title text-info text-center">SaaShup</h1>
+                          <h2 class="card-text p-2 text-center" id="first"></h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                          <h3 class="card-text p-2 text-center" id="intro">
+                            </h2>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <img src="img/illustration_header.png" width="100%" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <h5 class="card-text p-2" id="description"></h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <h5 class="card-text p-2" id="explain"></h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                  <div class="card my-4" style="height: 250px;">
+                    <div class="card-body">
+                      <h2 class="card-title text-primary text-center" id="stage1-title"></h2>
+                      <div class="row card-text">
+                        <div class="col-6 text-center"><br><a href="https://www.portainer.io"><img
+                              src="https://app.portainer.cloud/img/portainer.png" width="64" /></a></div>
+                        <div class="col-6"><a href="https://portainer.saashup.com/">Portainer</a><br><span id="stage1"
+                            class="small text-muted"> </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                  <div class="card my-4" style="height: 250px;">
+                    <div class="card-body">
+                      <h2 class="card-title text-primary text-center" id="stage2-title"></h2>
+                      <div class="row card-text">
+                        <div class="col-6 text-center"><br><a href="https://www.traccar.org/"><img
+                              src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoLjQ2ODc1IDAgMCAuNDY4NzUgMCA5LjM3NWUtNSkiPgo8Y2lyY2xlIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGN4PSIxMS43MTMiIGN5PSI0My43MTMiIHI9IjI3LjcyMiIgZmlsbD0iI2ZmZiIvPgo8Y2lyY2xlIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGN4PSI5LjQ1NzgiIGN5PSI0My43MTMiIHI9IjIuMjU1Ii8+CjxwYXRoIGQ9Im0zNi45NjUgMjQuMjUxLTIuODE2MSAzLjU3ODhjMC42NTcyMSAwLjUxNzEzIDEuMzEzIDEuMTQ2NyAxLjc1NjcgMS45MTUxIDAuNDQzNjggMC43Njg0NyAwLjY2MDk4IDEuNjUxMiAwLjc4MDIyIDIuNDc4OWw0LjUwNzMtMC42NDk0Yy0wLjE5Mi0xLjQwOC0wLjYyNy0yLjc3OS0xLjM4MS00LjA4NS0wLjc1NS0xLjMwNi0xLjcyNC0yLjM2OS0yLjg0Ny0zLjIzOXoiLz4KPHBhdGggZD0ibTQyLjQwNSAxNy4wNDItMi44MTYxIDMuNTc4OGMxLjU5MTkgMS4yMjM5IDMuMDYyMyAyLjc2NzIgNC4xMjg3IDQuNjE0MnMxLjY2NzcgMy44OTIxIDEuOTMxNyA1Ljg4MjdsNC41MDczLTAuNjQ5NGMtMC4zMzY0Ny0yLjU3MS0xLjE1Ni01LjEwMjgtMi41MzMyLTcuNDg4M3MtMy4xNjAxLTQuMzYxMS01LjIxODUtNS45Mzh6Ii8+CjxwYXRoIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGQ9Im0yLjY5MjcgNTIuNzMzYTkuMDIwMSA5LjAyMDEgMCAwIDEtNy44MTE2LTQuNTEwMSA5LjAyMDEgOS4wMjAxIDAgMCAxLTFlLTcgLTkuMDIwMSA5LjAyMDEgOS4wMjAxIDAgMCAxIDcuODExNi00LjUxMDFsLTFlLTcgOS4wMjAxeiIvPgo8cGF0aCBkPSJtMTcuNjM5IDcuMTI1OGMtMTMuNzM4IDcuOTMxMi0xOC40NDUgMjUuNDk3LTEwLjUxMyAzOS4yMzUgNy45MzEgMTMuNzM4IDI1LjQ5NyAxOC40NDUgMzkuMjM1IDEwLjUxMyAxMy43MzgtNy45MzEgMTguNDQ1LTI1LjQ5NyAxMC41MTMtMzkuMjM1LTcuOTMxLTEzLjczOC0yNS40OTctMTguNDQ1LTM5LjIzNS0xMC41MTN6bTEuNjg5NSAyLjkyNjRjMTIuMTIyLTYuOTk4MSAyNy42MjEtMi44NDUgMzQuNjIgOS4yNzYgNi45OTggMTIuMTIyIDIuODQ1IDI3LjYyMS05LjI3NiAzNC42Mi0xMi4xMjIgNi45OTgtMjcuNjIxIDIuODQ1LTM0LjYyLTkuMjc2LTYuOTk4MS0xMi4xMjItMi44NDUtMjcuNjIxIDkuMjc2LTM0LjYyeiIvPgo8L2c+Cjwvc3ZnPgo="
+                              width="64" /></a></div>
+                        <div class="col-6"><a href="https://traccar.saashup.com">Traccar</a><br><span id="stage2"
+                            class="small text-muted"> </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                  <div class="card my-4" style="height: 250px;">
+                    <div class="card-body">
+                      <h2 class="card-title text-primary text-center" id="stage3-title"></h2>
+                      <div class="row card-text">
+                        <div class="col-6 text-center"><br><a href="https://www.libreosteo.org/"><img src=""
+                              alt="libreosteo" width="64" /></a></div>
+                        <div class="col-6"><a href="https://libreosteo.saashup.com/">LibreOsteo</a><br><span id="stage3"
+                            class="small text-muted"> </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <h2 class="card-title text-primary text-center" id="plan-title"></h2>
+                      <div class="row card-text">
+                        <div class="table-responsive">
+                          <table class="table table-hover text-center">
+                            <thead>
+                              <tr>
+                                <th scope="col"></th>
+                                <th scope="col" class="text-warning">
+                                  <h2>BRONZE</h2>
+                                </th>
+                                <th scope="col" class="text-warning">
+                                  <h2>SILVER</h2>
+                                </th>
+                                <th scope="col" class="text-warning">
+                                  <h2>GOLD</h2>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Time</th>
+                                <td>8h-20h</td>
+                                <td>0h-24h</td>
+                                <td>0h-24h</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Days</th>
+                                <td>Mon-Fri</td>
+                                <td>Mon-Sat</td>
+                                <td>Mon-Sun</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">SAAS Support <a href="#" id="help_saas_support"><i class="fas fa-question-circle"></i></a></th>
+                                <td>chat < 30 mins</td> <td>chat < 10 mins</td> <td>phone < 5 mins</td> </tr> <tr>
+                                <th scope="row">APP Support <a href="#" id="help_app_support"><i class="fas fa-question-circle"></i></a></th>
+                                <td>none</td>
+                                <td>L1 support</td>
+                                <td>L1 support</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Backup</th>
+                                <td>weekly</td>
+                                <td>daily</td>
+                                <td>daily</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Monthly SLA</th>
+                                <td>99 %</td>
+                                <td>99.25 %</td>
+                                <td>99.5 %</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Storage</th>
+                                <td>1 GB</td>
+                                <td>2 GB</td>
+                                <td>5 GB</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Domain</th>
+                                <td>saashup domain</td>
+                                <td>saashup domain</td>
+                                <td>custom domain</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Monthly Consulting</th>
+                                <td>30 mins</td>
+                                <td>60 mins</td>
+                                <td>90 mins</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12" id="pricing-div">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <h2 class="card-title text-primary text-center" id="pricing-title"></h2>
+                      <div class="card-text pb-3">
+                        <div class="container">
+                          <div class="row pb-3 text-center">
+                            <div class="col-4">
+                              <button class="btn btn-outline-warning btn-warning text-white fw-bold" id="bronze-btn"
+                                data-price="0.2">BRONZE</button>
+                            </div>
+                            <div class="col-4">
+                              <button class="btn btn-outline-warning fw-bold" id="silver-btn"
+                                data-price="0.4">SILVER</button>
+                            </div>
+                            <div class="col-4">
+                              <button class="btn btn-outline-warning fw-bold" id="gold-btn"
+                                data-price="0.6">GOLD</button>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12 col-md-8">
+                              <label for="instances" class="form-label">Memory (<span
+                                  id="memory-value">200</span>Mb)</label>
+                              <input type="range" class="form-range" min="200" max="1000" step="100" id="slide-memory"
+                                value="200">
+                              <br><br>
+                              <label for="instances" class="form-label">Instances (<span
+                                  id="instance-value">50</span>)</label>
+                              <input type="range" class="form-range" min="0" max="1000" step="1" id="slide-instance"
+                                value="50">
+                              <br>
+                            </div>
+                            <div class="col-sm-12 col-md-4 text-center">
+                              You pay
+                              <h1><span id="pricing-value" class="text-primary">160.00</span></h1><span
+                                class="text-primary">€/month (tax excl.)</span><br> equivalent to<br><span
+                                id="pricing-unit" class="fw-bold">3.20</span><span>€ per instance</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12" id="catalog-div">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <h2 class="card-title text-primary text-center" id="catalog-title"></h2>
+                      <h5 class="card-text p-3" id="catalog-text"></h5>
+                      <div class="container col-sm-12 col-md-6"><input placeholder="Search" class="form-control" />
+                      </div>
+                      <hr>
+                      <div class="owl-carousel">
+                        <div class="card" style="height: 250px;">
+                          <div class="card-body">
+                            <h2 class="card-title text-primary text-center">Redis</h2>
+                            <div class="row card-text">
+                              <div class="col-6 text-center"><br><a href="https://redis.io/"><img
+                                    src="https://redis.io/images/redis-white.png" width="64" /></a></div>
+                              <div class="col-6"><a href="https://redis.io/">Redis</a><br><span id="redis-text"
+                                  class="small text-muted"> </span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card" style="height: 250px;">
+                          <div class="card-body">
+                            <h2 class="card-title text-primary text-center">Mysql</h2>
+                            <div class="row card-text">
+                              <div class="col-6 text-center"><br><a href="https://www.mysql.com/"><img
+                                    src="https://labs.mysql.com/common/logos/mysql-logo.svg?v2" width="64" /></a>
+                              </div>
+                              <div class="col-6"><a href="https://www.mysql.com/">Mysql</a><br><span id="mysql-text"
+                                  class="small text-muted"> </span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card" style="height: 250px;">
+                          <div class="card-body">
+                            <h2 class="card-title text-primary text-center">Portainer</h2>
+                            <div class="row card-text">
+                              <div class="col-6 text-center"><br><a href="https://www.portainer.io"><img
+                                    src="https://app.portainer.cloud/img/portainer.png" width="64" /></a></div>
+                              <div class="col-6"><a href="https://portainer.saashup.com/">Portainer</a><br><span
+                                  id="portainer-text" class="small text-muted"> </span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card" style="height: 250px;">
+                          <div class="card-body">
+                            <h2 class="card-title text-primary text-center">Nodered</h2>
+                            <div class="row card-text">
+                              <div class="col-6 text-center"><br><a href="https://nodered.org/"><img
+                                    src="https://app.nodered.cloud/img/nodered.png" width="64" /></a></div>
+                              <div class="col-6"><a href="https://nodered.saashup.com">Nodered</a><br><span
+                                  id="nodered-text" class="small text-muted"> </span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card" style="height: 250px;">
+                          <div class="card-body">
+                            <h2 class="card-title text-primary text-center">Traccar</h2>
+                            <div class="row card-text">
+                              <div class="col-6 text-center"><br><a href="https://www.traccar.org/"><img
+                                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoLjQ2ODc1IDAgMCAuNDY4NzUgMCA5LjM3NWUtNSkiPgo8Y2lyY2xlIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGN4PSIxMS43MTMiIGN5PSI0My43MTMiIHI9IjI3LjcyMiIgZmlsbD0iI2ZmZiIvPgo8Y2lyY2xlIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGN4PSI5LjQ1NzgiIGN5PSI0My43MTMiIHI9IjIuMjU1Ii8+CjxwYXRoIGQ9Im0zNi45NjUgMjQuMjUxLTIuODE2MSAzLjU3ODhjMC42NTcyMSAwLjUxNzEzIDEuMzEzIDEuMTQ2NyAxLjc1NjcgMS45MTUxIDAuNDQzNjggMC43Njg0NyAwLjY2MDk4IDEuNjUxMiAwLjc4MDIyIDIuNDc4OWw0LjUwNzMtMC42NDk0Yy0wLjE5Mi0xLjQwOC0wLjYyNy0yLjc3OS0xLjM4MS00LjA4NS0wLjc1NS0xLjMwNi0xLjcyNC0yLjM2OS0yLjg0Ny0zLjIzOXoiLz4KPHBhdGggZD0ibTQyLjQwNSAxNy4wNDItMi44MTYxIDMuNTc4OGMxLjU5MTkgMS4yMjM5IDMuMDYyMyAyLjc2NzIgNC4xMjg3IDQuNjE0MnMxLjY2NzcgMy44OTIxIDEuOTMxNyA1Ljg4MjdsNC41MDczLTAuNjQ5NGMtMC4zMzY0Ny0yLjU3MS0xLjE1Ni01LjEwMjgtMi41MzMyLTcuNDg4M3MtMy4xNjAxLTQuMzYxMS01LjIxODUtNS45Mzh6Ii8+CjxwYXRoIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGQ9Im0yLjY5MjcgNTIuNzMzYTkuMDIwMSA5LjAyMDEgMCAwIDEtNy44MTE2LTQuNTEwMSA5LjAyMDEgOS4wMjAxIDAgMCAxLTFlLTcgLTkuMDIwMSA5LjAyMDEgOS4wMjAxIDAgMCAxIDcuODExNi00LjUxMDFsLTFlLTcgOS4wMjAxeiIvPgo8cGF0aCBkPSJtMTcuNjM5IDcuMTI1OGMtMTMuNzM4IDcuOTMxMi0xOC40NDUgMjUuNDk3LTEwLjUxMyAzOS4yMzUgNy45MzEgMTMuNzM4IDI1LjQ5NyAxOC40NDUgMzkuMjM1IDEwLjUxMyAxMy43MzgtNy45MzEgMTguNDQ1LTI1LjQ5NyAxMC41MTMtMzkuMjM1LTcuOTMxLTEzLjczOC0yNS40OTctMTguNDQ1LTM5LjIzNS0xMC41MTN6bTEuNjg5NSAyLjkyNjRjMTIuMTIyLTYuOTk4MSAyNy42MjEtMi44NDUgMzQuNjIgOS4yNzYgNi45OTggMTIuMTIyIDIuODQ1IDI3LjYyMS05LjI3NiAzNC42Mi0xMi4xMjIgNi45OTgtMjcuNjIxIDIuODQ1LTM0LjYyLTkuMjc2LTYuOTk4MS0xMi4xMjItMi44NDUtMjcuNjIxIDkuMjc2LTM0LjYyeiIvPgo8L2c+Cjwvc3ZnPgo="
+                                    width="64" /></a></div>
+                              <div class="col-6"><a href="https://traccar.saashup.com/">Traccar</a><br><span
+                                  id="traccar-text" class="small text-muted"> </span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card" style="height: 250px;">
+                          <div class="card-body">
+                            <h2 class="card-title text-primary text-center">LibreOsteo</h2>
+                            <div class="row card-text">
+                              <div class="col-6 text-center"><br><a href="https://www.libreosteo.org/"><img src=""
+                                    alt="LibreOsteo" width="64" /></a></div>
+                              <div class="col-6"><a href="hhttps://www.libreosteo.org/">LibreOsteo</a><br><span
+                                  id="libreosteo-text" class="small text-muted"> </span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card" style="height: 250px;">
+                          <div class="card-body">
+                            <h2 class="card-title text-primary text-center">Nginx</h2>
+                            <div class="row card-text">
+                              <div class="col-6 text-center"><br><a href="https://www.nginx.com/"><img
+                                    src="https://www.nginx.com/wp-content/uploads/2020/05/NGINX-product-icon.svg"
+                                    width="64" /></a></div>
+                              <div class="col-6"><a href="https://demo.saashup.com/">Nginx</a><br><span id="nginx-text"
+                                  class="small text-muted"> </span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="col-sm-12 col-md-6">
-                  <h3 class="card-text p-2 text-center" id="intro">
-                    </h2>
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <h2 class="card-title text-primary text-center" id="contact-title"></h2>
+                      <div class="row card-text">
+                        <h5 id="contact-text-1"></h5>
+                        <div class="row text-center">
+                          <div class="col-2"><a href="mailto:support@saashup.com"><i
+                                class="fas fa-envelope text-primary fa-2x"></i></a></div>
+                          <div class="col-2"><a href="" target="_blank"><i
+                                class="fab fa-twitter text-primary fa-2x"></i></a></div>
+                          <div class="col-2"><a href="" target="_blank"><i
+                                class="fab fa-slack-hash text-primary fa-2x"></i></a></div>
+                          <div class="col-2"><a href="" target="_blank"><i
+                                class="fab fa-discord text-primary fa-2x"></i></a></div>
+                          <div class="col-2"><a href="" target="_blank"><i
+                                class="fab fa-reddit text-primary fa-2x"></i></a></div>
+                          <div class="col-2"><a href="" target="_blank"><i
+                                class="fab fa-youtube text-primary fa-2x"></i></a></div>
+                        </div>
+                        <h5 id="contact-text-2"></h5>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
-                  <img src="img/illustration_header.png" width="100%" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-body">
-              <h5 class="card-text p-2" id="description"></h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-body">
-              <h5 class="card-text p-2" id="explain"></h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-4">
-          <div class="card my-4" style="height: 250px;">
-            <div class="card-body">
-              <h2 class="card-title text-primary text-center" id="stage1-title"></h2>
-              <div class="row card-text">
-                <div class="col-6 text-center"><br><a href="https://www.portainer.io"><img
-                      src="https://app.portainer.cloud/img/portainer.png" width="64" /></a></div>
-                <div class="col-6"><a href="https://portainer.saashup.com/">Portainer</a><br><span id="stage1"
-                    class="small text-muted"> </span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-4">
-          <div class="card my-4" style="height: 250px;">
-            <div class="card-body">
-              <h2 class="card-title text-primary text-center" id="stage2-title"></h2>
-              <div class="row card-text">
-                <div class="col-6 text-center"><br><a href="https://www.traccar.org/"><img
-                      src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoLjQ2ODc1IDAgMCAuNDY4NzUgMCA5LjM3NWUtNSkiPgo8Y2lyY2xlIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGN4PSIxMS43MTMiIGN5PSI0My43MTMiIHI9IjI3LjcyMiIgZmlsbD0iI2ZmZiIvPgo8Y2lyY2xlIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGN4PSI5LjQ1NzgiIGN5PSI0My43MTMiIHI9IjIuMjU1Ii8+CjxwYXRoIGQ9Im0zNi45NjUgMjQuMjUxLTIuODE2MSAzLjU3ODhjMC42NTcyMSAwLjUxNzEzIDEuMzEzIDEuMTQ2NyAxLjc1NjcgMS45MTUxIDAuNDQzNjggMC43Njg0NyAwLjY2MDk4IDEuNjUxMiAwLjc4MDIyIDIuNDc4OWw0LjUwNzMtMC42NDk0Yy0wLjE5Mi0xLjQwOC0wLjYyNy0yLjc3OS0xLjM4MS00LjA4NS0wLjc1NS0xLjMwNi0xLjcyNC0yLjM2OS0yLjg0Ny0zLjIzOXoiLz4KPHBhdGggZD0ibTQyLjQwNSAxNy4wNDItMi44MTYxIDMuNTc4OGMxLjU5MTkgMS4yMjM5IDMuMDYyMyAyLjc2NzIgNC4xMjg3IDQuNjE0MnMxLjY2NzcgMy44OTIxIDEuOTMxNyA1Ljg4MjdsNC41MDczLTAuNjQ5NGMtMC4zMzY0Ny0yLjU3MS0xLjE1Ni01LjEwMjgtMi41MzMyLTcuNDg4M3MtMy4xNjAxLTQuMzYxMS01LjIxODUtNS45Mzh6Ii8+CjxwYXRoIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGQ9Im0yLjY5MjcgNTIuNzMzYTkuMDIwMSA5LjAyMDEgMCAwIDEtNy44MTE2LTQuNTEwMSA5LjAyMDEgOS4wMjAxIDAgMCAxLTFlLTcgLTkuMDIwMSA5LjAyMDEgOS4wMjAxIDAgMCAxIDcuODExNi00LjUxMDFsLTFlLTcgOS4wMjAxeiIvPgo8cGF0aCBkPSJtMTcuNjM5IDcuMTI1OGMtMTMuNzM4IDcuOTMxMi0xOC40NDUgMjUuNDk3LTEwLjUxMyAzOS4yMzUgNy45MzEgMTMuNzM4IDI1LjQ5NyAxOC40NDUgMzkuMjM1IDEwLjUxMyAxMy43MzgtNy45MzEgMTguNDQ1LTI1LjQ5NyAxMC41MTMtMzkuMjM1LTcuOTMxLTEzLjczOC0yNS40OTctMTguNDQ1LTM5LjIzNS0xMC41MTN6bTEuNjg5NSAyLjkyNjRjMTIuMTIyLTYuOTk4MSAyNy42MjEtMi44NDUgMzQuNjIgOS4yNzYgNi45OTggMTIuMTIyIDIuODQ1IDI3LjYyMS05LjI3NiAzNC42Mi0xMi4xMjIgNi45OTgtMjcuNjIxIDIuODQ1LTM0LjYyLTkuMjc2LTYuOTk4MS0xMi4xMjItMi44NDUtMjcuNjIxIDkuMjc2LTM0LjYyeiIvPgo8L2c+Cjwvc3ZnPgo="
-                      width="64" /></a></div>
-                <div class="col-6"><a href="https://traccar.saashup.com">Traccar</a><br><span id="stage2"
-                    class="small text-muted"> </span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-4">
-          <div class="card my-4" style="height: 250px;">
-            <div class="card-body">
-              <h2 class="card-title text-primary text-center" id="stage3-title"></h2>
-              <div class="row card-text">
-                <div class="col-6 text-center"><br><a href="https://www.libreosteo.org/"><img src="" alt="libreosteo"
-                      width="64" /></a></div>
-                <div class="col-6"><a href="https://libreosteo.saashup.com/">LibreOsteo</a><br><span id="stage3"
-                    class="small text-muted"> </span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-12">
-          <div class="card my-4">
-            <div class="card-body">
-              <h2 class="card-title text-primary text-center" id="plan-title"></h2>
-              <div class="row card-text">
-                <div class="table-responsive">
-                  <table class="table table-hover text-center">
-                    <thead>
-                      <tr>
-                        <th scope="col"></th>
-                        <th scope="col" class="text-warning">
-                          <h2>BRONZE</h2>
-                        </th>
-                        <th scope="col" class="text-warning">
-                          <h2>SILVER</h2>
-                        </th>
-                        <th scope="col" class="text-warning">
-                          <h2>GOLD</h2>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Time</th>
-                        <td>8h-20h</td>
-                        <td>0h-24h</td>
-                        <td>0h-24h</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Days</th>
-                        <td>Mon-Fri</td>
-                        <td>Mon-Sat</td>
-                        <td>Mon-Sun</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">SAAS Support</th>
-                        <td>chat < 30 mins</td> <td>chat < 10 mins</td> <td>phone < 5 mins</td> </tr> <tr>
-                        <th scope="row">APP Support</th>
-                        <td>none</td>
-                        <td>L1 support</td>
-                        <td>L1 support</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Backup</th>
-                        <td>weekly</td>
-                        <td>daily</td>
-                        <td>daily</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Monthly SLA</th>
-                        <td>99 %</td>
-                        <td>99.25 %</td>
-                        <td>99.5 %</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Storage</th>
-                        <td>1 GB</td>
-                        <td>2 GB</td>
-                        <td>5 GB</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Domain</th>
-                        <td>saashup domain</td>
-                        <td>saashup domain</td>
-                        <td>custom domain</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Monthly Consulting</th>
-                        <td>30 mins</td>
-                        <td>60 mins</td>
-                        <td>90 mins</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-12" id="pricing-div">
-          <div class="card my-4">
-            <div class="card-body">
-              <h2 class="card-title text-primary text-center" id="pricing-title"></h2>
-              <div class="card-text pb-3">
-                <div class="container">
-                  <div class="row pb-3 text-center">
-                    <div class="col-4">
-                      <button class="btn btn-outline-warning btn-warning text-white fw-bold" id="bronze-btn"
-                        data-price="0.2">BRONZE</button>
-                    </div>
-                    <div class="col-4">
-                      <button class="btn btn-outline-warning fw-bold" id="silver-btn" data-price="0.4">SILVER</button>
-                    </div>
-                    <div class="col-4">
-                      <button class="btn btn-outline-warning fw-bold" id="gold-btn" data-price="0.6">GOLD</button>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12 col-md-8">
-                      <label for="instances" class="form-label">Memory (<span id="memory-value">200</span>Mb)</label>
-                      <input type="range" class="form-range" min="200" max="1000" step="100" id="slide-memory"
-                        value="200">
-                      <br><br>
-                      <label for="instances" class="form-label">Instances (<span id="instance-value">50</span>)</label>
-                      <input type="range" class="form-range" min="0" max="1000" step="1" id="slide-instance" value="50">
-                      <br>
-                    </div>
-                    <div class="col-sm-12 col-md-4 text-center">
-                      You pay
-                      <h1><span id="pricing-value" class="text-primary">160.00</span></h1><span class="text-primary">€/month (tax excl.)</span><br> equivalent to<br><span
-                        id="pricing-unit" class="fw-bold">3.20</span><span>€ per instance</span>
+                  <div class="card my-4" id="map-card">
+                    <div class="card-body">
+                      <div id="map">
+                        <iframe
+                          src="https://maps.google.com/maps?width=700&height=440&hl=en&q=Nancy%205France%20gare&ie=UTF8&t=&z=17&iwloc=B&output=embed"
+                          width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen></iframe>
+                      </div>
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-12" id="catalog-div">
-          <div class="card my-4">
-            <div class="card-body">
-              <h2 class="card-title text-primary text-center" id="catalog-title"></h2>
-              <h5 class="card-text p-3" id="catalog-text"></h5>
-              <div class="container col-sm-12 col-md-6"><input placeholder="Search" class="form-control" /></div>
-              <hr>
-              <div class="owl-carousel">
-                <div class="card" style="height: 250px;">
-                  <div class="card-body">
-                    <h2 class="card-title text-primary text-center">Redis</h2>
-                    <div class="row card-text">
-                      <div class="col-6 text-center"><br><a href="https://redis.io/"><img
-                            src="https://redis.io/images/redis-white.png" width="64" /></a></div>
-                      <div class="col-6"><a href="https://redis.io/">Redis</a><br><span id="redis-text"
-                          class="small text-muted"> </span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card" style="height: 250px;">
-                  <div class="card-body">
-                    <h2 class="card-title text-primary text-center">Mysql</h2>
-                    <div class="row card-text">
-                      <div class="col-6 text-center"><br><a href="https://www.mysql.com/"><img
-                            src="https://labs.mysql.com/common/logos/mysql-logo.svg?v2" width="64" /></a></div>
-                      <div class="col-6"><a href="https://www.mysql.com/">Mysql</a><br><span id="mysql-text"
-                          class="small text-muted"> </span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card" style="height: 250px;">
-                  <div class="card-body">
-                    <h2 class="card-title text-primary text-center">Portainer</h2>
-                    <div class="row card-text">
-                      <div class="col-6 text-center"><br><a href="https://www.portainer.io"><img
-                            src="https://app.portainer.cloud/img/portainer.png" width="64" /></a></div>
-                      <div class="col-6"><a href="https://portainer.saashup.com/">Portainer</a><br><span
-                          id="portainer-text" class="small text-muted"> </span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card" style="height: 250px;">
-                  <div class="card-body">
-                    <h2 class="card-title text-primary text-center">Nodered</h2>
-                    <div class="row card-text">
-                      <div class="col-6 text-center"><br><a href="https://nodered.org/"><img
-                            src="https://app.nodered.cloud/img/nodered.png" width="64" /></a></div>
-                      <div class="col-6"><a href="https://nodered.saashup.com">Nodered</a><br><span id="nodered-text"
-                          class="small text-muted"> </span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card" style="height: 250px;">
-                  <div class="card-body">
-                    <h2 class="card-title text-primary text-center">Traccar</h2>
-                    <div class="row card-text">
-                      <div class="col-6 text-center"><br><a href="https://www.traccar.org/"><img
-                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoLjQ2ODc1IDAgMCAuNDY4NzUgMCA5LjM3NWUtNSkiPgo8Y2lyY2xlIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGN4PSIxMS43MTMiIGN5PSI0My43MTMiIHI9IjI3LjcyMiIgZmlsbD0iI2ZmZiIvPgo8Y2lyY2xlIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGN4PSI5LjQ1NzgiIGN5PSI0My43MTMiIHI9IjIuMjU1Ii8+CjxwYXRoIGQ9Im0zNi45NjUgMjQuMjUxLTIuODE2MSAzLjU3ODhjMC42NTcyMSAwLjUxNzEzIDEuMzEzIDEuMTQ2NyAxLjc1NjcgMS45MTUxIDAuNDQzNjggMC43Njg0NyAwLjY2MDk4IDEuNjUxMiAwLjc4MDIyIDIuNDc4OWw0LjUwNzMtMC42NDk0Yy0wLjE5Mi0xLjQwOC0wLjYyNy0yLjc3OS0xLjM4MS00LjA4NS0wLjc1NS0xLjMwNi0xLjcyNC0yLjM2OS0yLjg0Ny0zLjIzOXoiLz4KPHBhdGggZD0ibTQyLjQwNSAxNy4wNDItMi44MTYxIDMuNTc4OGMxLjU5MTkgMS4yMjM5IDMuMDYyMyAyLjc2NzIgNC4xMjg3IDQuNjE0MnMxLjY2NzcgMy44OTIxIDEuOTMxNyA1Ljg4MjdsNC41MDczLTAuNjQ5NGMtMC4zMzY0Ny0yLjU3MS0xLjE1Ni01LjEwMjgtMi41MzMyLTcuNDg4M3MtMy4xNjAxLTQuMzYxMS01LjIxODUtNS45Mzh6Ii8+CjxwYXRoIHRyYW5zZm9ybT0icm90YXRlKC0zMCkiIGQ9Im0yLjY5MjcgNTIuNzMzYTkuMDIwMSA5LjAyMDEgMCAwIDEtNy44MTE2LTQuNTEwMSA5LjAyMDEgOS4wMjAxIDAgMCAxLTFlLTcgLTkuMDIwMSA5LjAyMDEgOS4wMjAxIDAgMCAxIDcuODExNi00LjUxMDFsLTFlLTcgOS4wMjAxeiIvPgo8cGF0aCBkPSJtMTcuNjM5IDcuMTI1OGMtMTMuNzM4IDcuOTMxMi0xOC40NDUgMjUuNDk3LTEwLjUxMyAzOS4yMzUgNy45MzEgMTMuNzM4IDI1LjQ5NyAxOC40NDUgMzkuMjM1IDEwLjUxMyAxMy43MzgtNy45MzEgMTguNDQ1LTI1LjQ5NyAxMC41MTMtMzkuMjM1LTcuOTMxLTEzLjczOC0yNS40OTctMTguNDQ1LTM5LjIzNS0xMC41MTN6bTEuNjg5NSAyLjkyNjRjMTIuMTIyLTYuOTk4MSAyNy42MjEtMi44NDUgMzQuNjIgOS4yNzYgNi45OTggMTIuMTIyIDIuODQ1IDI3LjYyMS05LjI3NiAzNC42Mi0xMi4xMjIgNi45OTgtMjcuNjIxIDIuODQ1LTM0LjYyLTkuMjc2LTYuOTk4MS0xMi4xMjItMi44NDUtMjcuNjIxIDkuMjc2LTM0LjYyeiIvPgo8L2c+Cjwvc3ZnPgo="
-                            width="64" /></a></div>
-                      <div class="col-6"><a href="https://traccar.saashup.com/">Traccar</a><br><span id="traccar-text"
-                          class="small text-muted"> </span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card" style="height: 250px;">
-                  <div class="card-body">
-                    <h2 class="card-title text-primary text-center">LibreOsteo</h2>
-                    <div class="row card-text">
-                      <div class="col-6 text-center"><br><a href="https://www.libreosteo.org/"><img src=""
-                            alt="LibreOsteo" width="64" /></a></div>
-                      <div class="col-6"><a href="hhttps://www.libreosteo.org/">LibreOsteo</a><br><span
-                          id="libreosteo-text" class="small text-muted"> </span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card" style="height: 250px;">
-                  <div class="card-body">
-                    <h2 class="card-title text-primary text-center">Nginx</h2>
-                    <div class="row card-text">
-                      <div class="col-6 text-center"><br><a href="https://www.nginx.com/"><img
-                            src="https://www.nginx.com/wp-content/uploads/2020/05/NGINX-product-icon.svg"
-                            width="64" /></a></div>
-                      <div class="col-6"><a href="https://demo.saashup.com/">Nginx</a><br><span id="nginx-text"
-                          class="small text-muted"> </span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </main>
+
+          <footer class="footer mt-auto">
+            <div class="p-1 text-center" style="width:100%;">
+              <img src="/img/logo.png" width="24" /> saashup © 2021
             </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-6">
-          <div class="card my-4">
-            <div class="card-body">
-              <h2 class="card-title text-primary text-center" id="contact-title"></h2>
-              <div class="row card-text">
-                <h5 id="contact-text-1"></h5>
-                <div class="row text-center">
-                  <div class="col-2"><a href="mailto:support@saashup.com"><i
-                        class="fas fa-envelope text-primary fa-2x"></i></a></div>
-                  <div class="col-2"><a href="" target="_blank"><i
-                        class="fab fa-twitter text-primary fa-2x"></i></a></div>
-                  <div class="col-2"><a
-                      href=""
-                      target="_blank"><i class="fab fa-slack-hash text-primary fa-2x"></i></a></div>
-                  <div class="col-2"><a href="" target="_blank"><i
-                        class="fab fa-discord text-primary fa-2x"></i></a></div>
-                  <div class="col-2"><a href="" target="_blank"><i
-                        class="fab fa-reddit text-primary fa-2x"></i></a></div>
-                  <div class="col-2"><a href="" target="_blank"><i
-                        class="fab fa-youtube text-primary fa-2x"></i></a></div>
-                </div>
-                <h5 id="contact-text-2"></h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <div class="card my-4" id="map-card">
-            <div class="card-body">
-              <div id="map">
-                <iframe
-                  src="https://maps.google.com/maps?width=700&height=440&hl=en&q=Nancy%205France%20gare&ie=UTF8&t=&z=17&iwloc=B&output=embed"
-                  width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="footer mt-auto">
-    <div class="p-1 text-center" style="width:100%;">
-      <img src="/img/logo.png" width="24" /> saashup © 2021
-    </div>
-  </footer>
+          </footer>
 
 </body>
 

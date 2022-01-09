@@ -54,4 +54,18 @@ $(document).ready(function () {
         $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
         if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300)
     });
+
+    $("#help_app_support").on('click', function(event) {
+        event.preventDefault()
+        $("#modalNotificationTitle").html(findLang("help_app_support_title", myLang));
+        $("#modalNotificationContent").html(findLang("help_app_support_text", myLang));
+        $("#modalNotification").modal("show");
+    })
+
+    $("#help_saas_support").on('click', function(event) {
+        event.preventDefault()
+        $("#modalNotificationTitle").html(findLang("help_saas_support_title", myLang));
+        $("#modalNotificationContent").html(findLang("help_saas_support_text", myLang));
+        $("#modalNotification").modal("show");
+    })
 })
