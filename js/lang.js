@@ -44,7 +44,8 @@ const lang = {
         "description": "<span class='text-info'>SaaShup</span> propose une solution simple pour mettre en <span class='text-primary'>SaaS</span> (Software as a Service).  Nous vous simplifions la gestion des services nécessaires et vous aidons à répendre votre produit sur le net.<br>Concentrez-vous sur votre application et laissez-nous la charge de la déployer.<br>Besoin de custimisation? Nos services sont adaptables et évolutifs: contactez-nous pour nous précisez vos besoins.",
         "explain": "<div class='text-info text-center'>Qu'est-ce que j'achète?</div>Précisez le docker à utiliser et nous vous proposons une solution SaaS complète: frontend, authentification, paiement, sauvegardes, monitoring, logs, audits, support L1...<br>Besoin de précisions? <a href='#contact-title'>contactez-nous</a>",
         "catalog-title": "Catalogue",
-        "catalog-text": "Parcourez notre <a href='/catalog.html'>catalogue</a> pour trouver une application adéquate à vos besoins! <br>Choissisez une application et regardez ce que d'autre ont fait avec SaaShup"
+        "catalog-text": "Parcourez notre <a href='/catalog.html'>catalogue</a> pour trouver une application adéquate à vos besoins! <br>Choissisez une application et regardez ce que d'autre ont fait avec SaaShup",
+        "pricing-title": "Tarifs"
     }
 }
 
