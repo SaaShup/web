@@ -46,3 +46,7 @@ h5 {
 .btn-outline-warning:hover {
     color: white;
 }
+
+#c-bns #c-p-bn, #s-bns #s-all-bn {
+    background-color: #0d6efd;
+}
