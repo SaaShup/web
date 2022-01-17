@@ -20,6 +20,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"
     integrity="sha512-pax4MlgXjHEPfCwcJLQhigY7+N8rt6bVvWLFyUMuxShv170X53TRzGPmPkZmGBhk+jikR8WBM4yl7A9WMHHqvg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0"
+    nonce="J9EktdFG"></script>
   <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.7.2/dist/cookieconsent.js"></script>
   <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.7.2/dist/cookieconsent.css" rel="stylesheet">
   <script src="/js/cookieconsent.js?v=1640248981"></script>
@@ -98,7 +100,7 @@
     </div>
   </nav>
 
-  <div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalNotification">
+  <div class=" modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalNotification">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header bg-white text-primary">
@@ -249,9 +251,11 @@
                                 <td>Mon-Sun</td>
                               </tr>
                               <tr>
-                                <th scope="row">SAAS Support <a href="#" id="help_saas_support"><i class="fas fa-question-circle"></i></a></th>
+                                <th scope="row">SAAS Support <a href="#" id="help_saas_support"><i
+                                      class="fas fa-question-circle"></i></a></th>
                                 <td>chat < 30 mins</td> <td>chat < 10 mins</td> <td>phone < 5 mins</td> </tr> <tr>
-                                <th scope="row">APP Support <a href="#" id="help_app_support"><i class="fas fa-question-circle"></i></a></th>
+                                <th scope="row">APP Support <a href="#" id="help_app_support"><i
+                                      class="fas fa-question-circle"></i></a></th>
                                 <td>none</td>
                                 <td>L1 support</td>
                                 <td>L1 support</td>
@@ -443,22 +447,29 @@
                         <div class="row text-center">
                           <div class="col-2"><a href="mailto:support@saashup.com"><i
                                 class="fas fa-envelope text-primary fa-2x"></i></a></div>
-                          <div class="col-2"><a href="" target="_blank"><i
+                          <div class="col-2"><a href="https://twitter.com/saashup" target="_blank"><i
                                 class="fab fa-twitter text-primary fa-2x"></i></a></div>
-                          <div class="col-2"><a href="" target="_blank"><i
+                          <div class="col-2"><a href="https://saashupcom.slack.com/" target="_blank"><i
                                 class="fab fa-slack-hash text-primary fa-2x"></i></a></div>
-                          <div class="col-2"><a href="" target="_blank"><i
+                          <div class="col-2"><a href="https://discord.com/channels/931965476479856780/931965476479856783" target="_blank"><i
                                 class="fab fa-discord text-primary fa-2x"></i></a></div>
-                          <div class="col-2"><a href="" target="_blank"><i
+                          <div class="col-2"><a href="https://www.reddit.com/r/saashup/" target="_blank"><i
                                 class="fab fa-reddit text-primary fa-2x"></i></a></div>
-                          <div class="col-2"><a href="" target="_blank"><i
+                          <div class="col-2"><a href="https://www.youtube.com/channel/UC3Obj-B5ffFUBzBj_fYeIQg" target="_blank"><i
                                 class="fab fa-youtube text-primary fa-2x"></i></a></div>
+                          <div class="col-2"><a href="https://github.com/saashup" target="_blank"><i
+                                class="fab fa-github text-primary fa-2x"></i></a></div>
+                          <div class="col-2"><a href="https://www.facebook.com/Saashupcom-105712635346494" target="_blank"><i
+                                class="fab fa-facebook text-primary fa-2x"></i></a></div>
+                          <div class="col-2"><a href="https://stackshare.io/lav3582/saashup" target="_blank"><i
+                                class="fa fa-share-alt-square text-primary fa-2x"></i></a></div>
                         </div>
                         <h5 id="contact-text-2"></h5>
                       </div>
                     </div>
                   </div>
                 </div>
+
                 <div class="col-sm-12 col-md-6">
                   <div class="card my-4" id="map-card">
                     <div class="card-body">
@@ -471,14 +482,54 @@
                   </div>
                 </div>
 
+                <div class="col-sm-12 col-md-4">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <div class="row card-text text-center">
+                        <div id="fb-root"></div>
+                        <div class="fb-page" data-href="https://www.facebook.com/Saashupcom-105712635346494" data-tabs="timeline"
+                          data-width="300" data-height="" data-small-header="false" data-adapt-container-width="true"
+                          data-hide-cover="false" data-show-facepile="true">
+                          <blockquote cite="https://www.facebook.com/Saashupcom-105712635346494" class="fb-xfbml-parse-ignore"><a
+                              href="https://www.facebook.com/Saashupcom-105712635346494">Saashup</a></blockquote>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <div class="row card-text">
+                        <a class="twitter-timeline" href="https://twitter.com/saashup?ref_src=twsrc%5Etfw">Tweets by
+                          saashup</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                  <div class="card my-4">
+                    <div class="card-body">
+                      <div class="row card-text">
+                        <a data-theme="light" data-layers="1,2,3" data-stack-embed="true"
+                    href="https://embed.stackshare.io/stacks/embed/45565ec05422b666a4e3280778fcb1"></a>
+                  <script async src="https://cdn1.stackshare.io/javascripts/client-code.js" charset="utf-8"></script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
           </main>
 
-          <footer class="footer mt-auto">
+          <footer class="footer mt-auto py-2" style="background-color:#e1eefc;width:100%;">
             <div class="p-1 text-center" style="width:100%;">
-              <img src="/img/logo.png" width="24" /> saashup © 2021
+              <img src="/img/logo.png" class="rounded-circle" width="24" /> saashup © 2021
             </div>
           </footer>
 
