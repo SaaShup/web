@@ -39,19 +39,39 @@ $(document).ready(function () {
     $("#slide-memory, #slide-instance").on('input', function() {
         $("#memory-value").text($("#slide-memory").val());
         $("#instance-value").text($("#slide-instance").val());
-        $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
-        $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
+        if ($("#iron-btn").hasClass("btn-info")) {
+            $("#slide-memory").val(200);
+            $("#memory-value").text($("#slide-memory").val());
+            $("#slide-memory").attr("disabled", true)
+            $("#pricing-value").text((parseInt($("#slide-instance").val()) * 5).toFixed(2))
+            $("#pricing-unit").text(((parseInt($("#slide-instance").val()) * 5) / parseInt($("#slide-instance").val())).toFixed(2))
+        } else {
+            $("#slide-memory").attr("disabled", false)
+            $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
+            $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
+        }
         if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300)
     })
 
-    $("#bronze-btn, #silver-btn, #gold-btn").on('click', function() {
-        $("#bronze-btn").removeClass("btn-warning").removeClass("text-white");
-        $("#silver-btn").removeClass("btn-warning").removeClass("text-white");
-        $("#gold-btn").removeClass("btn-warning").removeClass("text-white");
-        $(this).addClass("btn-warning").addClass("text-white");
+    $("#iron-btn, #bronze-btn, #silver-btn, #gold-btn").on('click', function() {
+        $("#iron-btn").removeClass("btn-info").removeClass("text-white");
+        $("#bronze-btn").removeClass("btn-info").removeClass("text-white");
+        $("#silver-btn").removeClass("btn-info").removeClass("text-white");
+        $("#gold-btn").removeClass("btn-info").removeClass("text-white");
+        $(this).addClass("btn-info").addClass("text-white");
         Plan = parseFloat($(this).data('price'))
-        $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
-        $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
+        if ($(this).attr('id') === "iron-btn") {
+            $("#slide-memory").val(200);
+            $("#memory-value").text($("#slide-memory").val());
+            $("#slide-memory").attr("disabled", true)
+            $("#pricing-value").text((parseInt($("#slide-instance").val()) * 5).toFixed(2))
+            $("#pricing-unit").text(((parseInt($("#slide-instance").val()) * 5) / parseInt($("#slide-instance").val())).toFixed(2))
+        } else {
+            $("#slide-memory").attr("disabled", false)
+
+            $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
+            $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
+        }
         if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300)
     });
 
@@ -66,6 +86,13 @@ $(document).ready(function () {
         event.preventDefault()
         $("#modalNotificationTitle").html(findLang("help_saas_support_title", myLang));
         $("#modalNotificationContent").html(findLang("help_saas_support_text", myLang));
+        $("#modalNotification").modal("show");
+    })
+
+    $("#help_engine").on('click', function(event) {
+        event.preventDefault()
+        $("#modalNotificationTitle").html(findLang("help_engine_title", myLang));
+        $("#modalNotificationContent").html(findLang("help_engine_text", myLang));
         $("#modalNotification").modal("show");
     })
 })

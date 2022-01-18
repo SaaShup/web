@@ -33,10 +33,21 @@ const lang = {
         "contact-title": "Contact",
         "contact-text-1": "There is many ways to contact us. You can use our website chat below or one of the messaging. <br><br>",
         "contact-text-2": "<br>We are available 9 hours a day, 5 days a week.<br><br>",
+        "signup-iron": "Signup",
+        "contact-plan-btn-bronze": "Contact us",
+        "contact-plan-btn-silver": "Contact us",
+        "contact-plan-btn-gold": "Contact us",
+        "help_engine_title": "Engine",
+        "help_engine_text": "<p>The Saas is managed with <a href='https://portainer.io'>portainer</a>.</p><p>A shared engine means you do not have your own portainer and do not have access to it.</p><p> Dedicated means you have you own hosted portainer with an access to manage the instances.</p>",
         "help_app_support_title": "App Support",
         "help_app_support_text": "<p>We can provide support to your application.</p><p>Our support team can respond to your customer about application issues, queries...</p><p>Provide procedures, knowledge bases, Faqs or any documents and we will provide Level 1 support, create tickets for follow up and escalate to your teams.</p>",
         "help_saas_support_title": "SaaS Support",
-        "help_saas_support_text": "<p>We fully support your Saas.</p><p>Our support team can respond to your customer about saas issues, queries, requests...</p>"
+        "help_saas_support_text": "<p>We fully support your Saas.</p><p>Our support team can respond to your customer about saas issues, queries, requests...</p>",
+        "create_saas_error_title": "Error",
+        "create_saas_image_not_permitted": "This image can not be deployed.",
+        "create_saas_empty": "No image provided.",
+        "create_saas_title": "Saas creation",
+        "create_saas_text": "Installing your Saas. Pls wait..."
     },
     "fr": {
         "first": "<b class='text-primary'>Avez-vous un SaaS ?</b> <br>Laissez-nous s'en occuper.<br>Travaillez sur votre produit et revenu pendant que l'on gere votre Saas.<br>",
