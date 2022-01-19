@@ -14,17 +14,25 @@ const init = () => {
   if ('locale' in user) $('#lang-flag').attr('src', '/img/' + user.locale + '.png')
   if ('lang' in user) $('#lang-flag').attr('src', '/img/' + user.lang + '.png')
   $.ajax({
-    url: "https://api.saashup.com/api/account/" + user.email,
+    url: "https://saas.saashup.com/api/account/" + user.email,
     beforeSend: function (xhr) {
       xhr.setRequestHeader("x-auth-token", user.jwt.token)
     }
   }).done(function (result) {
     account = result;
-    if (account === null) setup();
+    if (account === null || (!("saas" in account)) || Object.keys(account.saas).length === 0 ) setup();
     else display();
   }).fail(function (jqXHR, textStatus, errorThrown) {
-    console.log("fail")
-    setup();
+    if (["401", "403"].includes(jqXHR.status.toString())) {
+      $("#modalNotificationOk").attr("disabled", true)
+      $("#modalNotificationTitle").html(findLang("logout-required-title-text", myLang));
+      $("#modalNotificationContent").html('<div class="text-center">' + findLang("logout-required-text", myLang) + '</div>');
+      $("#modalNotificationOk").unbind();
+      $("#modalNotification").modal("show");
+      setTimeout(function () {
+        logout()
+      }, 1200);
+    } else setup();
   })
 
 }
@@ -32,7 +40,7 @@ const init = () => {
 const login = async (targetUrl) => {
   try {
     const options = {
-      redirect_uri: window.location.origin
+      redirect_uri: window.location.origin + '/saas.html'
     };
 
     if (targetUrl) {
