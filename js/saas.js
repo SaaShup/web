@@ -32,8 +32,8 @@ function setup() {
 function display() {
     const key = Object.keys(account.saas)[0];
     $("#my-image").html(key);
-    $("#image_admin").html(key);
-    $("#image_admin_href").attr("href", key);
+    $("#image_admin").html(key + ".saashup.com");
+    $("#image_admin_href").attr("href", "https://" + key + ".saashup.com/admin");
     $("#image_type").html(account.saas[key].type.toUpperCase());
     $("#image_memory").html(account.saas[key].memory);
     $("#created_at").html(account.saas[key].date.replace('T', ' ').substring(0,19));
@@ -179,8 +179,8 @@ $(document).ready(function () {
               account = result;
               setTimeout(function () {
                 $("#modalNotification").modal("hide");
+                display();
               }, 1000)
-              display();
           }).fail(function (jqXHR, textStatus, errorThrown) {
             $("#modalNotification").modal("hide");
             if (["401", "403"].includes(jqXHR.status.toString())) {
