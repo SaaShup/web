@@ -1,8 +1,22 @@
 var Plan = 0.2;
+const appParams = new URLSearchParams(window.location.search);
+var user = null;
+if (window.localStorage.getItem('user') !== null) user = JSON.parse(window.localStorage.getItem('user'));
 
 $(document).ready(function () {
     var Tawk_API = Tawk_API || {};
     var Tawk_LoadStart = new Date();
+
+    if (user && 'picture' in user) $('#avatar').attr('src', user.picture).removeClass("d-none");
+    updateLang('en');
+    if (user && 'lang' in user) {
+        updateLang(user.lang);
+        $('#lang-flag').attr('src', '/img/' + user.lang + '.png');
+    }
+    if (appParams.has('lang')) {
+        updateLang(appParams.get('lang'));
+        $('#lang-flag').attr('src', '/img/' + appParams.get('lang') + '.png');
+    }
 
     $('.nav-link').on('click', function() {
         $( ".nav-link" ).each(function() { 
@@ -11,7 +25,6 @@ $(document).ready(function () {
         $(this).addClass('active')
     })
 
-    updateLang('en');
     $(".owl-carousel").owlCarousel({
         center: true,
         items: 2,

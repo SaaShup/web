@@ -55,6 +55,7 @@ const lang = {
         "payment-required-title": "Payment required",
         "delete_saas_title": "Delete Saas",
         "delete_saas_text": "Are you sure to delete your Saas ?<br><br> It can not be undone.",
+        "delete_saas_text_wait": "Deleting your Saas. Pls wait...",
         "delete-myaccount-text": "Delete my account",
         "register": "Setup Payment",
         "add-card-btn": "Add payment",

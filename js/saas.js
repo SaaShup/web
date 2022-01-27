@@ -118,6 +118,10 @@ $(document).ready(function () {
         $("#modalQuestionContent").html(findLang("delete_saas_text", myLang));
         $("#modalQuestionYes").unbind();
         $("#modalQuestionYes").on("click", function () {
+            $("#modalQuestion").modal("hide");
+            $("#modalNotificationTitle").html(findLang("delete_saas_title", myLang));
+            $("#modalNotificationContent").html('<div class="container text-center">' + findLang("delete_saas_text_wait", myLang) + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+            $("#modalNotification").modal("show");
             $.ajax({
                 url: "https://saas.saashup.com/api/saas/" + user.email + "/" + Object.keys(account.saas)[0],
                 method: "DELETE",
@@ -127,9 +131,12 @@ $(document).ready(function () {
                 dataType: "json"
               }).done(function (result) {
                   account = result;
-                  $("#modalQuestion").modal("hide");
-                  setup();
+                  setTimeout(function () {
+                    $("#modalNotification").modal("hide");
+                    setup();
+                  }, 1000);
               }).fail(function (jqXHR, textStatus, errorThrown) {
+                $("#modalNotification").modal("hide");
                 if (["401", "403"].includes(jqXHR.status.toString())) {
                     $("#modalNotificationOk").attr("disabled", true)
                     $("#modalNotificationTitle").html(findLang("logout-required-title-text", myLang));
