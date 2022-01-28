@@ -32,6 +32,8 @@ function setup() {
 function display() {
     const key = Object.keys(account.saas)[0];
     $("#my-image").html(key);
+    $("#my-status").html(account.saas[key].status)
+    account.saas[key].status === "ok" ?  $("#my-status").addClass("bg-success") : $("#my-status").addClass("bg-warning")
     $("#image_admin").html(key + ".saashup.com");
     $("#image_admin_href").attr("href", "https://" + key + ".saashup.com/admin");
     $("#image_type").html(account.saas[key].type.toUpperCase());
