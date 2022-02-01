@@ -25,7 +25,34 @@ $(document).ready(function () {
         $(this).addClass('active')
     })
 
-    $(".owl-carousel").owlCarousel({
+    $("#category-carousel").owlCarousel({
+        center: true,
+        items: 2,
+        loop: true,
+        margin: 20,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            400: {
+                items: 2
+            },
+            800: {
+                items: 3
+            },
+            1200: {
+                items: 4
+            },
+            1600: {
+                items: 5
+            }
+        }
+    });
+
+    $("#partner-carousel").owlCarousel({
         center: true,
         items: 2,
         loop: true,
