@@ -3,11 +3,6 @@ html, body {
     font-family: "Space Mono","Courier New",monaco,monospace;
 }
 
-#map-card {
-    background-color: #e1eefc;
-    color:white;
-}
-
 main {
     background: url("/img/bg_yoctu.png") no-repeat;
     background-size: cover;
@@ -96,4 +91,9 @@ h5 {
     text-align: center;
     max-width: 200px;
     color: #0dcaf0;
+}
+
+.card {
+    border-width: 0px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }

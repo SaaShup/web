@@ -3,9 +3,19 @@ const appParams = new URLSearchParams(window.location.search);
 var user = null;
 if (window.localStorage.getItem('user') !== null) user = JSON.parse(window.localStorage.getItem('user'));
 
+var Tawk_API = Tawk_API || {};
+var Tawk_LoadStart = new Date();
+Tawk_API.onLoad = function () {
+    $(".tawk-icon-close").click()
+    if (user) Tawk_API.setAttributes({
+        name: 'name' in user ? user.name : 'NA',
+        email: 'email' in user ? user.email : 'tawk@saashup.com'
+    }, function (error) {
+        if (error) console.log(error)
+    });
+}
+
 $(document).ready(function () {
-    var Tawk_API = Tawk_API || {};
-    var Tawk_LoadStart = new Date();
 
     if (user && 'picture' in user) $('#avatar').attr('src', user.picture).removeClass("d-none");
     updateLang('en');
@@ -37,16 +47,16 @@ $(document).ready(function () {
             0: {
                 items: 1
             },
-            400: {
+            600: {
                 items: 2
             },
-            800: {
+            1000: {
                 items: 3
             },
-            1200: {
+            1600: {
                 items: 4
             },
-            1600: {
+            2200: {
                 items: 5
             }
         }
