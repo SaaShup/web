@@ -88,6 +88,18 @@ function stripeGO() {
     })
 }
 
+function appLogout() {
+    $("#modalNotification").modal("hide");
+    $("#modalQuestionYes").html(findLang('yes-text', myLang))
+    $("#modalQuestionTitle").html(findLang('logout-title', myLang))
+    $("#modalQuestionContent").html(findLang('logout-question-text', myLang))
+    $("#modalQuestion").modal("show");
+    $("#modalQuestionYes").unbind();
+    $("#modalQuestionYes").on("click", function () {
+        logout();
+    })
+}
+
 $(document).ready(function () {
     var Tawk_API = Tawk_API || {};
     var Tawk_LoadStart = new Date();

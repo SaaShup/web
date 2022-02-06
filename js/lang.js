@@ -67,6 +67,8 @@ const lang = {
         "logout-title": "Logout",
         "logout-question-text": "Do you want to logout ?",
         "expire-text": "expire",
+        "logout-title": "Logout",
+        "logout-question-text": "Do you want to logout ?",
         "yes-text": "Yes"
     },
     "fr": {
