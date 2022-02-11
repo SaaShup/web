@@ -34,8 +34,10 @@ function display() {
     $("#my-image").html(key);
     $("#my-status").html(account.saas[key].status)
     account.saas[key].status === "ok" ?  $("#my-status").addClass("bg-success") : $("#my-status").addClass("bg-warning")
-    $("#image_admin").html(key + ".saashup.com");
-    $("#image_admin_href").attr("href", "https://" + key + ".saashup.com/admin");
+    $("#image_admin").html((key.split('/').length > 0 ? key.split('/')[1] : key) + ".saashup.com/admin");
+    $("#image_admin_href").attr("href", "https://" + (key.split('/').length > 1 ? key.split('/')[1] : key) + ".saashup.com/admin");
+    $("#image_saas").html((key.split('/').length > 0 ? key.split('/')[1] : key) + ".saashup.com");
+    $("#image_saas_href").attr("href", "https://" + (key.split('/').length > 1 ? key.split('/')[1] : key) + ".saashup.com");
     $("#image_type").html(account.saas[key].type.toUpperCase());
     $("#image_memory").html(account.saas[key].memory);
     $("#created_at").html(account.saas[key].date.replace('T', ' ').substring(0,19));
@@ -137,11 +139,12 @@ $(document).ready(function () {
             $("#modalNotificationContent").html('<div class="container text-center">' + findLang("delete_saas_text_wait", myLang) + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
             $("#modalNotification").modal("show");
             $.ajax({
-                url: "https://saas.saashup.com/api/saas/" + user.email + "/" + Object.keys(account.saas)[0],
+                url: "https://saas.saashup.com/api/saas/" + user.email + "/" + (Object.keys(account.saas)[0].split('/').length > 0 ? Object.keys(account.saas)[0].split('/')[1] : Object.keys(account.saas)[0]),
                 method: "DELETE",
                 beforeSend: function (xhr) {
                   xhr.setRequestHeader("x-auth-token", user.jwt.token)
                 },
+                data: { "saas": Object.keys(account.saas)[0] },
                 dataType: "json"
               }).done(function (result) {
                   account = result;
