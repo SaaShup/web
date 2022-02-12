@@ -197,7 +197,9 @@ $(document).ready(function () {
             dataType: "json",
             data: {
                 image: $("#image").val(),
-                type: $("#plan-type-select").val().toLowerCase()
+                type: $("#plan-type-select").val().toLowerCase(),
+                port: $("#port").val(),
+                memory: $("#memory").val()
             }
           }).done(function (result) {
               account = result;

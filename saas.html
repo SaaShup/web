@@ -140,10 +140,27 @@
                                             <select class="form-select form-select-lg mb-3" id="plan-type-select"><option>Iron</option></select>
                                         </div>
                                         <div class="text-muted text-center m-3">no credit card required</div>
-                                        <div class="form-group row text-center">
+                                        <div class="form-group row text-center p-2">
                                             <label class="col-sm-4 col-form-label">DockerHub Image : </label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" placeholder="nginx" id="image"></input>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row text-center p-2">
+                                            <label class="col-sm-4 col-form-label">Exposed port : </label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" type="number" placeholder="80" id="port"></input>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row text-center p-2">
+                                            <label class="col-sm-4 col-form-label">Memory Size : </label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="memory" disabled>
+                                                    <option>200</option>
+                                                    <option>300</option>
+                                                    <option>400</option>
+                                                    <option>500</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="m-4 text-center">
