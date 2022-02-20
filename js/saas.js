@@ -199,6 +199,7 @@ $(document).ready(function () {
                 image: $("#image").val(),
                 type: $("#plan-type-select").val().toLowerCase(),
                 port: $("#port").val(),
+                price: $("#price").val(),
                 memory: $("#memory").val()
             }
           }).done(function (result) {
