@@ -200,6 +200,7 @@ $(document).ready(function () {
                 type: $("#plan-type-select").val().toLowerCase(),
                 port: $("#port").val(),
                 price: $("#price").val(),
+                password: $("#password").val() || "password",
                 memory: $("#memory").val()
             }
           }).done(function (result) {
