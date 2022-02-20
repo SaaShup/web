@@ -34,9 +34,9 @@ function display() {
     $("#my-image").html(key);
     $("#my-status").html(account.saas[key].status)
     account.saas[key].status === "ok" ?  $("#my-status").addClass("bg-success") : $("#my-status").addClass("bg-warning")
-    $("#image_admin").html((key.split('/').length > 0 ? key.split('/')[1] : key) + ".saashup.com/admin");
+    $("#image_admin").html((key.split('/').length > 1 ? key.split('/')[1] : key) + ".saashup.com/admin");
     $("#image_admin_href").attr("href", "https://" + (key.split('/').length > 1 ? key.split('/')[1] : key) + ".saashup.com/admin");
-    $("#image_saas").html((key.split('/').length > 0 ? key.split('/')[1] : key) + ".saashup.com");
+    $("#image_saas").html((key.split('/').length > 1 ? key.split('/')[1] : key) + ".saashup.com");
     $("#image_saas_href").attr("href", "https://" + (key.split('/').length > 1 ? key.split('/')[1] : key) + ".saashup.com");
     $("#image_type").html(account.saas[key].type.toUpperCase());
     $("#image_memory").html(account.saas[key].memory);
