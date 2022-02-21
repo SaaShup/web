@@ -26,8 +26,8 @@
   <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.7.2/dist/cookieconsent.css" rel="stylesheet">
   <script src="/js/cookieconsent.js?v=1643814428"></script>
   <script src="/js/google.js?v=1643814428"></script>
-  <script src="/js/lang.js?v=1643814428"></script>
-  <script src="/js/app.js?v=1643814428"></script>
+  <script src="/js/lang.js?v=1645434044"></script>
+  <script src="/js/app.js?v=1645434044"></script>
   <script src="https://embed.tawk.to/61bf5e9180b2296cfdd26ed6/1fn9oiql4" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
     integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="/css/main.css?v=1643814428" rel="stylesheet">
 </head>
 
@@ -405,6 +406,28 @@
           </div>
         </div>
 
+        <div class="col-12" id="youtube-div">
+            <div class="card">
+              <div class="card-body text-center">
+                <h2 class="card-title text-primary p-3" id="youtube-title"></h2>
+                <div class="owl-carousel owl-theme" id="youtube-carousel">
+                  <div class="item-video" data-merge="1" style="height: 300px;">
+                    <a class="owl-video" href="https://www.youtube.com/watch?v=WfbXnxOTXZA"></a>
+                  </div>
+                  <div class="item-video" data-merge="2" style="height: 300px;">
+                    <a class="owl-video" href="https://www.youtube.com/watch?v=b8UzevFgoto"></a>
+                  </div>
+                  <div class="item-video" data-merge="3" style="height: 300px;">
+                    <a class="owl-video" href="https://www.youtube.com/watch?v=6VoabG6XHkU"></a>
+                  </div>
+                  <div class="item-video" data-merge="1" style="height: 300px;">
+                    <a class="owl-video" href="https://www.youtube.com/watch?v=ZhsvvHJ1iyU"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
         <div class="col-12" id="partner-div">
           <div class="card my-4">
             <div class="card-body text-center">
@@ -415,7 +438,7 @@
               <div id="partner-portainer-text"></div>
               <h2 class="card-title text-primary text-center pt-4" id="3rd-party-title"></h2>
               <div class="card-text text-center">
-                <div class="owl-carousel" id="partner-carousel">
+                <div class="owl-carousel owl-theme" id="partner-carousel">
                   <div class="card m-3">
                     <div class="card-body">
                       <div class="card-title text-primary text-center">Authentication <br>with Auth0</div>
@@ -479,7 +502,7 @@
               <div class="container col-sm-12 col-md-6"><input placeholder="Search" class="form-control" />
               </div>
               <hr>
-              <div class="owl-carousel" id="category-carousel">
+              <div class="owl-carousel owl-theme" id="category-carousel">
                 <div class="card m-3" style="height: 250px;">
                   <div class="card-body">
                     <h2 class="card-title text-primary text-center">Redis</h2>
@@ -669,7 +692,7 @@
 
   <footer class="footer mt-auto py-2" style="background-color:#e1eefc;width:100%;">
     <div class="p-1 text-center" style="width:100%;">
-      <img src="/img/logo.png" class="rounded-circle" width="24" /> saashup © 2021
+      <img src="/img/logo.png" class="rounded-circle" width="24" /> saashup © 2022
     </div>
   </footer>
 

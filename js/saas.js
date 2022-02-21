@@ -71,8 +71,8 @@ function stripeGO() {
         },
         data: {
             payment_method_types: ["card"],
-            success_url: window.location.origin + '/saas.html?payment=success',
-            cancel_url: window.location.origin + '/saas.html',
+            success_url: window.location.origin + '/saas?payment=success',
+            cancel_url: window.location.origin + '/saas?payment=cancelled',
             mode: "setup"
         }
     }).done(function (session) {

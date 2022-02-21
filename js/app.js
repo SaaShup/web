@@ -86,6 +86,19 @@ $(document).ready(function () {
         }
     });
 
+    $("#youtube-carousel").owlCarousel({
+        center: true,
+        items: 2,
+        margin: 20,
+        autoplay: true,
+        video:true,
+        lazyLoad:false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        loop: true,
+        autoplayHoverPause: true
+    });
+
     $("#slide-memory, #slide-instance").on('input', function() {
         $("#memory-value").text($("#slide-memory").val());
         $("#instance-value").text($("#slide-instance").val());
