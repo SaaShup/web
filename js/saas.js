@@ -139,7 +139,7 @@ $(document).ready(function () {
             $("#modalNotificationContent").html('<div class="container text-center">' + findLang("delete_saas_text_wait", myLang) + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
             $("#modalNotification").modal("show");
             $.ajax({
-                url: "https://saas.saashup.com/api/saas/" + user.email + "/" + (Object.keys(account.saas)[0].split('/').length > 0 ? Object.keys(account.saas)[0].split('/')[1] : Object.keys(account.saas)[0]),
+                url: "https://saas.saashup.com/api/saas/" + user.email + "/" + (Object.keys(account.saas)[0].split('/').length > 1 ? Object.keys(account.saas)[0].split('/')[1] : Object.keys(account.saas)[0]),
                 method: "DELETE",
                 beforeSend: function (xhr) {
                   xhr.setRequestHeader("x-auth-token", user.jwt.token)
