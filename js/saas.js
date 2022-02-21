@@ -178,6 +178,13 @@ $(document).ready(function () {
             $("#modalNotification").modal("show");
             return
         }
+        if ($("#port").val().length < 2) {
+            event.preventDefault()
+            $("#modalNotificationTitle").html(findLang("create_saas_error_title", myLang));
+            $("#modalNotificationContent").html(findLang("create_port_empty", myLang));
+            $("#modalNotification").modal("show");
+            return
+        }
         if ($("#image").val().startsWith("portainer") || $("#image").val().startsWith("nodered")) {
             event.preventDefault()
             $("#modalNotificationTitle").html(findLang("create_saas_error_title", myLang));

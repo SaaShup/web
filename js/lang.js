@@ -51,6 +51,7 @@ const lang = {
         "create_saas_error_title": "Error",
         "create_saas_image_not_permitted": "This image can not be deployed.",
         "create_saas_empty": "No image provided.",
+        "create_port_empty": "No port provided.",
         "create_saas_title": "Saas creation",
         "create_saas_text": "Installing your Saas. Pls wait...",
         "logout-required-text": "Login required...<br>",
