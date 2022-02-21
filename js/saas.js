@@ -201,7 +201,7 @@ $(document).ready(function () {
                 port: $("#port").val(),
                 price: $("#price").val(),
                 password: $("#password").val() || "password",
-                basic: btoa($("#password").val() || "password"),
+                basic: btoa("admin:" + ($("#password").val() || "password")),
                 memory: $("#memory").val()
             }
           }).done(function (result) {
