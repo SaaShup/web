@@ -102,7 +102,7 @@ $(document).ready(function () {
     $("#slide-memory, #slide-instance").on('input', function() {
         $("#memory-value").text($("#slide-memory").val());
         $("#instance-value").text($("#slide-instance").val());
-        if ($("#iron-btn").hasClass("btn-info")) {
+        if ($("#iron-btn").hasClass("btn-primary")) {
             $("#slide-memory").val(200);
             $("#memory-value").text($("#slide-memory").val());
             $("#slide-memory").attr("disabled", true)
@@ -117,11 +117,11 @@ $(document).ready(function () {
     })
 
     $("#iron-btn, #bronze-btn, #silver-btn, #gold-btn").on('click', function() {
-        $("#iron-btn").removeClass("btn-info").removeClass("text-white");
-        $("#bronze-btn").removeClass("btn-info").removeClass("text-white");
-        $("#silver-btn").removeClass("btn-info").removeClass("text-white");
-        $("#gold-btn").removeClass("btn-info").removeClass("text-white");
-        $(this).addClass("btn-info").addClass("text-white");
+        $("#iron-btn").removeClass("btn-primary").removeClass("text-white");
+        $("#bronze-btn").removeClass("btn-primary").removeClass("text-white");
+        $("#silver-btn").removeClass("btn-primary").removeClass("text-white");
+        $("#gold-btn").removeClass("btn-primary").removeClass("text-white");
+        $(this).addClass("btn-primary").addClass("text-white");
         Plan = parseFloat($(this).data('price'))
         if ($(this).attr('id') === "iron-btn") {
             $("#slide-memory").val(200);
@@ -158,4 +158,12 @@ $(document).ready(function () {
         $("#modalNotificationContent").html(findLang("help_engine_text", myLang));
         $("#modalNotification").modal("show");
     })
+
+    $("#help_registry").on('click', function(event) {
+        event.preventDefault()
+        $("#modalNotificationTitle").html(findLang("help_registry_title", myLang));
+        $("#modalNotificationContent").html(findLang("help_registry_text", myLang));
+        $("#modalNotification").modal("show");
+    })
+    
 })
