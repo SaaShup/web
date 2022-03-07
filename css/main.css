@@ -3,12 +3,6 @@ html, body {
     font-family: "Space Mono","Courier New",monaco,monospace;
 }
 
-main {
-    background: url("/img/bg_yoctu.png") no-repeat;
-    background-size: cover;
-    background-color: #fff;
-}
-
 .nav-link.active {
     border-bottom: 3px solid #0dcaf0;
     color: #0dcaf0;
