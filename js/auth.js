@@ -70,9 +70,9 @@ const logout = async () => {
 
 const configureClient = async () => {
   const config = {
-    domain: 'dev-v4f-ydl1.us.auth0.com',
-    client_id: 'p7aMdcupoRbgKBbL1UnpcdNtjOgdqWRZ',
-    audience: "https://dev-v4f-ydl1.us.auth0.com/api/v2/"
+    domain: 'saashup.eu.auth0.com',
+    client_id: 'B2TB9BENupFqymrTHwmlaYvXV3FjUEtu',
+    audience: "https://saashup.eu.auth0.com/api/v2/"
   }
   auth0 = await createAuth0Client(config);
 };
