@@ -22,10 +22,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/1.14/auth0-spa-js.production.js"></script>
     <script src="https://js.stripe.com/v3"></script>
-    <script src="/js/auth.js?v=1648665958"></script>
+    <script src="/js/auth.js?v=1648747708"></script>
     <script src="/js/google.js?v=1647416781"></script>
-    <script src="/js/lang.js?v=1645781105"></script>
-    <script src="/js/saas.js?v=1645781105"></script>
+    <script src="/js/lang.js?v=1648747708"></script>
+    <script src="/js/saas.js?v=1648747708"></script>
     <script src="https://embed.tawk.to/61bf5e9180b2296cfdd26ed6/1fn9oiql4" crossorigin="anonymous"></script>
     <link href="/css/main.css?v=1643306229" rel="stylesheet">
 </head>
@@ -44,11 +44,13 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" id="nav-home-btn"><i class="fas fa-home"></i>
+                        <a class="nav-link active" aria-current="page" href="#" id="nav-home-btn"><i
+                                class="fas fa-home"></i>
                             <span id="navHome"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#" id="nav-admin-btn"><i class="fas fa-money-check-alt"></i>
+                        <a class="nav-link" aria-current="page" href="#" id="nav-admin-btn"><i
+                                class="fas fa-money-check-alt"></i>
                             <span id="navBilling"></span></a>
                     </li>
                     <li class="nav-item">
@@ -77,7 +79,8 @@
                 </div>
                 </span>
                 <div class=" d-flex mx-3">
-                                <img id="avatar" class="rounded-circle d-none" width="36px" height="36px" src="" onclick="appLogout();" />
+                                <img id="avatar" class="rounded-circle d-none" width="36px" height="36px" src=""
+                                    onclick="appLogout();" />
                     </div>
             </div>
         </div>
@@ -85,40 +88,41 @@
 
     <div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalNotification">
         <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-              <h5 class="modal-title" id="modalNotificationTitle"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalNotificationTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalNotificationContent"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                        id="modalNotificationOk">Ok</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p id="modalNotificationContent"></p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
-                id="modalNotificationOk">Ok</button>
-            </div>
-          </div>
         </div>
-  </div>
-
-  <div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalQuestion">
-    <div class="modal-dialog" id="modalQuestionDialog">
-      <div class="modal-content">
-        <div class="modal-header bg-primary text-white">
-          <h5 class="modal-title" id="modalQuestionTitle"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p id="modalQuestionContent"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-            onclick="setTimeout(function (){$('#modalQuestionDialog').removeClass('modal-xl')}, 1000)" ;>No</button>
-          <button type="button" class="btn btn-danger" id="modalQuestionYes">Yes</button>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalQuestion">
+        <div class="modal-dialog" id="modalQuestionDialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalQuestionTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalQuestionContent"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        onclick="setTimeout(function (){$('#modalQuestionDialog').removeClass('modal-xl')}, 1000)"
+                        ;>No</button>
+                    <button type="button" class="btn btn-danger" id="modalQuestionYes">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="h-100 mt-5">
 
@@ -133,9 +137,11 @@
                                         <img src="/img/logo_saashup.png" width="100%" />
                                     </div>
                                     <div class="col-sm-12 col-md-9">
-                                        <h1 class="card-title text-primary text-center">SaaShup</h1>
-                                        <div class="row text-center" >
-                                            <select class="form-select form-select-lg mb-3" id="plan-type-select"><option>Iron</option></select>
+                                        <h1 class="card-title text-primary text-center">SaaShup Saas</h1>
+                                        <div class="row text-center">
+                                            <select class="form-select form-select-lg mb-3" id="plan-type-select">
+                                                <option>Iron</option>
+                                            </select>
                                         </div>
                                         <div class="text-muted text-center m-3">no credit card required</div>
                                         <div class="form-group row text-center p-2">
@@ -147,7 +153,8 @@
                                         <div class="form-group row text-center p-2">
                                             <label class="col-sm-4 col-form-label">Exposed port : </label>
                                             <div class="col-sm-8">
-                                                <input class="form-control" type="number" placeholder="80" id="port"></input>
+                                                <input class="form-control" type="number" placeholder="80"
+                                                    id="port"></input>
                                             </div>
                                         </div>
                                         <div class="form-group row text-center p-2">
@@ -182,6 +189,18 @@
                         </div>
                     </div>
                 </div>
+                <div id="engine" class="d-none">
+                    <div class="col-12">
+                        <div class="card my-4">
+                            <div class="card-body">
+                                <h1 class="card-title text-primary text-center">SaaShup Engine</h1>
+                                <div class="m-4 text-center">
+                                    <button class="btn btn-primary" id="create-engine">Create Engine</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div id="admin" class="d-none">
                     <div class="col-12">
                         <div class="card my-4">
@@ -193,18 +212,22 @@
                                     <div class="col-sm-12 col-md-9">
                                         <h1 class="card-title text-primary text-center">SaaShup</h1>
                                         <div id="register-div" class="d-none">
-                                            <a href="#" class="btn btn-outline-primary" id="register" onclick="stripeGO();"></a>
+                                            <a href="#" class="btn btn-outline-primary" id="register"
+                                                onclick="stripeGO();"></a>
                                         </div>
                                         <div id="add-card" class="d-none">
-                                            <a href="#" class="btn btn-outline-primary" id="add-card-btn" onclick="stripeGO();"></a>
+                                            <a href="#" class="btn btn-outline-primary" id="add-card-btn"
+                                                onclick="stripeGO();"></a>
                                         </div>
                                         <div id="profile-card"></div>
                                         <div class="my-3 text-end">
                                             <button class="btn btn-danger" onclick="appLogout();">Logout</button>
                                         </div>
                                         <div class="my-3 text-end">
-                                            <button class="btn btn-outline-danger" id="delete" onclick="logout();" disabled>
-                                            <i class="fas fa-ban"></i> <span id="delete-myaccount-text"></span></button>
+                                            <button class="btn btn-outline-danger" id="delete" onclick="logout();"
+                                                disabled>
+                                                <i class="fas fa-ban"></i> <span
+                                                    id="delete-myaccount-text"></span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -224,8 +247,10 @@
                                         <h1 class="card-title text-primary text-center">SaaShup</h1>
                                         <h2>Image: <span id="my-image"></span></h2>
                                         <h4>Status: <span id="my-status" class="badge"></span></h4>
-                                        <h4>Saas: <a href="" id="image_saas_href" target="_blank"><span id="image_saas"></span></a></h4>
-                                        <h4>Admin: <a href="" id="image_admin_href" target="_blank"><span id="image_admin"></span></a></h4>
+                                        <h4>Saas: <a href="" id="image_saas_href" target="_blank"><span
+                                                    id="image_saas"></span></a></h4>
+                                        <h4>Admin: <a href="" id="image_admin_href" target="_blank"><span
+                                                    id="image_admin"></span></a></h4>
                                         <h5>Type: <span id="image_type" class="text-info"></span></h5>
                                         <h5>Memory: <span id="image_memory"></span>Mb</h5>
                                         <h5>created on: <span id="created_at"></span></h5>

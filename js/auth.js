@@ -20,8 +20,7 @@ const init = () => {
     }
   }).done(function (result) {
     account = result;
-    if (account === null || (!("saas" in account)) || Object.keys(account.saas).length === 0 ) setup();
-    else display();
+    setup();
   }).fail(function (jqXHR, textStatus, errorThrown) {
     if (["401", "403"].includes(jqXHR.status.toString())) {
       $("#modalNotificationOk").attr("disabled", true)
@@ -91,6 +90,7 @@ window.onload = async () => {
   const isAuthenticated = await auth0.isAuthenticated();
 
   if (isAuthenticated) {
+    if (user === null) return logout();
     window.history.replaceState({}, document.title, window.location.pathname);
     return;
   }
@@ -117,7 +117,7 @@ window.onload = async () => {
     } catch (err) {
       console.log("Error parsing redirect:", err);
     }
-    window.history.replaceState({}, document.title, "/");
+    window.history.replaceState({}, document.title, "/saas");
   }
 
 };

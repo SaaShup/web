@@ -5,6 +5,7 @@ var account = null;
 function cls() {
     $("#image-card").addClass("d-none");
     $("#saas").addClass("d-none");
+    $("#engine").addClass("d-none");
     $("#admin").addClass("d-none");
 }
 
@@ -26,7 +27,13 @@ function admin() {
 
 function setup() {
     cls()
-    $("#saas").removeClass("d-none")
+    if (account === null || (!("saas" in account)) || Object.keys(account.saas).length === 0 ) $("#saas").removeClass("d-none")
+    else {
+        display()
+        $("#saas").removeClass("d-none")
+    }
+    if (account === null || (!("engine" in account)) || Object.keys(account.engine).length === 0 ) $("#engine").removeClass("d-none")
+    else $("#engine").addClass("d-none")
 }
 
 function display() {
