@@ -22,12 +22,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/1.14/auth0-spa-js.production.js"></script>
     <script src="https://js.stripe.com/v3"></script>
-    <script src="/js/auth.js?v=1648747708"></script>
-    <script src="/js/google.js?v=1647416781"></script>
-    <script src="/js/lang.js?v=1648747708"></script>
-    <script src="/js/saas.js?v=1648747708"></script>
+    <script src="/js/auth.js?v=1648891089"></script>
+    <script src="/js/google.js?v=1648891089"></script>
+    <script src="/js/lang.js?v=1648891089"></script>
+    <script src="/js/saas.js?v=1648891089"></script>
     <script src="https://embed.tawk.to/61bf5e9180b2296cfdd26ed6/1fn9oiql4" crossorigin="anonymous"></script>
-    <link href="/css/main.css?v=1643306229" rel="stylesheet">
+    <link href="/css/main.css?v=1648891089" rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column">
@@ -124,7 +124,7 @@
         </div>
     </div>
 
-    <main class="h-100 mt-5">
+    <main class="h-100 mt-5 mb-3">
 
         <div class="container">
             <div class="row">
@@ -189,18 +189,6 @@
                         </div>
                     </div>
                 </div>
-                <div id="engine" class="d-none">
-                    <div class="col-12">
-                        <div class="card my-4">
-                            <div class="card-body">
-                                <h1 class="card-title text-primary text-center">SaaShup Engine</h1>
-                                <div class="m-4 text-center">
-                                    <button class="btn btn-primary" id="create-engine">Create Engine</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div id="admin" class="d-none">
                     <div class="col-12">
                         <div class="card my-4">
@@ -235,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="image-card" class="d-none">
+                <div id="saas-card" class="d-none">
                     <div class="col-12">
                         <div class="card my-4">
                             <div class="card-body">
@@ -263,14 +251,47 @@
                         </div>
                     </div>
                 </div>
+                <div id="engine" class="d-none">
+                    <div class="col-12">
+                        <div class="card my-4">
+                            <div class="card-body">
+                                <h1 class="card-title text-primary text-center">SaaShup Engine</h1>
+                                <div class="m-4 text-center">
+                                    <button class="btn btn-primary" id="create-engine">Create Engine</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="engine-card" class="d-none">
+                    <div class="col-12">
+                        <div class="card my-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3 text-center">
+                                        <img src="img/logo_saashup.png" width="100%" />
+                                    </div>
+                                    <div class="col-sm-12 col-md-9">
+                                        <div class="m-3">Url: <a href="" id="engine_url_href" target="_blank"><span id="engine_url"></a></div>
+                                        <div class="m-3">Memory: <span id="engine_memory"></span>Mb</div>
+                                        <div class="m-3">created on: <span id="engine_created_at"></span></div>
+                                        <div class="m-4 text-center">
+                                            <button class="btn btn-danger" id="delete-engine">Delete Engine</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
             </div>
         </div>
 
     </main>
 
-    <footer class="footer mt-auto py-2" style="background-color:#e1eefc;width:100%;">
+    <footer class="footer w-100 mt-auto py-2">
         <div class="p-1 text-center" style="width:100%;">
-            <img src="/img/logo_saashup.png" class="rounded-circle" width="24" /> saashup © 2021
+            <img src="/img/logo_saashup.png" class="rounded-circle" width="24" /> saashup © 2022
         </div>
     </footer>
 

@@ -3,7 +3,8 @@ const appParams = new URLSearchParams(window.location.search);
 var account = null;
 
 function cls() {
-    $("#image-card").addClass("d-none");
+    $("#saas-card").addClass("d-none");
+    $("#engine-card").addClass("d-none");
     $("#saas").addClass("d-none");
     $("#engine").addClass("d-none");
     $("#admin").addClass("d-none");
@@ -30,10 +31,22 @@ function setup() {
     if (account === null || (!("saas" in account)) || Object.keys(account.saas).length === 0 ) $("#saas").removeClass("d-none")
     else {
         display()
-        $("#saas").removeClass("d-none")
+        $("#saas").addClass("d-none")
     }
     if (account === null || (!("engine" in account)) || Object.keys(account.engine).length === 0 ) $("#engine").removeClass("d-none")
-    else $("#engine").addClass("d-none")
+    else {
+        displayEngine()
+        $("#engine").addClass("d-none")
+    }
+}
+
+function displayEngine() {
+    const key = Object.keys(account.engine)[0];
+    $("#engine_url").html(account.engine[key].url);
+    $("#engine_url_href").attr("href", "https://" + account.engine[key].url)
+    $("#engine_memory").html(account.engine[key].memory);
+    $("#engine_created_at").html(account.engine[key].date.replace('T', ' ').substring(0,19));
+    $("#engine-card").removeClass("d-none")
 }
 
 function display() {
@@ -48,8 +61,7 @@ function display() {
     $("#image_type").html(account.saas[key].type.toUpperCase());
     $("#image_memory").html(account.saas[key].memory);
     $("#created_at").html(account.saas[key].date.replace('T', ' ').substring(0,19));
-    cls()
-    $("#image-card").removeClass("d-none")
+    $("#saas-card").removeClass("d-none")
 }
 
 function appLogout() {
@@ -131,8 +143,7 @@ $(document).ready(function () {
     })
 
     $("#nav-home-btn").on('click', function() {
-        if (account === null || (!("saas" in account)) || Object.keys(account.saas).length === 0 ) setup();
-        else display();
+       setup();
     })
 
     $("#delete-saas").on("click", function (event) {
@@ -176,6 +187,88 @@ $(document).ready(function () {
         })
         $("#modalQuestion").modal("show");
     })
+
+    $("#delete-engine").on("click", function (event) {
+        event.preventDefault()
+        $("#modalQuestionTitle").html(findLang("delete_engine_title", myLang));
+        $("#modalQuestionContent").html(findLang("delete_engine_text", myLang));
+        $("#modalQuestionYes").unbind();
+        $("#modalQuestionYes").on("click", function () {
+            $("#modalQuestion").modal("hide");
+            $("#modalNotificationTitle").html(findLang("delete_saas_title", myLang));
+            $("#modalNotificationContent").html('<div class="container text-center">' + findLang("delete_engine_text_wait", myLang) + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+            $("#modalNotification").modal("show");
+            $.ajax({
+                url: "https://saas.saashup.com/api/engine/" + user.email + "/" + Object.keys(account.engine)[0],
+                method: "DELETE",
+                beforeSend: function (xhr) {
+                  xhr.setRequestHeader("x-auth-token", user.jwt.token)
+                },
+                data: { "engine": Object.keys(account.engine)[0] },
+                dataType: "json"
+              }).done(function (result) {
+                  account = result;
+                  setTimeout(function () {
+                    $("#modalNotification").modal("hide");
+                    setup();
+                  }, 1000);
+              }).fail(function (jqXHR, textStatus, errorThrown) {
+                $("#modalNotification").modal("hide");
+                if (["401", "403"].includes(jqXHR.status.toString())) {
+                    $("#modalNotificationOk").attr("disabled", true)
+                    $("#modalNotificationTitle").html(findLang("logout-required-title-text", myLang));
+                    $("#modalNotificationContent").html('<div class="text-center">' + findLang("logout-required-text", myLang) + '</div>');
+                    $("#modalNotificationOk").unbind();
+                    $("#modalNotification").modal("show");
+                    setTimeout(function () {
+                      logout()
+                    }, 1200);
+                    return
+                }
+              })
+        })
+        $("#modalQuestion").modal("show");
+    })
+
+    $("#create-engine").on("click", function (event) {    
+        $("#modalNotificationTitle").html(findLang("create_engine_title", myLang));
+        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("create_engine_text", myLang) + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+        $("#modalNotification").modal("show");
+        $.ajax({
+            url: "https://saas.saashup.com/api/engine/" + user.email,
+            method: "POST",
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader("x-auth-token", user.jwt.token)
+            },
+            dataType: "json",
+          }).done(function (result) {
+              account = result;
+              setTimeout(function () {
+                $("#modalNotification").modal("hide");
+                setup();
+              }, 1000)
+          }).fail(function (jqXHR, textStatus, errorThrown) {
+            $("#modalNotification").modal("hide");
+            if (["401", "403"].includes(jqXHR.status.toString())) {
+                $("#modalNotificationOk").attr("disabled", true)
+                $("#modalNotificationTitle").html(findLang("logout-required-title-text", myLang));
+                $("#modalNotificationContent").html('<div class="text-center">' + findLang("logout-required-text", myLang) + '</div>');
+                $("#modalNotificationOk").unbind();
+                $("#modalNotification").modal("show");
+                setTimeout(function () {
+                  logout()
+                }, 1200);
+                return
+            }
+            if (["402"].includes(jqXHR.status.toString())) {
+                $("#modalNotificationTitle").html(findLang("payment-required-title", myLang));
+                $("#modalNotificationContent").html('<div class="text-center">' + findLang("payment-required-text", myLang) + '</div>');
+                $("#modalNotificationOk").unbind();
+                $("#modalNotification").modal("show");
+                return
+            }
+          })
+    });
 
     $("#create-saas").on("click", function (event) {
         if ($("#image").val().length === 0) {
@@ -222,7 +315,7 @@ $(document).ready(function () {
               account = result;
               setTimeout(function () {
                 $("#modalNotification").modal("hide");
-                display();
+                setup();
               }, 1000)
           }).fail(function (jqXHR, textStatus, errorThrown) {
             $("#modalNotification").modal("hide");
