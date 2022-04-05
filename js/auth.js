@@ -19,21 +19,59 @@ const init = () => {
       xhr.setRequestHeader("x-auth-token", user.jwt.token)
     }
   }).done(function (result) {
-    account = result;
-    setup();
+    $("#contactEmail").val(user.email)
+    if ('id' in result) {
+      account = result;
+      $('#providers').attr('disabled', false)
+      refreshDocker(account.dockers)
+      refreshCard(account.engine)
+      refreshSaas(account.saas)
+      appProfile();
+      if (Object.keys(account.dockers).length + Object.keys(account.engine).length + Object.keys(account.saas).length > 0) $("#nav-home-btn").click()
+      else $("#nav-admin-btn").click()
+      if ('invoices' in account && Object.keys(account.invoices).length > 0) {
+        $('#no-invoice-text').addClass('d-none')
+        $('#invoice').html('<a href="#" onclick="toggleInvoices();">' + Object.keys(account.invoices).length + ' <span id="there-is-invoice-text">' + findLang("there-is-invoice-text") + '</span></a>')
+      }
+      if (parseInt(account.amount) === 0) {
+        $("#delete").attr('disabled', false)
+      }
+      if (account.payments.length > 0) {
+        $("#cus-details").removeClass("d-none")
+        $("#setup-payment").addClass('disabled')
+        $("#cost").html(account.amount + "€")
+        $("#next-cost").html(parseInt(parseInt(account.amountEngine) + parseInt(account.amountSaas) + parseInt(account.amountDocker)) + "€")
+      } else {
+        $("#setup-payment").removeClass('disabled')
+        $("#delete").attr('disabled', false)
+      }
+      for (const c of account.payments) {
+        $("#card-info-none").addClass('d-none')
+        $("#card-info").html('<div class="container"><div class="row"><div class="col-4"><i class="fab fa-cc-visa fa-3x text-primary"></i> </div><div class="col-6 text-uppercase px-1 pt-2"><b>' + c.card.brand + ' **** ' + c.card.last4 + '</b><br><i class="small muted">' + findLang("expire-text") + ' ' + c.card.exp_month + '/' + c.card.exp_year + '</i></div><div class="col-2"><button class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete payment" onclick="deletePayment(\'' + c.id + '\');" ' + (parseInt(account.amount) === 0 ? '' : 'disabled') + '><i class="fas fa-trash-alt"></i> </button></div></div></div>')
+      }
+
+    } else {
+      $("#delete").attr('disabled', false)
+    }
+    $("#app").removeClass("d-none");
   }).fail(function (jqXHR, textStatus, errorThrown) {
     if (["401", "403"].includes(jqXHR.status.toString())) {
       $("#modalNotificationOk").attr("disabled", true)
-      $("#modalNotificationTitle").html(findLang("logout-required-title-text", myLang));
-      $("#modalNotificationContent").html('<div class="text-center">' + findLang("logout-required-text", myLang) + '</div>');
-      $("#modalNotificationOk").unbind();
-      $("#modalNotification").modal("show");
+      $("#modalNotificationTitle").html(findLang("logout-required-title-text"));
+      $("#modalNotificationContent").html('<div class="text-center">' + findLang("logout-required-text") + '</div>');
       setTimeout(function () {
         logout()
       }, 1200);
-    } else setup();
+    } else {
+      $("#modalNotificationOk").attr("disabled", false)
+      $("#modalNotificationTitle").html(findLang('Oops'));
+      $("#modalNotificationContent").html('<div class="text-center">' + findLang("auth-sth-wrong-required-text") + '</div>');
+      $("#maintenance").removeClass('d-none')
+      $("#status-dot").addClass('bg-danger').addClass('text-danger');
+    }
+    $("#modalNotificationOk").unbind();
+    $("#modalNotification").modal("show");
   })
-
 }
 
 const login = async (targetUrl) => {
@@ -90,7 +128,6 @@ window.onload = async () => {
   const isAuthenticated = await auth0.isAuthenticated();
 
   if (isAuthenticated) {
-    if (user === null) return logout();
     window.history.replaceState({}, document.title, window.location.pathname);
     return;
   }
