@@ -146,8 +146,10 @@ function removeDocker(id) {
             }
         }).done(function (result) {
             account = result;
-            refreshDocker(account.dockers)
-            $("#modalQuestion").modal("hide");
+            setTimeout(function () {
+                $("#modalQuestion").modal("hide");
+                $("#nav-home-btn").click();
+              }, 1000)
         }).fail(function (jqXHR, textStatus, errorThrown) {
             apiFail(jqXHR, textStatus, errorThrown);
         })
@@ -172,7 +174,7 @@ function addEngine() {
               account = result;
               setTimeout(function () {
                 $("#modalNotification").modal("hide");
-                refreshCard(account.engine);
+                $("#nav-home-btn").click();
               }, 1000)
           }).fail(function (jqXHR, textStatus, errorThrown) {
             $("#modalNotification").modal("hide");
@@ -194,7 +196,7 @@ function fileDownload(url, name) {
       })
       .then(response => response.blob())
       .then(blob => {
-        const blobURL = URL.createObjectURL(blob);
+        const blobURL = URLObjectURL(blob);
         const a = document.createElement("a");
         a.href = blobURL;
         a.style = "display: none";
@@ -611,8 +613,10 @@ $(document).ready(function () {
             account = result;
             $("#cost").html(account.amount + "€")
             $("#next-cost").html(parseInt(parseInt(account.amountKube) + parseInt(account.amountDocker) + parseInt(account.amountServer)) + "€")
-            refreshDocker(account.dockers);
-            $("#modalNotification").modal("hide");
+            setTimeout(function () {
+                $("#modalNotification").modal("hide");
+                $("#nav-home-btn").click();
+              }, 1000)
         }).fail(function (jqXHR, textStatus, errorThrown) {
             apiFail(jqXHR, textStatus, errorThrown);
         })
@@ -795,7 +799,7 @@ $(document).ready(function () {
               account = result;
               setTimeout(function () {
                 $("#modalNotification").modal("hide");
-                refreshSaas(account.saas);
+                $("#nav-home-btn").click();
               }, 1000)
           }).fail(function (jqXHR, textStatus, errorThrown) {
             $("#modalNotification").modal("hide");
