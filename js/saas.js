@@ -138,6 +138,10 @@ function removeDocker(id) {
     $("#modalQuestion").modal("show");
     $("#modalQuestionYes").unbind();
     $("#modalQuestionYes").on("click", function () {
+        $("#modalQuestion").modal("hide");
+        $("#modalNotificationTitle").html(findLang("remove-docker-spinner-text"));
+        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("remove-docker-spinner-text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+        $("#modalNotification").modal("show");
         $.ajax({
             url: "https://saas.saashup.com/api/docker/" + user["email"] + "/" + id,
             method: "DELETE",
@@ -147,7 +151,7 @@ function removeDocker(id) {
         }).done(function (result) {
             account = result;
             setTimeout(function () {
-                $("#modalQuestion").modal("hide");
+                $("#modalNotification").modal("hide");
                 $("#nav-home-btn").click();
               }, 1000)
         }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -359,7 +363,7 @@ function refreshDocker(dockers) {
         if ($("#searchInput").val() !== "" && s.match($("#searchInput").val())) bgcolor = 'bg-success text-white';
         $("#docker-list").append('<div class="card"><div class="card-header ' + bgcolor + '"><i class="fab fa-docker"></i> ' + s + '.saashup.com <span style="float:right;"><button class="btn ' + bgcolor + '" data-bs-toggle="collapse" data-bs-target="#docker-card-body-' + s + '"><i class="fas fa-caret-up"></i></button></span></div>\
         <div id="docker-card-body-' + s + '" class="card-body collapse ' + (dockers.length > 3 ? '' : 'show') + '"><div class="container"><div class="row">\
-        <div class="col-12 p-1">' + s + '.saashup.com:4243 <input class="form-control d-none" id="input_docker_' + s + '" value="' + s + '.saashup.com:4243" readonly /><a href="#" onclick="copyText(\'' + s + '\');"><i class="fas fa-copy"></i></a>\
+        <div class="col-12 p-1">' + s + '.saashup.com:4242 <input class="form-control d-none" id="input_docker_' + s + '" value="' + s + '.saashup.com:4242" readonly /><a href="#" onclick="copyText(\'' + s + '\');"><i class="fas fa-copy"></i></a>\
         <div class="toast" data-bs-delay="1000" id="clipboard_' + s + '" role="alert" aria-live="assertive" aria-atomic="true"><div class="toast-body">Copied to clipboard</div></div></div>\
         <div class="col-8">\
             <div class="col-12 small p-1">' + findLang("dockerRegionLabel") + ' : <span class="p-5"><img width="32" src="/img/' + dockers[s].region + '.png" alt="' + dockers[s].region + '"/></span></div>\
@@ -371,12 +375,7 @@ function refreshDocker(dockers) {
         <div class="col-sm-12 col-md-6 small p-1">Engine : <a href="https://' + dockers[s].engine + '.saashup.com" target="_blank">' + dockers[s].engine + '</a></div>\
         <div class="col-sm-12 col-md-6 small p-1">' + findLang("creationLabel") + ' : ' + ('date' in dockers[s] ? dockers[s].date : new Date(parseInt(s)).toISOString().replace('T',' ').substring(0,19)) + '</div>\
         <div class="col-sm-12 col-md-6 small p-1">' + findLang("monthlyPriceLabel") + ' : ' + dockers[s].price + '€</div><div class="col-sm-12 col-md-6 small p-1">Type : ' + dockers[s].flavor + '</div>\
-        <div class="col-9 small p-1"><div class="row  ' + (dockers[s].status === "ok" ? '' : 'd-none') + '">\
-            <div class="col-3"><a href="#docker-ca" onclick="fileDownload(\'https://saas.saashup.com/api/tls/' + user.email+ '/' + s + '/ca.pem\', \'ca.pem\');"><i class="fas fa-file-download"></i> ca</a></div>\
-            <div class="col-3"><a href="#docker-cert" onclick="fileDownload(\'https://saas.saashup.com/api/tls/' + user.email+ '/' + s + '/cert.pem\', \'cert.pem\');"><i class="fas fa-file-download"></i> cert</a></div>\
-            <div class="col-3"><a href="#docker-key" onclick="fileDownload(\'https://saas.saashup.com/api/tls/' + user.email+ '/' + s + '/key.pem\', \'key.pem\');"><i class="fas fa-file-download"></i> key</a></div>\
-            <div class="col-3"><a href="#docker-install" onclick="fileDownload(\'https://saas.saashup.com/api/tls/' + user.email+ '/' + s + '/install.log\', \'install.log\');"><i class="fas fa-file-download"></i> install</a></div>\
-        </div></div>\
+        <div class="col-9 small p-1"></div>\
         <div class="col-3 ' + (dockers[s].status === "ok" ? '' : 'd-none') + ' p-1"><button class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete instance" onclick="removeDocker(\'' + s + '\')" id="' + s + '" ' + (dockers[s].status === "ok" ? '' : 'disabled') + '><i class="fas fa-trash-alt"></i> </button></div>\
         </div></div></div></div><br>');
     }
@@ -565,11 +564,21 @@ $(document).ready(function () {
     })
 
     $("#nav-home-btn").on('click', function() {
-        cls();
-        refreshCard(account.engine);
-        refreshDocker(account.dockers);
-        refreshSaas(account.saas);
-        $("#home").removeClass("d-none")
+        $.ajax({
+            url: "https://saas.saashup.com/api/account/" + user.email,
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader("x-auth-token", user.jwt.token)
+            }
+          }).done(function (result) {
+                account = result
+                cls();
+                refreshCard(account.engine);
+                refreshDocker(account.dockers);
+                refreshSaas(account.saas);
+                $("#home").removeClass("d-none")
+          }).fail(function (jqXHR, textStatus, errorThrown) {
+            apiFail(jqXHR, textStatus, errorThrown);
+        })
     })
 
     $("#buy").on('click', function () {
@@ -628,7 +637,7 @@ $(document).ready(function () {
             $("#dockerRegion").html('');
             $('#dockerCost').html("5");
             $("#dockerRegion").html('<option value="syd">syd</option><option value="gra">gra</option><option value="sbg">sbg</option><option value="de">de</option><option value="bhs">bhs</option><option value="waw">waw</option><option value="uk">uk</option>');
-            $("#dockerModel").html('<option value="s1-2">s1-2</option>');
+            $("#dockerModel").html('<option value="s1-2">2G</option>');
             for (const s in account.engine) {
                 $("#dockerAttach").append('<option value="' + s + '">' + ('name' in account.engine[s] ? account.engine[s].name : s) + '</option>')
             }
@@ -641,18 +650,6 @@ $(document).ready(function () {
         }
 
     });
-
-    $("#dockerRegion").on('change', function () {
-        $("#dockerModel").html('');
-        for (const p in account.providers) {
-            for (const r in account.providers[p].regions) {
-                if (account.providers[p].regions[r].name === $(this).val()) {
-                    for (const f in account.providers[p].regions[r].flavor) $("#dockerModel").append('<option>' + f + '</option>');
-                    return
-                }
-            }
-        }
-    })
 
     $("#cus-details").on('click', function () {
         if (!account || !('payments' in account)) return

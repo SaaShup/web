@@ -94,8 +94,6 @@ const lang = {
         "waiting-validation-text": "Waiting validation",
         "buy-montlhy-cost-text": "Buy engine for 5€/m",
         "create-docker-spinner-text": "Creating envirronement...",
-        "create-cluster-title": "Create cluster",
-        "create-cluster-spinner-text": "Creating cluster...",
         "error-text": "Error",
         "no-engine-found-text": "<div>No engine instance found...</div>",
         "billing-title": "Billing details",
