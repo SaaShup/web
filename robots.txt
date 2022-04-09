@@ -1,4 +1,3 @@
-
-Sitemap: https://saashup.com/sitemap.xml
 User-agent: *
 Disallow:
+Sitemap: https://saashup.com/sitemap.xml
