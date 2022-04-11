@@ -123,7 +123,7 @@ const lang = {
     }
 }
 
-/*function findLang(myid, langSelected) {
+function findLang(myid, langSelected) {
     if (myid in lang[langSelected]) return lang[langSelected][myid]
     if (myid in lang['en']) return lang['en'][myid]
     return ''
@@ -134,18 +134,4 @@ function updateLang(langSelected) {
     for (let t in lang['en']) {
         $('#'+t).html(findLang(t, langSelected))
     }
-}*/
-function findLang(myid) {
-    if (!user) return lang['en'][myid]
-    if ('lang' in user && myid in lang[user.lang]) return lang[user.lang][myid]
-    if ('locale' in user && myid in lang[user.locale]) return lang[user.locale][myid]
-    if (myid in lang['en']) return lang['en'][myid]
-    return ''
-}
-
-function updateLang() {
-   for (let t in lang['en']) {
-       if (["buy"].includes(t)) continue
-       $('#'+t).html(findLang(t))
-   }
 }
