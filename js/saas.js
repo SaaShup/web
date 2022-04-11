@@ -46,6 +46,52 @@ function cls() {
     $("#admin").addClass("d-none");
 }
 
+function saveProfile() {
+    if ($("#billing-country").val().length !== 2) {
+        $("#billing-country").addClass("is-invalid");
+        $("#billing-country-toast").toast("show")
+        return
+    }
+    if (!($("#billing-phone").val().match(/^\d{8,15}$/))) {
+        $("#billing-phone").addClass(" is-invalid");
+        $("#billing-phone-toast").toast("show")
+        return
+    }
+    $("#modalNotificationTitle").html(findLang("saveLabel"));
+    $("#modalNotificationContent").html('<div class="container text-center">' + findLang("save-text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+    $("#modalNotification").modal("show");
+    $("#modalNotificationOk").attr("disabled",true)
+    $.ajax({
+        url: "https://saas.saashup.com/api/account/" + account["id"] + "/payment/" + user["email"] + "/pm/" + account.payments[0].id,
+        method: "PUT",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("x-auth-token", user.jwt.token)
+        },
+        dataType: "json",
+        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        data: {
+            billing_details: {
+                address: {
+                  city: $("#billing-city").val(),
+                  country: $("#billing-country").val(),
+                  line1: $("#billing-street").val(),
+                  postal_code: $("#billing-zip").val()
+                },
+                name: $("#billing-name").val(),
+                phone: $("#billing-phone").val()
+              }
+        }
+    }).done(function (result) {
+        account = result;
+        setTimeout(function () {
+            $("#modalNotification").modal("hide");
+            $("#nav-admin-btn").click();
+          }, 1000)
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        apiFail(jqXHR, textStatus, errorThrown);
+    })
+}
+
 function appProfile() {
     let provider = '<i class="fas fa-database fa-2x text-primary"></i>'
     if (user.sub.startsWith('google-oauth2')) provider = '<i class="fab fa-google fa-2x  text-danger"></i>';
@@ -53,15 +99,25 @@ function appProfile() {
     if (user.sub.startsWith('auth0')) provider = '<img src="https://avatars.githubusercontent.com/u/2824157" width="48px" class="rounded-circle" />';
     if (user.sub.startsWith('oauth2|discord')) provider = '<i class="fab fa-discord fa-2x" style="color:#5865F2;"></i>';
     rows = '<div class="container"><div class="row">';
-    if (account) rows += '<div class="col-12"><div class="mb-1 row"><div class="col-6 text-center"><img class="rounded-circle" src="' + user.picture + '" width="64px;"></div><div class="col-6"><label class="col-sm-12 col-md-12 col-form-label">' + findLang('name-text') + '</label><div class="col-sm-12 col-md-12 "><input class="form-control-plaintext" value="' + user.name + '" /></div></div></div></div>\
+    if (account) rows += '<div class="col-12"><div class="mb-1 row"><div class="col-6 text-center"><img class="rounded-circle" src="' + user.picture + '" width="64px;"></div><div class="col-6"><label class="col-sm-12 col-md-12 col-form-label">' + findLang('name-text') + '</label><div class="col-sm-12 col-md-12 "><input class="form-control-plaintext" value="' + user.name + '" readonly /></div></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-6 col-form-label">Provider</label><div class="col-6">' + provider + '</div></div></div>\
-    <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('email-text') + ':</label><div class="col-sm-12 col-md-6 "><input type="text" class="form-control-plaintext" value="' + user.email + '" /></div></div></div>\
+    <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('email-text') + ':</label><div class="col-sm-12 col-md-6 "><input type="text" class="form-control-plaintext" value="' + user.email + '" readonly /></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('lang-text') + ':</label><div class="col-sm-12 col-md-6 "><img src="/img/' + ('locale' in user ? user.locale: 'en') + '.png" width="32px;"/></div></div></div>\
-    <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('creation-date-text') + ':</label><div class="col-sm-12 col-md-6 "><input type="text" class="form-control-plaintext" value="' + account.date.replace('T', ' ').substring(0,19) + '" /></div></div></div>\
+    <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('creation-date-text') + ':</label><div class="col-sm-12 col-md-6 "><input type="text" class="form-control-plaintext" value="' + account.date.replace('T', ' ').substring(0,19) + '" readonly /></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-6 col-form-label">' + findLang('engine-limits-text') + ':</label><div class="col-6">' + Object.keys(account.engine).length + ' / ' + account.limits.engine + ' ' + (parseInt(account.limits.engine) <= Object.keys(account.engine).length ? '<i class="fas fa-exclamation-circle text-warning">' : '') + '</i></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-6 col-form-label">' + findLang('dockers-limits-text') + ':</label><div class="col-6">' + Object.keys(account.dockers).length + ' / ' + account.limits.dockers + ' ' + (parseInt(account.limits.dockers) <= Object.keys(account.dockers).length ? '<i class="fas fa-exclamation-circle text-warning">' : '') + '</i></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-6 col-form-label">' + findLang('saas-limits-text') + ':</label><div class="col-6">' + Object.keys(account.saas).length + ' / ' + account.limits.saas + ' ' + (parseInt(account.limits.saas) <= Object.keys(account.saas).length ? '<i class="fas fa-exclamation-circle text-warning">' : '') + '</i></div></div></div>';
-    rows += '<div class="col-12"><p class="text-end"><button class="btn btn-danger" onclick="appLogout();">Logout</button></p></div>\
+
+    if ('payments' in account && account.payments.length > 0) rows += '<div class="container"><div class="row">\
+    <div class="col-12"><div class="mb-3 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('companyLabel') + '</label><div class="col-sm-12 col-md-6 "><input id="billing-name" class="form-control" value="' + account.payments[0].billing_details.name + '" /></div></div></div>\
+    <div class="col-12"><div class="mb-3 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('phoneLabel') + '</label><div class="col-sm-12 col-md-6 "><input id="billing-phone" type="text" class="form-control" value="' + account.payments[0].billing_details.phone + '" /><div class="toast" data-bs-delay="1000" id="billing-phone-toast" role="alert" aria-live="assertive" aria-atomic="true"><div class="toast-body">XXXXXXXXXXXX format</div></div></div></div></div>\
+    <div class="col-12"><div class="mb-3 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('streetLabel') + '</label><div class="col-sm-12 col-md-6 "><input id="billing-street" type="text" class="form-control" value="' + account.payments[0].billing_details.address.line1 + '" /></div></div></div>\
+    <div class="col-12"><div class="mb-3 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('zipLabel') + '</label><div class="col-sm-12 col-md-6 "><input id="billing-zip" type="text" class="form-control" value="' + account.payments[0].billing_details.address.postal_code + '" /></div></div></div>\
+    <div class="col-12"><div class="mb-3 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('cityLabel') + '</label><div class="col-sm-12 col-md-6 "><input id="billing-city" type="text" class="form-control" value="' + account.payments[0].billing_details.address.city + '" /></div></div></div>\
+    <div class="col-12"><div class="mb-3 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('countryLabel') + '</label><div class="col-sm-12 col-md-6 "><input id="billing-country" type="text" class="form-control" value="' + account.payments[0].billing_details.address.country + '" /><div class="toast" data-bs-delay="1000" id="billing-country-toast" role="alert" aria-live="assertive" aria-atomic="true"><div class="toast-body">2 LETTERS COUNTRY</div></div></div></div></div>\
+    </div></div>'
+    rows += '<div class="col-6"><p class="text-center"><button class="btn btn-outline-primary ' + ('payments' in account && account.payments.length > 0 ? '' : 'd-none') + '" onclick="saveProfile();">Save</button></p></div>'
+    rows += '<div class="col-6"><p class="text-center"><button class="btn btn-danger" onclick="appLogout();">Logout</button></p></div>\
     </div></div>';
     $("#profile").html(rows);
 }
@@ -72,6 +128,7 @@ function stripeGO() {
     $("#modalNotificationTitle").html(findLang('setup-payment-title'));
     $("#modalNotificationContent").html(findLang('setup-payment-text'));
     $("#modalNotification").modal("show");
+    $("#modalNotificationOk").attr("disabled",true)
         $.ajax({
             url: "https://saas.saashup.com/api/payment/session/" + user.email,
         method: "POST",

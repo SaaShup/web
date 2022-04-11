@@ -78,6 +78,7 @@ const lang = {
         "monthlyPriceLabel": "Monthly price",
         "creationLabel": "Created",
         "saveLabel": "Save",
+        "save-text": "Saving Profile...",
         "upgrade-server-text-btn": "Upgrade",
         "upgrade-server-text": "Do you want to upgrade ",
         "upgrade-server-title": "Upgrade portainer ",
