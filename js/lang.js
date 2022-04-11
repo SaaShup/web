@@ -47,7 +47,7 @@ const lang = {
         "help_registry_title": "Registry",
         "help_registry_text": "You can only use dockerhub public images when public.<br>You can use authenticated dockerhub or any authenticated supported registry when private",
         "help_engine_title": "Engine",
-        "help_engine_text": "<p>The Saas is managed with a dedicated <a href='https://saashup.com/saas.io'>saashup engine</a>.</p>",
+        "help_engine_text": "<p>The Saas is managed with a <a href='https://saashup.com/saas.io'>saashup engine</a>.</p>",
         "help_app_support_title": "App Support",
         "help_app_support_text": "<p>We can provide support to your application.</p><p>Our support team can respond to your customer about application issues, queries...</p><p>Provide procedures, knowledge bases, Faqs or any documents and we will provide Level 1 support, create tickets for follow up and escalate to your teams.</p>",
         "help_saas_support_title": "SaaS Support",

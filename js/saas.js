@@ -51,8 +51,9 @@ function appProfile() {
     if (user.sub.startsWith('google-oauth2')) provider = '<i class="fab fa-google fa-2x  text-danger"></i>';
     if (user.sub.startsWith('github')) provider = '<i class="fab fa-github fa-2x"></i>';
     if (user.sub.startsWith('auth0')) provider = '<img src="https://avatars.githubusercontent.com/u/2824157" width="48px" class="rounded-circle" />';
+    if (user.sub.startsWith('oauth2|discord')) provider = '<i class="fab fa-discord fa-2x" style="color:#5865F2;"></i>';
     rows = '<div class="container"><div class="row">';
-    if (account) rows += '<div class="col-12"><div class="mb-1 row"><div class="col-6 text-center"><img class="rounded" src="https://lh3.googleusercontent.com/a-/AOh14GibUZRrlIlUbQCe7lZQIS52VmhnAcYRwi6qSUZ2DQ=s96-c" width="64px;"></div><div class="col-6"><label class="col-sm-12 col-md-12 col-form-label">' + findLang('name-text') + '</label><div class="col-sm-12 col-md-12 "><input class="form-control-plaintext" value="' + user.name + '" /></div></div></div></div>\
+    if (account) rows += '<div class="col-12"><div class="mb-1 row"><div class="col-6 text-center"><img class="rounded-circle" src="' + user.picture + '" width="64px;"></div><div class="col-6"><label class="col-sm-12 col-md-12 col-form-label">' + findLang('name-text') + '</label><div class="col-sm-12 col-md-12 "><input class="form-control-plaintext" value="' + user.name + '" /></div></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-6 col-form-label">Provider</label><div class="col-6">' + provider + '</div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('email-text') + ':</label><div class="col-sm-12 col-md-6 "><input type="text" class="form-control-plaintext" value="' + user.email + '" /></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('lang-text') + ':</label><div class="col-sm-12 col-md-6 "><img src="/img/' + ('locale' in user ? user.locale: 'en') + '.png" width="32px;"/></div></div></div>\
