@@ -77,7 +77,7 @@ const init = () => {
 const login = async (targetUrl) => {
   try {
     const options = {
-      redirect_uri: window.location.origin + '/saas.html'
+      redirect_uri: window.location.origin + '/saas'
     };
 
     if (targetUrl) {
