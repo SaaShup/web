@@ -42,6 +42,7 @@ function appLogout() {
 }
 
 function cls() {
+    $("#empty").addClass("d-none")
     $("#home").addClass("d-none");
     $("#admin").addClass("d-none");
 }
@@ -395,6 +396,7 @@ function refreshSaas(saas) {
     if (Object.keys(saas).length >= parseInt(account.limits.saas)) $("#buySaas").addClass("disabled");
     else $("#buySaas").removeClass("disabled");
     for (const s of Object.keys(saas)) {
+        $("#empty").addClass('d-none');
         let bgcolor = 'bg-primary text-white';
         if ($("#searchInput").val() !== "" && s.match($("#searchInput").val())) bgcolor = 'bg-success text-white';
         $("#saas-list").append('<div class="card my-4"><div class="card-header ' + bgcolor + '"><i class="fas fa-cubes"></i> ' + s + '</div><div class="card-body"><div class="container">\
@@ -416,6 +418,8 @@ function refreshDocker(dockers) {
     else $("#buyDocker").removeClass("disabled");
     let refresh = false
     for (const s in dockers) {
+        $("#empty").addClass('d-none');
+        $("#trash-" + dockers[s].engine).attr('disabled', true)
         if (dockers[s].status !== "ok") refresh = true;
         let bgcolor = 'bg-primary text-white';
         if ($("#searchInput").val() !== "" && s.match($("#searchInput").val())) bgcolor = 'bg-success text-white';
@@ -487,6 +491,7 @@ function refreshCard(servers) {
     if (Object.keys(servers).length >= parseInt(account.limits.engine)) $("#buy").addClass("disabled");
     else $("#buy").removeClass("disabled");
     for (const s in servers) {
+        $("#empty").addClass('d-none');
         let bgcolor = 'bg-primary text-white';
         if ($("#searchInput").val() !== "" && s.match($("#searchInput").val())) bgcolor = 'bg-success text-white';
         rows += '<div class="card"><div class="card-header ' + bgcolor + '"><i class="fas fa-database"></i> ' + ('name' in servers[s] ? servers[s].name : s ) + ' <a href="#" onclick="setServerName(\'' + s + '\', \'' + ('name' in servers[s] ? servers[s].name : s ) + '\');" style="color:white !important;"><i class="fas fa-edit"></i></a> <span style="float:right;"><button class="btn ' + bgcolor + '" data-bs-toggle="collapse" data-bs-target="#server-card-body-' + s + '"><i class="fas fa-caret-up"></i></button></span></div>\
@@ -514,7 +519,7 @@ function refreshCard(servers) {
         rows += '<div class="col-12">&nbsp;</div>\
         <div class="col-4"><div class="badge bg-' + color + ' px-4 py-2">' + status.toUpperCase() + '</div></div>';
         rows += '<div class="col-2"><span class="d-inline-block" data-toggle="tooltip" data-placement="top" title="Upgrade Memory"><button class="btn btn-outline-primary ' + ('id' in servers[s] ? '' : 'disabled') + '" onclick="upgradeMemory(\'' + s + '\')" id="upgrade_' + s + '"><i class="fas fa-memory"></i> </button></span></div>';
-        rows += '<div class="col-2"><button class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete engine" onclick="removeEngine(\'' + s + '\')" id="' + s + '"><i class="fas fa-trash-alt"></i> </button></div>';
+        rows += '<div class="col-2"><button class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete engine" onclick="removeEngine(\'' + s + '\')" id="trash-' + s + '"><i class="fas fa-trash-alt"></i> </button></div>';
         rows += '</div></div></div></div><br>';
     }
     $("#engine-list").html(rows)
@@ -633,7 +638,8 @@ $(document).ready(function () {
                 refreshCard(account.engine);
                 refreshDocker(account.dockers);
                 refreshSaas(account.saas);
-                $("#home").removeClass("d-none")
+                if (Object.keys(account.dockers).length + Object.keys(account.engine).length + Object.keys(account.saas).length > 0) $("#home").removeClass("d-none")
+                else $("#empty").removeClass("d-none")
           }).fail(function (jqXHR, textStatus, errorThrown) {
             apiFail(jqXHR, textStatus, errorThrown);
         })
