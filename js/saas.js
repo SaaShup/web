@@ -597,6 +597,32 @@ function setLang() {
     })
 }
 
+function validateCompose(compose) {
+    let success = "";
+    $("#compose-json").removeClass('text-success').removeClass('text-danger')
+    if (Object.keys(compose).length > 1) success += '<div class="text-danger">Multi service: Gold required</div>'
+    for (const c of Object.keys(compose)) {
+        if (!('image' in compose[c])) success += '<div class="text-danger">Image is required</div>'
+        else $("#image").val(compose[c].image)
+        if (!('ports' in compose[c])) success += '<div class="text-danger">Port is required</div>'
+        else if (compose[c].ports.length > 1) success += '<div class="text-danger">Bronze is required</div>'
+        else $("#ports").val(compose[c].ports)
+        if ('volumes' in compose[c] && compose[c].volumes.length > 1) success += '<div class="text-danger">Multi volume: Silver required</div>'
+        if ('volumes' in compose[c] && compose[c].volumes.length > 0 && compose[c].volumes[0].split(":")[0].startsWith('/')) success += '<div class="text-danger">Bind volume: Silver required</div>'
+        if ('NetworkMode' in compose[c] && compose[c].NetworkMode !== "bridge") success += '<div class="text-danger">Network bridge: Gold required</div>'
+    }
+    if (success.length > 0) {
+        $("#compose-json").addClass('text-danger')
+        $("#modalNotificationTitle").html(findLang("create_saas_error_title"));
+        $("#modalNotificationContent").html(success);
+        $("#modalNotification").modal("show");
+    } else {
+        $("#modalSaasYes").attr('disabled', false)
+        $("#compose-json").addClass('text-success')
+    }
+    return (success.length === 0 ? true : false)
+}
+
 $(document).ready(function () {
     $.ajaxSetup({timeout: 15000});
     if (user === null) user = JSON.parse(window.localStorage.getItem('user'));
@@ -803,6 +829,7 @@ $(document).ready(function () {
             for (const s in account.engine) {
                 $("#saasAttach").append("<option>" + s + "</option>")
             }
+            $("#compose-json").html("")
             $("#modalSaas").modal("show");
         } else {
             $("#modalNotificationOk").unbind();
@@ -813,27 +840,32 @@ $(document).ready(function () {
     })
 
     $("#modalSaasYes").on("click", function (event) {
-        $("#modalSaas").modal("hide"); 
-        if ($("#image").val().length === 0) {
-            event.preventDefault()
-            $("#modalNotificationTitle").html(findLang("create_saas_error_title"));
-            $("#modalNotificationContent").html(findLang("create_saas_empty"));
-            $("#modalNotification").modal("show");
-            return
-        }
-        if ($("#port").val().length < 2) {
-            event.preventDefault()
-            $("#modalNotificationTitle").html(findLang("create_saas_error_title"));
-            $("#modalNotificationContent").html(findLang("create_port_empty"));
-            $("#modalNotification").modal("show");
-            return
-        }
-        if ($("#image").val().startsWith("portainer") || $("#image").val().startsWith("nodered")) {
-            event.preventDefault()
-            $("#modalNotificationTitle").html(findLang("create_saas_error_title"));
-            $("#modalNotificationContent").html(findLang("create_saas_image_not_permitted"));
-            $("#modalNotification").modal("show");
-            return
+        $("#modalSaas").modal("hide");
+        let compose = {}
+        if ($('#compose-json').html().length > 20) {
+            if (validateCompose(compose) === true) return
+        } else {
+            if ($("#image").val().length === 0) {
+                event.preventDefault()
+                $("#modalNotificationTitle").html(findLang("create_saas_error_title"));
+                $("#modalNotificationContent").html(findLang("create_saas_empty"));
+                $("#modalNotification").modal("show");
+                return
+            }
+            if ($("#port").val().length < 2) {
+                event.preventDefault()
+                $("#modalNotificationTitle").html(findLang("create_saas_error_title"));
+                $("#modalNotificationContent").html(findLang("create_port_empty"));
+                $("#modalNotification").modal("show");
+                return
+            }
+            if ($("#image").val().startsWith("portainer") || $("#image").val().startsWith("nodered")) {
+                event.preventDefault()
+                $("#modalNotificationTitle").html(findLang("create_saas_error_title"));
+                $("#modalNotificationContent").html(findLang("create_saas_image_not_permitted"));
+                $("#modalNotification").modal("show");
+                return
+            }
         }
         $("#modalNotificationTitle").html(findLang("create_saas_title"));
         $("#modalNotificationContent").html('<div class="container text-center">' + findLang("create_saas_text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
@@ -854,7 +886,8 @@ $(document).ready(function () {
                 price: $("#price").val(),
                 password: $("#password").val() || "password",
                 basic: btoa("admin:" + ($("#password").val() || "password")),
-                memory: $("#memory").val()
+                memory: $("#memory").val(),
+                compose: compose
             }
           }).done(function (result) {
               account = result;
@@ -866,6 +899,18 @@ $(document).ready(function () {
             $("#modalNotification").modal("hide");
             apiFail(jqXHR, textStatus, errorThrown);
           })
+    })
+
+    $("#compose-window-btn").on("click", function() {
+        if ($("#classic-window").hasClass('d-none')) {
+            $("#modalSaasYes").attr('disabled', false)
+            $("#classic-window").removeClass('d-none')
+            $("#compose-window").addClass('d-none')
+        } else {
+            $("#modalSaasYes").attr('disabled', true)
+            $("#classic-window").addClass('d-none')
+            $("#compose-window").removeClass('d-none')
+        }
     })
 
     $(document).on('keypress',function(e) {

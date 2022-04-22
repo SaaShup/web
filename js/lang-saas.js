@@ -120,6 +120,7 @@ const lang = {
         "memory-server-title": "Upgrade",
         "memory-server-spinner-text": "Upgrading server...",
         "empty-title": "Empty cart",
+        "compose-window-btn": "Docker compose",
         "empty-text": "go to <a href='#' onclick='$(\"#nav-admin-btn\").trigger(\"click\");'>admin page</a> and start creating your Saas.",
         "disclaimer": "All names, logos, images, and brands are property of their respective owners. <a href='/disclaimer.html' target='_blank' class='text-muted text-decoration-underline'>Notice of Non-Affiliation and Disclaimer</a>",
         "disclaimer-full": "<p>We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with portainer, or any of its subsidiaries or its affiliates.</p><p>The official Portainer website can be found at <a href='https://portainer.io'>https://portainer.io</a></p><p>The name Portainer marks, emblems and images are registered trademarks of their respective owners.</p>"

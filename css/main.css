@@ -91,3 +91,17 @@ h5 {
     border-width: 0px;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
+
+#compose-yaml {
+    color: white;
+    background-color: black;
+    font-family: "Courier New";
+    font-size: 14px;
+}
+
+#compose-json {
+    color: black;
+    background-color: white;
+    font-family: "Courier New";
+    font-size: 14px;
+}
