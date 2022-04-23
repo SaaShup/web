@@ -1,4 +1,4 @@
-const stripe = Stripe("pk_test_51K9TqNIIM9R6uh6Yw8aRxGFXvehMZqKdzuaNKEQCBwCMvR0HVs9lqJBzsSWEoAa76zDDsaoAnCJfca74mGpjNaXX009rj5eo3y");
+const stripe = Stripe("pk_live_51KYzUAIN4YVCUfYxvj2HyC2Sw4kLUcRT2g9VS1twIiV11y9kAhODHOTFZ1PaFKgNkrNlfqGRsil3np18DcCAqwie002zBfjeUO");
 const appParams = new URLSearchParams(window.location.search);
 var account = null;
 

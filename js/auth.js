@@ -36,20 +36,19 @@ const init = () => {
       if (parseInt(account.amount) === 0) {
         $("#delete").attr('disabled', false)
       }
-      if (account.payments.length > 0) {
+      if ('payments' in account && account.payments.length > 0) {
         $("#cus-details").removeClass("d-none")
         $("#setup-payment").addClass('disabled')
         $("#cost").html(account.amount + "€")
         $("#next-cost").html(parseInt(parseInt(account.amountEngine) + parseInt(account.amountSaas) + parseInt(account.amountDocker)) + "€")
+        for (const c of account.payments) {
+          $("#card-info-none").addClass('d-none')
+          $("#card-info").html('<div class="container"><div class="row"><div class="col-4"><i class="fab fa-cc-visa fa-3x text-primary"></i> </div><div class="col-6 text-uppercase px-1 pt-2"><b>' + c.card.brand + ' **** ' + c.card.last4 + '</b><br><i class="small muted">' + findLang("expire-text") + ' ' + c.card.exp_month + '/' + c.card.exp_year + '</i></div><div class="col-2"><button class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete payment" onclick="deletePayment(\'' + c.id + '\');" ' + (parseInt(account.amount) === 0 ? '' : 'disabled') + '><i class="fas fa-trash-alt"></i> </button></div></div></div>')
+        }
       } else {
         $("#setup-payment").removeClass('disabled')
         $("#delete").attr('disabled', false)
       }
-      for (const c of account.payments) {
-        $("#card-info-none").addClass('d-none')
-        $("#card-info").html('<div class="container"><div class="row"><div class="col-4"><i class="fab fa-cc-visa fa-3x text-primary"></i> </div><div class="col-6 text-uppercase px-1 pt-2"><b>' + c.card.brand + ' **** ' + c.card.last4 + '</b><br><i class="small muted">' + findLang("expire-text") + ' ' + c.card.exp_month + '/' + c.card.exp_year + '</i></div><div class="col-2"><button class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete payment" onclick="deletePayment(\'' + c.id + '\');" ' + (parseInt(account.amount) === 0 ? '' : 'disabled') + '><i class="fas fa-trash-alt"></i> </button></div></div></div>')
-      }
-
     } else {
       $("#delete").attr('disabled', false)
     }
