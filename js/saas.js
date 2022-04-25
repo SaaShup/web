@@ -59,7 +59,7 @@ function saveProfile() {
         return
     }
     $("#modalNotificationTitle").html(findLang("saveLabel"));
-    $("#modalNotificationContent").html('<div class="container text-center">' + findLang("save-text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+    $("#modalNotificationContent").html('<div class="container text-center">' + findLang("save-text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/saashup2.png" width="128" height="128"/></div></div></div>');
     $("#modalNotification").modal("show");
     $("#modalNotificationOk").attr("disabled",true)
     $.ajax({
@@ -166,7 +166,7 @@ function removeEngine(id) {
         $("#modalQuestion").modal("hide");
         $("#modalNotificationTitle").html(findLang("delete_engine_title"));
         $("#modalQuestionYes").html(findLang("modalQuestionYes"))
-        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("delete_engine_text_wait") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("delete_engine_text_wait") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/saashup2.png" width="128" height="128"/></div></div></div>');
         $("#modalNotification").modal("show");
         $.ajax({
             url: "https://saas.saashup.com/api/engine/" + user.email + "/" + Object.keys(account.engine)[0],
@@ -199,7 +199,7 @@ function removeDocker(id) {
     $("#modalQuestionYes").on("click", function () {
         $("#modalQuestion").modal("hide");
         $("#modalNotificationTitle").html(findLang("remove-docker-spinner-text"));
-        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("remove-docker-spinner-text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("remove-docker-spinner-text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/saashup2.png" width="128" height="128"/></div></div></div>');
         $("#modalNotification").modal("show");
         $.ajax({
             url: "https://saas.saashup.com/api/docker/" + user["email"] + "/" + id,
@@ -223,7 +223,7 @@ function addEngine() {
     if (!('engine' in account)) account.engine = {};
     if (Object.keys(account.engine).length < account.limits.engine) {
         $("#modalNotificationTitle").html(findLang("create_engine_title"));
-        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("create_engine_text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("create_engine_text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/saashup2.png" width="128" height="128"/></div></div></div>');
         $("#modalNotification").modal("show");
         $.ajax({
             url: "https://saas.saashup.com/api/engine/" + user.email,
@@ -367,7 +367,7 @@ function deleteSaas() {
     $("#modalQuestionYes").on("click", function () {
         $("#modalQuestion").modal("hide");
         $("#modalNotificationTitle").html(findLang("delete_saas_title"));
-        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("delete_saas_text_wait") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("delete_saas_text_wait") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/saashup2.png" width="128" height="128"/></div></div></div>');
         $("#modalNotification").modal("show");
         $.ajax({
             url: "https://saas.saashup.com/api/saas/" + user.email + "/" + (Object.keys(account.saas)[0].split('/').length > 1 ? Object.keys(account.saas)[0].split('/')[1] : Object.keys(account.saas)[0]),
@@ -401,8 +401,8 @@ function refreshSaas(saas) {
         if ($("#searchInput").val() !== "" && s.match($("#searchInput").val())) bgcolor = 'bg-success text-white';
         $("#saas-list").append('<div class="card my-4"><div class="card-header ' + bgcolor + '"><i class="fas fa-cubes"></i> ' + s + '</div><div class="card-body"><div class="container">\
             <div class="row">\
-                <div class="col-sm-12 col-md-6 p-1">Saas: <a href="https://' + s + '.saashup.com" target="_blank">https://' + s + '.saashup.com</a></div>\
-                <div class="col-sm-12 col-md-6 p-1">Admin: <a href="https://' + s + '.saashup.com/admin" target="_blank">https://' + s + '.saashup.com/admin</a></div>\
+                <div class="col-sm-12 col-md-6 p-1">Saas: <a href="https://' + ('name' in saas[s] ? saas[s].name : s ) + '.saashup.com" target="_blank">https://' + ('name' in saas[s] ? saas[s].name : s ) + '.saashup.com</a></div>\
+                <div class="col-sm-12 col-md-6 p-1">Admin: <a href="https://' + ('name' in saas[s] ? saas[s].name : s ) + '.saashup.com/admin" target="_blank">https://' + ('name' in saas[s] ? saas[s].name : s ) + '.saashup.com/admin</a></div>\
                 <div class="col-sm-6 col-md-6 p-1">Plan: ' + saas[s].type + '</div>\
                 <div class="col-sm-6 col-md-6 p-1">Memory: ' + saas[s].memory + ' Mb</div>\
                 <div class="col-sm-12 col-md-12 p-1">Created on: ' + saas[s].date.replace('T',' ').substring(0,19) + '</h5>\
@@ -549,7 +549,7 @@ function upgradeMemory(server) {
         $("#modalNotificationOk").attr("disabled", true)
         $("#modalNotificationOk").unbind();
         $("#modalNotificationTitle").html(findLang('memory-server-title'));
-        $("#modalNotificationContent").html('<div class="text-center"><div>' + findLang('memory-server-spinner-text') + '</div><div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/logo_saashup.png" width="32" height="32"/></div></div></div>');
+        $("#modalNotificationContent").html('<div class="text-center"><div>' + findLang('memory-server-spinner-text') + '</div><div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/logo_saashup.png" width="128" height="128"/></div></div></div>');
         $("#modalNotification").modal("show");
         $.ajax({
             url: "https://saas.saashup.com/api/upgrade/" + user.email + "/" + server,
@@ -693,7 +693,7 @@ $(document).ready(function () {
         $("#modalNotificationOk").attr("disabled", true)
         $("#modalNotificationOk").unbind();
         $("#modalNotificationTitle").html(findLang("createEnvModalTitle"));
-        $("#modalNotificationContent").html('<div class="text-center"><div>' + findLang("create-docker-spinner-text") + '</div><div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/logo_saashup.png" width="32" height="32"/></div></div></div>');
+        $("#modalNotificationContent").html('<div class="text-center"><div>' + findLang("create-docker-spinner-text") + '</div><div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/logo_saashup.png" width="128" height="128"/></div></div></div>');
         $("#modalNotification").modal("show");
         $.ajax({
             url: "https://saas.saashup.com/api/docker/" + user["email"],
@@ -824,7 +824,7 @@ $(document).ready(function () {
     })
 
     $("#buySaas").on("click", function (event) {
-        if (account !== null && 'engine' in account && Object.keys(account.engine).length > 0) {
+        if (account !== null) {
             $("#saasAttach").html('');
             for (const s in account.engine) {
                 $("#saasAttach").append("<option>" + s + "</option>")
@@ -859,16 +859,9 @@ $(document).ready(function () {
                 $("#modalNotification").modal("show");
                 return
             }
-            if ($("#image").val().startsWith("portainer") || $("#image").val().startsWith("nodered")) {
-                event.preventDefault()
-                $("#modalNotificationTitle").html(findLang("create_saas_error_title"));
-                $("#modalNotificationContent").html(findLang("create_saas_image_not_permitted"));
-                $("#modalNotification").modal("show");
-                return
-            }
         }
         $("#modalNotificationTitle").html(findLang("create_saas_title"));
-        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("create_saas_text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle"><div class="spinner"></div><img class="spinner-img" src="/img/saashup2.png" width="32" height="32"/></div></div></div>');
+        $("#modalNotificationContent").html('<div class="container text-center">' + findLang("create_saas_text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/saashup2.png" width="128" height="128"/></div></div></div>');
         $("#modalNotification").modal("show");
         $.ajax({
             url: "https://saas.saashup.com/api/saas/" + user.email,
@@ -884,7 +877,6 @@ $(document).ready(function () {
                 type: $("#plan-type-select").val().toLowerCase(),
                 port: $("#port").val(),
                 price: $("#price").val(),
-                password: $("#password").val() || "password",
                 basic: btoa("admin:" + ($("#password").val() || "password")),
                 memory: $("#memory").val(),
                 compose: compose

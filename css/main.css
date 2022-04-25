@@ -64,6 +64,23 @@ h5 {
     box-sizing: border-box;
 }
 
+.spinner-circle-lg {
+    width: 256px;
+    height: 256px;
+    position: relative;
+    margin: 20px;
+  }
+  
+  .spinner-lg {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 12px solid rgba(0, 0, 0, 0.3);
+    border-right: 12px solid #0d6efd;
+    animation: rotate--spinner 1.6s linear infinite;
+    box-sizing: border-box;
+  }
+
 .spinner-img {
     position: absolute;
     left: 50%; top: 50%;
