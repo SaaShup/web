@@ -27,6 +27,7 @@ const lang = {
         "engine-text": "A docker management engine and ui",
         "nginx-text": "Advanced Load Balancer, Web Server, &amp; Reverse Proxy",
         "Gotenberg-text": "stateless API for PDF files",
+        "portainer-text": "Container management made easy",
         "traccar-text": "Modern GPS tracking platform",
         "redis-text": "Open source in-memory data structure store",
         "mysql-text": "The world's most popular open source database",
