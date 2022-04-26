@@ -879,6 +879,7 @@ $(document).ready(function () {
                 price: $("#price").val(),
                 basic: btoa("admin:" + ($("#password").val() || "password")),
                 memory: $("#memory").val(),
+                volume: $("#volume").val(),
                 compose: compose
             }
           }).done(function (result) {
