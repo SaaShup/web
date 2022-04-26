@@ -24,7 +24,7 @@ const lang = {
         "plan-title": "Plans",
         "compare-plan-title": "Compare plans",
         "pricing-title": "Pricing",
-        "engine-text": "A centralized service delivery platform for containerized apps",
+        "engine-text": "A docker management engine and ui",
         "nginx-text": "Advanced Load Balancer, Web Server, &amp; Reverse Proxy",
         "Gotenberg-text": "stateless API for PDF files",
         "traccar-text": "Modern GPS tracking platform",
