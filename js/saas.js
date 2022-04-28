@@ -899,7 +899,7 @@ $(document).ready(function () {
                 basic: btoa("admin:" + ($("#password").val() || "password")),
                 memory: $("#memory").val(),
                 volume: $("#volume").val(),
-                env: $("#env").val(),
+                env: eval($("#env").val()) || [],
                 compose: compose
             }
         }).done(function (result) {
