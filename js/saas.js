@@ -6,20 +6,20 @@ function apiFail(jqXHR, textStatus, errorThrown) {
     switch (jqXHR.status.toString()) {
         case "401":
         case "403":
-            setTimeout(function() {
-                $("#modalNotificationOk").attr("disabled",true)
+            setTimeout(function () {
+                $("#modalNotificationOk").attr("disabled", true)
                 $("#modalNotificationTitle").html(findLang("logout-required-title-text"));
                 $("#modalNotificationContent").html('<div class="text-center">' + findLang("logout-required-text") + '</div>');
                 logout()
             }, 5000);
             break;
         case "402":
-            $("#modalNotificationOk").attr("disabled",false)
+            $("#modalNotificationOk").attr("disabled", false)
             $("#modalNotificationTitle").html('Payment required');
             $("#modalNotificationContent").html('<div class="text-center">' + findLang("limit-reached-text") + '</div>');
             break;
-        default: 
-            $("#modalNotificationOk").attr("disabled",false)
+        default:
+            $("#modalNotificationOk").attr("disabled", false)
             $("#modalNotificationTitle").html(findLang('Oops'));
             $("#modalNotificationContent").html('<div class="text-center">' + findLang("auth-sth-wrong-required-text") + '</div>');
     }
@@ -61,7 +61,7 @@ function saveProfile() {
     $("#modalNotificationTitle").html(findLang("saveLabel"));
     $("#modalNotificationContent").html('<div class="container text-center">' + findLang("save-text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/saashup2.png" width="128" height="128"/></div></div></div>');
     $("#modalNotification").modal("show");
-    $("#modalNotificationOk").attr("disabled",true)
+    $("#modalNotificationOk").attr("disabled", true)
     $.ajax({
         url: "https://saas.saashup.com/api/account/" + account["id"] + "/payment/" + user["email"] + "/pm/" + account.payments[0].id,
         method: "PUT",
@@ -73,21 +73,21 @@ function saveProfile() {
         data: {
             billing_details: {
                 address: {
-                  city: $("#billing-city").val(),
-                  country: $("#billing-country").val(),
-                  line1: $("#billing-street").val(),
-                  postal_code: $("#billing-zip").val()
+                    city: $("#billing-city").val(),
+                    country: $("#billing-country").val(),
+                    line1: $("#billing-street").val(),
+                    postal_code: $("#billing-zip").val()
                 },
                 name: $("#billing-name").val(),
                 phone: $("#billing-phone").val()
-              }
+            }
         }
     }).done(function (result) {
         account = result;
         setTimeout(function () {
             $("#modalNotification").modal("hide");
             $("#nav-admin-btn").click();
-          }, 1000)
+        }, 1000)
     }).fail(function (jqXHR, textStatus, errorThrown) {
         apiFail(jqXHR, textStatus, errorThrown);
     })
@@ -103,8 +103,8 @@ function appProfile() {
     if (account) rows += '<div class="col-12"><div class="mb-1 row"><div class="col-6 text-center"><img class="rounded-circle" src="' + user.picture + '" width="64px;"></div><div class="col-6"><label class="col-sm-12 col-md-12 col-form-label">' + findLang('name-text') + '</label><div class="col-sm-12 col-md-12 "><input class="form-control-plaintext" value="' + user.name + '" readonly /></div></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-6 col-form-label">Provider</label><div class="col-6">' + provider + '</div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('email-text') + ':</label><div class="col-sm-12 col-md-6 "><input type="text" class="form-control-plaintext" value="' + user.email + '" readonly /></div></div></div>\
-    <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('lang-text') + ':</label><div class="col-sm-12 col-md-6 "><img src="/img/' + ('locale' in user ? user.locale: 'en') + '.png" width="32px;"/></div></div></div>\
-    <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('creation-date-text') + ':</label><div class="col-sm-12 col-md-6 "><input type="text" class="form-control-plaintext" value="' + account.date.replace('T', ' ').substring(0,19) + '" readonly /></div></div></div>\
+    <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('lang-text') + ':</label><div class="col-sm-12 col-md-6 "><img src="/img/' + ('locale' in user ? user.locale : 'en') + '.png" width="32px;"/></div></div></div>\
+    <div class="col-12"><div class="mb-1 row"><label class="col-sm-12 col-md-6 col-form-label">' + findLang('creation-date-text') + ':</label><div class="col-sm-12 col-md-6 "><input type="text" class="form-control-plaintext" value="' + account.date.replace('T', ' ').substring(0, 19) + '" readonly /></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-6 col-form-label">' + findLang('engine-limits-text') + ':</label><div class="col-6">' + Object.keys(account.engine).length + ' / ' + account.limits.engine + ' ' + (parseInt(account.limits.engine) <= Object.keys(account.engine).length ? '<i class="fas fa-exclamation-circle text-warning">' : '') + '</i></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-6 col-form-label">' + findLang('dockers-limits-text') + ':</label><div class="col-6">' + Object.keys(account.dockers).length + ' / ' + account.limits.dockers + ' ' + (parseInt(account.limits.dockers) <= Object.keys(account.dockers).length ? '<i class="fas fa-exclamation-circle text-warning">' : '') + '</i></div></div></div>\
     <div class="col-12"><div class="mb-1 row"><label class="col-6 col-form-label">' + findLang('saas-limits-text') + ':</label><div class="col-6">' + Object.keys(account.saas).length + ' / ' + account.limits.saas + ' ' + (parseInt(account.limits.saas) <= Object.keys(account.saas).length ? '<i class="fas fa-exclamation-circle text-warning">' : '') + '</i></div></div></div>';
@@ -129,9 +129,9 @@ function stripeGO() {
     $("#modalNotificationTitle").html(findLang('setup-payment-title'));
     $("#modalNotificationContent").html(findLang('setup-payment-text'));
     $("#modalNotification").modal("show");
-    $("#modalNotificationOk").attr("disabled",true)
-        $.ajax({
-            url: "https://saas.saashup.com/api/payment/session/" + user.email,
+    $("#modalNotificationOk").attr("disabled", true)
+    $.ajax({
+        url: "https://saas.saashup.com/api/payment/session/" + user.email,
         method: "POST",
         dataType: "json",
         beforeSend: function (xhr) {
@@ -143,19 +143,19 @@ function stripeGO() {
             cancel_url: window.location.origin + '/saas?payment=cancelled',
             mode: "setup"
         }
-        }).done(function (session) {
-            $("#modalNotification").modal("hide");
-            stripe.redirectToCheckout({
-                    "sessionId": session.id
-                })
-                .then(function (result) {
-                    if (result.error) {
-                        console.log(result)
-                    }
-                });
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-            apiFail(jqXHR, textStatus, errorThrown);
-        })
+    }).done(function (session) {
+        $("#modalNotification").modal("hide");
+        stripe.redirectToCheckout({
+                "sessionId": session.id
+            })
+            .then(function (result) {
+                if (result.error) {
+                    console.log(result)
+                }
+            });
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        apiFail(jqXHR, textStatus, errorThrown);
+    })
 }
 
 function removeEngine(id) {
@@ -172,20 +172,22 @@ function removeEngine(id) {
             url: "https://saas.saashup.com/api/engine/" + user.email + "/" + Object.keys(account.engine)[0],
             method: "DELETE",
             beforeSend: function (xhr) {
-              xhr.setRequestHeader("x-auth-token", user.jwt.token)
+                xhr.setRequestHeader("x-auth-token", user.jwt.token)
             },
-            data: { "engine": id },
+            data: {
+                "engine": id
+            },
             dataType: "json"
-          }).done(function (result) {
-              account = result;
-              setTimeout(function () {
+        }).done(function (result) {
+            account = result;
+            setTimeout(function () {
                 $("#modalNotification").modal("hide");
                 refreshCard(account.engine);
-              }, 1000);
-          }).fail(function (jqXHR, textStatus, errorThrown) {
+            }, 1000);
+        }).fail(function (jqXHR, textStatus, errorThrown) {
             $("#modalNotification").modal("hide");
             apiFail(jqXHR, textStatus, errorThrown);
-          })
+        })
     })
     $("#modalQuestion").modal("show");
 }
@@ -212,7 +214,7 @@ function removeDocker(id) {
             setTimeout(function () {
                 $("#modalNotification").modal("hide");
                 $("#nav-home-btn").click();
-              }, 1000)
+            }, 1000)
         }).fail(function (jqXHR, textStatus, errorThrown) {
             apiFail(jqXHR, textStatus, errorThrown);
         })
@@ -230,19 +232,19 @@ function addEngine() {
             method: "POST",
             timeout: 30000,
             beforeSend: function (xhr) {
-              xhr.setRequestHeader("x-auth-token", user.jwt.token)
+                xhr.setRequestHeader("x-auth-token", user.jwt.token)
             },
             dataType: "json",
-          }).done(function (result) {
-              account = result;
-              setTimeout(function () {
+        }).done(function (result) {
+            account = result;
+            setTimeout(function () {
                 $("#modalNotification").modal("hide");
                 $("#nav-home-btn").click();
-              }, 1000)
-          }).fail(function (jqXHR, textStatus, errorThrown) {
+            }, 1000)
+        }).fail(function (jqXHR, textStatus, errorThrown) {
             $("#modalNotification").modal("hide");
             apiFail(jqXHR, textStatus, errorThrown);
-          })
+        })
     } else {
         $("#modalNotificationOk").unbind();
         $("#modalNotificationContent").html(findLang("limit-reached-text"))
@@ -253,22 +255,22 @@ function addEngine() {
 
 function fileDownload(url, name) {
     fetch(url, {
-        headers: {
-            "x-auth-token": user.jwt.token
-        }
-      })
-      .then(response => response.blob())
-      .then(blob => {
-        const blobURL = URLObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = blobURL;
-        a.style = "display: none";
+            headers: {
+                "x-auth-token": user.jwt.token
+            }
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            const blobURL = URLObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = blobURL;
+            a.style = "display: none";
 
-        a.download = name;
-        document.body.appendChild(a);
-        a.click();
-      })
-      .catch(() => setError(true));
+            a.download = name;
+            document.body.appendChild(a);
+            a.click();
+        })
+        .catch(() => setError(true));
 }
 
 function copyPassword(id) {
@@ -289,7 +291,7 @@ function copyText(id) {
     $("#clipboard_" + id).toast('show');
 }
 
-function deletePayment(id){
+function deletePayment(id) {
     $("#cus-details").removeClass("d-none")
     $("#modalQuestionYes").html(findLang('modalDockerYes'))
     $("#modalQuestionTitle").html(findLang('remove-payment-title'))
@@ -306,12 +308,12 @@ function deletePayment(id){
             }
         }).done(function () {
             for (const p in account.payments) {
-                if (account.payments[p].id === id) account.payments.splice(p,1)
+                if (account.payments[p].id === id) account.payments.splice(p, 1)
             }
             if (account.payments.length > 0) {
                 $("#card-info-none").addClass('d-none')
                 for (const c of account.payments) {
-                    $("#card-info").html('<div class="container"><div class="row"><div class="col-4"><i class="fab fa-cc-visa fa-3x text-primary"></i> </div><div class="col-6 text-uppercase px-1 pt-2"><b>' + c.card.brand + ' **** ' + c.card.last4 + '</b><br><i class="small muted">' + findLang("expire-text") + ' ' + c.card.exp_month + '/' + c.card.exp_year + '</i></div><div class="col-2"><button class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete payment" onclick="deletePayment(\'' + c.id+ '\');" ' + (parseInt(account.amount) === 0 ? '' : 'disabled' ) + '><i class="fas fa-trash-alt"></i> </button></div></div></div>')
+                    $("#card-info").html('<div class="container"><div class="row"><div class="col-4"><i class="fab fa-cc-visa fa-3x text-primary"></i> </div><div class="col-6 text-uppercase px-1 pt-2"><b>' + c.card.brand + ' **** ' + c.card.last4 + '</b><br><i class="small muted">' + findLang("expire-text") + ' ' + c.card.exp_month + '/' + c.card.exp_year + '</i></div><div class="col-2"><button class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete payment" onclick="deletePayment(\'' + c.id + '\');" ' + (parseInt(account.amount) === 0 ? '' : 'disabled') + '><i class="fas fa-trash-alt"></i> </button></div></div></div>')
                 }
             } else {
                 $("#card-info-none").removeClass('d-none')
@@ -325,7 +327,7 @@ function deletePayment(id){
     })
 }
 
-function deleteAccount(){
+function deleteAccount() {
     $("#modalQuestionYes").html(findLang('delete-account-text-btn'))
     $("#modalQuestionTitle").html(findLang('delete-account-title'))
     $("#modalQuestionContent").html(findLang('delete-account-text'))
@@ -333,7 +335,7 @@ function deleteAccount(){
     $("#modalQuestionYes").unbind();
     $("#modalQuestionYes").on("click", function () {
         let paymentTmp = [];
-        if (account && 'payments' in account && account.payments !== null){
+        if (account && 'payments' in account && account.payments !== null) {
             for (const p of account.payments) {
                 paymentTmp.push(p.id)
             }
@@ -347,7 +349,9 @@ function deleteAccount(){
             },
             contentType: "application/json",
             dataType: "json",
-            data: JSON.stringify({ payments: [paymentTmp] })
+            data: JSON.stringify({
+                payments: [paymentTmp]
+            })
         }).done(function () {
             $("#modalNotificationOk").unbind();
             $("#modalNotificationTitle").html(findLang("logout-required-title-text"));
@@ -373,20 +377,22 @@ function deleteSaas() {
             url: "https://saas.saashup.com/api/saas/" + user.email + "/" + (Object.keys(account.saas)[0].split('/').length > 1 ? Object.keys(account.saas)[0].split('/')[1] : Object.keys(account.saas)[0]),
             method: "DELETE",
             beforeSend: function (xhr) {
-              xhr.setRequestHeader("x-auth-token", user.jwt.token)
+                xhr.setRequestHeader("x-auth-token", user.jwt.token)
             },
-            data: { "saas": Object.keys(account.saas)[0] },
+            data: {
+                "saas": Object.keys(account.saas)[0]
+            },
             dataType: "json"
-          }).done(function (result) {
-              account = result;
-              setTimeout(function () {
+        }).done(function (result) {
+            account = result;
+            setTimeout(function () {
                 $("#modalNotification").modal("hide");
                 refreshSaas(account.saas);
-              }, 1000);
-          }).fail(function (jqXHR, textStatus, errorThrown) {
+            }, 1000);
+        }).fail(function (jqXHR, textStatus, errorThrown) {
             $("#modalNotification").modal("hide");
             apiFail(jqXHR, textStatus, errorThrown);
-          })
+        })
     })
     $("#modalQuestion").modal("show");
 }
@@ -401,11 +407,11 @@ function refreshSaas(saas) {
         if ($("#searchInput").val() !== "" && s.match($("#searchInput").val())) bgcolor = 'bg-success text-white';
         $("#saas-list").append('<div class="card my-4"><div class="card-header ' + bgcolor + '"><i class="fas fa-cubes"></i> ' + s + '</div><div class="card-body"><div class="container">\
             <div class="row">\
-                <div class="col-sm-12 col-md-6 p-1">Saas: <a href="https://' + ('name' in saas[s] ? saas[s].name : s ) + '.saashup.com" target="_blank">https://' + ('name' in saas[s] ? saas[s].name : s ) + '.saashup.com</a></div>\
-                <div class="col-sm-12 col-md-6 p-1">Admin: <a href="https://' + ('name' in saas[s] ? saas[s].name : s ) + '.saashup.com/admin" target="_blank">https://' + ('name' in saas[s] ? saas[s].name : s ) + '.saashup.com/admin</a></div>\
+                <div class="col-sm-12 col-md-6 p-1">Saas: <a href="https://' + ('name' in saas[s] ? saas[s].name : s) + '.saashup.com" target="_blank">https://' + ('name' in saas[s] ? saas[s].name : s) + '.saashup.com</a></div>\
+                <div class="col-sm-12 col-md-6 p-1">Admin: <a href="https://' + ('name' in saas[s] ? saas[s].name : s) + '.saashup.com/admin" target="_blank">https://' + ('name' in saas[s] ? saas[s].name : s) + '.saashup.com/admin</a></div>\
                 <div class="col-sm-6 col-md-6 p-1">Plan: ' + saas[s].type + '</div>\
                 <div class="col-sm-6 col-md-6 p-1">Memory: ' + saas[s].memory + ' Mb</div>\
-                <div class="col-sm-12 col-md-12 p-1">Created on: ' + saas[s].date.replace('T',' ').substring(0,19) + '</h5>\
+                <div class="col-sm-12 col-md-12 p-1">Created on: ' + saas[s].date.replace('T', ' ').substring(0, 19) + '</h5>\
                 <div class="row m-4"><div class="col-sm-4 col-md-4"><span class="badge bg-success px-4 py-2">' + saas[s].status.toUpperCase() + '</span></div>\
                 <div class="col-sm-2 col-md-2"><button class="btn btn-outline-primary disabled" onclick="upgradeSaasMemory()"><i class="fas fa-memory"></i> </button></div><div class="col-sm-2 col-md-2"><button class="btn btn-outline-danger" onclick="deleteSaas();"><i class="fas fa-trash-alt"></i></button></div></div>\
             </div></div></div></div>')
@@ -435,22 +441,22 @@ function refreshDocker(dockers) {
             <div class="badge ' + (dockers[s].status === "ok" ? 'bg-success' : 'bg-warning') + '">' + dockers[s].status + '</div>\
         </div>\
         <div class="col-sm-12 col-md-6 small p-1">Engine : <a href="https://' + dockers[s].engine + '.saashup.com" target="_blank">' + dockers[s].engine + '</a></div>\
-        <div class="col-sm-12 col-md-6 small p-1">' + findLang("creationLabel") + ' : ' + ('date' in dockers[s] ? dockers[s].date : new Date(parseInt(s)).toISOString().replace('T',' ').substring(0,19)) + '</div>\
+        <div class="col-sm-12 col-md-6 small p-1">' + findLang("creationLabel") + ' : ' + ('date' in dockers[s] ? dockers[s].date : new Date(parseInt(s)).toISOString().replace('T', ' ').substring(0, 19)) + '</div>\
         <div class="col-sm-12 col-md-6 small p-1">' + findLang("monthlyPriceLabel") + ' : ' + dockers[s].price + '€</div><div class="col-sm-12 col-md-6 small p-1">Type : ' + dockers[s].flavor + '</div>\
         <div class="col-9 small p-1"></div>\
         <div class="col-3 ' + (dockers[s].status === "ok" ? '' : 'd-none') + ' p-1"><button class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete instance" onclick="removeDocker(\'' + s + '\')" id="' + s + '" ' + (dockers[s].status === "ok" ? '' : 'disabled') + '><i class="fas fa-trash-alt"></i> </button></div>\
         </div></div></div></div><br>');
     }
-    if (refresh) setTimeout(function() { 
+    if (refresh) setTimeout(function () {
         $.ajax({
             url: "https://saas.saashup.com/api/account/" + user.email,
             beforeSend: function (xhr) {
-              xhr.setRequestHeader("x-auth-token", user.jwt.token) 
+                xhr.setRequestHeader("x-auth-token", user.jwt.token)
             }
-          }).done(function (result) {
+        }).done(function (result) {
             account = result;
             refreshDocker(account.dockers)
-          })
+        })
     }, 30000);
 }
 
@@ -494,7 +500,7 @@ function refreshCard(servers) {
         $("#empty").addClass('d-none');
         let bgcolor = 'bg-primary text-white';
         if ($("#searchInput").val() !== "" && s.match($("#searchInput").val())) bgcolor = 'bg-success text-white';
-        rows += '<div class="card"><div class="card-header ' + bgcolor + '"><i class="fas fa-database"></i> ' + ('name' in servers[s] ? servers[s].name : s ) + ' <a href="#" onclick="setServerName(\'' + s + '\', \'' + ('name' in servers[s] ? servers[s].name : s ) + '\');" style="color:white !important;"><i class="fas fa-edit"></i></a> <span style="float:right;"><button class="btn ' + bgcolor + '" data-bs-toggle="collapse" data-bs-target="#server-card-body-' + s + '"><i class="fas fa-caret-up"></i></button></span></div>\
+        rows += '<div class="card"><div class="card-header ' + bgcolor + '"><i class="fas fa-database"></i> ' + ('name' in servers[s] ? servers[s].name : s) + ' <a href="#" onclick="setServerName(\'' + s + '\', \'' + ('name' in servers[s] ? servers[s].name : s) + '\');" style="color:white !important;"><i class="fas fa-edit"></i></a> <span style="float:right;"><button class="btn ' + bgcolor + '" data-bs-toggle="collapse" data-bs-target="#server-card-body-' + s + '"><i class="fas fa-caret-up"></i></button></span></div>\
         <div class="card-body collapse ' + (servers.length > 3 ? '' : 'show') + '" id="server-card-body-' + s + '"><div class="container"><div class="row">\
         <div class="col-8">\
             <div class="col-12"><a href="https://' + s + '.saashup.com" class="card-title" target="_blank">' + s + '</a></div>\
@@ -502,10 +508,10 @@ function refreshCard(servers) {
         <div class="col-4 text-center">\
             <img src="/img/logo_saashup.png" width="64px"/>\
         </div>\
-        <div class="col-sm-12 col-md-8 small p-1">' + findLang("creation-date-text") + ': ' + ('date' in servers[s] ? servers[s].date.replace('T',' ').substring(0,16) : 'na') + '</div>\
-        <div class="col-sm-12 col-md-4 small p-1">' + findLang("memoryLabel") + ': ' + ('memory' in servers[s] ? parseInt(servers[s].memory): 0 )+ ' Mb</div>\
+        <div class="col-sm-12 col-md-8 small p-1">' + findLang("creation-date-text") + ': ' + ('date' in servers[s] ? servers[s].date.replace('T', ' ').substring(0, 16) : 'na') + '</div>\
+        <div class="col-sm-12 col-md-4 small p-1">' + findLang("memoryLabel") + ': ' + ('memory' in servers[s] ? parseInt(servers[s].memory) : 0) + ' Mb</div>\
         <div class="col-sm-12 col-md-8 small p-1">' + findLang("monthlyPriceLabel") + ': ' + ('flavor' in servers[s] ? servers[s].flavor : 'na') + '€</div>';
-        if (servers[s].password === true) { 
+        if (servers[s].password === true) {
             rows += '<div class="col-12 small p-1">' + findLang("passwordLabel") + ': ******** <input class="form-control d-none" id="input_server_' + servers[s].id + '" value="' + ('pwd' in servers[s] ? servers[s].pwd : servers[s].id) + '" readonly /><a href="#" onclick="copyPassword(\'' + servers[s].id + '\');"><i class="fas fa-copy"></i></a></div>'
             rows += '<div class="toast" data-bs-delay="1000" id="clipboard_server_' + servers[s].id + '" role="alert" aria-live="assertive" aria-atomic="true"><div class="toast-body">' + findLang("copy-clipboard-text") + '</div></div>'
         }
@@ -571,10 +577,10 @@ function upgradeMemory(server) {
 
 function selectLangFlag(l) {
     for (const la in lang) {
-        $("#"+la+"FlagLang").removeClass('selected-flag');        
+        $("#" + la + "FlagLang").removeClass('selected-flag');
     }
     user.lang = l;
-    $("#"+l+"FlagLang").addClass('selected-flag');
+    $("#" + l + "FlagLang").addClass('selected-flag');
 }
 
 function setLang() {
@@ -585,8 +591,8 @@ function setLang() {
     for (let l in lang) rows += '<div class="col-4"><img id="' + l + 'FlagLang" src="/img/' + l + '.png" width="64px" onclick="selectLangFlag(\'' + l + '\');" class="rounded-circle"/></div>';
     rows += '</div></div>';
     $("#modalQuestionContent").html(rows);
-    if ('lang' in user) $("#"+user.lang+"FlagLang").addClass('selected-flag');
-    else if ('locale' in user) $("#"+user.locale+"FlagLang").addClass('selected-flag');
+    if ('lang' in user) $("#" + user.lang + "FlagLang").addClass('selected-flag');
+    else if ('locale' in user) $("#" + user.locale + "FlagLang").addClass('selected-flag');
     $("#modalQuestion").modal("show");
     $("#modalQuestionYes").unbind();
     $("#modalQuestionYes").on("click", function () {
@@ -624,7 +630,9 @@ function validateCompose(compose) {
 }
 
 $(document).ready(function () {
-    $.ajaxSetup({timeout: 15000});
+    $.ajaxSetup({
+        timeout: 15000
+    });
     if (user === null) user = JSON.parse(window.localStorage.getItem('user'));
 
     updateLang();
@@ -639,34 +647,34 @@ $(document).ready(function () {
         window.history.replaceState({}, document.title, "/");
     }
 
-    $('.nav-link').on('click', function() {
-        $( ".nav-link" ).each(function() { 
+    $('.nav-link').on('click', function () {
+        $(".nav-link").each(function () {
             $(this).removeClass('active');
         })
         $(this).addClass('active')
     })
 
-    $("#nav-admin-btn").on('click', function() {
+    $("#nav-admin-btn").on('click', function () {
         cls();
         appProfile();
         $("#admin").removeClass("d-none")
     })
 
-    $("#nav-home-btn").on('click', function() {
+    $("#nav-home-btn").on('click', function () {
         $.ajax({
             url: "https://saas.saashup.com/api/account/" + user.email,
             beforeSend: function (xhr) {
-              xhr.setRequestHeader("x-auth-token", user.jwt.token)
+                xhr.setRequestHeader("x-auth-token", user.jwt.token)
             }
-          }).done(function (result) {
-                account = result
-                cls();
-                refreshCard(account.engine);
-                refreshDocker(account.dockers);
-                refreshSaas(account.saas);
-                if (Object.keys(account.dockers).length + Object.keys(account.engine).length + Object.keys(account.saas).length > 0) $("#home").removeClass("d-none")
-                else $("#empty").removeClass("d-none")
-          }).fail(function (jqXHR, textStatus, errorThrown) {
+        }).done(function (result) {
+            account = result
+            cls();
+            refreshCard(account.engine);
+            refreshDocker(account.dockers);
+            refreshSaas(account.saas);
+            if (Object.keys(account.dockers).length + Object.keys(account.engine).length + Object.keys(account.saas).length > 0) $("#home").removeClass("d-none")
+            else $("#empty").removeClass("d-none")
+        }).fail(function (jqXHR, textStatus, errorThrown) {
             apiFail(jqXHR, textStatus, errorThrown);
         })
     })
@@ -715,7 +723,7 @@ $(document).ready(function () {
             setTimeout(function () {
                 $("#modalNotification").modal("hide");
                 $("#nav-home-btn").click();
-              }, 1000)
+            }, 1000)
         }).fail(function (jqXHR, textStatus, errorThrown) {
             apiFail(jqXHR, textStatus, errorThrown);
         })
@@ -778,14 +786,14 @@ $(document).ready(function () {
                 data: {
                     billing_details: {
                         address: {
-                          city: $("#billing-city").val(),
-                          country: $("#billing-country").val(),
-                          line1: $("#billing-street").val(),
-                          postal_code: $("#billing-zip").val()
+                            city: $("#billing-city").val(),
+                            country: $("#billing-country").val(),
+                            line1: $("#billing-street").val(),
+                            postal_code: $("#billing-zip").val()
                         },
                         name: $("#billing-name").val(),
                         phone: $("#billing-phone").val()
-                      }
+                    }
                 }
             }).done(function (result) {
                 account = result;
@@ -815,7 +823,7 @@ $(document).ready(function () {
             $("#modalNotificationContent").html("")
             for (const m of audits) {
                 let event = m._source['event'].split(":")[1];
-                if (["ContainerCreation","ContainerDeletion","DockerCreation","DockerDeletion"].includes(event)) $("#modalNotificationContent").append('<div class="bg-light border border-primary rounded p-3 text-center">' + m._source['@timestamp'].replace('T', ' ').substring(0,19) + ' - ' +  event + ' - ' + (m._source['server'] ? m._source['server'].replace(".saashup.com", ""): "") + '</div><br>')
+                if (["ContainerCreation", "ContainerDeletion", "DockerCreation", "DockerDeletion"].includes(event)) $("#modalNotificationContent").append('<div class="bg-light border border-primary rounded p-3 text-center">' + m._source['@timestamp'].replace('T', ' ').substring(0, 19) + ' - ' + event + ' - ' + (m._source['server'] ? m._source['server'].replace(".saashup.com", "") : "") + '</div><br>')
             }
             $("#modalNotification").modal("show");
         }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -859,6 +867,17 @@ $(document).ready(function () {
                 $("#modalNotification").modal("show");
                 return
             }
+            if ($("#env").val().length > 0 && Array.isArray(eval($("#env").val()))) {
+                for (const a in eval($("#env").val())) {
+                    if (eval($("#env").val())[a].split('=').length !== 2) {
+                        event.preventDefault()
+                        $("#modalNotificationTitle").html(findLang("create_saas_error_title"));
+                        $("#modalNotificationContent").html(findLang("create_env_error"));
+                        $("#modalNotification").modal("show");
+                        return
+                    }
+                }
+            }
         }
         $("#modalNotificationTitle").html(findLang("create_saas_title"));
         $("#modalNotificationContent").html('<div class="container text-center">' + findLang("create_saas_text") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/saashup2.png" width="128" height="128"/></div></div></div>');
@@ -868,7 +887,7 @@ $(document).ready(function () {
             method: "POST",
             timeout: 60000,
             beforeSend: function (xhr) {
-              xhr.setRequestHeader("x-auth-token", user.jwt.token)
+                xhr.setRequestHeader("x-auth-token", user.jwt.token)
             },
             dataType: "json",
             data: {
@@ -880,21 +899,22 @@ $(document).ready(function () {
                 basic: btoa("admin:" + ($("#password").val() || "password")),
                 memory: $("#memory").val(),
                 volume: $("#volume").val(),
+                env: $("#env").val(),
                 compose: compose
             }
-          }).done(function (result) {
-              account = result;
-              setTimeout(function () {
+        }).done(function (result) {
+            account = result;
+            setTimeout(function () {
                 $("#modalNotification").modal("hide");
                 $("#nav-home-btn").click();
-              }, 1000)
-          }).fail(function (jqXHR, textStatus, errorThrown) {
+            }, 1000)
+        }).fail(function (jqXHR, textStatus, errorThrown) {
             $("#modalNotification").modal("hide");
             apiFail(jqXHR, textStatus, errorThrown);
-          })
+        })
     })
 
-    $("#compose-window-btn").on("click", function() {
+    $("#compose-window-btn").on("click", function () {
         if ($("#classic-window").hasClass('d-none')) {
             $("#modalSaasYes").attr('disabled', false)
             $("#classic-window").removeClass('d-none')
@@ -906,7 +926,7 @@ $(document).ready(function () {
         }
     })
 
-    $(document).on('keypress',function(e) {
+    $(document).on('keypress', function (e) {
         if (e.which == 13 && $("#searchInput").val() !== "") {
             $("#search").click();
         }

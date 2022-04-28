@@ -97,7 +97,7 @@ const logout = async () => {
     user = null
     localStorage.removeItem('user');
     auth0.logout({
-      returnTo: window.location.origin
+      returnTo: window.location.origin + '/saas'
     });
   } catch (err) {
     console.log("Log out failed", err);
