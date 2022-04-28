@@ -405,16 +405,16 @@ function refreshSaas(saas) {
         $("#empty").addClass('d-none');
         let bgcolor = 'bg-primary text-white';
         if ($("#searchInput").val() !== "" && s.match($("#searchInput").val())) bgcolor = 'bg-success text-white';
-        $("#saas-list").append('<div class="card my-4"><div class="card-header ' + bgcolor + '"><i class="fas fa-cubes"></i> ' + s + '</div><div class="card-body"><div class="container">\
+        $("#saas-list").append('<div class="col-sm-12 ' + (Object.keys(saas).length === 1 ? 'col-md-12' : 'col-md-6') + '"><div class="card my-4"><div class="card-header ' + bgcolor + '"><i class="fas fa-cubes"></i> ' + s + '</div><div class="card-body"><div class="container">\
             <div class="row">\
                 <div class="col-sm-12 col-md-6 p-1">Saas: <a href="https://' + ('name' in saas[s] ? saas[s].name : s) + '.saashup.com" target="_blank">https://' + ('name' in saas[s] ? saas[s].name : s) + '.saashup.com</a></div>\
                 <div class="col-sm-12 col-md-6 p-1">Admin: <a href="https://' + ('name' in saas[s] ? saas[s].name : s) + '.saashup.com/admin" target="_blank">https://' + ('name' in saas[s] ? saas[s].name : s) + '.saashup.com/admin</a></div>\
                 <div class="col-sm-6 col-md-6 p-1">Plan: ' + saas[s].type + '</div>\
                 <div class="col-sm-6 col-md-6 p-1">Memory: ' + saas[s].memory + ' Mb</div>\
-                <div class="col-sm-12 col-md-12 p-1">Created on: ' + saas[s].date.replace('T', ' ').substring(0, 19) + '</h5>\
-                <div class="row m-4"><div class="col-sm-4 col-md-4"><span class="badge bg-success px-4 py-2">' + saas[s].status.toUpperCase() + '</span></div>\
-                <div class="col-sm-2 col-md-2"><button class="btn btn-outline-primary disabled" onclick="upgradeSaasMemory()"><i class="fas fa-memory"></i> </button></div><div class="col-sm-2 col-md-2"><button class="btn btn-outline-danger" onclick="deleteSaas();"><i class="fas fa-trash-alt"></i></button></div></div>\
-            </div></div></div></div>')
+                <div class="col-sm-12 col-md-12 p-1">Created on: ' + saas[s].date.replace('T', ' ').substring(0, 19) + '</div>\
+                <div class="row my-4"><div class="col-4"><span class="badge bg-success px-4 py-2">' + saas[s].status.toUpperCase() + '</span></div>\
+                <div class="col-4"><button class="btn btn-outline-primary disabled" onclick="upgradeSaasMemory()"><i class="fas fa-memory"></i> </button></div><div class="col-4"><button class="btn btn-outline-danger" onclick="deleteSaas();"><i class="fas fa-trash-alt"></i></button></div></div>\
+            </div></div></div></div></div>')
     }
 }
 
