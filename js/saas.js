@@ -831,6 +831,18 @@ $(document).ready(function () {
         })
     })
 
+    $("#plan-type-select").on('change', function () {
+        console.log('change')
+        switch($("#plan-type-select").val()) {
+            case  "Iron":   $("#display-volume-cfg").addClass('d-none');
+                            $("#display-port-mgt").addClass('d-none');
+                            break;
+            case "Bronze":  $("#display-volume-cfg").removeClass('d-none');
+                            $("#display-port-mgt").removeClass('d-none');
+                            break;
+        }
+    })
+
     $("#buySaas").on("click", function (event) {
         if (account !== null) {
             $("#saasAttach").html('');
@@ -895,10 +907,11 @@ $(document).ready(function () {
                 image: $("#image").val(),
                 type: $("#plan-type-select").val().toLowerCase(),
                 port: $("#port").val(),
+                portmgt: $("#portmgt").val(),
                 price: $("#price").val(),
-                basic: btoa("admin:" + ($("#password").val() || "password")),
                 memory: $("#memory").val(),
                 volume: $("#volume").val(),
+                volumecfg: $("#volumecfg").val(),
                 env: eval($("#env").val()) || [],
                 compose: compose
             }
