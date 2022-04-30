@@ -129,13 +129,40 @@ const catalog = [{
     "category": "admin"
 }, {
     "name": "Statping",
-    "logo": "https://www.phpmyadmin.net/static/images/logo.png?067b638aa2a2",
+    "logo": "https://camo.githubusercontent.com/adc90af589fd69235a49fc1e71eb55d6a9a9890c786ebcd578d1ac04fe8a884f/68747470733a2f2f73332d75732d776573742d322e616d617a6f6e6177732e636f6d2f676974696d67732f7374617470696e672e706e67",
     "text": "Status Page & Monitoring Server",
     "website": "https://github.com/statping/statping",
     "saas": "https://statping.saashup.com/",
     "plan": "iron",
     "plancolor": "info",
     "category": "monitoring"
+}, {
+    "name": "Baikal",
+    "logo": "https://sabre.io/img/baikal.png",
+    "text": "lightweight CalDAV+CardDAV server",
+    "website": "https://sabre.io/baikal/",
+    "saas": "https://baikal.saashup.com/",
+    "plan": "iron",
+    "plancolor": "info",
+    "category": "file"
+}, {
+    "name": "Minio",
+    "logo": "https://min.io/resources/img/logo.svg",
+    "text": "Multi-Cloud Object Storage",
+    "website": "https://min.io",
+    "saas": "https://minio.saashup.com/",
+    "plan": "iron",
+    "plancolor": "info",
+    "category": "file"
+}, {
+    "name": "Nextcoud",
+    "logo": "https://nextcloud.com/wp-content/themes/next/assets/img/common/nextcloud-square-logo.png",
+    "text": "productivity platform that keeps you in control",
+    "website": "https://nextcloud.com/",
+    "saas": "https://nextcloud.saashup.com/",
+    "plan": "iron",
+    "plancolor": "info",
+    "category": "groupware"
 }]
 
 function refreshCatalog() {
