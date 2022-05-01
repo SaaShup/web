@@ -155,11 +155,29 @@ const catalog = [{
     "plancolor": "info",
     "category": "file"
 }, {
-    "name": "Nextcoud",
+    "name": "Nextcloud",
     "logo": "https://nextcloud.com/wp-content/themes/next/assets/img/common/nextcloud-square-logo.png",
     "text": "productivity platform that keeps you in control",
     "website": "https://nextcloud.com/",
     "saas": "https://nextcloud.saashup.com/",
+    "plan": "iron",
+    "plancolor": "info",
+    "category": "groupware"
+}, {
+    "name": "Ghost",
+    "logo": "https://ghost.org/images/logos/logo-black-1.png",
+    "text": "Turn your audience into a business",
+    "website": "https://ghost.org/",
+    "saas": "https://ghost.saashup.com/",
+    "plan": "iron",
+    "plancolor": "info",
+    "category": "web"
+}, {
+    "name": "Owncloud",
+    "logo": "https://owncloud.com/wp-content/uploads/2020/06/oc-logo-1c-1.svg",
+    "text": "your collaboration tool",
+    "website": "https://owncloud.com/",
+    "saas": "https://owncloud.saashup.com/",
     "plan": "iron",
     "plancolor": "info",
     "category": "groupware"
