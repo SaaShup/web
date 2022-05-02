@@ -192,7 +192,7 @@ const catalog = [{
     "category": "monitoring"
 }, {
     "name": "Sinusbot",
-    "logo": "https://www.sinusbot.com/sinusbot-logo.png",
+    "logo": "https://www.4netplayers.com/wp-content/uploads/2018/10/300x300_sinusbot_logo.png",
     "text": "great sounding TS3- and Discord-Bot",
     "website": "https://www.sinusbot.com/",
     "saas": "https://sinusbot-docker.saashup.com/",
