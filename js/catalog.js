@@ -174,20 +174,38 @@ const catalog = [{
     "category": "web"
 }, {
     "name": "Owncloud",
-    "logo": "https://owncloud.com/wp-content/uploads/2020/06/oc-logo-1c-1.svg",
+    "logo": "https://www.vectorlogo.zone/logos/owncloud/owncloud-ar21.png",
     "text": "your collaboration tool",
     "website": "https://owncloud.com/",
     "saas": "https://owncloud.saashup.com/",
     "plan": "iron",
     "plancolor": "info",
     "category": "groupware"
+}, {
+    "name": "Ciao",
+    "logo": "https://saashup.com/img/logo_saashup.png",
+    "text": "check the status of your URL",
+    "website": "https://brotandgames.com/ciao/",
+    "saas": "https://ciao.saashup.com/",
+    "plan": "iron",
+    "plancolor": "info",
+    "category": "monitoring"
+}, {
+    "name": "Sinusbot",
+    "logo": "https://www.sinusbot.com/sinusbot-logo.png",
+    "text": "great sounding TS3- and Discord-Bot",
+    "website": "https://www.sinusbot.com/",
+    "saas": "https://sinusbot-docker.saashup.com/",
+    "plan": "iron",
+    "plancolor": "info",
+    "category": "bot"
 }]
 
 function refreshCatalog() {
     $("#catalog-dynamic-list").html('')
     for (const c of catalog) {
         if (c.category.match(new RegExp(filter.category)) && c.name.match(new RegExp(filter.text, "i"))) $("#catalog-dynamic-list").append('<div class="col-sm-12 col-md-4"><div class="card m-3" style="height: 250px;"><div class="card-body">\
-            <h2 class="card-title text-primary text-center">' + c.name + '</h2><span class="position-absolute translate-middle badge rounded-pill bg-' + c.plancolor + '" style="top:20px; right: -10px;">' + c.plan + '</span>\
+            <h2 class="card-title text-primary text-center p-3">' + c.name + '</h2><span class="position-absolute translate-middle badge rounded-pill bg-' + c.plancolor + '" style="top:20px; right: -10px;">' + c.plan + '</span>\
             \<span class="position-absolute translate-middle badge rounded-pill bg-primary" style="top:20px; left: 50px;">' + c.category + '</span><div class="row card-text"><div class="col-6 text-center"><br><a href="' + c.website + '">\
             <img src="' + c.logo + '"  alt="' + c.text + '" width="64" /></a></div><div class="col-6"><a href="' + c.saas + '">' + c.name + '</a><br><span class="small text-muted">' + c.text + '</span></div>\
             </div></div></div></div>');
