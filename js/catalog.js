@@ -41,10 +41,10 @@ const catalog = [{
     "category": "docker"
 }, {
     "name": "Nodered",
-    "logo": "https://app.nodered.cloud/img/nodered.png",
+    "logo": "https://nodered.org/about/resources/media/node-red-hexagon.png",
     "text": "Low-code programming for event-driven applications",
     "website": "https://nodered.org/",
-    "saas": "https://app.nodered.cloud/",
+    "saas": "https://nodered-node-red.saashup.com/",
     "plan": "iron",
     "plancolor": "info",
     "category": "nocode"
