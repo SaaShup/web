@@ -906,6 +906,7 @@ $(document).ready(function () {
                 engine: $("#saasAttach").val(),
                 image: $("#image").val(),
                 type: $("#plan-type-select").val().toLowerCase(),
+                port_type: $("#port_type").val(),
                 port: $("#port").val(),
                 portmgt: $("#portmgt").val(),
                 price: $("#price").val(),
