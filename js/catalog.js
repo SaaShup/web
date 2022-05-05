@@ -17,7 +17,7 @@ const catalog = [{
     "logo": "https://dwglogo.com/wp-content/uploads/2017/12/1100px_Redis_Logo_01.png",
     "text": "Open source in-memory data structure store",
     "website": "https://redis.io/",
-    "saas": "https://redis.saashup.com/",
+    "saas": "https://bitnami-redis.saashup.com/",
     "plan": "iron",
     "plancolor": "info",
     "category": "database"
@@ -199,6 +199,15 @@ const catalog = [{
     "plan": "iron",
     "plancolor": "info",
     "category": "bot"
+}, {
+    "name": "Postgresql",
+    "logo": "https://www.postgresql.org/media/img/about/press/elephant.png",
+    "text": "The World's Most Advanced Open Source Relational Database",
+    "website": "https://www.postgresql.org/",
+    "saas": "https://postgres.saashup.com/",
+    "plan": "iron",
+    "plancolor": "info",
+    "category": "database"
 }]
 
 function refreshCatalog() {
