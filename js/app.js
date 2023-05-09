@@ -42,7 +42,7 @@ $(document).ready(function () {
             $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 100).toFixed(2))
             $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 100) / parseInt($("#slide-instance").val())).toFixed(2))
         }
-        if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300)
+        if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 100)
     })
 
     $("#iron-btn, #bronze-btn, #silver-btn, #gold-btn").on('click', function() {
