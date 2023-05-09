@@ -411,10 +411,10 @@
 
   <footer class="footer w-100 mt-auto py-2">
     <div class="p-1 text-center" style="width:100%;">
-      <img src="/img/logo_saashup.png" class="rounded-circle" width="24" /> saashup © 2022
+      <img src="/img/logo_saashup.png" class="rounded-circle" width="24" /> saashup © <span id="year"></span>
     </div>
   </footer>
-
+  <script>$("#year").html(new Date().getYear() + 1900)</script>
 </body>
 
 </html>

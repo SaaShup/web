@@ -201,7 +201,7 @@
 
   <footer class="footer w-100 mt-auto py-2">
     <div class="w-100 p-1 text-center text-primary">
-      <img src="/img/logo_saashup.png" alt="saashup logo saas next solution engine" class="rounded-circle" width="24" /> saashup © 2022
+      <img src="/img/logo_saashup.png" alt="saashup logo saas next solution engine" class="rounded-circle" width="24" /> saashup © <span id="year"></span>
     </div>
     <div class="w-100 p-1 text-center text-primary">
       <span style="font-size: .75rem;"><a href="https://doc.saashup.com/article/privacy-policy" target="_blank">Privacy
@@ -210,7 +210,7 @@
           and Conditions</a></span>
     </div>
   </footer>
-
+  <script>$("#year").html(new Date().getYear() + 1900)</script>
 </body>
 
 </html>

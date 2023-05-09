@@ -1,4 +1,4 @@
-var Plan = 0.2;
+var Plan = 0.1;
 const appParams = new URLSearchParams(window.location.search);
 var user = null;
 if (window.localStorage.getItem('user') !== null) user = JSON.parse(window.localStorage.getItem('user'));
@@ -35,12 +35,12 @@ $(document).ready(function () {
             $("#slide-memory").val(200);
             $("#memory-value").text($("#slide-memory").val());
             $("#slide-memory").attr("disabled", true)
-            $("#pricing-value").text((parseInt($("#slide-instance").val()) * 5).toFixed(2))
-            $("#pricing-unit").text(((parseInt($("#slide-instance").val()) * 5) / parseInt($("#slide-instance").val())).toFixed(2))
+            $("#pricing-value").text((parseInt($("#slide-instance").val()) * 2).toFixed(2))
+            $("#pricing-unit").text(((parseInt($("#slide-instance").val()) * 2) / parseInt($("#slide-instance").val())).toFixed(2))
         } else {
             $("#slide-memory").attr("disabled", false)
-            $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
-            $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
+            $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 100).toFixed(2))
+            $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 100) / parseInt($("#slide-instance").val())).toFixed(2))
         }
         if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300)
     })

@@ -412,6 +412,7 @@ function refreshSaas(saas) {
                 <div class="col-sm-6 col-md-6 p-1">Plan: ' + saas[s].type + '</div>\
                 <div class="col-sm-6 col-md-6 p-1">Memory: ' + saas[s].memory + ' Mb</div>\
                 <div class="col-sm-12 col-md-12 p-1">Created on: ' + saas[s].date.replace('T', ' ').substring(0, 19) + '</div>\
+                <div class="col-sm-12 col-md-12 p-1">Upgraded on: ' + ("updated" in saas[s] ? saas[s].updated.replace('T', ' ').substring(0, 19) : saas[s].date.replace('T', ' ').substring(0, 19)) + '</div>\
                 <div class="row my-4"><div class="col-4"><span class="badge bg-success px-4 py-2">' + saas[s].status.toUpperCase() + '</span></div>\
                 <div class="col-4"><button class="btn btn-outline-primary disabled" onclick="upgradeSaasMemory()"><i class="fas fa-memory"></i> </button></div><div class="col-4"><button class="btn btn-outline-danger" onclick="deleteSaas();"><i class="fas fa-trash-alt"></i></button></div></div>\
             </div></div></div></div></div>')
