@@ -364,7 +364,7 @@ function deleteAccount() {
     })
 }
 
-function deleteSaas() {
+function deleteSaas(saas) {
     $("#modalQuestionTitle").html(findLang("delete_saas_title"));
     $("#modalQuestionContent").html(findLang("delete_saas_text"));
     $("#modalQuestionYes").unbind();
@@ -374,13 +374,13 @@ function deleteSaas() {
         $("#modalNotificationContent").html('<div class="container text-center">' + findLang("delete_saas_text_wait") + "<br><br>" + '<div class="spinner-div text-center"><div class="spinner-circle-lg"><div class="spinner-lg"></div><img class="spinner-img" src="/img/saashup2.png" width="128" height="128"/></div></div></div>');
         $("#modalNotification").modal("show");
         $.ajax({
-            url: "https://saas.saashup.com/api/saas/" + user.email + "/" + (Object.keys(account.saas)[0].split('/').length > 1 ? Object.keys(account.saas)[0].split('/')[1] : Object.keys(account.saas)[0]),
+            url: "https://saas.saashup.com/api/saas/" + user.email + "/" + (saas.split('/').length > 1 ? saas.split('/')[1] : saas),
             method: "DELETE",
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("x-auth-token", user.jwt.token)
             },
             data: {
-                "saas": Object.keys(account.saas)[0]
+                "saas": saas
             },
             dataType: "json"
         }).done(function (result) {
@@ -414,7 +414,7 @@ function refreshSaas(saas) {
                 <div class="col-sm-12 col-md-12 p-1">Created on: ' + saas[s].date.replace('T', ' ').substring(0, 19) + '</div>\
                 <div class="col-sm-12 col-md-12 p-1">Upgraded on: ' + ("updated" in saas[s] ? saas[s].updated.replace('T', ' ').substring(0, 19) : saas[s].date.replace('T', ' ').substring(0, 19)) + '</div>\
                 <div class="row my-4"><div class="col-4"><span class="badge bg-success px-4 py-2">' + saas[s].status.toUpperCase() + '</span></div>\
-                <div class="col-4"><button class="btn btn-outline-primary disabled" onclick="upgradeSaasMemory()"><i class="fas fa-memory"></i> </button></div><div class="col-4"><button class="btn btn-outline-danger" onclick="deleteSaas();"><i class="fas fa-trash-alt"></i></button></div></div>\
+                <div class="col-4"><button class="btn btn-outline-primary disabled" onclick="upgradeSaasMemory()"><i class="fas fa-memory"></i> </button></div><div class="col-4"><button class="btn btn-outline-danger" onclick="deleteSaas(\'' + s + '\');"><i class="fas fa-trash-alt"></i></button></div></div>\
             </div></div></div></div></div>')
     }
 }

@@ -2,8 +2,7 @@ $(document).ready(function () {
     var cc = initCookieConsent();
     cc.run({
         current_lang: 'en',
-        autoclear_cookies: true,                   // default: false
-        //theme_css: '<path-to-cookieconsent.css>',  // 🚨 replace with a valid path
+        autoclear_cookies: true,
         page_scripts: true,
         onFirstAction: function(user_preferences, cookie){
         },
@@ -18,11 +17,11 @@ $(document).ready(function () {
                     description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
                     primary_btn: {
                         text: 'Accept all',
-                        role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                        role: 'accept_all' 
                     },
                     secondary_btn: {
                         text: 'Reject all',
-                        role: 'accept_necessary'        // 'settings' or 'accept_necessary'
+                        role: 'accept_necessary'
                     }
                 },
                 settings_modal: {
@@ -47,19 +46,19 @@ $(document).ready(function () {
                             toggle: {
                                 value: 'necessary',
                                 enabled: true,
-                                readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                                readonly: true
                             }
                         }, {
                             title: 'Performance and Analytics cookies',
                             description: 'These cookies allow the website to remember the choices you have made in the past',
                             toggle: {
-                                value: 'analytics',     // your cookie category
+                                value: 'analytics',
                                 enabled: false,
                                 readonly: false
                             },
-                            cookie_table: [             // list of all expected cookies
+                            cookie_table: [
                                 {
-                                    col1: '^_ga',       // match all cookies starting with "_ga"
+                                    col1: '^_ga',
                                     col2: 'google.com',
                                     col3: '2 years',
                                     col4: 'description ...',
