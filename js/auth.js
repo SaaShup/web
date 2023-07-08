@@ -27,7 +27,11 @@ const init = () => {
       refreshCard(account.engine)
       refreshSaas(account.saas)
       appProfile();
-      if (Object.keys(account.dockers).length + Object.keys(account.engine).length + Object.keys(account.saas).length > 0) $("#nav-home-btn").click()
+      if (Object.keys(account.dockers).length + Object.keys(account.engine).length + Object.keys(account.saas).length > 0) {
+        $("#empty").addClass("d-none")
+        $("#admin").addClass("d-none");
+        $("#home").removeClass("d-none")
+      }
       else $("#nav-admin-btn").click()
       if ('invoices' in account && Object.keys(account.invoices).length > 0) {
         $('#no-invoice-text').addClass('d-none')
