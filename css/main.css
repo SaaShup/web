@@ -3,20 +3,6 @@ html, body {
     font-family: "Space Mono","Courier New",monaco,monospace;
 }
 
-.nav-link.active {
-    border-bottom: 3px solid #0dcaf0;
-    color: #0dcaf0;
-}
-
-.nav-link {
-    border-bottom: 3px solid white;
-}
-
-.nav-link:hover {
-    border-bottom: 3px solid #0dcaf0;
-    color: #0dcaf0;
-}
-
 a {
     text-decoration: none;
 }

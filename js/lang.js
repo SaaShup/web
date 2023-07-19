@@ -74,7 +74,7 @@ const lang = {
         "partner-engine-text": "SaaShup est totalement géré par <a href='https://saashup.com' target='_blank'>SaaShup engine</a>",
         "3rd-party-title": "autres partenaires",
         "catalog-title": "Catalogue",
-        "catalog-text": "Rechercher l'application Saas qui vous convient dans notre <a href='/catalog.html'> catalogue</a>.<br>Elle n'y est pas ou vous souhaitez y ajouter la votre, contactez-nous<br>",
+        "catalog-text": "Recherchez l'application Saas qui vous convient dans notre <a href='/catalog.html'> catalogue</a>.<br>Elle n'y est pas ou vous souhaitez y ajouter la votre, contactez-nous<br>",
         "contact-title": "Contact",
         "contact-text-1": "Tous les moyens sont bons pour nous contacter: Avec le chat intégré ou par l'une des messageries suivantes<br><br>",
         "contact-text-2": "<br>Nous sommes disponibles 9 heures par jours, 5 jours par semaine.<br><br>",

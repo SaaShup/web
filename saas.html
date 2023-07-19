@@ -27,6 +27,14 @@
   <script src="/js/saas.js?v=1650645664"></script>
   <script src="https://embed.tawk.to/61bf5e9180b2296cfdd26ed6/1fn9oiql4" crossorigin="anonymous"></script>
   <link href="/css/main.css?v=1644944097" rel="stylesheet">
+  <link rel="stylesheet" href="./css/dark_light_mode.css">
+  <script>
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
 </head>
 
 <body class="d-flex flex-column">
