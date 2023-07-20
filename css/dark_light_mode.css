@@ -90,8 +90,8 @@ body {
 }
 
 [data-theme="dark"]
-#searchInput {
-    background-color: #4e4e4e;
+#newName {
+    background-color: transparent;
 }
 
 [data-theme="dark"]
@@ -105,7 +105,20 @@ body {
 }
 
 [data-theme="dark"]
+#cm {
+    background-color: #4e4e4e;
+    color: white; 
+}
+
+[data-theme="dark"]
+.cc-link {
+    color: white;
+    border-color: white;
+}
+
+[data-theme="dark"]
 .form-control {
+    background-color: transparent;
     color: white;
 }
 
