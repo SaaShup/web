@@ -38,13 +38,21 @@
   <script src="/js/app.js?v=1649670074"></script>
   <script src="https://embed.tawk.to/61bf5e9180b2296cfdd26ed6/1fn9oiql4" crossorigin="anonymous"></script>
   <link href="/css/main.css?v=1648891089" rel="stylesheet">
+  <link rel="stylesheet" href="./css/dark_light_mode.css">
+    <script>
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    </script>
 </head>
 
 <body class="d-flex flex-column">
 
-  <nav class="navbar navbar-expand-md fixed-top bg-white">
+  <nav class="navbar navbar-expand-md fixed-top nbar">
     <div class="container-fluid">
-      <a class="navbar-brand" style="padding: 0 0 0 0;" href="https://www.saashup.com"><img src="/img/logo_saashup.png" alt="saashup logo saas next solution engine"
+      <a class="navbar-brand" style="padding: 0 0 0 0;" href="/"><img src="/img/logo_saashup.png" alt="saashup logo saas next solution engine"
           height="48px" /></a>
       <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
