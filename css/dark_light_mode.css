@@ -50,6 +50,16 @@ body {
 }
 
 [data-theme="dark"]
+.text-primary {
+  color: #22a7ff !important;
+}
+
+[data-theme="dark"]
+a {
+  color: #459cff !important;
+}
+
+[data-theme="dark"]
 .card-header.pt-3.text-primary.nbar.border-white {
   background-color: #474747 !important;
 }
