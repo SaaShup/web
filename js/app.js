@@ -4,6 +4,25 @@ var user = null;
 if (window.localStorage.getItem('user') !== null) user = JSON.parse(window.localStorage.getItem('user'));
 
 var Tawk_API = Tawk_API || {};
+Tawk_API.customStyle = {
+    visibility : {
+      desktop : {
+        position : 'bl',
+        xOffset : '120px',
+        yOffset : '120px',
+      },
+      mobile : {
+        position : 'bl',
+        xOffset : 5,
+        yOffset : 140,
+      },
+      bubble : {
+        rotate : '0deg',
+         xOffset : -20,
+         yOffset : 0
+      }
+    }
+  };
 var Tawk_LoadStart = new Date();
 Tawk_API.onLoad = function () {
     $(".tawk-icon-close").click()
