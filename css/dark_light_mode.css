@@ -24,12 +24,12 @@ color: #0dcaf0;
 
 [data-theme="dark"]
 body {
-  background-color: #474747;
+  background-color: #0d1117;
 }
 
 [data-theme="dark"]
 .card-body {
-  background-color: #474747;
+  background-color: #0d1117;
   color: white;
 }
 
@@ -40,8 +40,8 @@ body {
 
 [data-theme="dark"]
 .nbar {
-  background-color: #474747;
-  color: #474747;
+  background-color: #0d1117;
+  color: #0d1117;
 }
 
 [data-theme="dark"]
@@ -61,19 +61,19 @@ a {
 
 [data-theme="dark"]
 .card-header.pt-3.text-primary.nbar.border-white {
-  background-color: #474747 !important;
+  background-color: #0d1117 !important;
 }
 
 [data-theme="dark"]
 .modal-body {
-  background-color: #474747;
-  border-color: #474747;
+  background-color: #0d1117;
+  border-color: #0d1117;
   color: white;
 }
 
 [data-theme="dark"]
 .modal-footer {
-  background-color: #474747;
+  background-color: #0d1117;
 }
 
 [data-theme="dark"]
@@ -106,17 +106,17 @@ a {
 
 [data-theme="dark"]
 #search-input-text {
-    background-color: #4e4e4e;
+    background-color: #191b1d;
 }
 
 [data-theme="dark"]
 #search-input-select {
-    background-color: #4e4e4e;
+    background-color: #191b1d;
 }
 
 [data-theme="dark"]
 #cm {
-    background-color: #4e4e4e;
+    background-color: #1a2029;
     color: white; 
 }
 
@@ -134,6 +134,6 @@ a {
 
 [data-theme="dark"]
 .dropdown-menu.show {
-    background-color: #4e4e4e;
+    background-color: #191b1d;
     color: white;
 }
