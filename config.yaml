@@ -1,5 +1,5 @@
 baseURL: /
-defaultContentLanguage: en-US
+defaultContentLanguage: en
 defaultContentLanguageInSubdir: true
 languages:
   en:
@@ -31,14 +31,17 @@ languages:
           weight: 4
           pre: fas fa-book
         - name: jobs
+          url: https://jobs.saashup.com
           identifier: jobs
           weight: 5
           pre: fas fa-gamepad
         - name: docs
+          url: https://doc.saashup.com/
           identifier: docs
           weight: 6
           pre: fas fa-file-alt
         - name: status
+          url: https://status.saashup.com
           identifier: status
           weight: 7
           pre: fas fa-battery-full
@@ -71,16 +74,19 @@ languages:
           weight: 4
           pre: fas fa-book
         - name: jobs
+          url: https://jobs.saashup.com
           identifier: jobs
           pre: fas fa-gamepad
           weight: 5
         - name: docs
           identifier: docs
+          url: https://doc.saashup.com/
           weight: 6
           pre: fas fa-file-alt
         - name: status
           identifier: status
           weight: 7
+          url: https://status.saashup.com
           pre: fas fa-battery-full
   de:
     languageName: Deutsch
@@ -111,14 +117,17 @@ languages:
           weight: 4
           pre: fas fa-book
         - name: jobs
+          url: https://jobs.saashup.com
           identifier: jobs
           pre: fas fa-gamepad
           weight: 5
         - name: dokumente
           identifier: docs
           weight: 6
+          url: https://doc.saashup.com/
           pre: fas fa-file-alt
         - name: status
           identifier: status
           weight: 7
           pre: fas fa-battery-full
+          url: https://status.saashup.com
