@@ -2,7 +2,7 @@ baseURL: /
 defaultContentLanguage: en-US
 defaultContentLanguageInSubdir: true
 languages:
-  en-US:
+  en:
     languageName: English
     languageCode: en
     contentDir: content/en
@@ -42,7 +42,7 @@ languages:
           identifier: status
           weight: 7
           pre: fas fa-battery-full
-  fr-FR:
+  fr:
     languageName: French
     languageCode: fr
     contentDir: content/fr
@@ -82,7 +82,7 @@ languages:
           identifier: status
           weight: 7
           pre: fas fa-battery-full
-  de-DE:
+  de:
     languageName: Deutsch
     languageCode: de
     contentDir: content/de
