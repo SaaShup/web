@@ -1,0 +1,124 @@
+baseURL: /
+defaultContentLanguage: en-US
+defaultContentLanguageInSubdir: true
+languages:
+  en-US:
+    languageName: English
+    languageCode: en
+    contentDir: content/en
+    title: SaaShup, SaaS next solution engine, easily run your SaaS business
+    weight: 1
+    menu:
+      main:
+        - name: home
+          url: .
+          identifier:
+          weight: 1
+          pre: fas fa-home
+        - name: catalog
+          url: catalog/
+          identifier: catalog
+          weight: 2
+          pre: fas fa-book
+        - name: pricing
+          url: pricing/
+          identifier: pricing
+          weight: 3
+          pre: fas fa-dollar-sign
+        - name: contact
+          url: contact/
+          identifier: contact
+          weight: 4
+          pre: fas fa-book
+        - name: jobs
+          identifier: jobs
+          weight: 5
+          pre: fas fa-gamepad
+        - name: docs
+          identifier: docs
+          weight: 6
+          pre: fas fa-file-alt
+        - name: status
+          identifier: status
+          weight: 7
+          pre: fas fa-battery-full
+  fr-FR:
+    languageName: French
+    languageCode: fr
+    contentDir: content/fr
+    title: SaaShup, SaaS next solution engine, easily run your SaaS business
+    weight: 2
+    menu:
+      main:
+        - name: accueil
+          url: .
+          identifier:
+          weight: 1
+          pre: fas fa-home
+        - name: catalogue
+          url: catalog/
+          identifier: catalogPages
+          weight: 2
+          pre: fas fa-book
+        - name: tarifs
+          url: pricing/
+          identifier: pricing
+          weight: 3
+          pre: fas fa-dollar-sign 
+        - name: contact
+          url: contact/
+          identifier: contact
+          weight: 4
+          pre: fas fa-book
+        - name: jobs
+          identifier: jobs
+          pre: fas fa-gamepad
+          weight: 5
+        - name: docs
+          identifier: docs
+          weight: 6
+          pre: fas fa-file-alt
+        - name: status
+          identifier: status
+          weight: 7
+          pre: fas fa-battery-full
+  de-DE:
+    languageName: Deutsch
+    languageCode: de
+    contentDir: content/de
+    title: SaaShup, SaaS next solution engine, easily run your SaaS business
+    weight: 3
+    menu:
+      main:
+        - name: startseite
+          url: .
+          identifier:
+          weight: 1
+          pre: fas fa-home
+        - name: katalog
+          url: catalog/
+          identifier: catalog
+          weight: 2
+          pre: fas fa-book
+        - name: preise
+          url: pricing/
+          identifier: pricing
+          weight: 3
+          pre: fas fa-dollar-sign 
+        - name: kontakt
+          url: contact/
+          identifier: contact
+          weight: 4
+          pre: fas fa-book
+        - name: jobs
+          identifier: jobs
+          pre: fas fa-gamepad
+          weight: 5
+        - name: dokumente
+          identifier: docs
+          weight: 6
+          pre: fas fa-file-alt
+        - name: status
+          identifier: status
+          weight: 7
+          pre: fas fa-battery-full

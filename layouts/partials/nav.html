@@ -1,0 +1,66 @@
+{{ $currentUrl := .Section }}
+  <nav class="navbar navbar-expand-md fixed-top nbar">
+    <div class="container-fluid">
+      {{ $logo_saashup := resources.Get "images/saashup_logo_circle.svg" }}
+      <a class="navbar-brand" style="padding: 0 0 0 0;" href="/"><img src="{{ $logo_saashup.RelPermalink }}" alt="saashup logo saas next solution engine"
+        height="48px" /></a>     
+        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          {{ $navSelected := .Section }}
+            {{ range .Site.Menus.main -}}
+              <li class="nav-item">
+                <a id="nav-home-btn" {{if eq .Identifier $currentUrl }}class="nav-link active"{{else}}class="nav-link"{{end}} arria-current="page" href="{{ .URL | absLangURL }}">
+                  <i class="{{ .Pre }}"></i>
+                  {{ .Name }}
+                </a>
+              </li>
+            {{- end }}
+          </ul>
+        <span class="pe-3 pt-2">
+          <a href="/saas/">
+            <button class="btn btn-outline-primary">My Saas</button>
+          </a>
+        </span>
+        {{ $style := resources.Get "css/main.css" }}
+        <span class="pe-1 pt-2"><link href="{{ $style.Permalink }}" rel="stylesheet">
+          {{ $fr_flag := resources.Get "images/fr.png" }}
+          {{ $en_flag := resources.Get "images/en.png" }}
+          {{ $de_flag := resources.Get "images/de.png" }}
+          {{ $currentFlag := printf "images/%s.png" .Language.LanguageCode}}
+          {{ $selectedFlag := resources.Get $currentFlag }}
+          <div class="dropdown">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <img id="lang-flag" src="{{ $selectedFlag.RelPermalink }}" alt="flag" width="32px" />
+            </a>
+            <ul class="dropdown-menu" style="padding-left:2rem;" aria-labelledby="dropdownMenuLink">
+              <li class="p-2">
+                <a href="/{{ $currentUrl }}">
+                  <img id="lang-flag" src="{{ $en_flag.RelPermalink }}" alt="english langage" width="32px"/>
+                </a>
+              </li>
+              <li class="p-2">
+                <a href="/fr-fr/{{ $currentUrl }}">
+                  <img id="lang-flag" src="{{ $fr_flag.RelPermalink }}" alt="french langage" width="32px"/>
+                </a>
+              </li>
+              <li class="p-2">
+                <a href="/de-de/{{ $currentUrl }}">
+                  <img id="lang-flag" src="{{ $de_flag.RelPermalink }}" alt="deutsch langage" width="32px"/>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </span>
+        <div class=" d-flex mx-1">
+                <img id="avatar" class="rounded-circle d-none" width="36px" height="36px" alt="Saashup your simplified SaaS engine platform" src=""
+                  onclick="window.open('/saas','_self');" />
+          </div>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,22 @@
+{
+  "name": "snapshot_hugo_0.1",
+  "version": "1.0.0",
+  "description": "To install hugo :",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chsfdjr/snapshot_hugo_0.1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chsfdjr/snapshot_hugo_0.1/issues"
+  },
+  "homepage": "https://github.com/Chsfdjr/snapshot_hugo_0.1#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.8.2"
+  }
+}

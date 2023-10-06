@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<title>{{ print .Page.Title }}</title>
+{{ $logo_saashup := resources.Get "images/saashup_logo.svg" }}
+<link rel="icon" href="{{ $logo_saashup.RelPermalink }}">
+{{ $style := resources.Get "css/main.css" }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Just provide a docker and we run a complete Saas solution">
+<meta name="keywords" content="saas, engine, docker, easy, business, payment, invoicing, single sign-on, scale">
+<meta name="author" content="LaV">
+<meta name="twitter:title" content="Saashup your simplified SaaS engine platform">
+<meta name="twitter:description"
+  content="The only SAAS PLATFORM SOLUTION that makes it easy to run a DOCKER application. For DEVELOPERS or SMALL ORGANIZATIONS. Who wants a SIMPLIFIED SAAS MANAGEMENT PLATFORM, WITHOUT INFRASTRUCTURE MANAGEMENT, WITH INTEGRATED PAYMENT AND CUSTOMER MANAGEMENT. In an era where WE ARE Caught between LEGAL REGULATIONS AND INCREASING IT COMPLEXITY.">
+<meta name="twitter:url" content="https://saashup.com">
+<meta name="twitter:site" content="@saashup">
+<meta name="twitter:creator" content="@saashup" />
+<meta name="twitter:image" content="https://saashup.com/images/logo_saashup.png" />
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Saashup your simplified SaaS engine platform" />
+<meta property="og:description"
+  content="The only SAAS PLATFORM SOLUTION that makes it easy to run a DOCKER application. For DEVELOPERS or SMALL ORGANIZATIONS. Who wants a SIMPLIFIED SAAS MANAGEMENT PLATFORM, WITHOUT INFRASTRUCTURE MANAGEMENT, WITH INTEGRATED PAYMENT AND CUSTOMER MANAGEMENT. In an era where WE ARE Caught between LEGAL REGULATIONS AND INCREASING IT COMPLEXITY." />
+<meta property="og:image" content="https://saashup.com/images/logo_saashup.png" />
+<meta property="og:url" content="https://saashup.com">
+<meta property="og:type" content="website" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+  integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"
+    integrity="sha512-pax4MlgXjHEPfCwcJLQhigY7+N8rt6bVvWLFyUMuxShv170X53TRzGPmPkZmGBhk+jikR8WBM4yl7A9WMHHqvg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.7.2/dist/cookieconsent.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.7.2/dist/cookieconsent.css" rel="stylesheet">
+{{ $cookie := resources.Get "js/cookieconsent.js" }}
+<script src="{{ $cookie.Permalink }}"></script>
+{{ $google := resources.Get "js/google.js" }}
+<script src="{{ $google.Permalink }}"></script>
+{{ $app := resources.Get "js/app.js" }}
+<script src="{{ $app.Permalink }}"></script>
+{{ $catalog := resources.Get "js/catalog.js" }}
+<script src="{{ $catalog.Permalink }}"></script>
+<script src="https://embed.tawk.to/61bf5e9180b2296cfdd26ed6/1fn9oiql4" crossorigin="anonymous"></script>
+<script>
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+    }
+</script>

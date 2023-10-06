@@ -1,0 +1,167 @@
+[navHome]
+
+other = "Startseite"
+
+[navBilling]
+
+other = "Verwaltung"
+
+[navDoc]
+
+other = "Dokumente"
+
+[navStatus]
+
+other = "Status"
+
+[navCatalog]
+
+other = "Katalog"
+
+[navContact]
+
+other = "Kontakt"
+
+[navPricing]
+
+other = "Preise"
+
+[navJobs]
+
+other = "Jobs"
+
+[first]
+
+other = "<b class='text-primary'>Haben Sie eine SaaS?</b> <br>Machen Sie SaaS zu unserem Problem.<br>Konzentrieren Sie sich auf Produkt und Umsatz, während wir Ihnen eine SaaS-Plattformlösung bieten.<br>"
+
+[intro]
+
+other = "<span class='text-primary'>Saas-ify</span> jetzt<br>Ihre Anwendung!<br><br>Sie können eine <a href='https://nginx.saashup.com' target='_blank'>Demo</a><br>anfordern und Ihren Verkauf<br>über Ihre individuelle <span class='text-primary'>SaaS</span> ohne versteckte Kosten steigern."
+
+[description]
+
+other = "<span class='text-info'>SaaShup</span> ist eine einfache Lösung, um Ihre Anwendung in eine <span class='text-primary'>SaaS</span> umzuwandeln.<br>Wir helfen Ihnen, Ihre Anwendung freizulegen und die Verwaltung zu vereinfachen. Entwickeln Sie Ihre Software und lassen Sie uns die Bereitstellung an Ihre Kunden über Ihre eigene angepasste SaaS übernehmen. Unsere Dienstleistungen bleiben flexibel und skalierbar, wir passen die Kapazität an Ihre Aktivität an."
+
+[explain]
+
+other = "<div class='text-info text-center'>Was bekomme ich?</div><br>Sie müssen nur einen Docker bereitstellen, und wir bieten eine komplette SaaS-Lösung mit unserer Frontanwendung, Authentifizierung, Zahlung, Überwachung, Benachrichtigungen, Backups, Protokollierung, Prüfung, L1-Support usw.<br><br>Sie haben auch Ihre eigene Administrationsseite, um Ihre SaaS zu konfigurieren und anzupassen.<br><br><a href='https://tawk.to/chat/61bf5e9180b2296cfdd26ed6/1fn9oiql4' target='_blank'>Kontaktieren Sie uns</a>, wenn Sie Fragen haben."
+
+[stage1-title]
+
+other = "Letzte Veröffentlichung"
+
+[stage2-title]
+
+other = "Tests"
+
+[stage3-title]
+
+other = "Entwicklung"
+
+[stage1]
+
+other = "Eine Managementplattform für Container"
+
+[stage2]
+
+other = "Moderne GPS-Tracking-Plattform"
+
+[stage3]
+
+other = "Zustandsloses API für PDF-Dateien"
+
+[plan-title]
+
+other = "Pläne"
+
+[compare-plan-title]
+
+other = "Pläne vergleichen"
+
+[pricing-title]
+
+other = "Preise"
+
+[youtube-title]
+
+other = "Ansehen und Lernen"
+
+[partner-title]
+
+other = "Premium-Partner"
+
+[partner-engine-text]
+
+other = "SaaShup wird vollständig mit <a href='https://saashup.com/saas' target='_blank'>SaaShup Engine</a> verwaltet."
+
+[3rd-party-title]
+
+other = "Andere Partner"
+
+[catalog-title]
+
+other = "Katalog"
+
+[catalog-text]
+
+other = "Sie können in unserem <a href='/catalog.html'>Katalog</a> nach Anwendungen suchen, die bereits in SaaS umgewandelt wurden.<br>Wenn Sie keine finden oder eine haben, an der Sie arbeiten möchten, kontaktieren Sie uns bitte.<br>Finden Sie SaaS-Apps und sehen Sie, was andere mit SaaShup gemacht haben."
+
+[contact-title]
+
+other = "Kontakt"
+
+[contact-text-1]
+
+other = "Es gibt viele Möglichkeiten, uns zu kontaktieren. Sie können unseren Website-Chat unten oder eine der Nachrichtenoptionen verwenden. <br><br>"
+
+[contact-text-2]
+
+other = "<br>Wir sind 9 Stunden am Tag, 5 Tage die Woche verfügbar.<br><br>"
+
+[signup-iron]
+
+other = "Kostenlos anmelden"
+
+[contact-plan-btn-bronze]
+
+other = "Kontaktieren Sie uns"
+
+[contact-plan-btn-silver]
+
+other = "Kontaktieren Sie uns"
+
+[contact-plan-btn-gold]
+
+other = "Kontaktieren Sie uns"
+
+[help_registry_title]
+
+other = "Registrierung"
+
+[help_registry_text]
+
+other = "Sie können nur öffentliche DockerHub-Images verwenden, wenn sie öffentlich sind.<br>Sie können sich auch bei DockerHub anmelden oder eine beliebige authentifizierte unterstützte Registrierung verwenden, wenn sie privat ist."
+
+[help_engine_title]
+
+other = "Engine"
+
+[help_engine_text]
+
+other = "<p>Die SaaS wird mit einer <a href='https://saashup.com/saas.io'>SaaShup Engine</a> verwaltet.</p>"
+
+[help_app_support_title]
+
+other = "Anwendungsunterstützung"
+
+[help_app_support_text]
+
+other = "<p>Wir können Unterstützung für Ihre Anwendung bieten.</p><p>Unser Support-Team kann auf Anfragen zu Anwendungsproblemen, Anfragen usw. antworten.</p><p>Wir stellen Verfahren, Wissensdatenbanken, FAQs oder Dokumente bereit, und wir bieten Level-1-Support, erstellen Tickets zur Nachverfolgung und eskalieren an Ihre Teams.</p>"
+
+[help_saas_support_title]
+
+other = "SaaS-Unterstützung"
+
+[help_saas_support_text]
+
+other = "<p>Wir unterstützen Ihre SaaS vollständig.</p><p>Unser Support-Team kann auf Anfragen zu SaaS-Problemen, Anfragen, Anfragen usw. antworten."

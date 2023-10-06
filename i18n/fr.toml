@@ -1,0 +1,283 @@
+[navHome]
+
+other = "accueil"
+
+[navBilling]
+
+other = "admin"
+
+[navDoc]
+
+other = "docs"
+
+[navStatus]
+
+other = "status"
+
+[navCatalog]
+
+other = "catalogue"
+
+[navContact]
+
+other = "contact"
+
+[navPricing]
+
+other = "tarifs"
+
+[navJobs]
+
+other = "jobs"
+
+[first]
+
+other = "<b class='text-primary'>Avez-vous un SaaS ?</b> <br>Laissez-nous nous en occuper.<br>Travaillez sur votre produit et votre revenu pendant que nous gerons votre Saas.<br>"
+
+[intro]
+
+other = "Saas-ifiez<br> votre <span class='text-primary'>application</span>!<br><br>Demandez une <a href='https://nginx.saashup.com' target='_blank'>démonstration</a><br> puis commencez à <span class='text-primary'>vendre</span><br> avec une interface <span class='text-primary'>Saas</span> personnalisée à un coût défini et maîtrisé"
+
+[description]
+
+other = "<span class='text-info'>SaaShup</span> propose une solution simple pour mettre en <span class='text-primary'>SaaS</span> (Software as a Service).  Nous vous simplifions la gestion des services nécessaires et vous aidons à répendre votre produit sur le net.<br>Concentrez-vous sur votre application et laissez-nous la charge de la déployer.<br>Besoin de customisation? Nos services sont adaptables et évolutifs contactez-nous pour nous précisez vos besoins."
+
+[explain]
+
+other = "<div class='text-info text-center'>Qu'est-ce que j'achète?</div><br>Précisez le docker à utiliser et nous vous proposons une solution SaaS complète frontend, authentification, paiement, sauvegardes, monitoring, alerts, logs, audits, support L1...<br><br>Vous aurez aussi accès à la page d'administration de votre Saas pour le configurer. <br><br>Besoin de précisions? <a href='https://tawk.to/chat/61bf5e9180b2296cfdd26ed6/1fn9oiql4'>contactez-nous</a>"
+
+[catalog-title]
+
+other = "Catalogue"
+
+[catalog-text]
+
+other = "Parcourez notre <a href='/catalog.html'>catalogue</a> pour trouver une application adéquate à vos besoins! <br>Choissisez une application et regardez ce que d'autre ont fait avec SaaShup"
+
+[pricing-title]
+
+other = "Tarifs"
+
+[stage1-title]
+
+other = "Dernière version"
+
+[stage2-title]
+
+other = "En test"
+
+[stage3-title]
+
+other = "En développement"
+
+[stage1]
+
+other = "Une plateforme de management pour les dockers"
+
+[stage2]
+
+other = "Plateforme de suivi de trajet par GPS"
+
+[stage3]
+
+other = "API pour la création de pdf"
+
+[plan-title]
+
+other = "Plans"
+
+[compare-plan-title]
+
+other = "Comparer les plans"
+
+[engine-text]
+
+other = "Un service centralisé pour la gestion des dockers"
+
+[nginx-text]
+
+other = "Load Balancer avancé, serveur web, &amp;, Reverse Proxy"
+
+[Gotenberg-text]
+
+other = "API pour la création de pdf"
+
+[traccar-text]
+
+other = "Plateforme de suivi de trajet par GPS"
+
+[redis-text]
+
+other = "Gestionnaire de contenus/forum en Open source"
+
+[mysql-text]
+
+other = "une des base de données open source des plus connues "
+
+[nodered-text]
+
+other = "code de bas niveau pour les applications programmée par évenements"
+
+[youtube-title]
+
+other = "Vidéos explicatives"
+
+[partner-title]
+
+other = "Partenaire premium"
+
+[partner-engine-text]
+
+other = "SaaShup est totalement géré par <a href='https://saashup.com' target='_blank'>SaaShup engine</a>"
+
+[3rd-party-title]
+
+other = "autres partenaires"
+
+[contact-title]
+
+other = "Contact"
+
+[contact-text-1]
+
+other = "Tous les moyens sont bons pour nous contacter Avec le chat intégré ou par l'une des messageries suivantes<br><br>"
+
+[contact-text-2]
+
+other = "<br>Nous sommes disponibles 9 heures par jours, 5 jours par semaine.<br><br>"
+
+[signup-iron]
+
+other = "Inscrivez-vous gratuitement"
+
+[contact-plan-btn-bronze]
+
+other = "Contactez-nous"
+
+[contact-plan-btn-silver]
+
+other = "Contactez-nous"
+
+[contact-plan-btn-gold]
+
+other = "Contactez-nous"
+
+[help_registry_title]
+
+other = "Dépot"
+
+[help_registry_text]
+
+other = "Inscrit en tant que \"public\" Vous ne pouvez utiliser que des images docker publiques de dockerhub <br>Inscrit en tant que \"privé\" vous pouvez utiliser tous les dépots privés ou dockerhubs authentifiés"
+
+[help_engine_title]
+
+other = "Moteur"
+
+[help_engine_text]
+
+other = "<p>Votre Saas est gèré avec un <a href='https://saashup.com/saas'>engine</a>.</p><p> Vous diposez de votre votre propre moteur et par conséquent l'accès pour gèrer les instances de vos clients.</p>"
+
+[help_app_support_title]
+
+other = "Support d'applications"
+
+[help_app_support_text]
+
+other = "<p>Nous pouvons vous fournir le service de support de vos applications.</p><p>Notre équipe pourra répondre à vos client concernant certaines requêtes ou problèmes rencontré sur votre application.</p><p>Fournissez-nous les procédures, les bases de connaissance, les Faqs, et tout autres documents utiles et nous serons en support de niveau 1 auprès de vos clients, crérons des tickets pour le suivi et transmettrons à vos équipes les requêtes non solutionnées.</p>"
+
+[help_saas_support_title]
+
+other = "Support SaaS"
+
+[help_saas_support_text]
+
+other = "<p>Nous gèrons totalement votre Saas.</p><p>Notre équipe de support peut répondre à vos clients concernant leur expérience avec votre Saas.</p>"
+
+[create_saas_error_title]
+
+other = "Erreur"
+
+[create_saas_image_not_permitted]
+
+other = "Cette image ne peut être affichée."
+
+[create_saas_empty]
+
+other = "Pas d'image fournie."
+
+[create_port_empty]
+
+other = "Pas de port fourni."
+
+[create_saas_title]
+
+other = "Création du Saas"
+
+[create_saas_text]
+
+other = "Installation de votre Saas, veuillez prendre un café pour patienter (ou un thé ou un gâteau)..."
+
+[logout-required-text]
+
+other = "Login obligatoire...<br>"
+
+[logout-required-title]
+
+other = "Logout"
+
+[payment-required-text]
+
+other = "Le paiement est demandé...<br>"
+
+[payment-required-title]
+
+other = "paiement exigé"
+
+[delete_saas_title]
+
+other = "Supprimez votre Saas"
+
+[delete_saas_text]
+
+other = "Êtes-vous vraiment certain de vouloir supprimer votre Saas?<br><br> Ceci est définitif."
+
+[delete_saas_text_wait]
+
+other = "Suppression de votre Saas en cours..."
+
+[delete-myaccount-text]
+
+other = "Supprimer mon compte"
+
+[register]
+
+other = "Configuration de paiement"
+
+[add-card-btn]
+
+other = "Ajouter un moyen de paiement"
+
+[setup-payment-text]
+
+other = "<div class=\"text-center\">Configuration de votre paiement en cours...</div>"
+
+[setup-payment-title]
+
+other = "Paiement"
+
+[logout-title]
+
+other = "Logout"
+
+[logout-question-text]
+
+other = "Voulez-vous vous délogger?"
+
+[expire-text]
+
+other = "expiré"
+
+[yes-text]
+
+other = "Oui"
