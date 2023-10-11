@@ -1,8 +1,8 @@
 baseURL: /
-defaultContentLanguage: en-US
+defaultContentLanguage: en-us
 defaultContentLanguageInSubdir: false
 languages:
-  en-US:
+  en-us:
     languageName: English
     languageCode: en
     contentDir: content/en
@@ -45,7 +45,7 @@ languages:
           identifier: status
           weight: 7
           pre: fas fa-battery-full
-  fr-FR:
+  fr-fr:
     languageName: French
     languageCode: fr
     contentDir: content/fr
@@ -88,7 +88,7 @@ languages:
           weight: 7
           url: https://status.saashup.com
           pre: fas fa-battery-full
-  de-DE:
+  de-de:
     languageName: Deutsch
     languageCode: de
     contentDir: content/de
