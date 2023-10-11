@@ -31,7 +31,7 @@
           {{ $fr_flag := resources.Get "images/fr.png" }}
           {{ $en_flag := resources.Get "images/en.png" }}
           {{ $de_flag := resources.Get "images/de.png" }}
-          {{ $currentFlag := printf "images/%s.png" .Language}}
+          {{ $currentFlag := printf "images/%s.png" .Language.LanguageCode }}
           {{ $selectedFlag := resources.Get $currentFlag }}
           <div class="dropdown">
             <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
@@ -45,12 +45,12 @@
                 </a>
               </li>
               <li class="p-2">
-                <a href="/fr/{{ $currentUrl }}">
+                <a href="/fr-fr/{{ $currentUrl }}">
                   <img id="lang-flag" src="{{ $fr_flag.RelPermalink }}" alt="french langage" width="32px"/>
                 </a>
               </li>
               <li class="p-2">
-                <a href="/de/{{ $currentUrl }}">
+                <a href="/de-de/{{ $currentUrl }}">
                   <img id="lang-flag" src="{{ $de_flag.RelPermalink }}" alt="deutsch langage" width="32px"/>
                 </a>
               </li>
