@@ -3,7 +3,7 @@ defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
 languages:
   en:
-    languageName: English
+    languageName: en
     languageCode: en
     contentDir: content/en
     title: SaaShup, SaaS next solution engine, easily run your SaaS business
@@ -46,7 +46,7 @@ languages:
           weight: 7
           pre: fas fa-battery-full
   en-us:
-    languageName: English
+    languageName: en
     languageCode: en
     contentDir: content/en
     title: SaaShup, SaaS next solution engine, easily run your SaaS business
@@ -89,7 +89,7 @@ languages:
           weight: 7
           pre: fas fa-battery-full
   fr-fr:
-    languageName: French
+    languageName: fr
     languageCode: fr
     contentDir: content/fr
     title: SaaShup, SaaS next solution engine, easily run your SaaS business
@@ -132,7 +132,7 @@ languages:
           url: https://status.saashup.com
           pre: fas fa-battery-full
   de-de:
-    languageName: Deutsch
+    languageName: de
     languageCode: de
     contentDir: content/de
     title: SaaShup, SaaS next solution engine, easily run your SaaS business
