@@ -2,6 +2,25 @@ const stripe = Stripe("pk_live_51KYzUAIN4YVCUfYxvj2HyC2Sw4kLUcRT2g9VS1twIiV11y9k
 const appParams = new URLSearchParams(window.location.search);
 var account = null;
 
+function setHomePath () {
+    var langSite = ['en', 'en-us', 'fr-fr', 'de-de'];
+    var langUserAuth0 = ['en', 'en', 'fr', 'de'];
+    var i = 0;
+
+    for (i = 0 ; i < langUserAuth0.length ; i++) {
+        if (langUserAuth0[i] === user.lang) {
+            console.log(langUserAuth0[i], langSite[i]);
+            break;
+        }
+    }
+    $('#homelogo').attr('href', '/' + langSite[i]);
+    return '/' + langSite[i];
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("homelogo").href = setHomePath();
+});
+
 function apiFail(jqXHR, textStatus, errorThrown) {
     switch (jqXHR.status.toString()) {
         case "401":
@@ -585,6 +604,7 @@ function selectLangFlag(l) {
 }
 
 function setLang() {
+
     $("#modalQuestionYes").html(findLang('saveLabel'));
     $("#modalQuestionTitle").html(findLang("lang-text"))
     $("#modalQuestionContent").html("")
@@ -597,8 +617,7 @@ function setLang() {
     $("#modalQuestion").modal("show");
     $("#modalQuestionYes").unbind();
     $("#modalQuestionYes").on("click", function () {
-        window.localStorage.setItem('user', JSON.stringify(user))
-        $('#lang-flag').attr('src', '/images/' + user.lang + '.png')
+        setHomePath();
         updateLang(user.lang);
         $("#modalQuestion").modal("hide");
     })

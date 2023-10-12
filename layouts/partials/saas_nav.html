@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark mb-4">
   <div class="container-fluid">
     {{ $logo_saashup := resources.Get "images/saashup_logo_circle.svg" }}
-      <a class="navbar-brand" style="padding: 0 0 0 0;" href="/"><img src="{{ $logo_saashup.RelPermalink }}" alt="saashup logo saas next solution engine"
+      <a id="homelogo" class="navbar-brand" style="padding: 0 0 0 0;" href=""><img src="{{ $logo_saashup.RelPermalink }}" alt="saashup logo saas next solution engine"
         height="48px" /></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
       aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

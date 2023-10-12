@@ -35,17 +35,8 @@ Tawk_API.onLoad = function () {
 }
 
 $(document).ready(function () {
-
+    var i = 0;
     if (user && 'picture' in user) $('#avatar').attr('src', user.picture).removeClass("d-none");
-    updateLang('en');
-    if (user && 'lang' in user) {
-        updateLang(user.lang);
-        $('#lang-flag').attr('src', '/images/' + user.lang + '.png');
-    }
-    if (appParams.has('lang')) {
-        updateLang(appParams.get('lang'));
-        $('#lang-flag').attr('src', '/images/' + appParams.get('lang') + '.png');
-    }
 
     $("#slide-memory, #slide-instance").on('input', function() {
         $("#memory-value").text($("#slide-memory").val());
