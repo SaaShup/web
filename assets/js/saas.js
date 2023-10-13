@@ -1,23 +1,17 @@
 const stripe = Stripe("pk_live_51KYzUAIN4YVCUfYxvj2HyC2Sw4kLUcRT2g9VS1twIiV11y9kAhODHOTFZ1PaFKgNkrNlfqGRsil3np18DcCAqwie002zBfjeUO");
 const appParams = new URLSearchParams(window.location.search);
 var account = null;
-
-function handlePathLang (lang) {
-    window.localStorage.setItem('lang', lang)
-}
+var langSite = ['en', 'en-us', 'fr-fr', 'de-de'];
+var langUserAuth0 = ['en', 'en', 'fr', 'de'];
+var i = 0;
 
 function setHomePath () {
-    var langSite = ['en', 'en-us', 'fr-fr', 'de-de'];
-    var langUserAuth0 = ['en', 'en', 'fr', 'de'];
-    var i = 0;
 
     for (i = 0 ; i < langUserAuth0.length ; i++) {
         if (langUserAuth0[i] === user.lang) {
-            console.log(langUserAuth0[i], langSite[i]);
             break;
         }
     }
-    handlePathLang(langSite[i]);
     $('#homelogo').attr('href', '/' + langSite[i]);
     return '/' + langSite[i];
 }
@@ -623,7 +617,10 @@ function setLang() {
     $("#modalQuestionYes").unbind();
     $("#modalQuestionYes").on("click", function () {
         setHomePath();
-        updateLang(user.lang);
+        window.localStorage.setItem('user', JSON.stringify(user))
+        $('#lang-flag').attr('src', '/images/' + langUserAuth0[i] + '.png')
+        window.localStorage.setItem('lang', langSite[i]);
+        updateLang(langUserAuth0[i]);
         $("#modalQuestion").modal("hide");
     })
 }

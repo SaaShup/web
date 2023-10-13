@@ -8,12 +8,8 @@ if (window.localStorage.getItem('lang') === null) {
     window.localStorage.setItem('lang', document.documentElement.lang)
 }
 
-export default function handlePathLang (lang) {
-    window.localStorage.setItem('lang', lang)
-}
-
 if (window.localStorage.getItem('lang') !== document.documentElement.lang) {
-    window.location = '/' + window.localStorage.getItem('lang');
+    window.location = '/' + window.localStorage.getItem('lang')
 }
 
 var Tawk_API = Tawk_API || {};
@@ -119,3 +115,7 @@ $(document).ready(function () {
     })
     
 })
+
+function handlePathLang (lang) {
+    window.localStorage.setItem('lang', lang)
+}
