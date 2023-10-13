@@ -2,6 +2,10 @@ const stripe = Stripe("pk_live_51KYzUAIN4YVCUfYxvj2HyC2Sw4kLUcRT2g9VS1twIiV11y9k
 const appParams = new URLSearchParams(window.location.search);
 var account = null;
 
+function handlePathLang (lang) {
+    window.localStorage.setItem('lang', lang)
+}
+
 function setHomePath () {
     var langSite = ['en', 'en-us', 'fr-fr', 'de-de'];
     var langUserAuth0 = ['en', 'en', 'fr', 'de'];
@@ -13,6 +17,7 @@ function setHomePath () {
             break;
         }
     }
+    handlePathLang(langSite[i]);
     $('#homelogo').attr('href', '/' + langSite[i]);
     return '/' + langSite[i];
 }

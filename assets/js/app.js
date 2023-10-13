@@ -8,7 +8,7 @@ if (window.localStorage.getItem('lang') === null) {
     window.localStorage.setItem('lang', document.documentElement.lang)
 }
 
-function handlePathLang (lang) {
+export default function handlePathLang (lang) {
     window.localStorage.setItem('lang', lang)
 }
 
