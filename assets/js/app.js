@@ -1,7 +1,20 @@
 var Plan = 0.1;
 const appParams = new URLSearchParams(window.location.search);
 var user = null;
+
 if (window.localStorage.getItem('user') !== null) user = JSON.parse(window.localStorage.getItem('user'));
+
+if (window.localStorage.getItem('lang') === null) {
+    window.localStorage.setItem('lang', document.documentElement.lang)
+}
+
+function handlePathLang (lang) {
+    window.localStorage.setItem('lang', lang)
+}
+
+if (window.localStorage.getItem('lang') !== document.documentElement.lang) {
+    window.location = '/' + window.localStorage.getItem('lang');
+}
 
 var Tawk_API = Tawk_API || {};
 Tawk_API.customStyle = {
