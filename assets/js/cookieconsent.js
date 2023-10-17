@@ -1,7 +1,6 @@
 $(document).ready(function () {
     var cc = initCookieConsent();
     var localLang = window.localStorage.getItem('lang').split('-')[0];
-    console.log(localLang);
     cc.run({
         current_lang: localLang,
         autoclear_cookies: true,
