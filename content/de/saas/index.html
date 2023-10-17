@@ -1,0 +1,339 @@
+---
+title : 'SaaShup, SaaS next solution engine, easily run your SaaS business'
+nav : 'saas_nav.html'
+meta : 'saas_meta.html'
+---
+
+<div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalSaas">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="createSaasModalTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row text-center">
+          <div class="col-sm-12 col-md-6">
+            <select class="form-select form-select-lg mb-3" id="plan-type-select">
+              <option>Iron</option>
+              <option>Bronze</option>
+              <option disabled>Silver</option>
+              <option disabled>Gold</option>
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <a href="#" id="compose-window-btn"></a>
+          </div>
+        </div>
+        <div class="text-muted text-center m-3">no credit card required</div>
+        <div class="form-group row text-center p-2 d-none">
+          <label class="col-sm-6 col-form-label">Engine : </label>
+          <div class="col-sm-6">
+            <select class="form-select" aria-label="select" id="saasAttach" style="min-width: 200px;max-width: 300px;">
+            </select>
+          </div>
+        </div>
+        <div id="classic-window">
+          <div class="form-group row text-center p-2">
+            <label class="col-sm-6 col-form-label">DockerHub Image : </label>
+            <div class="col-sm-6">
+              <input class="form-control" placeholder="nginx" id="image" style="min-width: 200px;max-width: 300px;"></input>
+            </div>
+          </div>
+          <div class="form-group row text-center p-2">
+            <label class="col-sm-6 col-form-label">ports type : </label>
+            <div class="col-sm-6">
+              <select class="form-control"  id="port_type" style="min-width: 200px;max-width: 300px;">
+                <option>https</option>
+                <option>tcp</option>
+                <option disabled>udp</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row text-center p-2">
+            <label class="col-sm-6 col-form-label">Exposed port : </label>
+            <div class="col-sm-6">
+              <input class="form-control" type="number" placeholder="80" id="port" style="min-width: 200px;max-width: 300px;"></input>
+            </div>
+          </div>
+          <div class="form-group row text-center p-2 d-none" id="display-port-mgt">
+            <label class="col-sm-6 col-form-label">Exposed port (mgt): </label>
+            <div class="col-sm-6">
+              <input class="form-control" type="number" placeholder="81" id="portmgt" style="min-width: 200px;max-width: 300px;"></input>
+            </div>
+          </div>
+          <div class="form-group row text-center p-2">
+            <label class="col-sm-6 col-form-label">Persistent path : </label>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" id="volume" style="min-width: 200px;max-width: 300px;" value="/data"></input>
+            </div>
+          </div>
+          <div class="form-group row text-center p-2 d-none" id="display-volume-cfg">
+            <label class="col-sm-6 col-form-label">Persistent path (config): </label>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" placeholder="/config" id="volumecfg" style="min-width: 200px;max-width: 300px;"></input>
+            </div>
+          </div>
+          <div class="form-group row text-center p-2">
+            <label class="col-sm-6 col-form-label">Env Array : </label>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" placeholder='["t=t","i=i"]' id="env" style="min-width: 200px;max-width: 300px;" ></input>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row text-center p-2">
+          <label class="col-sm-6 col-form-label">Memory Size : </label>
+          <div class="col-sm-6">
+            <select class="form-control" id="memory" disabled style="min-width: 200px;max-width: 300px;">
+              <option>200</option>
+              <option>300</option>
+              <option>400</option>
+              <option>500</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row text-center p-2">
+          <label class="col-sm-6 col-form-label">Price : </label>
+          <div class="col-sm-6">
+            <input class="form-control" type="number" id="price" value="10" style="min-width: 200px;max-width: 300px;"></input>
+          </div>
+        </div>
+        <div class="form-group row mt-2 d-none" id="compose-window">
+          <div class="col-12 text-danger" id="composeResult"></div>
+          <div class="col-sm-12 col-md-6" style="position:relative;">
+            <textarea class="form-control" id="compose-yaml" rows="20"></textarea>
+            <button style="position:absolute;right: 50px; top: 20px;" class="btn btn-dark" id="parse-compose" onclick="$('#compose-json').html('<pre>'+JSON.stringify(YAML.parse($('#compose-yaml').val()), null, 4)+'</pre>'); validateCompose(YAML.parse($('#compose-yaml').val()));"> --> </button>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <div id="compose-json" class="rounded"></div>
+          </div>
+        </div>
+        <div class="row g-3 py-2 text-end">
+          <div class="col-12 fw-bold">
+            Total : <span id="saasCost">0</span> €/m
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="modalSaasNo" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn btn-danger" id="modalSaasYes"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalDocker">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="createEnvModalTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3 py-2 align-items-center">
+          <div class="col-auto">
+            <label for="dockerRegion" class="col-form-label" id="dockerRegionLabel"></label>
+          </div>
+          <div class="col-auto">
+            <select class="form-select" aria-label="select" id="dockerRegion" style="min-width: 200px;">
+            </select>
+          </div>
+        </div>
+        <div class="row g-3 py-2 align-items-center">
+          <div class="col-auto">
+            <label for="dockerModel" class="col-form-label" id="dockerModelLabel"></label>
+          </div>
+          <div class="col-auto">
+            <select class="form-select" aria-label="select" id="dockerModel" style="min-width: 200px;">
+            </select>
+          </div>
+        </div>
+        <div class="row g-3 py-2 align-items-center">
+          <div class="col-auto">
+            <label for="dockerAttach" class="col-form-label" id="dockerAttachLabel"></label>
+          </div>
+          <div class="col-auto">
+            <select class="form-select" aria-label="select" id="dockerAttach" style="min-width: 200px;">
+            </select>
+          </div>
+        </div>
+        <div class="row g-3 py-2 align-items-center">
+          <div class="col-auto fw-bold">
+            Total : <span id="dockerCost">5</span> €/m
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="modalDockerNo" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn btn-danger" id="modalDockerYes"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalNotification" style="z-index: 1061 !important;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="modalNotificationTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="modalNotificationContent"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="modalNotificationOk">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalQuestion">
+  <div class="modal-dialog" id="modalQuestionDialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="modalQuestionTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="modalQuestionContent"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          onclick="setTimeout(function (){$('#modalQuestionDialog').removeClass('modal-xl')}, 1000)" ;>No</button>
+        <button type="button" class="btn btn-danger" id="modalQuestionYes">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container  d-flex h-100 d-none" id="maintenance" style="font-family: 'Roboto' , sans-serif;">
+  <div class="row align-self-center w-100">
+    <div class="col-8">
+      <div class="text-center" style="padding: 40px 15px;">
+        <h1> Oops! :( </h1>
+        <h2> Temporarily down for maintenance</h2>
+        <h1> We’ll be back soon!</h1>
+        <div>
+          <p>
+            Sorry for the inconvenience but we’re performing some maintenance at the moment.<br>
+            we’ll be back online shortly!<br>
+            <p>chat with us if you have urgent requests.</p>
+            <p>
+              — SaasHup Cloud</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <img src="/../images/logo.png" width="75%" />
+    </div>
+  </div>
+</div>
+
+<div class="d-none" id="empty">
+  <main class="h-100 my-3">
+    <div class="container">
+      <div class="card" id="empty-card">
+        <div class="card-header bg-primary text-white" id="empty-title">
+        </div>
+        <div class="card-body" id="empty-text">
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="d-none" id="app">
+
+  <main class="h-100 my-3">
+
+    <div class="container">
+      <div class="row">
+        <div id="admin" class="row d-none">
+          <div class="col-sm-12 col-md-6">
+            <div class="card">
+              <div class="card-header bg-primary text-white">
+                <i class="fas fa-brain"></i> <span id="profile-title"></span>
+              </div>
+              <div class="card-body" id="profile">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-12 pb-2">
+              <div class="card" id="summary">
+                <div class="card-header bg-primary text-white">
+                  <i class="fas fa-brain"></i> <span id="summary-text"></span>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title bold"><span id="current-monthly-cost"></span>: <a href="#"><b><span
+                          id="cost">0</span></b></a></h5>
+                  <h5 class="card-title small"><span id="next-monthly-cost"></span>: <span id="next-cost">0</span>
+                  </h5>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-6 p-2">
+                        <button class="btn btn-primary" id="setup-payment" data-bs-toggle="tooltip"
+                          data-bs-html="true" title="setup payment"><i class="fas fa-money-check-alt"></i> <span
+                            id="setup-payment-btn"></span></a>
+                      </div>
+                      <div class="col-sm-12 col-md-6 p-2">
+                        <button class="btn btn-primary disabled" id="buy" data-bs-toggle="tooltip" data-bs-html="true"
+                          title="buy engine"><i class="fas fa-money-check-alt"></i> <span
+                            id="buy-engine-text"></span></a>
+                      </div>
+                      <div class="col-sm-12 col-md-6 p-2">
+                        <button class="btn btn-primary disabled" id="buyDocker" data-bs-toggle="tooltip"
+                          data-bs-html="true" title="buy docker"><i class="fab fa-docker"></i> <span
+                            id="buy-docker-text"></span></button>
+                      </div>
+                      <div class="col-sm-12 col-md-6 p-2">
+                        <button class="btn btn-primary disabled" id="buySaas" data-bs-toggle="tooltip"
+                          data-bs-html="true" title="buy saas"><i class="fab fa-docker"></i> <span
+                            id="buy-saas-text"></span></button>
+                      </div>
+                      <div class="col-sm-12 col-md-6 p-3">
+                        <button class="btn btn-outline-danger" id="delete" onclick="deleteAccount();" disabled><i
+                            class="fas fa-ban"></i> <span id="delete-myaccount-text"></span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <h5 class="card-title bold">
+                    <p id="payment-and-invoice-text"></p>
+                  </h5>
+                  <p class="card-text" id="card-info-none"></p>
+                  <p class="card-text" id="card-info"></p>
+                  <p class="card-text">
+                    <div class="row">
+                      <div class="col-6">
+                        <span id="no-invoice-text"></span>
+                        <span id="invoice"></span>
+                        <a href="#"><span id="cus-details" class="px-3 d-none"><i
+                              class="fas fa-user-cog"></i></span></a>
+                      </div>
+                      <div class="col-6 text-center"><a href="#" id="audits"><i class="fas fa-book"></i> <span
+                            id="audits-text"></span></a></div>
+                    </div>
+                    <div class="row p-2" id="invoices"></div>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="home" class="d-none">
+          <div class="col-sm-12 col-md-12">
+            <div id="saas-list" class="row"></div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <div id="engine-list"></div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <div id="docker-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-md navbar-dark mb-4">
+  <div class="container-fluid">
+    {{ $logo_saashup := resources.Get "images/saashup_logo_circle.svg" }}
+      <a id="homelogo" class="navbar-brand" style="padding: 0 0 0 0;" href=""><img src="{{ $logo_saashup.RelPermalink }}" alt="saashup logo saas next solution engine"
+        height="48px" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link text-primary active" aria-current="page" href="#" id="nav-home-btn"><i class="fas fa-home"></i>
+            <span id="navHome"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" aria-current="page" href="#" id="nav-admin-btn"><i
+              class="fas fa-money-check-alt"></i>
+            <span id="navBilling"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" aria-current="page" href="https://doc.saashup.com" target="_blank"><i
+              class="fas fa-file-alt"></i> <span id="navDoc"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" aria-current="page" href="https://status.saashup.com" target="_blank"><i
+              class="fas fa-battery-full"></i></i> <span id="navStatus"></span></a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <span class="pe-3 pt-2">
+          {{ $en_flag := resources.Get "images/en.png" }}
+          <img id="lang-flag" src="" width="32px" onclick="setLang();" />
+        </span>
+      </div>
+      <div class="d-flex pt-2">
+        <input class="form-control me-2" id="searchInput" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary text-white" id="search"></button>
+      </div>
+      <div class="d-flex mx-2">
+        <img id="avatar" class="rounded-circle" width="48px" height="48px" src="{{ $logo_saashup.RelPermalink }}" />
+      </div>
+    </div>
+  </div>
+</nav>

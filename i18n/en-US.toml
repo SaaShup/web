@@ -1,0 +1,167 @@
+[navHome]
+
+other = "home"
+
+[navBilling]
+
+other = "admin"
+
+[navDoc]
+
+other = "docs"
+
+[navStatus]
+
+other = "status"
+
+[navCatalog]
+
+other = "catalog"
+
+[navContact]
+
+other = "contact"
+
+[navPricing]
+
+other = "pricing"
+
+[navJobs]
+
+other = "jobs"
+
+[first]
+
+other = "<b class='text-primary'>Do you have a SaaS ?</b> <br>Make SaaS our problem.<br>Focus on product and revenue while we provide you a SaaS platform solution.<br>"
+
+[intro]
+
+other = "<span class='text-primary'>Saas-ify</span> now<br>your application!<br><br>You can request a <a href='https://nginx.saashup.com' target='_blank'>demo</a><br>and increase your selling<br> through your customized <span class='text-primary'>saas</span> with no hidden cost."
+
+[description]
+
+other = "<span class='text-info'>SaaShup</span> is a simple solution to <span class='text-primary'>saas-ify</span> your application.<br>We help you to expose your application and simplify the management. Build and develop your software and let us take care of deploying it to your customer through your own customized Saas. Our services remain flexible and scalable we adapt the capacity to your activity."
+
+[explain]
+
+other = "<div class='text-info text-center'>What do I get ?</div><br>You just need to provide a docker and we provide a complete Saas solution with our engine Front application, authentication, payment, monitoring, alerting, backups, logging, auditing, L1 support...<br><br>You also have your own admin page to configure and customize your Saas.<br><br><a href='https://tawk.to/chat/61bf5e9180b2296cfdd26ed6/1fn9oiql4' target='_blank'> get in touch</a> if you have questions."
+
+[stage1-title]
+
+other = "Last Release"
+
+[stage2-title]
+
+other = "Testing"
+
+[stage3-title]
+
+other = "Developping"
+
+[stage1]
+
+other = "A management platform for containers"
+
+[stage2]
+
+other = "Modern GPS tracking platform"
+
+[stage3]
+
+other = "stateless API for PDF files"
+
+[plan-title]
+
+other = "Plans"
+
+[compare-plan-title]
+
+other = "Compare plans"
+
+[pricing-title]
+
+other = "Pricing"
+
+[youtube-title]
+
+other = "Watch & Learn"
+
+[partner-title]
+
+other = "Premium partner"
+
+[partner-engine-text]
+
+other = "SaaShup is fully managed with <a href='https://saashup.com/saas' target='_blank'>SaaShup engine</a>"
+
+[3rd-party-title]
+
+other = "Other Partners"
+
+[catalog-title]
+
+other = "Catalog"
+
+[catalog-text]
+
+other = "You can browse in our <a href='/catalog.html'>catalog</a> to find an application with built saas.<br>If you dont find one or own one you want us to work on, please contact us.<br>Find SaaS apps  and see what other people have done with SaaShup. "
+
+[contact-title]
+
+other = "Contact"
+
+[contact-text-1]
+
+other = "There is many ways to contact us. You can use our website chat below or one of the messaging. <br><br>"
+
+[contact-text-2]
+
+other = "<br>We are available 9 hours a day, 5 days a week.<br><br>"
+
+[signup-iron]
+
+other = "Signup for free"
+
+[contact-plan-btn-bronze]
+
+other = "Contact us"
+
+[contact-plan-btn-silver]
+
+other = "Contact us"
+
+[contact-plan-btn-gold]
+
+other = "Contact us"
+
+[help_registry_title]
+
+other = "Registry"
+
+[help_registry_text]
+
+other = "You can only use dockerhub public images when public.<br>You can use authenticated dockerhub or any authenticated supported registry when private"
+
+[help_engine_title]
+
+other = "Engine"
+
+[help_engine_text]
+
+other = "<p>The Saas is managed with a <a href='https://saashup.com/saas.io'>saashup engine</a>.</p>"
+
+[help_app_support_title]
+
+other = "App Support"
+
+[help_app_support_text]
+
+other = "<p>We can provide support to your application.</p><p>Our support team can respond to your customer about application issues, queries...</p><p>Provide procedures, knowledge bases, Faqs or any documents and we will provide Level 1 support, create tickets for follow up and escalate to your teams.</p>"
+
+[help_saas_support_title]
+
+other = "SaaS Support"
+
+[help_saas_support_text]
+
+other = "<p>We fully support your Saas.</p><p>Our support team can respond to your customer about saas issues, queries, requests...</p>"
