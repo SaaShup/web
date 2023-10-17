@@ -9,7 +9,7 @@ if (window.localStorage.getItem('lang') === null) {
 }
 
 if (window.localStorage.getItem('lang') !== document.documentElement.lang) {
-    window.location = '/' + window.localStorage.getItem('lang')
+    location.replace('/' + window.localStorage.getItem('lang'));
 }
 
 var Tawk_API = Tawk_API || {};
