@@ -29,7 +29,7 @@ languages:
           url: contact/
           identifier: contact
           weight: 4
-          pre: fas fa-book
+          pre: fa fa-phone
         - name: jobs
           url: https://jobs.saashup.com
           identifier: jobs
@@ -72,7 +72,7 @@ languages:
           url: contact/
           identifier: contact
           weight: 4
-          pre: fas fa-book
+          pre: fa fa-phone
         - name: jobs
           url: https://jobs.saashup.com
           identifier: jobs
@@ -115,7 +115,7 @@ languages:
           url: contact/
           identifier: contact
           weight: 4
-          pre: fas fa-book
+          pre: fa fa-phone
         - name: jobs
           url: https://jobs.saashup.com
           identifier: jobs
