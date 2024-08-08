@@ -17,6 +17,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Install Hugo
+      run: npm install hugo
     - name: Start Hugo website
       run: hugo server
     - name: Run Playwright tests

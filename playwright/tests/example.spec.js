@@ -11,7 +11,7 @@ test('index', async ({ page }) => {
 });
 
 test('fr-en', async ({ page }) => {
-  await page.goto('//localhost:1313/');
+  await page.goto('//localhost:1313/fr-fr');
   await page.getByAltText('flag').click();
   await page.getByAltText('English langage').click();
   const lang = await page.evaluate(() => {
@@ -34,7 +34,7 @@ test('en-de', async ({ page }) => {
 });
 
 test('de-fr', async ({ page }) => {
-  await page.goto('//localhost:1313/');
+  await page.goto('//localhost:1313/de-de');
   await page.getByAltText('flag').click();
   await page.getByAltText('French langage').click();
   const lang = await page.evaluate(() => {
