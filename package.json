@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/Chsfdjr/snapshot_hugo_0.1#readme",
   "devDependencies": {
+    "@playwright/test": "^1.46.0",
     "@types/node": "^20.8.2"
   }
 }
