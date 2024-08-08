@@ -24,7 +24,7 @@ jobs:
     - name: Start Hugo website
       run: hugo server &
     - name: Run website in background
-      run: bg
+      run: nohup hugo server &
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
