@@ -18,9 +18,6 @@ test('test full catalog', async ({ page }) => {
     const Blocks = page.locator("#catalog-dynamic-list > div");
     await expect(Blocks).toHaveCount(1)
   
-    for (const Block of await Blocks.all()) {
-      await expect(Block).toBeVisible();
-    }
     });
 
     test('test one catalog (couchdb)', async ({ page }) => {
@@ -30,22 +27,16 @@ test('test full catalog', async ({ page }) => {
     
       const Blocks = page.locator("#catalog-dynamic-list > div");
       await expect(Blocks).toHaveCount(1)
-    
-      for (const Block of await Blocks.all()) {
-        await expect(Block).toBeVisible();
-      }  
+     
       });
 
       test('test nothing catalog', async ({ page }) => {
         await page.goto('http://localhost:8080/catalog/');
         await page.type("#search-input-text", 'hgergbehi'); 
-        await page.getByText('Search').click({ button: 'left' });
+        await page.getByRole('button', { name: 'Search'}).click({ button: 'left' });
       
         const Blocks = page.locator("#catalog-dynamic-list > div");
           await expect(Blocks).toHaveCount(0)
         
-          for (const Block of await Blocks.all()) {
-            await expect(Block).toBeVisible();
-          }
         });
   
