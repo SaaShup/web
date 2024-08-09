@@ -39,3 +39,18 @@ test('de-fr', async ({ page }) => {
   });
   await expect(page.getByText('Avez-vous un SaaS ?', { exact: true })).toBeVisible({ timeout: 10000 });
 });
+
+test('logo ovh en', async ({ page }) => {
+  await page.goto('http://localhost:8080/');
+  await expect(page.getByAltText('OVH server hosting')).toBeVisible({ timeout: 10000 });
+});
+
+test('logo ovh fr', async ({ page }) => {
+  await page.goto('http://localhost:8080/fr-fr/');
+  await expect(page.getByAltText('OVH server hosting')).toBeVisible({ timeout: 10000 });
+});
+
+test('logo ovh de', async ({ page }) => {
+  await page.goto('http://localhost:8080/de-de/');
+  await expect(page.getByAltText('OVH server hosting')).toBeVisible({ timeout: 10000 });
+});
