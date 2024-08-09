@@ -23,8 +23,6 @@ jobs:
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
     - name: Start Hugo
       run: hugo
-    - name: Run website in background
-      run: docker run -p 8080:80 -v ./public:/usr/share/nginx/html -d nginx
     - name: check website
       run: docker container ls
     - name: Run Playwright tests
