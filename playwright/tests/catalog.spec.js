@@ -39,4 +39,14 @@ test('test full catalog', async ({ page }) => {
           await expect(Blocks).toHaveCount(0)
         
         });
+
+        test('test one catalog with enter(couchdb)', async ({ page }) => {
+          await page.goto('http://localhost:8080/catalog/');
+          await page.type("#search-input-text", 'couchdb'); 
+          await page.keyboard.press("Enter");
+        
+          const Blocks = page.locator("#catalog-dynamic-list > div");
+          await expect(Blocks).toHaveCount(1)
+         
+          });
   
