@@ -21,8 +21,10 @@ jobs:
       run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.128.0/hugo_extended_0.128.0_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+    - name: Start Hugo
+      run: hugo
     - name: Run website in background
-      run: RUNNER_TRACKING_ID="" && (nohup hugo server &)
+      run: docker run -p 8080:80 -v ./public:/usr/share/nginx/html -d nginx
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
