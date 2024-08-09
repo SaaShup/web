@@ -7,7 +7,6 @@ test('index', async ({ page }) => {
   const lang = await page.evaluate(() => {
     return document.documentElement.getAttribute('lang');
   });
-  console.log(`The website index is in ${lang}`)
 });
 
 test('fr-en', async ({ page }) => {
@@ -18,7 +17,6 @@ test('fr-en', async ({ page }) => {
     return document.documentElement.getAttribute('lang');
   });
   await expect(page.getByText('Do you have a SaaS ?', { exact: true })).toBeVisible({ timeout: 10000 });
-    console.log(`The website is in ${lang}`)
 });
 
 
@@ -30,7 +28,6 @@ test('en-de', async ({ page }) => {
     return document.documentElement.getAttribute('lang');
   });
   await expect(page.getByText('Haben Sie eine SaaS?', { exact: true })).toBeVisible({ timeout: 10000 });
-    console.log(`The website is in ${lang}`)
 });
 
 test('de-fr', async ({ page }) => {
@@ -41,5 +38,4 @@ test('de-fr', async ({ page }) => {
     return document.documentElement.getAttribute('lang');
   });
   await expect(page.getByText('Avez-vous un SaaS ?', { exact: true })).toBeVisible({ timeout: 10000 });
-    console.log(`The website is in ${lang}`)
 });
