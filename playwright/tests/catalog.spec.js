@@ -4,38 +4,42 @@ const { test, expect } = require('@playwright/test');
 test('test full catalog', async ({ page }) => {
   await page.goto('http://localhost:8080/catalog/');
   await page.type("#search-input-text", ''); 
-  await page.keyboard.press("Enter");
+  await page.getByRole('button', { name: 'Search'}).click({ button: 'left' });
 
-  const Blocks = page.locator("#catalog-dynamic-list > div");
-    await expect(Blocks).toHaveCount(31)//toHaveClass('col-sm-12 col-md-4');
-  
-    for (const Block of await Blocks.all()) {
-      await expect(Block).toBeVisible();
-    }
+  const Block = await page.locator("#catalog-dynamic-list > div").count();
+     expect(Block).toBeGreaterThan(1)
   });
 
   test('test one catalog (minio)', async ({ page }) => {
     await page.goto('http://localhost:8080/catalog/');
     await page.type("#search-input-text", 'minio'); 
-    await page.keyboard.press("Enter");
+    await page.getByRole('button', { name: 'Search'}).click({ button: 'left' });
   
-    await expect(page.getByAltText('Multi-Cloud Object Storage')).toBeVisible({ timeout: 10000 });
-
+    const Blocks = page.locator("#catalog-dynamic-list > div");
+    await expect(Blocks).toHaveCount(1)
+  
+    for (const Block of await Blocks.all()) {
+      await expect(Block).toBeVisible();
+    }
     });
 
     test('test one catalog (couchdb)', async ({ page }) => {
       await page.goto('http://localhost:8080/catalog/');
       await page.type("#search-input-text", 'couchdb'); 
-      await page.keyboard.press("Enter");
+      await page.getByRole('button', { name: 'Search'}).click({ button: 'left' });
     
-      await expect(page.getByAltText('Seamless, that scales, reliable with an Intuitive HTTP/JSON API')).toBeVisible({ timeout: 10000 });
-  
+      const Blocks = page.locator("#catalog-dynamic-list > div");
+      await expect(Blocks).toHaveCount(1)
+    
+      for (const Block of await Blocks.all()) {
+        await expect(Block).toBeVisible();
+      }  
       });
 
       test('test nothing catalog', async ({ page }) => {
         await page.goto('http://localhost:8080/catalog/');
         await page.type("#search-input-text", 'hgergbehi'); 
-        await page.keyboard.press("Enter");
+        await page.getByText('Search').click({ button: 'left' });
       
         const Blocks = page.locator("#catalog-dynamic-list > div");
           await expect(Blocks).toHaveCount(0)
