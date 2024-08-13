@@ -8,7 +8,7 @@ test('test full catalog', async ({
   page
 }) => {
   await page.goto('http://localhost:8080/catalog/');
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(7000);
   await page.type("#search-input-text", '');
   await page.getByRole('button', {
     name: 'Search'
@@ -18,6 +18,22 @@ test('test full catalog', async ({
 
   const Block = await page.locator("#catalog-dynamic-list > div").count();
   expect(Block).toBeGreaterThan(1)
+});
+
+test('test error', async ({
+  page
+}) => {
+  await page.goto('http://localhost:8080/catalog/');
+  await page.waitForTimeout(5000);
+  await page.type("#search-input-text", 'frgggrgggfg');
+  await page.getByRole('button', {
+    name: 'Search'
+  }).click({
+    button: 'left'
+  });
+
+  const Blocks = page.locator("#catalog-dynamic-list > div");
+  await expect(Blocks).toHaveCount(1)
 });
 
 test('test one catalog (minio)', async ({
