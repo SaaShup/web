@@ -73,7 +73,7 @@ function showPrice(_btnPlan)
                                     + parseFloat($(_btnPlan).data('price'))
                                 )/ parseInt($("#slide-instance").val())
                             ).toFixed(2))
-0
+
     if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300);
 
     // to remove!
