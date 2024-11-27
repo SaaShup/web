@@ -2,7 +2,7 @@ var Plan = 0.1;
 var planName = "#bronze-btn";
 
 
-const tblPrices = {"eur":
+var tblPrices = {"eur":
                         {   "iron":{"fixed":0, "byInstance":5, "memory":0},
                             "bronze":{"fixed":10, "byInstance":1, "memory":0.5},
                             "silver":{"fixed":30, "byInstance":2, "memory":1},
