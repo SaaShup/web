@@ -4,9 +4,9 @@ var planName = "#bronze-btn";
 
 const tblPrices = {"eur":
                         {   "iron":{"fixed":0, "byInstance":5, "memory":0},
-                            "bronze":{"fixed":10, "byInstance":1, "memory":0.05},
-                            "silver":{"fixed":30, "byInstance":2, "memory":0.05},
-                            "gold":{"fixed":90, "byInstance":3, "memory":0.05}
+                            "bronze":{"fixed":10, "byInstance":1, "memory":0.5},
+                            "silver":{"fixed":30, "byInstance":2, "memory":1},
+                            "gold":{"fixed":90, "byInstance":3, "memory":1.5}
                         }
                     };
 const currencie = "eur";    
@@ -130,7 +130,7 @@ $(document).ready(function () {
         }
         showPrice(this);
     });
-
+    showPrice(planName);
     $("#help_app_support").on('click', function(event) {
         event.preventDefault()
         $("#modalNotificationTitle").html(findLang("help_app_support_title", myLang));
