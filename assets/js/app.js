@@ -1,4 +1,17 @@
 var Plan = 0.1;
+var planName = "#bronze-btn";
+
+
+var tblPrices = {"eur":
+                        {   "iron":{"fixed":0, "byInstance":5, "memory":0},
+                            "bronze":{"fixed":10, "byInstance":1, "memory":0.5},
+                            "silver":{"fixed":30, "byInstance":2, "memory":1},
+                            "gold":{"fixed":90, "byInstance":3, "memory":1.5}
+                        }
+                    };
+const currencie = "eur";    
+const startingMemory = 200;                
+
 const appParams = new URLSearchParams(window.location.search);
 var user = null;
 
@@ -42,10 +55,37 @@ Tawk_API.onLoad = function () {
         if (error) console.log(error)
     });
 }
+function showPrice(_btnPlan)
+{
+
+   
+    $("#pricing-value").text(( ((parseInt($("#slide-memory").val()) - startingMemory) * parseFloat($(_btnPlan).data('memoryprice')) * parseInt($("#slide-instance").val())*0.01 )
+                                + (parseInt($("#slide-instance").val()) * parseFloat($(_btnPlan).data('instanceprice')))
+                                + parseFloat($(_btnPlan).data('price'))
+                             ).toFixed(2));
+                             
+    $("#pricing-unit").text(( 
+                                (((parseInt($("#slide-memory").val()) - startingMemory) * parseFloat($(_btnPlan).data('memoryprice')) * parseInt($("#slide-instance").val())*0.01)
+                                    + (parseInt($("#slide-instance").val()) * parseFloat($(_btnPlan).data('instanceprice')))
+                                    + parseFloat($(_btnPlan).data('price'))
+                                )/ parseInt($("#slide-instance").val())
+                            ).toFixed(2))
+
+    if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300);
+
+    }
 
 $(document).ready(function () {
     var i = 0;
     if (user && 'picture' in user) $('#avatar').attr('src', user.picture).removeClass("d-none");
+
+    for(let thisPlan of Object.keys(tblPrices[currencie]))
+    {
+        $("#"+thisPlan+"-btn").attr("data-instanceprice", tblPrices[currencie][thisPlan]["byInstance"]);
+        $("#"+thisPlan+"-btn").attr("data-price", tblPrices[currencie][thisPlan]["fixed"]);
+        $("#"+thisPlan+"-btn").attr("data-memoryprice", tblPrices[currencie][thisPlan]["memory"]);
+
+     }
 
     $("#slide-memory, #slide-instance").on('input', function() {
         $("#memory-value").text($("#slide-memory").val());
@@ -54,14 +94,13 @@ $(document).ready(function () {
             $("#slide-memory").val(200);
             $("#memory-value").text($("#slide-memory").val());
             $("#slide-memory").attr("disabled", true)
-            $("#pricing-value").text((parseInt($("#slide-instance").val()) * 2).toFixed(2))
-            $("#pricing-unit").text(((parseInt($("#slide-instance").val()) * 2) / parseInt($("#slide-instance").val())).toFixed(2))
+
         } else {
             $("#slide-memory").attr("disabled", false)
-            $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 100).toFixed(2))
-            $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 100) / parseInt($("#slide-instance").val())).toFixed(2))
-        }
-        if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 100)
+       }
+
+
+        showPrice(planName);
     })
 
     $("#iron-btn, #bronze-btn, #silver-btn, #gold-btn").on('click', function() {
@@ -71,21 +110,17 @@ $(document).ready(function () {
         $("#gold-btn").removeClass("btn-primary").removeClass("text-white");
         $(this).addClass("btn-primary").addClass("text-white");
         Plan = parseFloat($(this).data('price'))
+        planName = $(this);
         if ($(this).attr('id') === "iron-btn") {
             $("#slide-memory").val(200);
             $("#memory-value").text($("#slide-memory").val());
             $("#slide-memory").attr("disabled", true)
-            $("#pricing-value").text((parseInt($("#slide-instance").val()) * 5).toFixed(2))
-            $("#pricing-unit").text(((parseInt($("#slide-instance").val()) * 5) / parseInt($("#slide-instance").val())).toFixed(2))
         } else {
             $("#slide-memory").attr("disabled", false)
-
-            $("#pricing-value").text((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300).toFixed(2))
-            $("#pricing-unit").text(((parseInt($("#slide-memory").val()) * 0.05 * parseInt($("#slide-instance").val()) * Plan + Plan * 300) / parseInt($("#slide-instance").val())).toFixed(2))
         }
-        if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300)
+        showPrice(this);
     });
-
+    showPrice(planName);
     $("#help_app_support").on('click', function(event) {
         event.preventDefault()
         $("#modalNotificationTitle").html(findLang("help_app_support_title", myLang));
