@@ -58,10 +58,7 @@ Tawk_API.onLoad = function () {
 function showPrice(_btnPlan)
 {
 
-    // to remove!
-    console.log("btnPLan = "+ _btnPlan);
-    console.log(_btnPlan.id + "memory en plus: "+ ((parseInt($("#slide-memory").val()) - startingMemory)) + " * memoryprice ["+parseFloat($(_btnPlan).data('memoryprice'))+"]");
-
+   
     $("#pricing-value").text(( ((parseInt($("#slide-memory").val()) - startingMemory) * parseFloat($(_btnPlan).data('memoryprice')) * parseInt($("#slide-instance").val())*0.01 )
                                 + (parseInt($("#slide-instance").val()) * parseFloat($(_btnPlan).data('instanceprice')))
                                 + parseFloat($(_btnPlan).data('price'))
@@ -76,9 +73,7 @@ function showPrice(_btnPlan)
 
     if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300);
 
-    // to remove!
-    console.log(_btnPlan.id + ": prix fixe [%o], instance [%o], memory [%o]", parseFloat($(_btnPlan).data('price')), parseFloat($(_btnPlan).data('instanceprice')), parseFloat($(_btnPlan).data('memoryprice') ));
-}
+    }
 
 $(document).ready(function () {
     var i = 0;
@@ -90,11 +85,7 @@ $(document).ready(function () {
         $("#"+thisPlan+"-btn").attr("data-price", tblPrices[currencie][thisPlan]["fixed"]);
         $("#"+thisPlan+"-btn").attr("data-memoryprice", tblPrices[currencie][thisPlan]["memory"]);
 
-        // to remove!
-        console.log( thisPlan+"-btn: instance: "+$("#"+thisPlan+"-btn").attr("data-instanceprice"));
-        console.log( thisPlan+"-btn: price: "+$("#"+thisPlan+"-btn").attr("data-price"));
-        console.log( thisPlan+"-btn: memoryprice: "+$("#"+thisPlan+"-btn").attr("data-memoryprice"));
-    }
+     }
 
     $("#slide-memory, #slide-instance").on('input', function() {
         $("#memory-value").text($("#slide-memory").val());
@@ -120,7 +111,6 @@ $(document).ready(function () {
         $(this).addClass("btn-primary").addClass("text-white");
         Plan = parseFloat($(this).data('price'))
         planName = $(this);
-        console.log("plan: "+planName.id);
         if ($(this).attr('id') === "iron-btn") {
             $("#slide-memory").val(200);
             $("#memory-value").text($("#slide-memory").val());
