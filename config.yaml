@@ -10,41 +10,21 @@ languages:
     weight: 1
     menu:
       main:
-        - name: home
+        - name: Home
           url: .
           identifier:
           weight: 1
           pre: fas fa-home
-        - name: catalog
-          url: catalog/
-          identifier: catalog
-          weight: 2
-          pre: fas fa-book
-        - name: pricing
+        - name: Pricing
           url: pricing/
           identifier: pricing
           weight: 3
-          pre: fas fa-dollar-sign
-        - name: contact
+          pre: fas fa-tags
+        - name: Contact
           url: contact/
           identifier: contact
           weight: 4
-          pre: fa fa-phone
-        - name: jobs
-          url: https://jobs.saashup.com
-          identifier: jobs
-          weight: 5
-          pre: fas fa-gamepad
-        - name: docs
-          url: https://doc.saashup.com/
-          identifier: docs
-          weight: 6
-          pre: fas fa-file-alt
-        - name: status
-          url: https://status.saashup.com
-          identifier: status
-          weight: 7
-          pre: fas fa-battery-full
+          pre: fas fa-paper-plane
   fr-fr:
     languageName: fr
     languageCode: fr
@@ -53,41 +33,21 @@ languages:
     weight: 2
     menu:
       main:
-        - name: accueil
+        - name: Accueil
           url: .
           identifier:
           weight: 1
           pre: fas fa-home
-        - name: catalogue
-          url: catalog/
-          identifier: catalogPages
-          weight: 2
-          pre: fas fa-book
-        - name: tarifs
+        - name: Tarifs
           url: pricing/
           identifier: pricing
           weight: 3
-          pre: fas fa-dollar-sign 
-        - name: contact
+          pre: fas fa-tags
+        - name: Contact
           url: contact/
           identifier: contact
           weight: 4
-          pre: fa fa-phone
-        - name: jobs
-          url: https://jobs.saashup.com
-          identifier: jobs
-          pre: fas fa-gamepad
-          weight: 5
-        - name: docs
-          identifier: docs
-          url: https://doc.saashup.com/
-          weight: 6
-          pre: fas fa-file-alt
-        - name: status
-          identifier: status
-          weight: 7
-          url: https://status.saashup.com
-          pre: fas fa-battery-full
+          pre: fas fa-paper-plane
   de-de:
     languageName: de
     languageCode: de
@@ -96,38 +56,18 @@ languages:
     weight: 3
     menu:
       main:
-        - name: startseite
+        - name: Startseite
           url: .
           identifier:
           weight: 1
           pre: fas fa-home
-        - name: katalog
-          url: catalog/
-          identifier: catalog
-          weight: 2
-          pre: fas fa-book
-        - name: preise
+        - name: Preise
           url: pricing/
           identifier: pricing
           weight: 3
-          pre: fas fa-dollar-sign 
-        - name: kontakt
+          pre: fas fa-tags
+        - name: Kontakt
           url: contact/
           identifier: contact
           weight: 4
-          pre: fa fa-phone
-        - name: jobs
-          url: https://jobs.saashup.com
-          identifier: jobs
-          pre: fas fa-gamepad
-          weight: 5
-        - name: dokumente
-          identifier: docs
-          weight: 6
-          url: https://doc.saashup.com/
-          pre: fas fa-file-alt
-        - name: status
-          identifier: status
-          weight: 7
-          pre: fas fa-battery-full
-          url: https://status.saashup.com
+          pre: fas fa-paper-plane

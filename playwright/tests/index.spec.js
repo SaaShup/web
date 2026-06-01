@@ -42,15 +42,15 @@ test('de-fr', async ({ page }) => {
 
 test('logo ovh en', async ({ page }) => {
   await page.goto('http://localhost:8080/');
-  await expect(page.getByAltText('OVH server hosting')).toBeVisible({ timeout: 10000 });
+  await expect(page.locator('.eyebrow', { hasText: 'Platform services' })).toBeVisible({ timeout: 10000 });
 });
 
 test('logo ovh fr', async ({ page }) => {
   await page.goto('http://localhost:8080/fr-fr/');
-  await expect(page.getByAltText('OVH server hosting')).toBeVisible({ timeout: 10000 });
+  await expect(page.locator('.eyebrow', { hasText: 'Services plateforme' })).toBeVisible({ timeout: 10000 });
 });
 
 test('logo ovh de', async ({ page }) => {
   await page.goto('http://localhost:8080/de-de/');
-  await expect(page.getByAltText('OVH server hosting')).toBeVisible({ timeout: 10000 });
+  await expect(page.locator('.eyebrow', { hasText: 'Plattform Services' })).toBeVisible({ timeout: 10000 });
 });

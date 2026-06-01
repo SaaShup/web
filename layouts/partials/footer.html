@@ -1,13 +1,14 @@
-<footer class="footer w-100 mt-auto py-2">
-    <div class="w-100 p-1 text-center text-primary">
-        {{ $logo_saashup := resources.Get "images/saashup_logo.svg" }}
-        {{ $currentYear := now.Format "2006" }}
-        <img class="logo" src="{{ $logo_saashup.RelPermalink }}"> SaaShup © {{ $currentYear }}
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      {{ $logoSaashup := resources.Get "images/saashup_logo.svg" }}
+      {{ $currentYear := now.Format "2006" }}
+      <img class="logo" src="{{ $logoSaashup.RelPermalink }}" alt="SaaShup logo">
+      <span>SaaShup © {{ $currentYear }}</span>
     </div>
-    <div class="w-100 p-1 text-center text-primary">
-      <span style="font-size: .75rem;"><a href="https://doc.saashup.com/article/privacy-policy" target="_blank">Privacy
-          Policy</a></span>
-      <span style="font-size: .75rem;"><a href="https://doc.saashup.com/article/terms-of-use" target="_blank">Terms
-          and Conditions</a></span>
+    <div class="footer-links">
+      <a href="https://doc.saashup.com/article/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a>
+      <a href="https://doc.saashup.com/article/terms-of-use" target="_blank" rel="noreferrer">Terms and Conditions</a>
     </div>
+  </div>
 </footer>
