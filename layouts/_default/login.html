@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode }}">
+  <head>
+    {{ partial "meta.html" . }}
+  </head>
+  <body class="login-page">
+    {{ partial "nav.html" . }}
+    <main class="login-shell">
+      <section class="login-card">
+        <p class="eyebrow">Secure sign-in</p>
+        <h1>{{ .Title }}</h1>
+        <p class="lead-text">
+          Choose the provider
+        </p>
+        <div class="login-actions">
+          <a class="btn login-button login-button-google" href="https://gg.saashup.com">
+            <i class="fab fa-google"></i>
+            Continue with Google
+          </a>
+          <a class="btn login-button login-button-github" href="https://gh.saashup.com">
+            <i class="fab fa-github"></i>
+            Continue with GitHub
+          </a>
+        </div>
+      </section>
+    </main>
+    {{ partial "footer.html" }}
+  </body>
+</html>

@@ -18,16 +18,6 @@ navSeleted : 'home'
         <a class="btn btn-primary btn-lg" href="/fr-fr/contact/">Contactez-nous</a>
         <a class="btn btn-soft btn-lg" href="/fr-fr/pricing/">Voir les tarifs</a>
       </div>
-      <div class="hero-meta">
-        <span><img src="../img/logos/docker.svg" alt="" aria-hidden="true">Docker</span>
-        <span><img src="../img/logos/traefik.svg" alt="" aria-hidden="true">Traefik</span>
-        <span><img src="../img/logos/cloudflare.svg" alt="" aria-hidden="true">Cloudflare</span>
-        <span><img src="../img/logos/netbox.svg" alt="" aria-hidden="true">NetBox</span>
-        <span><img src="../img/logos/keycloak.svg" alt="" aria-hidden="true">Keycloak</span>
-        <span><img src="../img/logos/prometheus.svg" alt="" aria-hidden="true">Prometheus</span>
-        <span><img src="../img/logos/grafana.svg" alt="" aria-hidden="true">Grafana</span>
-        <span><img src="../img/logos/flowg.png" alt="" aria-hidden="true">FlowG</span>
-      </div>
     </div>
 
     <div class="hero-card">
@@ -48,11 +38,35 @@ navSeleted : 'home'
     </div>
   </section>
 
+  <section class="section docker-launch">
+    <div class="container">
+      <div class="docker-launch-card">
+        <p class="eyebrow">Essayez maintenant</p>
+        <h2>Lancez votre image Docker</h2>
+        <p class="lead-text">Vous avez une image Docker prête ? Entrez le registre d'images et lancez votre instance SaaS.</p>
+        <div class="docker-launch-form">
+          <input type="text" id="docker-image-input" placeholder="Entrez le lien Docker (ex: monregistry.com/monapp:latest)" class="docker-image-input">
+          <button class="btn btn-primary" id="docker-launch-btn">Lancer</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section intro-band">
     <p>
       SaaShup transforme une application conteneurisee en experience SaaS vendable avec hebergement,
       authentification, paiement, logs, monitoring, sauvegardes, support et outils de gestion client.
     </p>
+    <div class="hero-meta">
+      <span><img src="../img/logos/docker.svg" alt="" aria-hidden="true">Docker</span>
+      <span><img src="../img/logos/traefik.svg" alt="" aria-hidden="true">Traefik</span>
+      <span><img src="../img/logos/cloudflare.svg" alt="" aria-hidden="true">Cloudflare</span>
+      <span><img src="../img/logos/netbox.svg" alt="" aria-hidden="true">NetBox</span>
+      <span><img src="../img/logos/keycloak.svg" alt="" aria-hidden="true">Keycloak</span>
+      <span><img src="../img/logos/prometheus.svg" alt="" aria-hidden="true">Prometheus</span>
+      <span><img src="../img/logos/grafana.svg" alt="" aria-hidden="true">Grafana</span>
+      <span><img src="../img/logos/flowg.png" alt="" aria-hidden="true">FlowG</span>
+    </div>
   </section>
 
   <section class="section" id="services">

@@ -83,10 +83,7 @@ main {
 .nbar,
 .navbar {
   width: min(1180px, calc(100% - 32px));
-  margin: 14px auto 0;
-  padding: 10px 12px;
-  background: color-mix(in srgb, var(--panel) 86%, transparent) !important;
-  border: 1px solid var(--border);
+    margin: 16px auto 0;
   border-radius: 24px;
   box-shadow: 0 18px 60px rgba(16, 32, 51, 0.12);
   backdrop-filter: blur(18px);
@@ -104,33 +101,15 @@ main {
   color: var(--text) !important;
   font-weight: 900;
   min-width: max-content;
-  padding: 2px 8px 2px 2px;
-}
+    padding: 2px 8px 2px 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
 
-.brand-mark {
-  width: 58px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  background: var(--button-soft);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-}
-
-.brand-mark img {
-  width: 44px;
-  height: 32px;
-  object-fit: contain;
-}
-
-.brand-copy {
-  display: grid;
-  gap: 1px;
-}
-
-.brand-name {
-  color: var(--text);
-  line-height: 1;
+  .brand-mark img {
+    width: 56px;
+    height: 44px;
   letter-spacing: 0;
 }
 
@@ -144,10 +123,10 @@ main {
 
 .nav-menu {
   margin-left: 20px;
-  padding: 5px;
-  gap: 3px;
-  background: color-mix(in srgb, var(--button-soft) 64%, transparent);
-  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  padding: 0;
+  gap: 6px;
+  background: transparent;
+  border: 0;
   border-radius: 18px;
 }
 
@@ -155,12 +134,13 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: var(--muted) !important;
+  color: var(--text) !important;
   border: 0;
   border-radius: 14px;
   font-weight: 800;
-  padding: 7px 12px 7px 8px !important;
+  padding: 8px 14px !important;
   line-height: 1;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 
 .nav-link i {
@@ -251,10 +231,10 @@ main {
   display: grid;
   place-items: center;
   color: var(--text);
-  background: var(--panel);
-  border: 1px solid var(--border);
+  background: transparent;
+  border: 0;
   border-radius: 14px;
-  box-shadow: 0 10px 24px rgba(16, 32, 51, 0.07);
+  box-shadow: none;
 }
 
 .theme-toggle {
@@ -266,11 +246,11 @@ main {
 .theme-toggle:hover,
 .nav-icon-btn:hover {
   color: var(--primary);
-  background: var(--button-soft);
+  background: transparent;
 }
 
-.nav-icon-btn::after {
-  margin-left: 4px;
+.nav-icon-btn.dropdown-toggle::after {
+  display: none;
 }
 
 .language-menu .dropdown-menu {
@@ -931,5 +911,173 @@ iframe {
 
   .nav-contact {
     flex: 1 1 150px;
+  }
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login-shell {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px 48px;
+  overflow-y: auto;
+}
+
+.login-card {
+  width: min(620px, 100%);
+  padding: 44px 40px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(36, 107, 254, 0.12);
+  box-shadow: 0 28px 70px rgba(16, 32, 51, 0.14);
+  backdrop-filter: blur(18px);
+}
+
+.login-page .navbar,
+.login-page .nbar {
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+.login-card h1 {
+  margin-top: 0;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+}
+
+.login-actions {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.login-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 56px;
+  font-size: 1rem;
+  font-weight: 900;
+  border-radius: 18px;
+  padding: 0 22px;
+}
+
+.login-button-google {
+  color: white;
+  background: #4285f4;
+  border: 1px solid #4285f4;
+  box-shadow: 0 18px 40px rgba(66, 133, 244, 0.22);
+}
+
+.login-button-google:hover {
+  background: #3367d6;
+}
+
+.login-button-github {
+  color: white;
+  background: #181717;
+  border-color: #181717;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.login-button-github:hover {
+  background: #0f1113;
+}
+
+.login-note {
+  margin-top: 28px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.docker-launch {
+  padding: 60px 16px;
+  background: transparent;
+}
+
+.docker-launch-card {
+  max-width: none;
+  margin: 0 auto;
+  padding: 48px 40px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(36, 107, 254, 0.12);
+  box-shadow: 0 28px 70px rgba(16, 32, 51, 0.14);
+  backdrop-filter: blur(18px);
+  text-align: center;
+}
+
+.docker-launch-card h2 {
+  margin: 16px 0 12px;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  color: var(--text);
+}
+
+.docker-launch-card .lead-text {
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.docker-launch-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.docker-image-input {
+  flex: 1;
+  min-width: 280px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.docker-image-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 3px rgba(36, 107, 254, 0.1);
+}
+
+.docker-image-input::placeholder {
+  color: var(--muted);
+}
+
+#docker-launch-btn {
+  min-width: 140px;
+  font-weight: 900;
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    padding: 32px 24px;
+  }
+
+  .docker-launch-card {
+    padding: 32px 24px;
+  }
+
+  .docker-launch-form {
+    flex-direction: column;
+  }
+
+  .docker-image-input {
+    min-width: auto;
+  }
+
+  #docker-launch-btn {
+    width: 100%;
   }
 }

@@ -47,6 +47,8 @@
 <script src="{{ $cookie.Permalink }}"></script>
 {{ $google := resources.Get "js/google.js" }}
 <script src="{{ $google.Permalink }}"></script>
+{{ $main := resources.Get "js/main.js" }}
+<script src="{{ $main.Permalink }}"></script>
 {{ $app := resources.Get "js/app.js" }}
 <script src="{{ $app.Permalink }}"></script>
 {{ with resources.Get "js/theme.js" }}
