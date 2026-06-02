@@ -5,49 +5,87 @@ meta : 'meta.html'
 navSeleted : 'contact'
 ---
 
-<main class="mt-5">
+<main>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Lassen Sie uns sprechen</p>
+      <h1>Kontaktieren Sie uns</h1>
+      <p class="section-copy">Haben Sie eine Frage oder sind bereit zu beginnen? Wir freuen uns, von Ihnen zu hören.</p>
+    </div>
 
-    <div class="container mt-4">
-      <div class="row">
-
-        <div class="card">
-          <div class="card-body">
-            <h2 class="card-title text-primary text-center" id="contact-title">Contact</h2>
-            <div class="row card-text">
-              <h5 id="contact-text-1">Es gibt viele Möglichkeiten, uns zu kontaktieren. Sie können unseren Website-Chat unten oder eine der Nachrichtenoptionen verwenden.<br><br></h5>
-              <div class="row text-center">
-                <div class="col-2 my-3"><a href="mailto:support@saashup.com"><i
-                      class="fas fa-envelope text-primary fa-3x"></i></a></div>
-                <div class="col-2 my-3"><a href="https://twitter.com/saashup" target="_blank"><i
-                      class="fab fa-twitter text-primary fa-3x"></i></a></div>
-                <div class="col-2 my-3"><a href="https://saashupcom.slack.com/" target="_blank"><i
-                      class="fab fa-slack-hash text-primary fa-3x"></i></a></div>
-                <div class="col-2 my-3"><a href="https://discord.gg/jfQ636ekXa"
-                    target="_blank"><i class="fab fa-discord text-primary fa-3x"></i></a></div>
-                <div class="col-2 my-3"><a href="https://www.reddit.com/r/saashup/" target="_blank"><i
-                      class="fab fa-reddit text-primary fa-3x"></i></a></div>
-                <div class="col-2 my-3"><a href="https://www.youtube.com/channel/UC3Obj-B5ffFUBzBj_fYeIQg"
-                    target="_blank"><i class="fab fa-youtube text-primary fa-3x"></i></a></div>
-                <div class="col-2 my-3"><a href="https://github.com/saashup" target="_blank"><i
-                      class="fab fa-github text-primary fa-3x"></i></a></div>
-                <div class="col-2 my-3"><a href="https://www.facebook.com/Saashupcom-105712635346494"
-                    target="_blank"><i class="fab fa-facebook text-primary fa-3x"></i></a></div>
-                <div class="col-2 my-3"><a href="https://stackshare.io/lav3582/saashup" target="_blank"><i
-                      class="fa fa-share-alt-square text-primary fa-3x"></i></a></div>
-              </div>
-              <h5 id="contact-text-2" class="text-center"><br>Wir sind 9 Stunden am Tag, 5 Tage die Woche verfügbar.<br><br></h5>
-            </div>
-        </div>
+    <div class="contact-form-card">
+      <div class="contact-form-actions">
+        <a href="mailto:support@saashup.com" class="contact-action-btn" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+        </a>
+        <a href="https://saashupcom.slack.com/" target="_blank" rel="noreferrer" class="contact-action-btn" aria-label="Slack">
+          <i class="fab fa-slack-hash"></i>
+          <span>Slack</span>
+        </a>
+        <a href="https://discord.gg/jfQ636ekXa" target="_blank" rel="noreferrer" class="contact-action-btn" aria-label="Discord">
+          <i class="fab fa-discord"></i>
+          <span>Discord</span>
+        </a>
       </div>
 
-        <div class="card my-4">
-          <div class="card-body">
-            <h2 class="card-title text-primary text-center" id="contact-title">Adresses</h2>
-            <h5 id="contact-text-2" class="text-center">Wir sind an zwei verschiedenen Standorten vertreten: in Frankreich und in Luxemburg</h5>
-            <div class="row card-text">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2607.822011334406!2d6.040420076900776!3d49.18496397766845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794d7b784055555%3A0xfe19c91e91401f35!2s4%20ter%20Rue%20Robert%20Schuman%2C%2057855%20Saint-Privat-la-Montagne%2C%20France!5e0!3m2!1sfr!2slu!4v1722842688497!5m2!1sfr!2slu" 
-              width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen class="col-6"></iframe>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2589.6601171655016!2d6.117316776915577!3d49.528692053301775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479537d8659bab5f%3A0x80f2ca7494b7e483!2s13%20Rue%20de%20Peppange%2C%203378%20Livange%20Roeser!5e0!3m2!1sfr!2slu!4v1722843195935!5m2!1sfr!2slu" 
+      <div class="contact-form-divider">oder</div>
+
+      <form class="contact-form" action="https://formspree.io/f/xnqygkqz" method="POST" id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject" class="form-label">Betreff</label>
+          <input type="text" id="subject" name="subject" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label">Nachricht</label>
+          <textarea id="message" name="message" rows="6" class="form-control" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg contact-submit-btn">Nachricht senden</button>
+        <p class="form-note">Wir sind 9 Stunden am Tag, 5 Tage die Woche verfügbar. Wir werden uns bald bei Ihnen melden.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Soziale Medien</p>
+      <h2>Mit uns verbunden</h2>
+    </div>
+    <div class="social-grid">
+      <a class="social-link" href="mailto:support@saashup.com" aria-label="Email SaaShup"><i class="fas fa-envelope fa-2x"></i></a>
+      <a class="social-link" href="https://twitter.com/saashup" target="_blank" rel="noreferrer" aria-label="SaaShup on Twitter"><i class="fab fa-twitter fa-2x"></i></a>
+      <a class="social-link" href="https://saashupcom.slack.com/" target="_blank" rel="noreferrer" aria-label="SaaShup on Slack"><i class="fab fa-slack-hash fa-2x"></i></a>
+      <a class="social-link" href="https://discord.gg/jfQ636ekXa" target="_blank" rel="noreferrer" aria-label="SaaShup on Discord"><i class="fab fa-discord fa-2x"></i></a>
+      <a class="social-link" href="https://github.com/saashup" target="_blank" rel="noreferrer" aria-label="SaaShup on GitHub"><i class="fab fa-github fa-2x"></i></a>
+      <a class="social-link" href="https://www.youtube.com/channel/UC3Obj-B5ffFUBzBj_fYeIQg" target="_blank" rel="noreferrer" aria-label="SaaShup on YouTube"><i class="fab fa-youtube fa-2x"></i></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Büros</p>
+      <h2>Unsere Adressen</h2>
+      <p class="section-copy">Wir sind an zwei Standorten vertreten: Frankreich und Luxemburg.</p>
+    </div>
+    <div class="split">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2607.822011334406!2d6.040420076900776!3d49.18496397766845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794d7b784055555%3A0xfe19c91e91401f35!2s4%20ter%20Rue%20Robert%20Schuman%2C%2057855%20Saint-Privat-la-Montagne%2C%20France!5e0!3m2!1sfr!2slu!4v1722842688497!5m2!1sfr!2slu" width="100%" height="400" loading="lazy" allowfullscreen></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2589.6601171655016!2d6.117316776915577!3d49.528692053301775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479537d8659bab5f%3A0x80f2ca7494b7e483!2s13%20Rue%20de%20Peppange%2C%203378%20Livange%20Roeser!5e0!3m2!1sfr!2slu!4v1722843195935!5m2!1sfr!2slu" width="100%" height="400" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </section>
+</main>
               width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen class="col-6"></iframe>
              <div class="row card-text">
              </div>
