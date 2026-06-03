@@ -24,7 +24,16 @@ jobs:
     - name: Start Hugo
       run: hugo
     - name: Run website in background
-      run: docker run -p 8080:80 -v ./public:/usr/share/nginx/html -d nginx
+      run: |
+        nohup python3 -m http.server 8080 --directory public > /tmp/saashup-web.log 2>&1 &
+        for i in {1..30}; do
+          if curl -fsS http://127.0.0.1:8080/ > /dev/null; then
+            exit 0
+          fi
+          sleep 1
+        done
+        cat /tmp/saashup-web.log
+        exit 1
     - name: Run Playwright Test
       run: npx playwright test
     - uses: actions/upload-artifact@v4
