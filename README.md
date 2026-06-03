@@ -190,10 +190,15 @@ Use a translator like ChatGPT to translate in your language like the other.
 
 To Deploy on Cloudflare, you have to follow instructions from this : [Docs](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hugo-site/#deploy-with-cloudflare-pages)
 
+Cloudflare Pages should use this Hugo version:
+
+```text
+HUGO_VERSION=0.147.7
+```
+
 # **PLAYWRIGHT**
 
 …
-
 
 
 

@@ -25,36 +25,6 @@ if (window.localStorage.getItem('lang') !== document.documentElement.lang) {
     location.replace('/' + window.localStorage.getItem('lang'));
 }
 
-var Tawk_API = Tawk_API || {};
-Tawk_API.customStyle = {
-    visibility : {
-      desktop : {
-        position : 'bl',
-        xOffset : '120px',
-        yOffset : '120px',
-      },
-      mobile : {
-        position : 'bl',
-        xOffset : 5,
-        yOffset : 140,
-      },
-      bubble : {
-        rotate : '0deg',
-         xOffset : -20,
-         yOffset : 0
-      }
-    }
-  };
-var Tawk_LoadStart = new Date();
-Tawk_API.onLoad = function () {
-    $(".tawk-icon-close").click()
-    if (user) Tawk_API.setAttributes({
-        name: 'name' in user ? user.name : 'NA',
-        email: 'email' in user ? user.email : 'tawk@saashup.com'
-    }, function (error) {
-        if (error) console.log(error)
-    });
-}
 function showPrice(_btnPlan)
 {
 

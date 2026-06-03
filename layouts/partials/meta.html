@@ -2,8 +2,6 @@
 <title>{{ print .Page.Title }}</title>
 {{ $logo_saashup := resources.Get "images/saashup_logo.svg" }}
 <link rel="icon" href="{{ $logo_saashup.RelPermalink }}">
-{{ $style := resources.Get "css/main.css" }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Just provide a docker and we run a complete Saas solution">
 <meta name="keywords" content="saas, engine, docker, easy, business, payment, invoicing, single sign-on, scale">
@@ -22,12 +20,24 @@
 <meta property="og:image" content="https://saashup.com/images/logo_saashup.png" />
 <meta property="og:url" content="https://saashup.com">
 <meta property="og:type" content="website" />
+{{ with site.Params.turnstileSiteKey }}
+<meta name="turnstile-sitekey" content="{{ . }}">
+{{ end }}
+<script>
+  (function () {
+    var storedTheme = window.localStorage.getItem('saashup-theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', storedTheme || (prefersDark ? 'dark' : 'light'));
+  })();
+</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
   integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
   integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{ $style := resources.Get "css/main.css" }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -40,15 +50,15 @@
 <script src="{{ $cookie.Permalink }}"></script>
 {{ $google := resources.Get "js/google.js" }}
 <script src="{{ $google.Permalink }}"></script>
+{{ $main := resources.Get "js/main.js" }}
+<script src="{{ $main.Permalink }}"></script>
+{{ with site.Params.turnstileSiteKey }}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=renderContactTurnstile" async defer></script>
+{{ end }}
 {{ $app := resources.Get "js/app.js" }}
 <script src="{{ $app.Permalink }}"></script>
+{{ with resources.Get "js/theme.js" }}
+<script src="{{ .Permalink }}"></script>
+{{ end }}
 {{ $catalog := resources.Get "js/catalog.js" }}
 <script src="{{ $catalog.Permalink }}"></script>
-<script src="https://embed.tawk.to/61bf5e9180b2296cfdd26ed6/1fn9oiql4" crossorigin="anonymous"></script>
-<script>
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-          document.documentElement.setAttribute('data-theme', 'light');
-    }
-</script>
