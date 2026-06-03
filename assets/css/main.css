@@ -11,6 +11,7 @@
   --primary-dark: #1d55c9;
   --accent: #25b8c7;
   --success: #20b486;
+  --danger: #d92d20;
   --warning: #f3a712;
   --button-soft: #eef4ff;
   --shadow: 0 24px 70px rgba(16, 32, 51, 0.13);
@@ -30,6 +31,8 @@
   --primary: #6aa2ff;
   --primary-dark: #3b82f6;
   --accent: #5bd6e6;
+  --success: #34d399;
+  --danger: #f87171;
   --button-soft: #1f2937;
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
 }
@@ -1093,6 +1096,24 @@ iframe {
 #docker-launch-btn {
   min-width: 140px;
   font-weight: 900;
+}
+
+.form-status {
+  min-height: 1.5rem;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.form-status.is-success {
+  color: var(--success);
+}
+
+.form-status.is-error {
+  color: var(--danger);
 }
 
 /* Contact Form Styling */
