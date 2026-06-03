@@ -2,7 +2,7 @@ baseURL: /
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
 params:
-  turnstileSiteKey: ""
+  turnstileSiteKey: "0x4AAAAAADeLjenI5Hlh_61j"
 languages:
   en:
     languageName: en
