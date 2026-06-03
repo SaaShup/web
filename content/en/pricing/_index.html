@@ -101,12 +101,49 @@ navSeleted : 'pricing'
           <tr><th scope="row">Daily Backup</th><td></td><td></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
           <tr><th scope="row">Monthly SLA</th><td>98%</td><td>99%</td><td>99.25%</td><td>99.5%</td></tr>
           <tr><th scope="row">Storage</th><td>1 GB</td><td>2 GB</td><td>5 GB</td><td>10 GB</td></tr>
+          <tr><th scope="row">Dedicated engine <a href="#" id="help_engine"><i class="fas fa-question-circle"></i></a></th><td></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
           <tr><th scope="row">Number of images</th><td>1</td><td>5</td><td>25</td><td>100</td></tr>
           <tr><th scope="row">Number of containers</th><td>5</td><td>500</td><td>2500</td><td>Unlimited</td></tr>
+          <tr><th scope="row">Private registry <a href="#" id="help_registry"><i class="fas fa-question-circle"></i></a></th><td></td><td></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
+          <tr><th scope="row">Payment / Auth</th><td></td><td></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
           <tr><th scope="row">Custom domain</th><td></td><td></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
           <tr><th scope="row">Consulting</th><td></td><td>30 mins</td><td>60 mins</td><td>120 mins</td></tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Estimate</p>
+      <h2 id="pricing-title">Pricing calculator</h2>
+      <p class="section-copy">Choose a plan, memory, and instance count to estimate the monthly platform cost.</p>
+    </div>
+    <div class="pricing-calculator" id="pricing-div">
+      <div>
+        <div class="calculator-plan-buttons">
+          <button class="btn btn-outline-primary fw-bold" id="iron-btn">IRON</button>
+          <button class="btn btn-outline-primary btn-primary text-white fw-bold" id="bronze-btn">BRONZE</button>
+          <button class="btn btn-outline-primary fw-bold" id="silver-btn">SILVER</button>
+          <button class="btn btn-outline-primary fw-bold" id="gold-btn">GOLD</button>
+        </div>
+        <div class="calculator-controls">
+          <div>
+            <label for="slide-memory" class="form-label">Memory (<span id="memory-value">200</span>Mb)</label>
+            <input type="range" class="form-range" min="200" max="1000" step="100" id="slide-memory" value="200">
+          </div>
+          <div>
+            <label for="slide-instance" class="form-label">Instances (<span id="instance-value">50</span>)</label>
+            <input type="range" class="form-range" min="0" max="1000" step="1" id="slide-instance" value="50">
+          </div>
+        </div>
+      </div>
+      <div class="calculator-result">
+        <p class="eyebrow">You pay</p>
+        <div class="price"><span id="pricing-value" class="text-primary">120.00</span>€</div>
+        <p>per month, tax excluded</p>
+        <p><span id="pricing-unit" class="fw-bold">3.20</span>€ per instance</p>
+      </div>
     </div>
   </section>
 
