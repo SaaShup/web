@@ -1,4 +1,16 @@
 {{ $currentUrl := .Section }}
+{{ $enHref := "/" }}
+{{ $frHref := "/fr-fr/" }}
+{{ $deHref := "/de-de/" }}
+{{ range .AllTranslations }}
+  {{ if eq .Language.Lang "en" }}
+    {{ $enHref = .RelPermalink }}
+  {{ else if eq .Language.Lang "fr-fr" }}
+    {{ $frHref = .RelPermalink }}
+  {{ else if eq .Language.Lang "de-de" }}
+    {{ $deHref = .RelPermalink }}
+  {{ end }}
+{{ end }}
 <nav class="navbar navbar-expand-lg fixed-top nbar">
   <div class="container-fluid">
     {{ $logoSaashup := resources.Get "images/saashup_logo.svg" }}
@@ -56,24 +68,24 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li class="p-2">
-              <a href="/{{ $currentUrl }}">
+              <a href="{{ $enHref }}">
                 <img src="{{ $enFlag.RelPermalink }}" alt="English langage" width="32" onclick="handlePathLang('en')">
               </a>
             </li>
             <li class="p-2">
-              <a href="/fr-fr/{{ $currentUrl }}">
+              <a href="{{ $frHref }}">
                 <img src="{{ $frFlag.RelPermalink }}" alt="French langage" width="32" onclick="handlePathLang('fr-fr')">
               </a>
             </li>
             <li class="p-2">
-              <a href="/de-de/{{ $currentUrl }}">
+              <a href="{{ $deHref }}">
                 <img src="{{ $deFlag.RelPermalink }}" alt="Deutsch langage" width="32" onclick="handlePathLang('de-de')">
               </a>
             </li>
           </ul>
         </div>
 
-        <a class="btn nav-contact" href="{{ "/login/" | absLangURL }}">Login</a>
+        <a class="btn nav-contact" href="{{ "login/" | relLangURL }}">Login</a>
 
         <img id="avatar" class="rounded-circle d-none" width="36" height="36"
           alt="Saashup your simplified SaaS engine platform" src="" onclick="window.open('/saas','_self');">

@@ -695,6 +695,47 @@ pre {
   font-weight: 900;
 }
 
+.pricing-calculator {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.8fr);
+  gap: 24px;
+  align-items: stretch;
+  padding: 28px;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 42px rgba(16, 32, 51, 0.08);
+}
+
+.calculator-plan-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.calculator-controls {
+  display: grid;
+  gap: 22px;
+}
+
+.calculator-result {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  min-height: 100%;
+  padding: 24px;
+  text-align: center;
+  background: var(--button-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.calculator-result .price {
+  margin: 8px 0 2px;
+}
+
 .table {
   color: var(--text);
   --bs-table-bg: transparent;
@@ -851,7 +892,8 @@ iframe {
 
 @media (max-width: 1020px) {
   .hero,
-  .split {
+  .split,
+  .pricing-calculator {
     grid-template-columns: 1fr;
   }
 
@@ -901,7 +943,8 @@ iframe {
   .service-grid,
   .pricing-grid,
   .contact-grid,
-  .catalog-toolbar {
+  .catalog-toolbar,
+  .calculator-plan-buttons {
     grid-template-columns: 1fr;
   }
 
