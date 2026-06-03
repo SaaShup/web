@@ -44,7 +44,7 @@ other = "<span class='text-info'>SaaShup</span> is a simple solution to <span cl
 
 [explain]
 
-other = "<div class='text-info text-center'>What do I get ?</div><br>You just need to provide a docker and we provide a complete Saas solution with our engine Front application, authentication, payment, monitoring, alerting, backups, logging, auditing, L1 support...<br><br>You also have your own admin page to configure and customize your Saas.<br><br><a href='https://tawk.to/chat/61bf5e9180b2296cfdd26ed6/1fn9oiql4' target='_blank'> get in touch</a> if you have questions."
+other = "<div class='text-info text-center'>What do I get ?</div><br>You just need to provide a docker and we provide a complete Saas solution with our engine Front application, authentication, payment, monitoring, alerting, backups, logging, auditing, L1 support...<br><br>You also have your own admin page to configure and customize your Saas.<br><br><a href='/contact/'> get in touch</a> if you have questions."
 
 [stage1-title]
 

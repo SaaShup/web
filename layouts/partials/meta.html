@@ -20,6 +20,9 @@
 <meta property="og:image" content="https://saashup.com/images/logo_saashup.png" />
 <meta property="og:url" content="https://saashup.com">
 <meta property="og:type" content="website" />
+{{ with site.Params.turnstileSiteKey }}
+<meta name="turnstile-sitekey" content="{{ . }}">
+{{ end }}
 <script>
   (function () {
     var storedTheme = window.localStorage.getItem('saashup-theme');
@@ -49,6 +52,9 @@
 <script src="{{ $google.Permalink }}"></script>
 {{ $main := resources.Get "js/main.js" }}
 <script src="{{ $main.Permalink }}"></script>
+{{ with site.Params.turnstileSiteKey }}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=renderContactTurnstile" async defer></script>
+{{ end }}
 {{ $app := resources.Get "js/app.js" }}
 <script src="{{ $app.Permalink }}"></script>
 {{ with resources.Get "js/theme.js" }}
@@ -56,4 +62,3 @@
 {{ end }}
 {{ $catalog := resources.Get "js/catalog.js" }}
 <script src="{{ $catalog.Permalink }}"></script>
-<script src="https://embed.tawk.to/61bf5e9180b2296cfdd26ed6/1fn9oiql4" crossorigin="anonymous"></script>

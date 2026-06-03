@@ -1,6 +1,7 @@
 const UPGRADE_IMAGE_API_BASE = 'https://manage.saashup.com';
 const CONTACT_ENDPOINT = `${UPGRADE_IMAGE_API_BASE}/contact`;
 const REGISTRY_CHECK_ENDPOINT = `${UPGRADE_IMAGE_API_BASE}/registry/check`;
+let contactTurnstileWidgetId = null;
 
 function setElementStatus(element, message, type) {
   if (!element) return;
@@ -71,6 +72,36 @@ function registryErrorMessage(error) {
   return error && error.message ? error.message : 'Image not found.';
 }
 
+function getTurnstileSiteKey() {
+  const meta = document.querySelector('meta[name="turnstile-sitekey"]');
+  return meta ? meta.getAttribute('content') : '';
+}
+
+function getTurnstileToken(form) {
+  const response = form.querySelector('[name="cf-turnstile-response"]');
+  return response ? response.value.trim() : '';
+}
+
+function resetContactTurnstile() {
+  if (window.turnstile && contactTurnstileWidgetId !== null) {
+    window.turnstile.reset(contactTurnstileWidgetId);
+  }
+}
+
+function renderContactTurnstile() {
+  const container = document.getElementById('contact-turnstile');
+  const siteKey = getTurnstileSiteKey();
+
+  if (!container || !siteKey || !window.turnstile || contactTurnstileWidgetId !== null) return;
+
+  contactTurnstileWidgetId = window.turnstile.render(container, {
+    sitekey: siteKey,
+    theme: 'auto'
+  });
+}
+
+window.renderContactTurnstile = renderContactTurnstile;
+
 document.addEventListener('DOMContentLoaded', function() {
   const launchBtn = document.getElementById('docker-launch-btn');
   const imageInput = document.getElementById('docker-image-input');
@@ -120,12 +151,18 @@ document.addEventListener('DOMContentLoaded', function() {
         subject: contactForm.querySelector('[name="subject"]').value.trim(),
         message: contactForm.querySelector('[name="message"]').value.trim(),
         website: contactForm.querySelector('[name="website"]') ? contactForm.querySelector('[name="website"]').value.trim() : '',
+        turnstileToken: getTurnstileToken(contactForm),
         source: window.location.href,
         language: document.documentElement.getAttribute('lang') || ''
       };
 
       if (!payload.name || !payload.email || !payload.subject || !payload.message) {
         setElementStatus(contactStatus, 'Please complete all fields.', 'error');
+        return;
+      }
+
+      if (getTurnstileSiteKey() && !payload.turnstileToken) {
+        setElementStatus(contactStatus, 'Please complete the verification.', 'error');
         return;
       }
 
@@ -138,12 +175,16 @@ document.addEventListener('DOMContentLoaded', function() {
           throw new Error(result.message || result.error || result.detail || 'Unable to send your message.');
         }
         contactForm.reset();
+        resetContactTurnstile();
         setElementStatus(contactStatus, 'Message sent. We will get back to you soon.', 'success');
       } catch (error) {
         setElementStatus(contactStatus, error.message || 'Unable to send your message.', 'error');
+        resetContactTurnstile();
       } finally {
         if (submitBtn) submitBtn.disabled = false;
       }
     });
   }
+
+  renderContactTurnstile();
 });

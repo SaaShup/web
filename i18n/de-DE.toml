@@ -44,7 +44,7 @@ other = "<span class='text-info'>SaaShup</span> ist eine einfache Lösung, um Ih
 
 [explain]
 
-other = "<div class='text-info text-center'>Was bekomme ich?</div><br>Sie müssen nur einen Docker bereitstellen, und wir bieten eine komplette SaaS-Lösung mit unserer Frontanwendung, Authentifizierung, Zahlung, Überwachung, Benachrichtigungen, Backups, Protokollierung, Prüfung, L1-Support usw.<br><br>Sie haben auch Ihre eigene Administrationsseite, um Ihre SaaS zu konfigurieren und anzupassen.<br><br><a href='https://tawk.to/chat/61bf5e9180b2296cfdd26ed6/1fn9oiql4' target='_blank'>Kontaktieren Sie uns</a>, wenn Sie Fragen haben."
+other = "<div class='text-info text-center'>Was bekomme ich?</div><br>Sie müssen nur einen Docker bereitstellen, und wir bieten eine komplette SaaS-Lösung mit unserer Frontanwendung, Authentifizierung, Zahlung, Überwachung, Benachrichtigungen, Backups, Protokollierung, Prüfung, L1-Support usw.<br><br>Sie haben auch Ihre eigene Administrationsseite, um Ihre SaaS zu konfigurieren und anzupassen.<br><br><a href='/contact/'>Kontaktieren Sie uns</a>, wenn Sie Fragen haben."
 
 [stage1-title]
 

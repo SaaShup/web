@@ -1238,6 +1238,12 @@ textarea.form-control {
   min-height: 120px;
 }
 
+.contact-turnstile {
+  display: flex;
+  justify-content: center;
+  min-height: 65px;
+}
+
 .contact-submit-btn {
   font-weight: 900;
   margin-top: 8px;
