@@ -1,20 +1,20 @@
 {
-  "name": "snapshot_hugo_0.1",
+  "name": "web",
   "version": "1.0.0",
-  "description": "To install hugo :",
+  "description": "Saashup Web",
   "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Chsfdjr/snapshot_hugo_0.1.git"
+    "url": "git+https://github.com/SaaShup/web.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Chsfdjr/snapshot_hugo_0.1/issues"
+    "url": "https://github.com/SaaShup/web/issues"
   },
-  "homepage": "https://github.com/Chsfdjr/snapshot_hugo_0.1#readme",
+  "homepage": "https://github.com/SaaShup/web#readme",
   "devDependencies": {
     "@playwright/test": "^1.46.0",
     "@types/node": "^20.8.2"
