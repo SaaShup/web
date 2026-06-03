@@ -171,6 +171,28 @@ main {
   border-color: var(--primary);
 }
 
+.products-menu .dropdown-menu {
+  min-width: 160px;
+  padding: 8px;
+  background: var(--panel);
+  border-color: var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.products-menu .dropdown-item {
+  color: var(--text);
+  border-radius: 10px;
+  font-weight: 800;
+  padding: 10px 12px;
+}
+
+.products-menu .dropdown-item:hover,
+.products-menu .dropdown-item:focus {
+  color: var(--primary);
+  background: var(--button-soft);
+}
+
 .navbar-toggler {
   border-color: var(--border);
   border-radius: 14px;
@@ -449,7 +471,7 @@ pre {
 }
 
 .section {
-  margin-top: 78px;
+  margin-top: 48px;
 }
 
 .section-heading {
@@ -473,6 +495,12 @@ pre {
   color: var(--text);
   font-size: 1.18rem;
   line-height: 1.7;
+}
+
+.intro-band > p {
+  color: var(--muted);
+  font-size: 1.08rem;
+  font-weight: 400;
 }
 
 .cards,
@@ -996,8 +1024,15 @@ iframe {
 }
 
 .docker-launch {
-  padding: 60px 16px;
+  margin-top: 16px;
+  padding: 18px 0;
   background: transparent;
+}
+
+.docker-launch > .container {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .docker-launch-card {
@@ -1228,8 +1263,13 @@ textarea.form-control {
     padding: 32px 24px;
   }
 
+  .docker-launch {
+    margin-top: 16px;
+    padding: 10px 0;
+  }
+
   .docker-launch-card {
-    padding: 32px 24px;
+    padding: 28px 18px;
   }
 
   .docker-launch-form {
