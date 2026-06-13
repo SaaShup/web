@@ -27,10 +27,32 @@
               class="fas fa-battery-full"></i></i> <span id="navStatus"></span></a>
         </li>
       </ul>
+      {{ $enHref := "/" }}
+      {{ $frHref := "/fr-fr/" }}
+      {{ $deHref := "/de-de/" }}
+      {{ $currentLang := .Language.LanguageName | lower }}
+      {{ range .AllTranslations }}
+        {{ if eq .Language.LanguageName "en" }}
+          {{ $enHref = .RelPermalink }}
+        {{ else if eq .Language.LanguageName "fr" }}
+          {{ $frHref = .RelPermalink }}
+        {{ else if eq .Language.LanguageName "de" }}
+          {{ $deHref = .RelPermalink }}
+        {{ end }}
+      {{ end }}
       <div class="d-flex">
         <span class="pe-3 pt-2">
-          {{ $en_flag := resources.Get "images/en.png" }}
-          <img id="lang-flag" src="" width="32px" onclick="setLang();" />
+          <div class="dropdown language-menu">
+            <a class="nav-icon-btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span id="lang-flag">{{ $currentLang }}</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li class="p-2"><a href="{{ $enHref }}" onclick="handlePathLang('en')">en</a></li>
+              <li class="p-2"><a href="{{ $frHref }}" onclick="handlePathLang('fr-fr')">fr</a></li>
+              <li class="p-2"><a href="{{ $deHref }}" onclick="handlePathLang('de-de')">de</a></li>
+            </ul>
+          </div>
         </span>
       </div>
       <div class="d-flex pt-2">

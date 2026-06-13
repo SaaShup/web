@@ -30,7 +30,7 @@ language: 'en'
       <pre><code>POST /saas
 
 ✓ Docker image received
-✓ NetBox source of truth updated
+✓ Paasbox source of truth updated
 ✓ Traefik route prepared
 ✓ Keycloak authentication enabled
 ✓ Prometheus metrics active
@@ -46,7 +46,7 @@ language: 'en'
         <h2>Launch your Docker image</h2>
         <p class="lead-text">Have a Docker image ready? Enter the image registry and launch your SaaS instance.</p>
         <div class="docker-launch-form">
-          <input type="text" id="docker-image-input" placeholder="Enter Docker image (e.g., docker.io/saashup/netbox-docker-agent:v1.24.0)" class="docker-image-input">
+          <input type="text" id="docker-image-input" placeholder="Enter Docker image (e.g., docker.io/nginx:1.31.1)" class="docker-image-input">
           <button class="btn btn-primary" id="docker-launch-btn">Launch</button>
         </div>
         <p class="form-status" id="docker-launch-status" aria-live="polite"></p>
@@ -64,7 +64,7 @@ language: 'en'
       <span><img src="img/logos/docker.svg" alt="" aria-hidden="true">Docker</span>
       <span><img src="img/logos/traefik.svg" alt="" aria-hidden="true">Traefik</span>
       <span><img src="img/logos/cloudflare.svg" alt="" aria-hidden="true">Cloudflare</span>
-      <span><img src="img/logos/netbox.svg" alt="" aria-hidden="true">NetBox</span>
+      <span><img src="img/logos/paasbox.png" alt="" aria-hidden="true">Paasbox</span>
       <span><img src="img/logos/keycloak.svg" alt="" aria-hidden="true">Keycloak</span>
       <span><img src="img/logos/prometheus.svg" alt="" aria-hidden="true">Prometheus</span>
       <span><img src="img/logos/grafana.svg" alt="" aria-hidden="true">Grafana</span>
@@ -80,9 +80,9 @@ language: 'en'
 
     <div class="service-grid">
       <article class="service-card">
-        <div class="service-logo"><img src="img/logos/netbox.svg" alt="NetBox logo" loading="lazy"></div>
+        <div class="service-logo"><img src="img/logos/paasbox.png" alt="Paasbox logo" loading="lazy"></div>
         <h3>CMDB</h3>
-        <p>NetBox keeps infrastructure, Docker hosts and instance inventory organized as the operational source of truth.</p>
+        <p>Paasbox keeps infrastructure, Docker hosts and instance inventory organized as the operational source of truth.</p>
       </article>
       <article class="service-card">
         <div class="service-logo"><img src="img/logos/keycloak.svg" alt="Keycloak logo" loading="lazy"></div>

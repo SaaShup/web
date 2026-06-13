@@ -48,8 +48,6 @@
 <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.7.2/dist/cookieconsent.css" rel="stylesheet">
 {{ $cookie := resources.Get "js/cookieconsent.js" }}
 <script src="{{ $cookie.Permalink }}"></script>
-{{ $google := resources.Get "js/google.js" }}
-<script src="{{ $google.Permalink }}"></script>
 {{ $main := resources.Get "js/main.js" }}
 <script src="{{ $main.Permalink }}"></script>
 {{ with site.Params.turnstileSiteKey }}
@@ -60,5 +58,3 @@
 {{ with resources.Get "js/theme.js" }}
 <script src="{{ .Permalink }}"></script>
 {{ end }}
-{{ $catalog := resources.Get "js/catalog.js" }}
-<script src="{{ $catalog.Permalink }}"></script>
