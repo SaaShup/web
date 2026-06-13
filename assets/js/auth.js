@@ -7,12 +7,24 @@ if (window.localStorage.getItem('user') !== null) user = JSON.parse(window.local
 
 const authParams = new URLSearchParams(window.location.search);
 if (authParams.has('code')) code = authParams.get('code')
+const $langFlag = $('#lang-flag');
+const setLangFlag = (langCode) => {
+  const normalized = (langCode || '').split('-')[0].toLowerCase();
+  if (!$langFlag.length || !normalized) return;
+
+  if ($langFlag.is('img')) {
+    $langFlag.attr('src', '/images/' + normalized + '.png');
+    return;
+  }
+
+  $langFlag.text(normalized);
+};
 
 const init = () => {
   username = user.nickname;
   $('#avatar').attr('src', user.picture).removeClass("d-none");
-  if ('locale' in user) $('#lang-flag').attr('src', '/images/' + user.locale + '.png')
-  if ('lang' in user) $('#lang-flag').attr('src', '/images/' + user.lang + '.png')
+  if ('locale' in user) setLangFlag(user.locale);
+  if ('lang' in user) setLangFlag(user.lang);
   $.ajax({
     url: "https://saas.saashup.com/api/account/" + user.email,
     beforeSend: function (xhr) {
