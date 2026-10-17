@@ -1,4 +1,3 @@
-var Plan = 0.1;
 var planName = "#bronze-btn";
 
 
@@ -27,23 +26,20 @@ if (window.localStorage.getItem('lang') !== document.documentElement.lang) {
 
 function showPrice(_btnPlan)
 {
+    if (!$("#slide-instance").length) return;
 
-   
-    $("#pricing-value").text(( ((parseInt($("#slide-memory").val()) - startingMemory) * parseFloat($(_btnPlan).data('memoryprice')) * parseInt($("#slide-instance").val())*0.01 )
-                                + (parseInt($("#slide-instance").val()) * parseFloat($(_btnPlan).data('instanceprice')))
-                                + parseFloat($(_btnPlan).data('price'))
-                             ).toFixed(2));
-                             
-    $("#pricing-unit").text(( 
-                                (((parseInt($("#slide-memory").val()) - startingMemory) * parseFloat($(_btnPlan).data('memoryprice')) * parseInt($("#slide-instance").val())*0.01)
-                                    + (parseInt($("#slide-instance").val()) * parseFloat($(_btnPlan).data('instanceprice')))
-                                    + parseFloat($(_btnPlan).data('price'))
-                                )/ parseInt($("#slide-instance").val())
-                            ).toFixed(2))
+    const instances = Number($("#slide-instance").val());
+    const memory = Number($("#slide-memory").val());
+    const fixedPrice = Number($(_btnPlan).data('price'));
+    const instancePrice = Number($(_btnPlan).data('instanceprice'));
+    const memoryPrice = Number($(_btnPlan).data('memoryprice'));
+    const total = fixedPrice + instances * (instancePrice + (memory - startingMemory) * memoryPrice * 0.01);
 
-    if (parseInt($("#slide-instance").val()) === 0) $("#pricing-unit").text(Plan * 300);
-
-    }
+    $("#pricing-value").text(total.toFixed(2));
+    $("#pricing-unit").text(instances > 0 ? (total / instances).toFixed(2) : '—');
+    // The fixed plan fee still applies, but there is no per-instance price at zero.
+    $("#pricing-unit").closest('p').prop('hidden', instances === 0);
+}
 
 $(document).ready(function () {
     var i = 0;
@@ -79,7 +75,6 @@ $(document).ready(function () {
         $("#silver-btn").removeClass("btn-primary").removeClass("text-white");
         $("#gold-btn").removeClass("btn-primary").removeClass("text-white");
         $(this).addClass("btn-primary").addClass("text-white");
-        Plan = parseFloat($(this).data('price'))
         planName = $(this);
         if ($(this).attr('id') === "iron-btn") {
             $("#slide-memory").val(200);
