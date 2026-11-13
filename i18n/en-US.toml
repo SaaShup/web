@@ -165,3 +165,7 @@ other = "SaaS Support"
 [help_saas_support_text]
 
 other = "<p>We fully support your Saas.</p><p>Our support team can respond to your customer about saas issues, queries, requests...</p>"
+
+[navCheckFit]
+
+other = "Check if your app fits"

@@ -6,175 +6,244 @@ navSeleted : 'home'
 language: 'en'
 ---
 
-<main>
-  <section class="hero">
-    <div class="hero-content">
-      <p class="eyebrow">SaaS next solution engine</p>
-      <h1 class="hero-title">Do you have a SaaS ?</h1>
-      <p class="hero-text">
-        Make SaaS our problem. Focus on product and revenue while SaaShup provides the platform,
-        automation and managed services around your Docker application.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="/contact/">Contact us</a>
-        <a class="btn btn-soft btn-lg" href="/pricing/">View plans</a>
-      </div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/home-v4.css">
+
+<main class="v4" id="top">
+<div class="fx" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+  <div class="wrap v4-hero">
+    <h1 id="hl" aria-live="off">Keep building. We'll handle the rest.</h1>
+    <p class="team"><svg class="eu" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="#0979e6"/><circle cx="12" cy="10" r="2.8" fill="#fff"/></svg><span data-i18n="team">European team of developers · Hosted in Europe</span></p>
+    <p class="pain" data-i18n="pain">Every new customer gets your app in minutes, with no new setup on your side.</p>
+    <div class="cta"><a class="btn" href="#journey" data-i18n="see_how">See it in action &darr;</a></div>
+    
+
+    <div class="bens">
+      <div><b data-i18n="b1t">New customer in 2 minutes</b><span data-i18n="b1d">They sign up and get their own copy. No setup on your side.</span></div>
+      <div><b data-i18n="b2t">One update, every customer</b><span data-i18n="b2d">Release once. Everyone is up to date, with undo.</span></div>
+      <div><b data-i18n="b3t">Your brand, your customers</b><span data-i18n="b3d">Your name and your domain. You keep the relationship.</span></div>
     </div>
-
-    <div class="hero-card">
-      <div class="terminal-header">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="stage" id="journey" style="text-align:left;scroll-margin-top:20px">
+      <div class="road" role="tablist" aria-label="The creator's journey, step by step">
+        <div class="rail" aria-hidden="true"><i id="rail"></i></div>
+        <div class="walker" id="walker" aria-hidden="true"><span id="wk">yourapp</span></div>
+        <button class="stop" role="tab" data-s="0" aria-selected="true"><span class="dot">1</span><span class="sl">Get started</span></button>
+        <button class="stop" role="tab" data-s="1" aria-selected="false"><span class="dot">2</span><span class="sl">Bring your app</span></button>
+        <button class="stop" role="tab" data-s="2" aria-selected="false"><span class="dot">3</span><span class="sl">Add your brand</span></button>
+        <button class="stop" role="tab" data-s="3" aria-selected="false"><span class="dot">4</span><span class="sl">Customers sign up</span></button>
+        <button class="stop" role="tab" data-s="4" aria-selected="false"><span class="dot">5</span><span class="sl">Update everyone</span></button>
       </div>
-      <pre><code>POST /saas
-
-✓ Docker image received
-✓ Paasbox source of truth updated
-✓ Traefik route prepared
-✓ Keycloak authentication enabled
-✓ Prometheus metrics active
-✓ Grafana dashboard ready
-✓ Customer instance ready</code></pre>
-    </div>
-  </section>
-
-  <section class="section docker-launch">
-    <div class="container">
-      <div class="docker-launch-card">
-        <p class="eyebrow">Try it now</p>
-        <h2>Launch your Docker image</h2>
-        <p class="lead-text">Have a Docker image ready? Enter the image registry and launch your SaaS instance.</p>
-        <div class="docker-launch-form">
-          <input type="text" id="docker-image-input" placeholder="Enter Docker image (e.g., docker.io/nginx:1.31.1)" class="docker-image-input">
-          <button class="btn btn-primary" id="docker-launch-btn">Launch</button>
+      <div class="scene">
+        <div class="left" id="lp">
+          <div><h3 id="st"></h3><p id="sd" style="margin-top:8px"></p></div>
+          <div class="term" id="term" aria-hidden="true"></div>
         </div>
-        <p class="form-status" id="docker-launch-status" aria-live="polite"></p>
+        <div class="right">
+          <div class="top"><span class="count">Customers: <b id="cn">0</b></span><span class="count">Bill: <b id="bl">none</b></span></div>
+          <div class="app"><span class="apl"><span class="ed" aria-hidden="true">&#9998;</span><input id="appname" maxlength="20" placeholder="yourapp" autocomplete="off" spellcheck="false" aria-label="Your app's name"><span id="ap"></span></span><b id="ver">v1.2</b></div>
+          <div class="copies" id="copies"></div>
+          <div style="margin-top:14px;min-height:28px"><button class="undo hide" id="undo">Undo update</button></div>
+        </div>
       </div>
     </div>
-  </section>
+    
+    <div class="trust"><span data-i18n="tools">Built on proven open-source tools</span><span class="tool"><button type="button" aria-expanded="false">Docker</button><span class="tip" role="tooltip"><b>Docker</b>Packages your app so it runs the same everywhere. Each customer’s copy of your app runs in its own container.</span></span><span class="tool"><button type="button" aria-expanded="false">Traefik</button><span class="tip" role="tooltip"><b>Traefik</b>Sends every customer to their own copy of your app and sets up the secure connection (HTTPS) automatically.</span></span><span class="tool"><button type="button" aria-expanded="false">Cloudflare</button><span class="tip" role="tooltip"><b>Cloudflare</b>Manages your domain names and protects the traffic to your app before it reaches the servers.</span></span><span class="tool"><button type="button" aria-expanded="false">Keycloak</button><span class="tip" role="tooltip"><b>Keycloak</b>Handles secure login for every copy of your app, so you don’t have to build it.</span></span><span class="tool"><button type="button" aria-expanded="false">Prometheus</button><span class="tip" role="tooltip"><b>Prometheus</b>Collects health data from every running copy, so problems are spotted early.</span></span><span class="tool"><button type="button" aria-expanded="false">Grafana</button><span class="tip" role="tooltip"><b>Grafana</b>Turns that data into dashboards, so our team sees how every copy is running.</span></span><span data-i18n="own">We run our own service on it</span></div>
+    <p class="ghline"><a href="https://github.com/SaaShup" target="_blank" rel="noopener"><svg class="ghi" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh">Open source on GitHub</span><span class="arr" aria-hidden="true">&#8599;</span></a></p>
+    
+  </div>
 
-  <section class="section intro-band">
-    <p>
-      SaaShup turns a containerized application into a sellable SaaS experience with hosting,
-      authentication, payments, logs, monitoring, backups, support workflows and customer-facing
-      management tools.
-    </p>
-    <div class="hero-meta">
-      <span><img src="img/logos/docker.svg" alt="" aria-hidden="true">Docker</span>
-      <span><img src="img/logos/traefik.svg" alt="" aria-hidden="true">Traefik</span>
-      <span><img src="img/logos/cloudflare.svg" alt="" aria-hidden="true">Cloudflare</span>
-      <span><img src="img/logos/paasbox.png" alt="" aria-hidden="true">Paasbox</span>
-      <span><img src="img/logos/keycloak.svg" alt="" aria-hidden="true">Keycloak</span>
-      <span><img src="img/logos/prometheus.svg" alt="" aria-hidden="true">Prometheus</span>
-      <span><img src="img/logos/grafana.svg" alt="" aria-hidden="true">Grafana</span>
-      <span><img src="img/logos/flowg.png" alt="" aria-hidden="true">FlowG</span>
+  <section><div class="wrap">
+    <div class="tag" data-i18n="tag_problem">The problem</div>
+    <h2 class="villain" id="v"><span data-i18n="v1">One more customer.</span><span data-i18n="v2">One more setup.</span></h2>
+    <div class="ba">
+      <div class="bcol before">
+        <p class="bah" data-i18n="ba_before">Before SaaShup</p>
+        <ul>
+          <li><span class="bi" aria-hidden="true">&#9201;</span><span data-i18n="bb1">Every new customer means another setup.</span></li>
+          <li><span class="bi" aria-hidden="true">&#128295;</span><span data-i18n="bb2">One update means touching every customer.</span></li>
+          <li><span class="bi" aria-hidden="true">&#128564;</span><span data-i18n="bb3">Every hour on servers is an hour not spent building.</span></li>
+        </ul>
+        <p class="bfoot" data-i18n="bb_foot">The cost of waiting: slow onboarding, outdated customer versions, evenings lost to keeping servers running.</p>
+      </div>
+      <div class="bcol after">
+        <p class="bah" data-i18n="ba_after">With SaaShup</p>
+        <ul>
+          <li><span class="bi ok" aria-hidden="true">&#10003;</span><span data-i18n="ba1">A new customer is ready in about 2 minutes, automatically.</span></li>
+          <li><span class="bi ok" aria-hidden="true">&#10003;</span><span data-i18n="ba2">One update reaches every customer, with undo.</span></li>
+          <li><span class="bi ok" aria-hidden="true">&#10003;</span><span data-i18n="ba3">Your time goes back to the product.</span></li>
+        </ul>
+        <p class="bfoot" data-i18n="ba_foot">Your customers, your brand, your time.</p>
+      </div>
     </div>
-  </section>
+    
+  </div></section>
 
-  <section class="section" id="services">
-    <div class="section-heading">
-      <p class="eyebrow">Platform services</p>
-      <h2>The foundation around every instance</h2>
+  <section><div class="wrap">
+    <div class="tag" data-i18n="tag_why">Why SaaShup</div>
+    <h2 data-i18n="h2_why">More than hosting.</h2>
+    <p class="wteam" data-i18n="wteam">We're a European team of developers. We built SaaShup and run our own service on it.</p>
+    <div class="why">
+      <div><p class="wfrom" data-i18n="w1a">Hosting or a PaaS</p><p class="wbad" data-i18n="w1b">Gives you servers. You still set up every customer yourself.</p><p class="wgood" data-i18n="w1c">With SaaShup, each customer gets their own copy automatically.</p></div>
+      <div><p class="wfrom" data-i18n="w2a">App marketplaces</p><p class="wbad" data-i18n="w2b">Offer your app under their brand, to their customers.</p><p class="wgood" data-i18n="w2c">With SaaShup, it's your brand, your domain and your customers.</p></div>
+      <div><p class="wfrom" data-i18n="w3a">Doing it yourself</p><p class="wbad" data-i18n="w3b">One more setup per customer, and every update touches every copy.</p><p class="wgood" data-i18n="w3c">With SaaShup, one update reaches every customer, with undo.</p></div>
     </div>
+  </div></section>
 
-    <div class="service-grid">
-      <article class="service-card">
-        <div class="service-logo"><img src="img/logos/paasbox.png" alt="Paasbox logo" loading="lazy"></div>
-        <h3>CMDB</h3>
-        <p>Paasbox keeps infrastructure, Docker hosts and instance inventory organized as the operational source of truth.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-logo"><img src="img/logos/keycloak.svg" alt="Keycloak logo" loading="lazy"></div>
-        <h3>Authentication</h3>
-        <p>Keycloak provides identity, SSO and group-based access for admin and customer workflows.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-logo"><img src="img/logos/prometheus.svg" alt="Prometheus logo" loading="lazy"></div>
-        <h3>Monitoring</h3>
-        <p>Prometheus collects metrics from the platform, containers and lifecycle automation.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-logo"><img src="img/logos/grafana.svg" alt="Grafana logo" loading="lazy"></div>
-        <h3>Dashboard</h3>
-        <p>Grafana turns platform metrics into dashboards for capacity, health and operational visibility.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-logo"><img src="img/logos/flowg.png" alt="FlowG logo" loading="lazy"></div>
-        <h3>Logging</h3>
-        <p>FlowG centralizes container and system logs so operators can trace activity from one place.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-logo"><img src="img/logos/traefik.svg" alt="Traefik logo" loading="lazy"></div>
-        <h3>Routing</h3>
-        <p>Traefik routes public traffic to each service and applies the platform edge rules automatically.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-logo"><img src="img/logos/cloudflare.svg" alt="Cloudflare logo" loading="lazy"></div>
-        <h3>DNS and Edge</h3>
-        <p>Cloudflare handles DNS and edge protection for instance domains created by the platform.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-logo"><img src="img/logos/docker.svg" alt="Docker logo" loading="lazy"></div>
-        <h3>Runtime</h3>
-        <p>Docker runs the application containers, volumes and lifecycle operations behind each order.</p>
-      </article>
+  <section id="customer"><div class="wrap">
+    <div class="tag hl warm"><span aria-hidden="true">&#128421;&#65039;</span><span data-i18n="tag_see">What your customers see</span></div>
+    <h2 data-i18n="h2_see">Log in. Click yes. Ready.</h2>
+    <div class="mock-wrap">
+      <div>
+        <p class="mlead">What a customer of your app goes through, shown with CuriooCity, our demo app. Click through it yourself.</p>
+        <ol class="msteps" id="msteps">
+          <li data-m="0"><b>They open your page</b>And click to get their own copy of your app.</li>
+          <li data-m="1"><b>They sign in</b>For example with Google. Their account is created automatically.</li>
+          <li data-m="2"><b>"Create your instance?"</b>One click on Yes.</li>
+          <li data-m="3"><b>Their own copy is ready</b>In about 2 minutes, with its own data and address.</li>
+        </ol>
+      </div>
+      <div>
+        <div class="vtabs" role="tablist"><button role="tab" class="vt on" data-v="try" aria-selected="true">Try it</button><button role="tab" class="vt" data-v="watch" aria-selected="false">&#9654; Watch it (60 s)</button></div>
+        <div class="vbox" id="vbox" hidden><div class="vph"><span class="vplay" aria-hidden="true">&#9654;</span><b>Video coming soon</b><span>A 60-second screen recording of a customer getting their own copy of CuriooCity.</span></div></div>
+        <div class="browser" id="mockb" aria-label="Illustration of the customer's screens">
+          <div class="bbar"><span class="bdots"><i></i><i></i><i></i></span><span class="burl" id="murl"></span></div>
+          <div class="bview">
+            <div class="scr" data-s="0"><div class="cc-logo"></div><p class="cc-name">Become a Guide on CuriooCity</p><p>Get a dedicated, ready-to-use website for your Guide in just a few clicks.</p><button class="cc-btn" data-go="1">Create your portal</button><span class="hosted">Hosted by SaaShup</span></div>
+            <div class="scr" data-s="1"><div class="cc-logo"></div><p class="cc-name">Sign in to CuriooCity</p><p>Create your account so that only you have access to your Guide.</p><button class="g-btn" data-go="2"><i></i>Continue with Google</button></div>
+            <div class="scr" data-s="2"><div class="modal"><h4>Do you want to create an instance?</h4><p>Your own private copy will be ready in a moment.</p><div class="row2"><button class="cc-btn" data-go="3">Yes</button><button class="cc-btn ghost2" data-go="0">Not now</button></div></div></div>
+            <div class="scr" data-s="3"><span class="ready">&#10003; Your portal is ready</span><p class="cc-name">Place your first treasure</p><div class="map"><span class="pin" style="left:22%;top:30%"></span><span class="pin" style="left:58%;top:22%"></span><span class="pin" style="left:70%;top:62%"></span><span class="pin" style="left:36%;top:66%"></span></div><button class="again" data-go="0">Start again</button></div>
+          </div>
+        </div>
+        <p class="mcap"><a class="ghost" href="https://curioo.city/en/guide/" target="_blank" rel="noopener">Try the CuriooCity demo yourself</a></p>
+      </div>
     </div>
-  </section>
+  </div></section>
 
-  <section class="section" id="features">
-    <div class="section-heading">
-      <p class="eyebrow">What you get</p>
-      <h2>A pragmatic path from Docker image to SaaS offer</h2>
+
+
+  <section><div class="wrap"><div class="bill">
+    <div class="tag hl warm"><span aria-hidden="true">&#127919;</span><span data-i18n="tag_end">What you get in the end</span></div>
+    <h2 data-i18n="h2_end">A SaaS business that earns, not just fewer servers.</h2>
+    <p data-i18n="bill_p">You pay only for the customers who use your app. No customers, no bill.</p>
+    <a class="btn" href="/pricing/" target="_blank" rel="noopener" data-i18n="see_plans">See plans</a>
+  </div></div></section>
+
+  <section><div class="wrap v4-split">
+    <div><div class="tag" data-i18n="tag_faq">Questions</div><h2 data-i18n="h2_faq">Straight answers.</h2></div>
+    <ul class="get faq">
+      <li><details><summary>Do I have to set everything up myself?</summary><p>No. Check if your app fits below, enter your Docker image and sign up. New customers are then added automatically. Prefer help? <a href="/contact/">Contact us</a> and we will set it up with you.</p></details></li>
+      <li><details><summary>Which apps work on SaaShup?</summary><p>Web apps that run from a Docker image. Apps with several services (for example app + database) work too: each service runs separately. Not sure? Check if your app fits below.</p></details></li>
+      <li><details><summary>Where is my data hosted?</summary><p>In European datacenters by default. Other regions are possible on request.</p></details></li>
+      <li><details><summary>Can I leave?</summary><p>Yes. Your data stays yours, and you can take it with you anytime.</p></details></li>
+      <li><details><summary>How much does it cost?</summary><p>You pay for the customers who use your app. No customers, no bill. See the plans on our pricing page.</p></details></li>
+      </ul>
+  </div></section>
+
+  <section class="final" id="check"><div class="wrap">
+    <h2 data-i18n="cta_check">Check if your app fits</h2>
+    <p class="lead">Three quick questions. If it fits, enter your Docker image and sign up.</p>
+    <div class="quiz" id="quiz">
+      <div class="bar" aria-hidden="true"><i id="prog"></i></div>
+      <div id="qa">
+        <p class="qn" id="qn"></p>
+        <h3 id="qt" tabindex="-1"></h3>
+        <p class="qh" id="qh"></p>
+        <div class="ans"><button class="opt" id="yes">Yes</button><button class="opt" id="no">No</button><button class="opt" id="unsure">Not sure</button></div>
+        <button class="back" id="back">Back</button>
+      </div>
+      <div id="res" hidden>
+        <p class="qn" id="rt"></p>
+        <h3 id="rh" tabindex="-1"></h3>
+        <p class="qh" id="rp"></p>
+        <div class="rlaunch" id="rfit" hidden>
+          <div class="rl-group docker-launch-form"><input type="text" id="docker-image-input" aria-label="Your Docker image" placeholder="Your Docker image, e.g. docker.io/nginx:1.31.1" class="docker-image-input" autocomplete="off" spellcheck="false"><button class="btn" id="docker-launch-btn">Check &amp; sign up</button></div>
+          <p class="form-status" id="docker-launch-status" aria-live="polite"></p>
+        </div>
+        <div class="ract" id="rnofit" hidden><a class="btn" href="#docs" title="Documentation link to add: SaaShup docs do not exist yet">Read the docs: get your app ready</a></div>
+        <p class="note" id="note" role="status"></p>
+        <div class="rfoot"><a class="rlink" href="/contact/">Prefer to talk first? Contact us</a><button class="back" id="again">&#8634; Start again</button></div>
+      </div>
     </div>
+    
+  </div></section>
 
-    <div class="cards">
-      <article class="feature-card card">
-        <div class="icon"><i class="fas fa-box" aria-hidden="true"></i></div>
-        <h3>Bring your image</h3>
-        <p>Provide a Docker image and expose the ports and persistent paths your application needs.</p>
-      </article>
-      <article class="feature-card card">
-        <div class="icon"><i class="fas fa-sliders-h" aria-hidden="true"></i></div>
-        <h3>Configure the offer</h3>
-        <p>Define plan, memory, price, domain and environment settings from the SaaShup portal.</p>
-      </article>
-      <article class="feature-card card">
-        <div class="icon"><i class="fas fa-rocket" aria-hidden="true"></i></div>
-        <h3>Launch customers</h3>
-        <p>Deploy instances, attach platform services and let customers start using the product.</p>
-      </article>
-      <article class="feature-card card">
-        <div class="icon"><i class="fas fa-sync-alt" aria-hidden="true"></i></div>
-        <h3>Operate safely</h3>
-        <p>Upgrade versions, monitor health, review logs and adapt capacity as the business grows.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section split" id="workflow">
-    <div>
-      <p class="eyebrow">Workflow</p>
-      <h2>From request to running SaaS</h2>
-      <p class="section-copy">
-        The platform keeps the route from application to revenue intentionally short while still covering
-        the operational pieces that make SaaS hard to maintain alone.
-      </p>
-    </div>
-
-    <ol class="steps">
-      <li><strong>Prepare</strong><span>Package your app, choose the ports, storage and environment values.</span></li>
-      <li><strong>Publish</strong><span>Create the SaaS offer with a plan, price and customer-facing entry point.</span></li>
-      <li><strong>Operate</strong><span>Track activity, support customers and evolve the stack without starting over.</span></li>
-    </ol>
-  </section>
-
-  <section class="section security" id="security">
-    <div class="security-card">
-      <p class="eyebrow">Ready when your image is</p>
-      <h2>Saas-ify your application.</h2>
-      <p>Start with the free Iron plan, then scale support, backup and consulting when you need more coverage.</p>
-      <a class="btn btn-primary btn-lg" href="/contact/">Contact us</a>
-    </div>
-  </section>
 </main>
+<script>
+
+(function(){
+var $=function(i){return document.getElementById(i)};
+var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var H=[["Keep building. We'll handle the rest."]];var tt;
+function type(t){clearTimeout(tt);var h=$('hl');if(calm){h.textContent=t;return}var i=0;h.textContent='';(function n(){h.textContent=t.slice(0,++i);if(i<t.length)tt=setTimeout(n,38)})()}
+type(H[0][0]);
+var S=[["Get started","Create your account in a minute. Prefer help? We can set it up with you."],["Bring your app","Start from your app as it is today."],["Add your brand","Your logo and your domain. Optional."],["Customers sign up","Each gets their own private copy, automatically."],["Update everyone","Release once, everyone gets it."]];
+var who=['Customer A','Customer B','Customer C','Customer D','Customer E','Customer F'];
+var box=$('copies'),cards=who.map(function(w){var d=document.createElement('div');d.className='copy';d.innerHTML='<div class="who"></div><div class="url"></div><div class="ver">v1.2</div>';d.querySelector('.who').textContent=w;box.appendChild(d);return d});
+var step=0,timers=[],auto=!calm,version='v1.2';
+function clean(){var v=($('appname').value||'').toLowerCase().replace(/[^a-z0-9-]/g,'');return v||'yourapp'}
+function later(f,ms){timers.push(setTimeout(f,ms))}
+function clear(){timers.forEach(clearTimeout);timers=[]}
+function urls(){var n=clean();$('wk').textContent=n;cards.forEach(function(c,i){c.querySelector('.url').textContent=String.fromCharCode(97+i)+'.'+n+'.com'});$('ap').textContent=(step>1?'· on '+n+'.com':'')}
+function term(lines){var t=$('term');t.textContent='';if(calm){t.innerHTML=lines.join('\n');return}lines.forEach(function(l,i){later(function(){t.innerHTML+=(i?'\n':'')+l},350*i)})}
+function setVer(v){version=v;$('ver').textContent=v}
+function verAll(v){cards.forEach(function(c){c.querySelector('.ver').textContent=v})}
+function count(n){$('cn').textContent=n;$('bl').textContent=n?'for '+n+' '+(n>1?'customers':'customer'):'none'}
+function show(n,n2){cards.forEach(function(c,i){c.classList.toggle('on',i<n)})}
+function render(i){
+  clear();step=i;
+  document.querySelectorAll('[role=tab]').forEach(function(b){b.setAttribute('aria-selected',+b.dataset.s===i)});
+  $('st').textContent=S[i][0];$('sd').textContent=S[i][1];$('walker').style.left=(10+i*20)+'%';$('rail').style.width=(i*25)+'%';document.querySelectorAll('.stop').forEach(function(b){b.classList.toggle('done',+b.dataset.s<i)});var lp=$('lp');lp.classList.remove('enter');void lp.offsetWidth;lp.classList.add('enter');$('undo').classList.add('hide');urls();
+  cards.forEach(function(c){c.classList.remove('wave')});setVer('v1.2');verAll('v1.2');
+  var n=clean();
+  // Names below are built only from a-z, 0-9 and hyphens.
+  if(i===0){show(0);count(0);term(['<i>✓</i> account created','<i>✓</i> your domain, or ours to start','<i>✓</i> help available if you need it'])}
+  if(i===1){show(0);count(0);term(['<i>$</i> docker image: '+n+':1.2','<i>✓</i> saved as a template','<i>✓</i> no customers yet, no bill'])}
+  if(i===2){show(0);count(0);term(['<i>✓</i> logo and colours: yours','<i>✓</i> domain: '+n+'.com','<i>✓</i> HTTPS: automatic'])}
+  if(i===3){show(0);count(0);term(['<i>+</i> customer logs in','<i>?</i> create your instance? yes','<i>✓</i> private copy ready, own address and login']);
+    cards.forEach(function(c,k){if(calm){show(6);count(6)}else later(function(){show(k+1);count(k+1)},600*(k+1))})}
+  if(i===4){show(6);count(6);term(['<i>$</i> new version: v1.3, from GitHub','<i>✓</i> all customers updated','<i>↶</i> undo available']);
+    cards.forEach(function(c,k){if(calm){c.querySelector('.ver').textContent='v1.3'}else later(function(){c.classList.add('wave');c.querySelector('.ver').textContent='v1.3';later(function(){c.classList.remove('wave')},600)},900+220*k)});
+    if(calm){setVer('v1.3');$('undo').classList.remove('hide')}else later(function(){setVer('v1.3');$('undo').classList.remove('hide')},900+220*6)}
+  if(auto)later(function(){render((step+1)%5)},7500);
+}
+document.querySelectorAll('[role=tab]').forEach(function(b){b.onclick=function(){auto=false;render(+b.dataset.s)}});
+$('undo').onclick=function(){auto=false;clear();setVer('v1.2');verAll('v1.2');$('undo').classList.add('hide')};
+var Q=[
+["Does your app run from a Docker image?","A Docker image is a packaged version of your app. Most modern web apps have one.",1],
+["Does each customer need their own copy of your app?","For example, every company or team gets a separate installation with its own data.",0],
+["Can your app work on any web address?","For example, on your own domain, without changes in the code.",0]];
+var qi=0,ans=[];
+function drawQ(){$('prog').style.width=(qi/Q.length*100)+'%';$('qn').textContent='Question '+(qi+1)+' of '+Q.length;$('qt').textContent=Q[qi][0];$('qh').textContent=Q[qi][1];$('back').hidden=qi===0}
+function finish(){var mustNo=ans.some(function(a,i){return Q[i][2]&&a==='no'});var all=ans.every(function(a){return a==='yes'});
+ $('prog').style.width='100%';$('qa').hidden=true;$('res').hidden=false;$('note').textContent='';$('rt').textContent='Your result';
+ $('rfit').hidden=mustNo;$('rnofit').hidden=!mustNo;
+ if(mustNo){$('rh').textContent='Not a fit yet';$('rp').textContent='SaaShup starts from a Docker image. Our docs show how to package your app and get it ready.'}
+ else if(all){$('rh').textContent='Your app looks like a good fit';$('rp').textContent='Enter your Docker image: we check it and take you to sign up.'}
+ else{$('rh').textContent='Your app could be a fit';$('rp').textContent='Enter your Docker image to check it and sign up.'}
+ $('rh').focus()}
+function answer(v){ans[qi]=v;qi++;if(qi<Q.length){drawQ();$('qt').focus()}else finish()}
+$('yes').onclick=function(){answer('yes')};$('no').onclick=function(){answer('no')};$('unsure').onclick=function(){answer('unknown')};
+$('back').onclick=function(){if(qi>0){qi--;drawQ();$('qt').focus()}};
+$('again').onclick=function(){qi=0;ans=[];$('qa').hidden=false;$('res').hidden=true;drawQ();$('qt').focus()};
+drawQ();
+render(0);
+(function(){var vb=$('vbox'),mb=$('mockb');document.querySelectorAll('.vt').forEach(function(b){b.onclick=function(){var w=b.dataset.v==='watch';document.querySelectorAll('.vt').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});vb.hidden=!w;mb.hidden=w}})})();
+(function(){var a=$('appname');a.addEventListener('input',function(){urls();var t=$('term');if(t)t.innerHTML=t.innerHTML.replace(/[a-z0-9-]+(:1\.2|\.com)/g,function(m,suf){return clean()+suf})})})();
+(function(){var ts=document.querySelectorAll('.tool');function closeAll(){ts.forEach(function(t){t.classList.remove('open');t.querySelector('button').setAttribute('aria-expanded','false')})}
+ts.forEach(function(t){var b=t.querySelector('button');b.onclick=function(e){e.stopPropagation();var o=!t.classList.contains('open');closeAll();if(o){t.classList.add('open');b.setAttribute('aria-expanded','true')}}});
+document.addEventListener('click',closeAll);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()})})();
+
+(function(){var U=['<b>curioo.city</b>/en/guide','<b>login.curioo.city</b>','<b>my-guide.curioo.city</b>','<b>my-guide.curioo.city</b>/map'];
+var sc=document.querySelectorAll('.scr'),li=document.querySelectorAll('#msteps li'),cur=0,tm=null,auto=!calm;
+function go(i){cur=i;sc.forEach(function(e){e.classList.toggle('on',+e.dataset.s===i)});li.forEach(function(e){var k=+e.dataset.m;e.classList.toggle('on',k===i);e.classList.toggle('done',k<i)});$('murl').innerHTML=U[i];clearTimeout(tm);if(auto)tm=setTimeout(function(){go((cur+1)%4)},3600)}
+document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){auto=false;go(+b.dataset.go)}});
+li.forEach(function(e){e.onclick=function(){auto=false;go(+e.dataset.m)}});
+go(0)})();
+
+var v=$('v').children;
+if('IntersectionObserver'in window&&!calm){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){[].forEach.call(v,function(s,i){setTimeout(function(){s.classList.add('lit')},450*i)});o.disconnect()}},{threshold:.5}).observe($('v'))}else{[].forEach.call(v,function(s){s.classList.add('lit')})}
+})();
+
+</script>
