@@ -165,3 +165,7 @@ other = "SaaS-Unterstützung"
 [help_saas_support_text]
 
 other = "<p>Wir unterstützen Ihre SaaS vollständig.</p><p>Unser Support-Team kann auf Anfragen zu SaaS-Problemen, Anfragen, Anfragen usw. antworten."
+
+[navCheckFit]
+
+other = "Prüfen Sie, ob Ihre App passt"

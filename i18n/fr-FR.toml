@@ -281,3 +281,7 @@ other = "expiré"
 [yes-text]
 
 other = "Oui"
+
+[navCheckFit]
+
+other = "Vérifiez si votre app convient"

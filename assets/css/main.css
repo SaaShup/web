@@ -318,6 +318,23 @@ main {
   box-shadow: 0 12px 25px rgba(36, 107, 254, 0.24);
 }
 
+.nav-check {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 17px;
+  margin-right: 8px;
+  color: var(--primary);
+  background: transparent;
+  border: 1px solid var(--primary);
+  border-radius: 14px;
+  white-space: nowrap;
+}
+.nav-check:hover {
+  color: white;
+  background: var(--primary);
+}
 .nav-contact:hover {
   color: white;
   background: var(--primary-dark);
@@ -983,8 +1000,10 @@ iframe {
     gap: 8px;
   }
 
-  .nav-contact {
+  .nav-contact,
+  .nav-check {
     flex: 1 1 150px;
+    margin-right: 0;
   }
 }
 
