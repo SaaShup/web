@@ -38,8 +38,7 @@
 {{ $style := resources.Get "css/main.css" }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 {{ if .Params.homev4 }}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 {{ $home := resources.Get "css/home-v4.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $home.RelPermalink }}" integrity="{{ $home.Data.Integrity }}">
 {{ end }}
