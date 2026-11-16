@@ -37,10 +37,14 @@
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 {{ $style := resources.Get "css/main.css" }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
-{{ if .Params.homev4 }}
+{{ if or .Params.homev4 .Params.v4page }}
 <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 {{ $home := resources.Get "css/home-v4.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $home.RelPermalink }}" integrity="{{ $home.Data.Integrity }}">
+{{ end }}
+{{ if .Params.v4page }}
+{{ $pages := resources.Get "css/pages-v4.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $pages.RelPermalink }}" integrity="{{ $pages.Data.Integrity }}">
 {{ end }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
