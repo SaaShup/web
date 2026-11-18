@@ -1398,14 +1398,11 @@ textarea.form-control {
 }
 
 /* Keep the top bar on one line on mid-size screens */
-@media (min-width: 992px) and (max-width: 1280px) {
+@media (min-width: 992px) and (max-width: 1535.98px) {
   .brand-tagline { display: none; }
 }
 
-/* Nav: keep one line in FR/DE (PR #90). Icons hidden on desktop; the collapsed mobile menu keeps them. */
-@media (min-width: 992px) {
-  .nbar .navbar-nav .nav-link > i { display: none; }
-}
-@media (min-width: 992px) and (max-width: 1199.98px) {
+/* Nav: keep one line in all languages (PR #90). The nav "Check if your app fits" button is hidden on small laptops; it stays in the page. */
+@media (min-width: 992px) and (max-width: 1279.98px) {
   .nbar .nav-check { display: none; }
 }
