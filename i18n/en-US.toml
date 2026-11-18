@@ -169,3 +169,6 @@ other = "<p>We fully support your Saas.</p><p>Our support team can respond to yo
 [navCheckFit]
 
 other = "Check if your app fits"
+
+[navOtherProduct]
+other = "Our other product"

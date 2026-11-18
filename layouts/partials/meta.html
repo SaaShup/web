@@ -19,6 +19,17 @@
 <meta property="og:image" content="https://saashup.com/images/logo_saashup.png" />
 <meta property="og:url" content="https://saashup.com">
 <meta property="og:type" content="website" />
+{{- if .IsTranslated }}
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="https://saashup.com{{ .RelPermalink }}">
+{{- if eq .Language.Lang "en" }}
+<link rel="alternate" hreflang="x-default" href="https://saashup.com{{ .RelPermalink }}">
+{{- end }}
+{{- end }}
+{{- end }}
+{{- if .IsHome }}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SaaShup","url":"https://saashup.com","logo":"https://saashup.com/images/logo_saashup.png","sameAs":["https://github.com/SaaShup"]}</script>
+{{- end }}
 {{ with site.Params.turnstileSiteKey }}
 <meta name="turnstile-sitekey" content="{{ . }}">
 {{ end }}

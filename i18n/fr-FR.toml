@@ -285,3 +285,6 @@ other = "Oui"
 [navCheckFit]
 
 other = "Vérifiez si votre app convient"
+
+[navOtherProduct]
+other = "Notre autre produit"

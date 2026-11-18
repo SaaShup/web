@@ -16,7 +16,7 @@ language: 'en'
     <h1 id="hl">Keep building. We'll handle the rest.</h1>
     <p class="team"><svg class="eu" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="#0979e6"/><circle cx="12" cy="10" r="2.8" fill="#fff"/></svg><span data-i18n="team">European team of developers · Hosted in Europe</span></p>
     <p class="pain" data-i18n="pain">Every new customer gets your app in minutes, with no new setup on your side.</p>
-    <div class="cta"><a class="btn" href="#journey" data-i18n="see_how">See it in action &darr;</a></div>
+    <div class="cta"><a class="btn" href="#journey" data-i18n="see_how">See how it works &darr;</a></div>
     
 
     <div class="bens">
@@ -54,28 +54,27 @@ language: 'en'
     
   </div></section>
 
-  <section id="how"><div class="wrap">
+  <section id="how" aria-labelledby="how-title"><div class="wrap">
     <div class="tag" data-i18n="tag_how">How it works</div>
-    <h2 data-i18n="h2_how">One setup. Every customer.</h2>
+    <h2 id="how-title" data-i18n="h2_how">From your app to many customers, without extra setup</h2>
     <div class="stage" id="journey" style="text-align:left;scroll-margin-top:90px">
-      <div class="road" role="tablist" aria-label="The creator's journey, step by step">
+      <div class="road" role="tablist" aria-label="How it works, step by step">
         <div class="rail" aria-hidden="true"><i id="rail"></i></div>
-        <div class="walker" id="walker" aria-hidden="true"><span id="wk">yourapp</span></div>
-        <button class="stop" role="tab" id="jt0" aria-controls="jp0" tabindex="-1" data-s="0" aria-selected="false"><span class="dot">1</span><span class="sl">Get started</span></button>
-        <button class="stop" role="tab" id="jt1" aria-controls="jp1" tabindex="-1" data-s="1" aria-selected="false"><span class="dot">2</span><span class="sl">Bring your app</span></button>
-        <button class="stop" role="tab" id="jt2" aria-controls="jp2" tabindex="-1" data-s="2" aria-selected="false"><span class="dot">3</span><span class="sl">Add your brand</span></button>
-        <button class="stop" role="tab" id="jt3" aria-controls="jp3" tabindex="0" data-s="3" aria-selected="true"><span class="dot">4</span><span class="sl">Customers sign up</span></button>
-        <button class="stop" role="tab" id="jt4" aria-controls="jp4" tabindex="-1" data-s="4" aria-selected="false"><span class="dot">5</span><span class="sl">Update everyone</span></button>
+        <button class="stop" role="tab" id="jt0" aria-controls="jp0" tabindex="0" data-s="0" aria-selected="true"><span class="dot">1</span><span class="sl">Your app</span></button>
+        <button class="stop" role="tab" id="jt1" aria-controls="jp1" tabindex="-1" data-s="1" aria-selected="false"><span class="dot">2</span><span class="sl">Customers sign up</span></button>
+        <button class="stop" role="tab" id="jt2" aria-controls="jp2" tabindex="-1" data-s="2" aria-selected="false"><span class="dot">3</span><span class="sl">Update everyone</span></button>
+        <button class="stop" role="tab" id="jt3" aria-controls="jp3" tabindex="-1" data-s="3" aria-selected="false"><span class="dot">4</span><span class="sl">You grow</span></button>
       </div>
       <div class="jctl"><button type="button" class="jpause" id="jpause" aria-pressed="false">Pause</button></div>
       <div class="scene">
         <div class="left" id="lp">
-          <ol class="jsteps"><li class="jstep" id="jp0" role="tabpanel" aria-labelledby="jt0"><h3>Get started</h3><p>Create your account in a minute. Prefer help? We can set it up with you.</p></li><li class="jstep" id="jp1" role="tabpanel" aria-labelledby="jt1"><h3>Bring your app</h3><p>Start from your app as it is today.</p></li><li class="jstep" id="jp2" role="tabpanel" aria-labelledby="jt2"><h3>Add your brand</h3><p>Your logo and your domain. Optional.</p></li><li class="jstep on" id="jp3" role="tabpanel" aria-labelledby="jt3"><h3>Customers sign up</h3><p>Each gets their own private copy, automatically.</p></li><li class="jstep" id="jp4" role="tabpanel" aria-labelledby="jt4"><h3>Update everyone</h3><p>Release once, everyone gets it.</p></li></ol>
-          <div class="term" id="term" aria-hidden="true"></div>
+          <ol class="jsteps"><li class="jstep on" id="jp0" role="tabpanel" aria-labelledby="jt0"><h3>Bring your app, keep your brand</h3><p>Start from your Docker image as it is today. Add your logo and your domain; HTTPS is automatic.</p></li><li class="jstep" id="jp1" role="tabpanel" aria-labelledby="jt1"><h3>Each customer gets their own copy, automatically</h3><p>A customer signs up and their private copy is ready in about 2 minutes, on its own address, with its own login. No setup on your side.</p></li><li class="jstep" id="jp2" role="tabpanel" aria-labelledby="jt2"><h3>Release once. Everyone gets it.</h3><p>Publish a new version and every customer is updated. Something wrong? Undo in one click.</p></li><li class="jstep" id="jp3" role="tabpanel" aria-labelledby="jt3"><h3>More customers, your evenings stay free</h3><p>Your customer count grows; your setup time doesn't.</p><p class="jend"><a class="btn" href="#check">Check if your app fits &rarr;</a><button type="button" class="jreplay" id="jreplay">&#8634; Replay</button></p></li></ol>
+          <div class="feedbar"><button type="button" class="devsw" id="devsw" aria-pressed="false">Developer view</button></div>
+          <div class="term plain" id="term" aria-hidden="true"></div>
         </div>
         <div class="right">
-          <div class="top"><span class="count">Customers: <b id="cn">0</b></span><span class="count">Bill: <b id="bl">none</b></span></div>
-          <div class="app"><span class="apl"><span class="ed" aria-hidden="true">&#9998;</span><input id="appname" maxlength="20" placeholder="yourapp" autocomplete="off" spellcheck="false" aria-label="Your app's name"><span id="ap"></span></span><b id="ver">v1.2</b></div>
+          <div class="top"><span class="count">Customers: <b id="cn">0</b></span><span class="count">Your setup time: <b>0 min</b></span></div>
+          <div class="app"><label class="apl" for="appname"><span class="aplbl">Your app's name</span><span class="ed" aria-hidden="true">&#9998;</span><input id="appname" maxlength="20" placeholder="yourapp" autocomplete="off" spellcheck="false"><span id="ap"></span></label><b id="ver">v1.2</b></div>
           <div class="copies" id="copies"></div>
           <div style="margin-top:14px;min-height:28px"><button class="undo hide" id="undo">Undo update</button></div>
         </div>
@@ -176,54 +175,72 @@ language: 'en'
   </div></section>
 
 </main>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I have to set everything up myself?", "acceptedAnswer": {"@type": "Answer", "text": "No. Check if your app fits below, enter your Docker image and sign up. New customers are then added automatically. Prefer help? Contact us and we will set it up with you."}}, {"@type": "Question", "name": "Which apps work on SaaShup?", "acceptedAnswer": {"@type": "Answer", "text": "Web apps that run from a Docker image. Your app fits if: it runs from a Docker image; each customer needs their own copy, with their own data; it works on any web address, for example your own domain, without code changes.Apps with several services (for example app + database) work too: each service runs separately. Not sure? Check if your app fits below."}}, {"@type": "Question", "name": "Where is my data hosted?", "acceptedAnswer": {"@type": "Answer", "text": "In European datacenters by default. Other regions are possible on request."}}, {"@type": "Question", "name": "Can I leave?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. There is no lock-in: your app stays a standard Docker image, so you can run it anywhere."}}, {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "You pay for the customers who use your app. No customers, no bill. See the plans on our pricing page."}}]}</script>
 <script>
 
 (function(){
 var $=function(i){return document.getElementById(i)};
 var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 $('top').classList.add('js');
-var S=[["Get started","Create your account in a minute. Prefer help? We can set it up with you."],["Bring your app","Start from your app as it is today."],["Add your brand","Your logo and your domain. Optional."],["Customers sign up","Each gets their own private copy, automatically."],["Update everyone","Release once, everyone gets it."]];
-var who=['Customer A','Customer B','Customer C','Customer D','Customer E','Customer F'];
-var box=$('copies'),cards=who.map(function(w){var d=document.createElement('div');d.className='copy';d.innerHTML='<div class="who"></div><div class="url"></div><div class="ver">v1.2</div>';d.querySelector('.who').textContent=w;box.appendChild(d);return d});
-var step=0,timers=[],auto=!calm,hold=false,version='v1.2';
-function pauseLabel(){var b=$('jpause');b.textContent=auto?'Pause':'Play';b.setAttribute('aria-pressed',!auto)}
-function next(){if(!auto)return;if(hold){later(next,1000);return}render((step+1)%5)}
+var C=[["09:02", "Acme Bakery", "acme"], ["09:40", "Nordic Dental", "nordic"], ["10:15", "Atelier Rose", "atelier"], ["11:03", "Harbor Fitness", "harbor"], ["13:27", "Pine Legal", "pine"], ["14:50", "Green Leaf Café", "greenleaf"]];
+var TX={"p1": ["{n}.com is ready", "your logo, your domain", "HTTPS, automatic"], "p2": "{t} {c} signed up &middot; {s}.{n}.com ready", "p3": ["v1.3 released", "6 of 6 customers updated", "undo available"], "p4": ["6 customers", "0 setups on your side", "1 update for everyone"], "wait": "Waiting for your first customer", "pause": "Pause", "play": "Play"};
+var DUR=[4000,8000,8000,4000],N=4;
+var box=$('copies'),cards=C.map(function(c){var d=document.createElement('div');d.className='copy';d.innerHTML='<div class="ph"></div><div class="who"></div><div class="url"></div><div class="ver">v1.2</div>';d.querySelector('.ph').textContent=TX.wait;d.querySelector('.who').textContent=c[1];box.appendChild(d);return d});
+var step=0,timers=[],auto=!calm,started=false,hold=false,dev=false;
+function pauseLabel(){var b=$('jpause');b.textContent=auto?TX.pause:TX.play;b.setAttribute('aria-pressed',!auto)}
+function next(){if(!auto)return;if(hold){later(next,1000);return}if(step<N-1)render(step+1);else{auto=false;pauseLabel()}}
 function clean(){var v=($('appname').value||'').toLowerCase().replace(/[^a-z0-9-]/g,'');return v||'yourapp'}
 function later(f,ms){timers.push(setTimeout(f,ms))}
 function clear(){timers.forEach(clearTimeout);timers=[]}
-function urls(){var n=clean();$('wk').textContent=n;cards.forEach(function(c,i){c.querySelector('.url').textContent=String.fromCharCode(97+i)+'.'+n+'.com'});$('ap').textContent=(step>1?'· on '+n+'.com':'')}
-function term(lines){var t=$('term');t.textContent='';if(calm){t.innerHTML=lines.join('\n');return}lines.forEach(function(l,i){later(function(){t.innerHTML+=(i?'\n':'')+l},350*i)})}
-function setVer(v){version=v;$('ver').textContent=v}
+function esc(s){return String(s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
+function fill(s,c){var n=clean();return s.replace(/\{n\}/g,n).replace(/\{t\}/g,c?c[0]:'').replace(/\{c\}/g,c?esc(c[1]):'').replace(/\{s\}/g,c?c[2]:'')}
+function urls(){var n=clean();cards.forEach(function(c,i){c.querySelector('.url').textContent=C[i][2]+'.'+n+'.com'})}
+function setVer(v){$('ver').textContent=v}
 function verAll(v){cards.forEach(function(c){c.querySelector('.ver').textContent=v})}
-function count(n){$('cn').textContent=n;$('bl').textContent=n?'for '+n+' '+(n>1?'customers':'customer'):'none'}
-function show(n,n2){cards.forEach(function(c,i){c.classList.toggle('on',i<n)})}
+function count(n){$('cn').textContent=n}
+function show(n){cards.forEach(function(c,i){c.classList.toggle('on',i<n)})}
+// Feed lines: plain text for everyone, technical lines in "Developer view". Names are built only from a-z, 0-9 and hyphens.
+function lines(i){var n=clean();
+  if(dev){if(i===0)return['image   '+n+':1.2','domain  '+n+'.com','https   certificate issued'];
+    if(i===1)return C.map(function(c){return '+ instance '+c[2]+'  '+c[2]+'.'+n+'.com  ready'});
+    if(i===2)return['rollout '+n+':1.3','6/6 instances updated','rollback available'];
+    return['instances      6','manual setups  0','releases       1']}
+  if(i===0)return TX.p1.map(function(s){return '<i>&#10003;</i> '+fill(s)});
+  if(i===1)return C.map(function(c){return '<i>+</i> '+fill(TX.p2,c)});
+  if(i===2)return TX.p3.map(function(s,k){return '<i>'+(k===2?'&#8630;':'&#10003;')+'</i> '+s});
+  return TX.p4.map(function(s){return '<i>&#10003;</i> '+s})}
+function term(i,instant){var t=$('term'),L=lines(i);t.classList.toggle('plain',!dev);t.innerHTML='';
+  if(calm||instant||i!==1){t.innerHTML=L.join('\n');return}
+  L.forEach(function(l,k){later(function(){t.innerHTML+=(k?'\n':'')+l},900*(k+1))})}
 function render(i){
   clear();step=i;
-  document.querySelectorAll('.road [role=tab]').forEach(function(b){var on=+b.dataset.s===i;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});
-  document.querySelectorAll('.jstep').forEach(function(p,k){p.classList.toggle('on',k===i)});$('walker').style.left=(10+i*20)+'%';$('rail').style.width=(i*25)+'%';document.querySelectorAll('.stop').forEach(function(b){b.classList.toggle('done',+b.dataset.s<i)});var lp=$('lp');lp.classList.remove('enter');void lp.offsetWidth;lp.classList.add('enter');$('undo').classList.add('hide');urls();
-  cards.forEach(function(c){c.classList.remove('wave')});setVer('v1.2');verAll('v1.2');
-  var n=clean();
-  // Names below are built only from a-z, 0-9 and hyphens.
-  if(i===0){show(0);count(0);term(['<i>✓</i> your account is ready','<i>✓</i> your own domain, or ours to start','<i>✓</i> we can help you set up'])}
-  if(i===1){show(0);count(0);term(['<i>✓</i> '+n+', as it is today','<i>✓</i> ready to copy for each customer','<i>✓</i> no customers yet, no bill'])}
-  if(i===2){show(0);count(0);term(['<i>✓</i> your logo and colours','<i>✓</i> your address: '+n+'.com','<i>✓</i> secure connection, set up for you'])}
-  if(i===3){show(0);count(0);term(['<i>+</i> a new customer signs up','<i>?</i> create your own copy? yes','<i>✓</i> ready, with their own data and address']);
-    cards.forEach(function(c,k){if(calm){show(6);count(6)}else later(function(){show(k+1);count(k+1)},600*(k+1))})}
-  if(i===4){show(6);count(6);term(['<i>✓</i> you publish a new version','<i>✓</i> every customer gets it','<i>↶</i> undo in one click']);
-    cards.forEach(function(c,k){if(calm){c.querySelector('.ver').textContent='v1.3'}else later(function(){c.classList.add('wave');c.querySelector('.ver').textContent='v1.3';later(function(){c.classList.remove('wave')},600)},900+220*k)});
-    if(calm){setVer('v1.3');$('undo').classList.remove('hide')}else later(function(){setVer('v1.3');$('undo').classList.remove('hide')},900+220*6)}
-  if(auto)later(next,7500);
+  document.querySelectorAll('.road [role=tab]').forEach(function(b){var on=+b.dataset.s===i;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;b.classList.toggle('done',+b.dataset.s<i)});
+  document.querySelectorAll('.jstep').forEach(function(p,k){p.classList.toggle('on',k===i)});
+  $('rail').style.width=(i*100/(N-1))+'%';
+  var lp=$('lp');lp.classList.remove('enter');void lp.offsetWidth;lp.classList.add('enter');
+  $('undo').classList.add('hide');urls();cards.forEach(function(c){c.classList.remove('wave')});
+  $('ap').textContent='\u00b7 '+clean()+'.com';
+  if(i===0){show(0);count(0);setVer('v1.2');verAll('v1.2');term(0)}
+  if(i===1){show(0);count(0);setVer('v1.2');verAll('v1.2');term(1);
+    cards.forEach(function(c,k){if(calm){show(6);count(6)}else later(function(){show(k+1);count(k+1)},900*(k+1))})}
+  if(i===2){show(6);count(6);setVer('v1.2');verAll('v1.2');term(2);
+    cards.forEach(function(c,k){if(calm){c.querySelector('.ver').textContent='v1.3'}else later(function(){c.classList.add('wave');c.querySelector('.ver').textContent='v1.3';later(function(){c.classList.remove('wave')},600)},900+300*k)});
+    if(calm){setVer('v1.3');$('undo').classList.remove('hide')}else later(function(){setVer('v1.3');$('undo').classList.remove('hide')},900+300*6)}
+  if(i===3){show(6);count(6);setVer('v1.3');verAll('v1.3');term(3)}
+  if(auto&&started)later(next,DUR[i]);
 }
 var tabs=document.querySelectorAll('.road [role=tab]');
 tabs.forEach(function(b){b.onclick=function(){auto=false;pauseLabel();render(+b.dataset.s)};
   b.onkeydown=function(e){var k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key],t=null;
-    if(k)t=(step+k+5)%5;else if(e.key==='Home')t=0;else if(e.key==='End')t=4;
+    if(k)t=(step+k+N)%N;else if(e.key==='Home')t=0;else if(e.key==='End')t=N-1;
     if(t!==null){e.preventDefault();auto=false;pauseLabel();render(t);tabs[t].focus()}}});
-$('jpause').onclick=function(){auto=!auto;pauseLabel();if(auto)later(next,2500)};
+$('jpause').onclick=function(){auto=!auto;started=true;pauseLabel();if(auto){if(step===N-1)render(0);else later(next,2500)}else clear()};
+$('jreplay').onclick=function(){auto=!calm;started=true;pauseLabel();render(0)};
+$('devsw').onclick=function(){dev=!dev;this.setAttribute('aria-pressed',dev);term(step,true)};
 var jr=$('journey');jr.addEventListener('mouseenter',function(){hold=true});jr.addEventListener('mouseleave',function(){hold=false});
 jr.addEventListener('focusin',function(){hold=true});jr.addEventListener('focusout',function(){hold=false});
 pauseLabel();
-$('undo').onclick=function(){auto=false;clear();setVer('v1.2');verAll('v1.2');$('undo').classList.add('hide')};
+$('undo').onclick=function(){auto=false;pauseLabel();clear();setVer('v1.2');verAll('v1.2');$('undo').classList.add('hide')};
 var Q=[
 ["Does your app run from a Docker image?","A Docker image is a packaged version of your app. Most modern web apps have one.",1],
 ["Does each customer need their own copy of your app?","For example, every company or team gets a separate installation with its own data.",0],
@@ -242,10 +259,10 @@ $('yes').onclick=function(){answer('yes')};$('no').onclick=function(){answer('no
 $('back').onclick=function(){if(qi>0){qi--;drawQ();$('qt').focus()}};
 $('again').onclick=function(){qi=0;ans=[];$('qa').hidden=false;$('res').hidden=true;drawQ();$('qt').focus()};
 drawQ();
-render(3);
-if('IntersectionObserver'in window&&!calm){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){render(step);o.disconnect()}},{threshold:.4}).observe($('journey'))}
+render(0);
+if('IntersectionObserver'in window&&!calm){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){started=true;render(0);o.disconnect()}},{threshold:.4}).observe($('journey'))}else{started=true}
 (function(){var vb=$('vbox'),mb=$('mockb');document.querySelectorAll('.vt').forEach(function(b){b.onclick=function(){var w=b.dataset.v==='watch';document.querySelectorAll('.vt').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});vb.hidden=!w;mb.hidden=w}})})();
-(function(){var a=$('appname');a.addEventListener('input',function(){urls();var t=$('term');if(t)t.innerHTML=t.innerHTML.replace(/[a-z0-9-]+(\.com)/g,function(m,suf){return clean()+suf})})})();
+(function(){var a=$('appname');a.addEventListener('input',function(){urls();$('ap').textContent='\u00b7 '+clean()+'.com';if(step!==1||calm)term(step,true)})})();
 (function(){var ts=document.querySelectorAll('.tool');function closeAll(){ts.forEach(function(t){t.classList.remove('open');t.querySelector('button').setAttribute('aria-expanded','false')})}
 ts.forEach(function(t){var b=t.querySelector('button');b.onclick=function(e){e.stopPropagation();var o=!t.classList.contains('open');closeAll();if(o){t.classList.add('open');b.setAttribute('aria-expanded','true')}}});
 document.addEventListener('click',closeAll);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()})})();
