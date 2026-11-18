@@ -5,7 +5,7 @@
 - Each customer gets their own copy (single-tenant), created automatically when they sign up.
 - One release updates every customer, with undo.
 - Your brand and your domain; HTTPS is set up automatically.
-- Built on open-source tools: Docker, Traefik, Cloudflare, Keycloak, Prometheus, Grafana.
+- Built on open-source tools: Docker, Traefik, Cloudflare, Keycloak, Prometheus, Grafana, FlowG.
 
 ## Pages
 
