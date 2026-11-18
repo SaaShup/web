@@ -322,3 +322,6 @@ html[data-theme="dark"] .v4 .bi{background:#3a2416}
 .v4 .jreplay{display:none;background:none;border:0;color:var(--acc);font:500 13.5px var(--body);cursor:pointer;padding:4px}
 .v4.js .jreplay{display:inline-block}
 @media (prefers-reduced-motion:reduce){.v4 .copy.on{animation:none}}
+.v4 .scene>*{min-width:0}
+.v4 .apl{flex-wrap:wrap}
+.v4 .apl input{min-width:0;width:9em;max-width:100%}

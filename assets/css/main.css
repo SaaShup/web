@@ -1401,3 +1401,11 @@ textarea.form-control {
 @media (min-width: 992px) and (max-width: 1280px) {
   .brand-tagline { display: none; }
 }
+
+/* Nav: keep one line in FR/DE on medium screens (PR #90). Icons hidden between the lg breakpoint and 1400px. */
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  .nbar .navbar-nav .nav-link > i { display: none; }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .nbar .nav-check { display: none; }
+}
