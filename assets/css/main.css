@@ -1398,8 +1398,10 @@ textarea.form-control {
 }
 
 /* Keep the top bar on one line on mid-size screens */
-@media (min-width: 992px) and (max-width: 1535.98px) {
-  .brand-tagline { display: none; }
+/* Desktop: "SaaS engine" sits under the name, so the nav stays one line in every language */
+@media (min-width: 992px) {
+  .nbar .brand-copy { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; gap: 2px; }
+  .nbar .brand-tagline { display: block; font-size: 0.58rem; letter-spacing: 0.12em; }
 }
 
 /* Nav: keep one line in all languages (PR #90). The nav "Check if your app fits" button is hidden on small laptops; it stays in the page. */
