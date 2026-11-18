@@ -110,8 +110,8 @@ language: 'de'
         <p class="mnote">Gezeigt mit CuriooCity, unserer Demo-App. Klicken Sie sich hier durch oder <a class="mlink" href="https://curioo.city/en/guide/" target="_blank" rel="noopener">öffnen Sie die Live-Demo&nbsp;&#8599;</a></p>
       </div>
       <div>
-        <div class="vtabs" role="tablist"><button role="tab" class="vt on" data-v="try" aria-selected="true">Ausprobieren</button><button role="tab" class="vt" data-v="watch" aria-selected="false">&#9654; Ansehen (60 s)</button></div>
-        <div class="vbox" id="vbox" hidden><div class="vph"><span class="vplay" aria-hidden="true">&#9654;</span><b>Video folgt in Kürze</b><span>Eine 60-sekündige Bildschirmaufnahme: Ein Kunde erhält seine eigene Kopie von CuriooCity.</span></div></div>
+        <div class="vtabs" role="tablist"><button role="tab" class="vt on" data-v="try" aria-selected="true">Ausprobieren</button><button role="tab" class="vt" data-v="watch" aria-selected="false">&#9654; Ansehen (40 s)</button></div>
+        <div class="vbox" id="vbox" hidden><video controls muted playsinline preload="none" width="1920" height="1080" poster="/video/saashup-demo-poster.jpg" aria-label="Video: Ein Stadtführer erhält in 40 Sekunden seine eigene Kopie von Curioo.city"><source src="/video/saashup-demo.mp4" type="video/mp4"></video></div>
         <div class="browser" id="mockb" aria-label="Darstellung der Bildschirme des Kunden">
           <div class="bbar"><span class="bdots"><i></i><i></i><i></i></span><span class="burl" id="murl"></span></div>
           <div class="bview">
@@ -260,7 +260,7 @@ $('again').onclick=function(){qi=0;ans=[];$('qa').hidden=false;$('res').hidden=t
 drawQ();
 render(0);
 if('IntersectionObserver'in window&&!calm){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){started=true;render(0);o.disconnect()}},{threshold:.4}).observe($('journey'))}else{started=true}
-(function(){var vb=$('vbox'),mb=$('mockb');document.querySelectorAll('.vt').forEach(function(b){b.onclick=function(){var w=b.dataset.v==='watch';document.querySelectorAll('.vt').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});vb.hidden=!w;mb.hidden=w}})})();
+(function(){var vb=$('vbox'),mb=$('mockb');document.querySelectorAll('.vt').forEach(function(b){b.onclick=function(){var w=b.dataset.v==='watch';document.querySelectorAll('.vt').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});vb.hidden=!w;mb.hidden=w;var vd=vb.querySelector('video');if(vd){if(w){vd.play().catch(function(){})}else{vd.pause()}}}})})();
 (function(){var a=$('appname');a.addEventListener('input',function(){urls();$('ap').textContent='\u00b7 '+clean()+'.com';if(step!==1||calm)term(step,true)})})();
 (function(){var ts=document.querySelectorAll('.tool');function closeAll(){ts.forEach(function(t){t.classList.remove('open');t.querySelector('button').setAttribute('aria-expanded','false')})}
 ts.forEach(function(t){var b=t.querySelector('button');b.onclick=function(e){e.stopPropagation();var o=!t.classList.contains('open');closeAll();if(o){var tp=t.querySelector('.tip');tp.style.setProperty('--dx','0px');t.classList.add('open');b.setAttribute('aria-expanded','true');var r=tp.getBoundingClientRect(),dx=0;if(r.left<12)dx=12-r.left;else if(r.right>innerWidth-12)dx=innerWidth-12-r.right;tp.style.setProperty('--dx',dx+'px')}}});
