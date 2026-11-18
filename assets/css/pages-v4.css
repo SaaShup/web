@@ -79,3 +79,16 @@ html[data-theme="dark"] .v4p .cta-band{background:linear-gradient(135deg,#12305a
   .v4p .calculator-plan-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){.v4p .eyebrow{animation:none!important}}
+/* Pricing v5 (Bertrand 18 Nov): Iron first, care plans as add-ons */
+.v4p .iron-start{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;padding:32px 34px}
+.v4p .iron-start > div{display:flex;flex-direction:column;align-items:flex-start}
+.v4p .iron-start .btn{margin-top:10px}
+.v4p .iron-start ul{margin:0}
+.v4p .price-sub{margin:0 0 12px;color:var(--muted);font-size:15px}
+.v4p .price-sub b{color:var(--text);font-weight:600}
+.v4p .care-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.v4p .care-grid .pricing-card > button.btn{margin-top:auto}
+.v4p #calculator{scroll-margin-top:96px}
+@media (max-width:980px){.v4p .care-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:720px){.v4p .iron-start,.v4p .care-grid{grid-template-columns:1fr}.v4p .iron-start{padding:26px 22px;gap:18px}}
+

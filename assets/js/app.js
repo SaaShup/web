@@ -1,4 +1,4 @@
-var planName = "#bronze-btn";
+var planName = "#iron-btn";
 
 
 var tblPrices = {"eur":
@@ -86,6 +86,12 @@ $(document).ready(function () {
         showPrice(this);
     });
     showPrice(planName);
+    // Care plan cards: pick the plan in the calculator and scroll to it
+    $("[data-plan]").on('click', function() {
+        $("#" + $(this).data('plan') + "-btn").trigger('click');
+        var calc = document.getElementById('calculator');
+        if (calc) calc.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
     $("#help_app_support").on('click', function(event) {
         event.preventDefault()
         $("#modalNotificationTitle").html(findLang("help_app_support_title", myLang));

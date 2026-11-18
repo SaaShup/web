@@ -11,65 +11,90 @@ navSeleted : 'pricing'
   <section class="section">
     <div class="section-heading">
       <p class="eyebrow">Preise</p>
-      <h1 class="hero-title" id="plan-title">Pläne</h1>
-      <p class="hero-text">Starten Sie klein mit einer verwalteten SaaS-Grundlage und erweitern Sie Support und Beratung, wenn Ihre Kundenbasis wächst.</p>
+      <h1 class="hero-title" id="plan-title">Sie zahlen pro Kundenkopie Ihrer App.</h1>
+      <p class="hero-text">Keine Kunden, keine Rechnung. Starten Sie mit Iron und fügen Sie einen Betreuungsplan nur hinzu, wenn Sie mehr Support brauchen.</p>
     </div>
 
-    <div class="pricing-grid">
-      <article class="pricing-card">
-        <p class="eyebrow">Kostenlos starten</p>
+    <article class="pricing-card featured iron-start">
+      <div>
+        <p class="eyebrow">Hier starten</p>
         <h3>IRON</h3>
-        <div class="price">0€<small class="text-muted">/m</small></div>
-        <p>Für erste Tests und einfache Veröffentlichung einer Anwendung.</p>
-        <ul>
-          <li>Supportzeit 9h-17h</li>
-          <li>Support Montag bis Freitag</li>
-          <li>Chat-Antwort unter 60 Min.</li>
-          <li>1 Image</li>
-        </ul>
-        <a href="/de-de/login/" class="btn btn-outline-primary w-100" id="signup-iron">Starten</a>
-      </article>
+        <div class="price">0&nbsp;€<small class="text-muted">/Monat</small></div>
+        <p class="price-sub"><b>+ 5&nbsp;€</b> pro Kundenkopie und Monat</p>
+        <p>Bringen Sie Ihre App online und begrüßen Sie Ihre ersten Kunden.</p>
+        <a href="/de-de/login/" class="btn btn-primary" id="signup-iron">Mit Iron starten</a>
+      </div>
+      <ul><li>Supportzeit 9h-17h</li><li>Support Montag bis Freitag</li><li>Chat-Antwort unter 60 Min.</li><li>1 Image</li></ul>
+    </article>
+  </section>
 
-      <article class="pricing-card featured">
+  <section class="section" id="calculator">
+    <div class="section-heading">
+      <p class="eyebrow">Schätzung</p>
+      <h2 id="pricing-title">Was zahle ich?</h2>
+      <p class="section-copy">Wählen Sie einen Plan und die Anzahl der Kundenkopien. Mehr als 200 MB Speicher pro Kopie gibt es mit einem Betreuungsplan.</p>
+    </div>
+    <div class="pricing-calculator" id="pricing-div">
+      <div>
+        <div class="calculator-plan-buttons">
+          <button class="btn btn-outline-primary btn-primary text-white fw-bold" id="iron-btn">IRON</button>
+          <button class="btn btn-outline-primary fw-bold" id="bronze-btn">BRONZE</button>
+          <button class="btn btn-outline-primary fw-bold" id="silver-btn">SILVER</button>
+          <button class="btn btn-outline-primary fw-bold" id="gold-btn">GOLD</button>
+        </div>
+        <div class="calculator-controls">
+          <div>
+            <label for="slide-memory" class="form-label">Speicher pro Kopie (<span id="memory-value">200</span> MB)</label>
+            <input type="range" class="form-range" min="200" max="1000" step="100" id="slide-memory" value="200" disabled>
+          </div>
+          <div>
+            <label for="slide-instance" class="form-label">Kundenkopien (<span id="instance-value">10</span>)</label>
+            <input type="range" class="form-range" min="0" max="1000" step="1" id="slide-instance" value="10">
+          </div>
+        </div>
+      </div>
+      <div class="calculator-result">
+        <p class="eyebrow">Sie zahlen</p>
+        <div class="price"><span id="pricing-value" class="text-primary">50.00</span>€</div>
+        <p>pro Monat, zzgl. Steuern</p>
+        <p><span id="pricing-unit" class="fw-bold">5.00</span>€ pro Kopie</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Support &amp; Betreuung</p>
+      <h2>Schnellerer Support, Beratung oder eine eigene Engine?</h2>
+      <p class="section-copy">Fügen Sie einen Betreuungsplan ab 10&nbsp;€/Monat hinzu. Preise pro Monat, zzgl. Steuern.</p>
+    </div>
+    <div class="pricing-grid care-grid">
+      <article class="pricing-card">
         <p class="eyebrow">Am praktischsten</p>
         <h3>BRONZE</h3>
-        <div class="price">Individuell</div>
+        <div class="price">10&nbsp;€<small class="text-muted">/Monat</small></div>
+        <p class="price-sub">+ 1&nbsp;€ pro Kopie</p>
         <p>Für Teams, die ihre ersten echten Kundendeployments vorbereiten.</p>
-        <ul>
-          <li>Supportzeit 8h-20h</li>
-          <li>Support Montag bis Freitag</li>
-          <li>Chat-Antwort unter 30 Min.</li>
-          <li>30 Min. Beratung</li>
-        </ul>
-        <a href="/de-de/contact/" class="btn btn-primary w-100" id="contact-plan-btn-bronze">Kontaktieren Sie uns</a>
+        <ul><li>Supportzeit 8h-20h</li><li>Support Montag bis Freitag</li><li>Chat-Antwort unter 30 Min.</li><li>30 Min. Beratung</li><li>Eigene Engine</li></ul>
+        <button type="button" class="btn btn-outline-primary w-100" data-plan="bronze">Gesamtpreis ansehen</button>
       </article>
-
       <article class="pricing-card">
         <p class="eyebrow">Wachstum</p>
         <h3>SILVER</h3>
-        <div class="price">Individuell</div>
+        <div class="price">30&nbsp;€<small class="text-muted">/Monat</small></div>
+        <p class="price-sub">+ 2&nbsp;€ pro Kopie</p>
         <p>Für produktive Workloads mit höheren Anforderungen an Verfügbarkeit.</p>
-        <ul>
-          <li>Support rund um die Uhr</li>
-          <li>Support Montag bis Samstag</li>
-          <li>App-Support</li>
-          <li>Eigene Domain</li>
-        </ul>
-        <a href="/de-de/contact/" class="btn btn-primary w-100" id="contact-plan-btn-silver">Kontaktieren Sie uns</a>
+        <ul><li>Support rund um die Uhr</li><li>Support Montag bis Samstag</li><li>App-Support</li><li>Eigene Domain</li></ul>
+        <button type="button" class="btn btn-outline-primary w-100" data-plan="silver">Gesamtpreis ansehen</button>
       </article>
-
       <article class="pricing-card">
         <p class="eyebrow">Höchste Betreuung</p>
         <h3>GOLD</h3>
-        <div class="price">Individuell</div>
+        <div class="price">90&nbsp;€<small class="text-muted">/Monat</small></div>
+        <p class="price-sub">+ 3&nbsp;€ pro Kopie</p>
         <p>Für kritische SaaS-Angebote, die eine breitere Supportabdeckung brauchen.</p>
-        <ul>
-          <li>Support rund um die Uhr</li>
-          <li>Support Montag bis Sonntag</li>
-          <li>Telefon-Antwort unter 5 Min.</li>
-          <li>120 Min. Beratung</li>
-        </ul>
-        <a href="/de-de/contact/" class="btn btn-primary w-100" id="contact-plan-btn-gold">Kontaktieren Sie uns</a>
+        <ul><li>Support rund um die Uhr</li><li>Support Montag bis Sonntag</li><li>Telefon-Antwort unter 5 Min.</li><li>120 Min. Beratung</li></ul>
+        <button type="button" class="btn btn-outline-primary w-100" data-plan="gold">Gesamtpreis ansehen</button>
       </article>
     </div>
   </section>
@@ -77,7 +102,7 @@ navSeleted : 'pricing'
   <section class="section">
     <div class="section-heading">
       <p class="eyebrow">Leistungsumfang</p>
-      <h2 id="compare-plan-title">Pläne vergleichen</h2>
+      <h2 id="compare-plan-title">Iron und Betreuungspläne vergleichen</h2>
     </div>
     <div class="table-responsive">
       <table class="table table-hover text-center mb-0">
@@ -105,40 +130,6 @@ navSeleted : 'pricing'
           <tr><th scope="row">Beratung</th><td></td><td>30 Min.</td><td>60 Min.</td><td>120 Min.</td></tr>
         </tbody>
       </table>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <p class="eyebrow">Schätzung</p>
-      <h2 id="pricing-title">Preisrechner</h2>
-      <p class="section-copy">Wählen Sie Plan, Speicher und Anzahl der Instanzen, um die monatlichen Plattformkosten zu schätzen.</p>
-    </div>
-    <div class="pricing-calculator" id="pricing-div">
-      <div>
-        <div class="calculator-plan-buttons">
-          <button class="btn btn-outline-primary fw-bold" id="iron-btn">IRON</button>
-          <button class="btn btn-outline-primary btn-primary text-white fw-bold" id="bronze-btn">BRONZE</button>
-          <button class="btn btn-outline-primary fw-bold" id="silver-btn">SILVER</button>
-          <button class="btn btn-outline-primary fw-bold" id="gold-btn">GOLD</button>
-        </div>
-        <div class="calculator-controls">
-          <div>
-            <label for="slide-memory" class="form-label">Speicher (<span id="memory-value">200</span>Mb)</label>
-            <input type="range" class="form-range" min="200" max="1000" step="100" id="slide-memory" value="200">
-          </div>
-          <div>
-            <label for="slide-instance" class="form-label">Instanzen (<span id="instance-value">50</span>)</label>
-            <input type="range" class="form-range" min="0" max="1000" step="1" id="slide-instance" value="50">
-          </div>
-        </div>
-      </div>
-      <div class="calculator-result">
-        <p class="eyebrow">Sie zahlen</p>
-        <div class="price"><span id="pricing-value" class="text-primary">120.00</span>€</div>
-        <p>pro Monat, zzgl. Steuern</p>
-        <p><span id="pricing-unit" class="fw-bold">3.20</span>€ pro Instanz</p>
-      </div>
     </div>
   </section>
 

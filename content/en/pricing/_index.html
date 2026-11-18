@@ -11,65 +11,90 @@ navSeleted : 'pricing'
   <section class="section">
     <div class="section-heading">
       <p class="eyebrow">Pricing</p>
-      <h1 class="hero-title" id="plan-title">Plans</h1>
-      <p class="hero-text">Start small with a managed SaaS foundation and add stronger support and consulting coverage as your customer base grows.</p>
+      <h1 class="hero-title" id="plan-title">You pay per customer copy of your app.</h1>
+      <p class="hero-text">No customers, no bill. Start on Iron, and add a care plan only if you need more support.</p>
     </div>
 
-    <div class="pricing-grid">
-      <article class="pricing-card">
-        <p class="eyebrow">Free start</p>
+    <article class="pricing-card featured iron-start">
+      <div>
+        <p class="eyebrow">Start here</p>
         <h3>IRON</h3>
-        <div class="price">0€<small class="text-muted">/m</small></div>
-        <p>For first tests and simple application exposure.</p>
-        <ul>
-          <li>9h-17h support time</li>
-          <li>Mon-Fri support</li>
-          <li>Chat response under 60 mins</li>
-          <li>1 image</li>
-        </ul>
-        <a href="/login/" class="btn btn-outline-primary w-100" id="signup-iron">Launch</a>
-      </article>
+        <div class="price">€0<small class="text-muted">/month</small></div>
+        <p class="price-sub"><b>+ €5</b> per customer copy per month</p>
+        <p>Put your app online and welcome your first customers.</p>
+        <a href="/login/" class="btn btn-primary" id="signup-iron">Start on Iron</a>
+      </div>
+      <ul><li>9h-17h support time</li><li>Mon-Fri support</li><li>Chat response under 60 mins</li><li>1 image</li></ul>
+    </article>
+  </section>
 
-      <article class="pricing-card featured">
+  <section class="section" id="calculator">
+    <div class="section-heading">
+      <p class="eyebrow">Estimate</p>
+      <h2 id="pricing-title">What will I pay?</h2>
+      <p class="section-copy">Choose a plan and the number of customer copies. More than 200 MB of memory per copy is available with a care plan.</p>
+    </div>
+    <div class="pricing-calculator" id="pricing-div">
+      <div>
+        <div class="calculator-plan-buttons">
+          <button class="btn btn-outline-primary btn-primary text-white fw-bold" id="iron-btn">IRON</button>
+          <button class="btn btn-outline-primary fw-bold" id="bronze-btn">BRONZE</button>
+          <button class="btn btn-outline-primary fw-bold" id="silver-btn">SILVER</button>
+          <button class="btn btn-outline-primary fw-bold" id="gold-btn">GOLD</button>
+        </div>
+        <div class="calculator-controls">
+          <div>
+            <label for="slide-memory" class="form-label">Memory per copy (<span id="memory-value">200</span> MB)</label>
+            <input type="range" class="form-range" min="200" max="1000" step="100" id="slide-memory" value="200" disabled>
+          </div>
+          <div>
+            <label for="slide-instance" class="form-label">Customer copies (<span id="instance-value">10</span>)</label>
+            <input type="range" class="form-range" min="0" max="1000" step="1" id="slide-instance" value="10">
+          </div>
+        </div>
+      </div>
+      <div class="calculator-result">
+        <p class="eyebrow">You pay</p>
+        <div class="price"><span id="pricing-value" class="text-primary">50.00</span>€</div>
+        <p>per month, tax excluded</p>
+        <p><span id="pricing-unit" class="fw-bold">5.00</span>€ per copy</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Support &amp; care</p>
+      <h2>Need faster support, consulting or a dedicated engine?</h2>
+      <p class="section-copy">Add a care plan from €10/month. Prices per month, tax excluded.</p>
+    </div>
+    <div class="pricing-grid care-grid">
+      <article class="pricing-card">
         <p class="eyebrow">Most practical</p>
         <h3>BRONZE</h3>
-        <div class="price">Custom</div>
+        <div class="price">€10<small class="text-muted">/month</small></div>
+        <p class="price-sub">+ €1 per copy</p>
         <p>For teams preparing their first real customer deployments.</p>
-        <ul>
-          <li>8h-20h support time</li>
-          <li>Mon-Fri support</li>
-          <li>Chat response under 30 mins</li>
-          <li>30 mins consulting</li>
-        </ul>
-        <a href="/contact/" class="btn btn-primary w-100" id="contact-plan-btn-bronze">Contact us</a>
+        <ul><li>8h-20h support time</li><li>Mon-Fri support</li><li>Chat response under 30 mins</li><li>30 mins consulting</li><li>Dedicated engine</li></ul>
+        <button type="button" class="btn btn-outline-primary w-100" data-plan="bronze">See your total</button>
       </article>
-
       <article class="pricing-card">
         <p class="eyebrow">Growing</p>
         <h3>SILVER</h3>
-        <div class="price">Custom</div>
+        <div class="price">€30<small class="text-muted">/month</small></div>
+        <p class="price-sub">+ €2 per copy</p>
         <p>For production workloads with stronger availability needs.</p>
-        <ul>
-          <li>0h-24h support time</li>
-          <li>Mon-Sat support</li>
-          <li>App support</li>
-          <li>Custom domain</li>
-        </ul>
-        <a href="/contact/" class="btn btn-primary w-100" id="contact-plan-btn-silver">Contact us</a>
+        <ul><li>0h-24h support time</li><li>Mon-Sat support</li><li>App support</li><li>Custom domain</li></ul>
+        <button type="button" class="btn btn-outline-primary w-100" data-plan="silver">See your total</button>
       </article>
-
       <article class="pricing-card">
         <p class="eyebrow">Highest care</p>
         <h3>GOLD</h3>
-        <div class="price">Custom</div>
+        <div class="price">€90<small class="text-muted">/month</small></div>
+        <p class="price-sub">+ €3 per copy</p>
         <p>For critical SaaS offers requiring broader support coverage.</p>
-        <ul>
-          <li>0h-24h support time</li>
-          <li>Mon-Sun support</li>
-          <li>Phone response under 5 mins</li>
-          <li>120 mins consulting</li>
-        </ul>
-        <a href="/contact/" class="btn btn-primary w-100" id="contact-plan-btn-gold">Contact us</a>
+        <ul><li>0h-24h support time</li><li>Mon-Sun support</li><li>Phone response under 5 mins</li><li>120 mins consulting</li></ul>
+        <button type="button" class="btn btn-outline-primary w-100" data-plan="gold">See your total</button>
       </article>
     </div>
   </section>
@@ -77,7 +102,7 @@ navSeleted : 'pricing'
   <section class="section">
     <div class="section-heading">
       <p class="eyebrow">Coverage</p>
-      <h2 id="compare-plan-title">Compare plans</h2>
+      <h2 id="compare-plan-title">Compare Iron and care plans</h2>
     </div>
     <div class="table-responsive">
       <table class="table table-hover text-center mb-0">
@@ -105,40 +130,6 @@ navSeleted : 'pricing'
           <tr><th scope="row">Consulting</th><td></td><td>30 mins</td><td>60 mins</td><td>120 mins</td></tr>
         </tbody>
       </table>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <p class="eyebrow">Estimate</p>
-      <h2 id="pricing-title">Pricing calculator</h2>
-      <p class="section-copy">Choose a plan, memory, and instance count to estimate the monthly platform cost.</p>
-    </div>
-    <div class="pricing-calculator" id="pricing-div">
-      <div>
-        <div class="calculator-plan-buttons">
-          <button class="btn btn-outline-primary fw-bold" id="iron-btn">IRON</button>
-          <button class="btn btn-outline-primary btn-primary text-white fw-bold" id="bronze-btn">BRONZE</button>
-          <button class="btn btn-outline-primary fw-bold" id="silver-btn">SILVER</button>
-          <button class="btn btn-outline-primary fw-bold" id="gold-btn">GOLD</button>
-        </div>
-        <div class="calculator-controls">
-          <div>
-            <label for="slide-memory" class="form-label">Memory (<span id="memory-value">200</span>Mb)</label>
-            <input type="range" class="form-range" min="200" max="1000" step="100" id="slide-memory" value="200">
-          </div>
-          <div>
-            <label for="slide-instance" class="form-label">Instances (<span id="instance-value">50</span>)</label>
-            <input type="range" class="form-range" min="0" max="1000" step="1" id="slide-instance" value="50">
-          </div>
-        </div>
-      </div>
-      <div class="calculator-result">
-        <p class="eyebrow">You pay</p>
-        <div class="price"><span id="pricing-value" class="text-primary">120.00</span>€</div>
-        <p>per month, tax excluded</p>
-        <p><span id="pricing-unit" class="fw-bold">3.20</span>€ per instance</p>
-      </div>
     </div>
   </section>
 

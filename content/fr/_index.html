@@ -68,9 +68,9 @@ language: 'fr'
       <div class="jctl"><button type="button" class="jpause" id="jpause" aria-pressed="false">Pause</button></div>
       <div class="scene">
         <div class="left" id="lp">
-          <ol class="jsteps"><li class="jstep on" id="jp0" role="tabpanel" aria-labelledby="jt0"><h3>Apportez votre app, gardez votre marque</h3><p>Partez de votre image Docker telle qu'elle est aujourd'hui. Ajoutez votre logo et votre domaine ; le HTTPS est automatique.</p></li><li class="jstep" id="jp1" role="tabpanel" aria-labelledby="jt1"><h3>Chaque client reçoit sa propre copie, automatiquement</h3><p>Un client s'inscrit et sa copie privée est prête en 2 minutes environ, sur sa propre adresse, avec son propre login. Aucune configuration de votre côté.</p></li><li class="jstep" id="jp2" role="tabpanel" aria-labelledby="jt2"><h3>Une seule mise à jour. Tout le monde l'a.</h3><p>Publiez une nouvelle version et chaque client est mis à jour. Un problème ? Annulez en un clic.</p></li><li class="jstep" id="jp3" role="tabpanel" aria-labelledby="jt3"><h3>Plus de clients, vos soirées restent libres</h3><p>Votre nombre de clients augmente ; votre temps de configuration, non.</p><p class="jend"><a class="btn" href="#check">Vérifiez si votre app convient &rarr;</a><button type="button" class="jreplay" id="jreplay">&#8634; Revoir</button></p></li></ol>
-          <div class="feedbar"><button type="button" class="devsw" id="devsw" aria-pressed="false">Vue développeur</button></div>
-          <div class="term plain" id="term" aria-hidden="true"></div>
+          <ol class="jsteps"><li class="jstep on" id="jp0" role="tabpanel" aria-labelledby="jt0"><h3>Apportez votre app, gardez votre marque</h3><p>Partez de votre image Docker telle qu'elle est aujourd'hui. Ajoutez votre logo et votre domaine ; le HTTPS est automatique.</p></li><li class="jstep" id="jp1" role="tabpanel" aria-labelledby="jt1"><h3>Chaque client reçoit sa propre copie, automatiquement</h3><p>Un client s'inscrit et sa copie privée est prête en 2 minutes environ, sur sa propre adresse, avec son propre login. Aucune configuration de votre côté.</p></li><li class="jstep" id="jp2" role="tabpanel" aria-labelledby="jt2"><h3>Une seule mise à jour. Tout le monde l'a.</h3><p>Publiez une nouvelle version et chaque client est mis à jour. Un problème ? Annulez en un clic.</p></li><li class="jstep" id="jp3" role="tabpanel" aria-labelledby="jt3"><h3>Plus de clients, vos soirées restent libres</h3><p>Votre nombre de clients augmente ; votre temps de configuration, non.</p></li></ol>
+          <div class="feed"><div class="feedbar"><span class="fdots" aria-hidden="true"><i></i><i></i><i></i></span><span class="ftitle">Activité</span><button type="button" class="devsw" id="devsw" aria-pressed="false">Vue développeur</button></div><div class="term plain" id="term" aria-hidden="true"></div></div>
+          <p class="jend" id="jend"><a class="btn" href="#check">Vérifiez si votre app convient &rarr;</a><button type="button" class="jreplay" id="jreplay">&#8634; Revoir</button></p>
         </div>
         <div class="right">
           <div class="top"><span class="count">Clients : <b id="cn">0</b></span><span class="count">Votre temps de configuration : <b>0 min</b></span></div>
@@ -107,7 +107,7 @@ language: 'fr'
           <li data-m="2"><b>Il clique sur Oui</b></li>
           <li data-m="3"><b>Sa propre copie est prête</b></li>
         </ol>
-        <p class="mnote">Illustré avec CuriooCity, notre app de démonstration. Essayez-la vous-même.</p>
+        <p class="mnote">Illustré avec CuriooCity, notre app de démonstration. Cliquez ici, ou <a class="mlink" href="https://curioo.city/en/guide/" target="_blank" rel="noopener">ouvrez la démo en ligne&nbsp;&#8599;</a></p>
       </div>
       <div>
         <div class="vtabs" role="tablist"><button role="tab" class="vt on" data-v="try" aria-selected="true">Essayer</button><button role="tab" class="vt" data-v="watch" aria-selected="false">&#9654; Regarder (60 s)</button></div>
@@ -121,7 +121,6 @@ language: 'fr'
             <div class="scr" data-s="3"><span class="ready">&#10003; Your portal is ready</span><p class="cc-name">Place your first treasure</p><div class="map"><span class="pin" style="left:22%;top:30%"></span><span class="pin" style="left:58%;top:22%"></span><span class="pin" style="left:70%;top:62%"></span><span class="pin" style="left:36%;top:66%"></span></div><button class="again" data-go="0">Recommencer</button></div>
           </div>
         </div>
-        <p class="mcap"><a class="ghost" href="https://curioo.city/en/guide/" target="_blank" rel="noopener">Essayez vous-même la démo CuriooCity</a></p>
       </div>
     </div>
   </div></section>
@@ -216,7 +215,7 @@ function render(i){
   clear();step=i;
   document.querySelectorAll('.road [role=tab]').forEach(function(b){var on=+b.dataset.s===i;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;b.classList.toggle('done',+b.dataset.s<i)});
   document.querySelectorAll('.jstep').forEach(function(p,k){p.classList.toggle('on',k===i)});
-  $('rail').style.width=(i*100/(N-1))+'%';
+  $('rail').style.width=(i*100/(N-1))+'%';$('jend').classList.toggle('on',i===N-1);
   var lp=$('lp');lp.classList.remove('enter');void lp.offsetWidth;lp.classList.add('enter');
   $('undo').classList.add('hide');urls();cards.forEach(function(c){c.classList.remove('wave')});
   $('ap').textContent='\u00b7 '+clean()+'.com';
