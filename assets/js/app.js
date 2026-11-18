@@ -21,7 +21,14 @@ if (window.localStorage.getItem('lang') === null) {
 }
 
 if (window.localStorage.getItem('lang') !== document.documentElement.lang) {
-    location.replace('/' + window.localStorage.getItem('lang'));
+    // Go to the same page in the remembered language (hreflang links), not only to its homepage
+    var wantLang = window.localStorage.getItem('lang');
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + wantLang.split('-')[0] + '"]');
+    var target = '/' + wantLang;
+    if (alt) {
+        try { target = new URL(alt.getAttribute('href'), location.href).pathname; } catch (e) {}
+    }
+    location.replace(target + location.search + location.hash);
 }
 
 function showPrice(_btnPlan)
