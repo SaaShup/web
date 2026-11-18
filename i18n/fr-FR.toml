@@ -288,3 +288,18 @@ other = "Votre app convient ?"
 
 [navOtherProduct]
 other = "Notre autre produit"
+
+[loginEyebrow]
+other = "Connexion sécurisée"
+
+[loginLead]
+other = "Connectez-vous avec votre compte Google ou GitHub."
+
+[loginGoogle]
+other = "Continuer avec Google"
+
+[loginGithub]
+other = "Continuer avec GitHub"
+
+[loginNote]
+other = "Pas de nouveau mot de passe : nous utilisons votre compte existant."

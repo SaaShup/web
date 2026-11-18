@@ -8,21 +8,20 @@
     <main class="login-shell{{ if .Params.v4page }} v4 v4p{{ end }}">
       {{ if .Params.v4page }}<div class="fx" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>{{ end }}
       <section class="login-card">
-        <p class="eyebrow">Secure sign-in</p>
+        <p class="eyebrow">{{ i18n "loginEyebrow" | default "Secure sign-in" }}</p>
         <h1>{{ .Title }}</h1>
-        <p class="lead-text">
-          Choose the provider
-        </p>
+        <p class="lead-text">{{ i18n "loginLead" | default "Sign in with your Google or GitHub account." }}</p>
         <div class="login-actions">
           <a class="btn login-button login-button-google" href="https://gg.saashup.com/enroll">
-            <i class="fab fa-google"></i>
-            Continue with Google
+            <i class="fab fa-google" aria-hidden="true"></i>
+            {{ i18n "loginGoogle" | default "Continue with Google" }}
           </a>
           <a class="btn login-button login-button-github" href="https://gh.saashup.com/enroll">
-            <i class="fab fa-github"></i>
-            Continue with GitHub
+            <i class="fab fa-github" aria-hidden="true"></i>
+            {{ i18n "loginGithub" | default "Continue with GitHub" }}
           </a>
         </div>
+        <p class="login-note">{{ i18n "loginNote" | default "No new password: we use your existing account." }}</p>
       </section>
     </main>
     {{ partial "footer.html" }}
