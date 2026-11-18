@@ -173,9 +173,6 @@ other = "Check if your app fits"
 [navOtherProduct]
 other = "Our other product"
 
-[loginEyebrow]
-other = "Secure sign-in"
-
 [loginLead]
 other = "Sign in with your Google or GitHub account."
 
@@ -184,6 +181,3 @@ other = "Continue with Google"
 
 [loginGithub]
 other = "Continue with GitHub"
-
-[loginNote]
-other = "No new password: we use your existing account."
