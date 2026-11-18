@@ -1415,3 +1415,20 @@ textarea.form-control {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+/* Desktop nav: the pill is as wide as its content, no empty gap between menu and buttons */
+@media (min-width: 992px) {
+  .nbar { width: max-content; max-width: calc(100% - 32px); }
+  .nbar .navbar-collapse { flex-grow: 0; }
+  .nbar .nav-menu { margin: 0 0 0 12px; width: auto; }
+  .nbar .nav-actions { margin: 0 0 0 28px; padding-top: 0; border-top: 0; flex-wrap: nowrap; }
+}
+/* Small laptops: keep one line in every language */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .nbar .navbar-nav .nav-link > i { display: none; }
+}
+@media (min-width: 992px) and (max-width: 1099.98px) {
+  .nbar .brand-tagline { display: none; }
+  .nbar .navbar-nav .nav-link { padding-left: 7px; padding-right: 7px; }
+  .nbar .nav-actions { margin-left: 16px; }
+}
