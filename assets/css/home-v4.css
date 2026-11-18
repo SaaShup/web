@@ -325,3 +325,8 @@ html[data-theme="dark"] .v4 .bi{background:#3a2416}
 .v4 .scene>*{min-width:0}
 .v4 .apl{flex-wrap:wrap}
 .v4 .apl input{min-width:0;width:9em;max-width:100%}
+/* Tooltips stay on screen on small phones: JS sets --dx, the arrow stays above the button */
+.v4 .tip{transform:translateX(calc(-50% + var(--dx,0px))) translateY(4px)}
+.v4 .tool.open .tip{transform:translateX(calc(-50% + var(--dx,0px)))}
+.v4 .tip:after{left:calc(50% - var(--dx,0px))}
+.v4 .tip{max-width:calc(100vw - 32px)}

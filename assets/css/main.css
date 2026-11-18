@@ -1402,8 +1402,8 @@ textarea.form-control {
   .brand-tagline { display: none; }
 }
 
-/* Nav: keep one line in FR/DE on medium screens (PR #90). Icons hidden between the lg breakpoint and 1400px. */
-@media (min-width: 992px) and (max-width: 1399.98px) {
+/* Nav: keep one line in FR/DE (PR #90). Icons hidden on desktop; the collapsed mobile menu keeps them. */
+@media (min-width: 992px) {
   .nbar .navbar-nav .nav-link > i { display: none; }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {

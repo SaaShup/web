@@ -264,7 +264,7 @@ if('IntersectionObserver'in window&&!calm){new IntersectionObserver(function(e,o
 (function(){var vb=$('vbox'),mb=$('mockb');document.querySelectorAll('.vt').forEach(function(b){b.onclick=function(){var w=b.dataset.v==='watch';document.querySelectorAll('.vt').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});vb.hidden=!w;mb.hidden=w}})})();
 (function(){var a=$('appname');a.addEventListener('input',function(){urls();$('ap').textContent='\u00b7 '+clean()+'.com';if(step!==1||calm)term(step,true)})})();
 (function(){var ts=document.querySelectorAll('.tool');function closeAll(){ts.forEach(function(t){t.classList.remove('open');t.querySelector('button').setAttribute('aria-expanded','false')})}
-ts.forEach(function(t){var b=t.querySelector('button');b.onclick=function(e){e.stopPropagation();var o=!t.classList.contains('open');closeAll();if(o){t.classList.add('open');b.setAttribute('aria-expanded','true')}}});
+ts.forEach(function(t){var b=t.querySelector('button');b.onclick=function(e){e.stopPropagation();var o=!t.classList.contains('open');closeAll();if(o){var tp=t.querySelector('.tip');tp.style.setProperty('--dx','0px');t.classList.add('open');b.setAttribute('aria-expanded','true');var r=tp.getBoundingClientRect(),dx=0;if(r.left<12)dx=12-r.left;else if(r.right>innerWidth-12)dx=innerWidth-12-r.right;tp.style.setProperty('--dx',dx+'px')}}});
 document.addEventListener('click',closeAll);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()})})();
 
 (function(){var U=['<b>curioo.city</b>/en/guide','<b>login.curioo.city</b>','<b>my-guide.curioo.city</b>','<b>my-guide.curioo.city</b>/map'];
