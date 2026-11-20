@@ -16,14 +16,7 @@ language: 'en'
     <h1 id="hl">Keep building. We'll handle the rest.</h1>
     <p class="team"><svg class="eu" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="#0979e6"/><circle cx="12" cy="10" r="2.8" fill="#fff"/></svg><span data-i18n="team">European team of developers · Hosted in Europe</span></p>
     <p class="pain" data-i18n="pain">Every new customer gets your app in minutes, with no new setup on your side.</p>
-    <div class="cta"><a class="btn" href="#journey" data-i18n="see_how">See how it works &darr;</a></div>
-    
-
-    <div class="bens">
-      <div><b data-i18n="b1t">New customer in 2 minutes</b><span data-i18n="b1d">They sign up and get their own copy. No setup on your side.</span></div>
-      <div><b data-i18n="b2t">One update, every customer</b><span data-i18n="b2d">Release once. Everyone is up to date, with undo.</span></div>
-      <div><b data-i18n="b3t">Your brand, your customers</b><span data-i18n="b3d">Your name and your domain. You keep the relationship.</span></div>
-    </div>
+    <div class="cta"><a class="btn" href="#check" data-i18n="hero_fit">Check if your app fits &rarr;</a><a class="ghost" href="#journey" data-i18n="see_how">See how it works &darr;</a></div>
 
     
   </div>
@@ -31,6 +24,7 @@ language: 'en'
   <section><div class="wrap">
     <div class="tag" data-i18n="tag_problem">The problem</div>
     <h2 class="villain" id="v"><span data-i18n="v1">One more customer.</span><span data-i18n="v2">One more setup.</span></h2>
+    <p class="philo" data-i18n="philo">Developers should build products, not babysit servers.</p>
     <div class="ba">
       <div class="bcol before">
         <p class="bah" data-i18n="ba_before">Before SaaShup</p>
@@ -39,7 +33,7 @@ language: 'en'
           <li><span class="bi" aria-hidden="true">&#128295;</span><span data-i18n="bb2">One update means touching every customer.</span></li>
           <li><span class="bi" aria-hidden="true">&#128564;</span><span data-i18n="bb3">Every hour on servers is an hour not spent building.</span></li>
         </ul>
-        <p class="bfoot" data-i18n="bb_foot">The cost of waiting: slow onboarding, outdated customer versions, evenings lost to keeping servers running.</p>
+        <p class="bfoot" data-i18n="bb_foot">Customers wait days for their copy, and some never start. Every setup you do by hand caps how many customers you can take.</p>
       </div>
       <div class="bcol after">
         <p class="bah" data-i18n="ba_after">With SaaShup</p>
@@ -56,7 +50,8 @@ language: 'en'
 
   <section id="how" aria-labelledby="how-title"><div class="wrap">
     <div class="tag" data-i18n="tag_how">How it works</div>
-    <h2 id="how-title" data-i18n="h2_how">From your app to many customers, without extra setup</h2>
+    <h2 id="how-title" data-i18n="h2_how">One more customer. Zero setup.</h2>
+    <p class="howsub" data-i18n="how_sub">4 steps from your Docker image to a SaaS with many customers.</p>
     <div class="stage" id="journey" style="text-align:left;scroll-margin-top:90px">
       <div class="road" role="tablist" aria-label="How it works, step by step">
         <div class="rail" aria-hidden="true"><i id="rail"></i></div>
@@ -174,6 +169,7 @@ language: 'en'
   </div></section>
 
 </main>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "SaaShup demo: a city guide gets their own copy of Curioo.city", "description": "A 40-second screen recording: a customer opens Curioo.city, signs in, orders their own portal and gets their own copy on its own address, with no setup by the app creator.", "thumbnailUrl": "https://saashup.com/video/saashup-demo-poster.jpg", "contentUrl": "https://saashup.com/video/saashup-demo.mp4", "uploadDate": "2026-11-18", "duration": "PT39S"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I have to set everything up myself?", "acceptedAnswer": {"@type": "Answer", "text": "No. Check if your app fits below, enter your Docker image and sign up. New customers are then added automatically. Prefer help? Contact us and we will set it up with you."}}, {"@type": "Question", "name": "Which apps work on SaaShup?", "acceptedAnswer": {"@type": "Answer", "text": "Web apps that run from a Docker image. Your app fits if: it runs from a Docker image; each customer needs their own copy, with their own data; it works on any web address, for example your own domain, without code changes.Apps with several services (for example app + database) work too: each service runs separately. Not sure? Check if your app fits below."}}, {"@type": "Question", "name": "Where is my data hosted?", "acceptedAnswer": {"@type": "Answer", "text": "In European datacenters by default. Other regions are possible on request."}}, {"@type": "Question", "name": "Can I leave?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. There is no lock-in: your app stays a standard Docker image, so you can run it anywhere. Your customers’ data stays in your app: if you need to export or copy it, your app does it. SaaShup has no separate export tool."}}, {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "You pay for the customers who use your app. No customers, no bill. See the plans on our pricing page."}}]}</script>
 <script>
 

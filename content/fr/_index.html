@@ -16,14 +16,7 @@ language: 'fr'
     <h1 id="hl">Continuez à créer. On s'occupe du reste.</h1>
     <p class="team"><svg class="eu" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="#0979e6"/><circle cx="12" cy="10" r="2.8" fill="#fff"/></svg><span data-i18n="team">Équipe européenne de développeurs · Hébergé en Europe</span></p>
     <p class="pain" data-i18n="pain">Chaque nouveau client obtient votre app en quelques minutes, sans nouvelle configuration de votre côté.</p>
-    <div class="cta"><a class="btn" href="#journey" data-i18n="see_how">Voir comment &ccedil;a marche &darr;</a></div>
-    
-
-    <div class="bens">
-      <div><b data-i18n="b1t">Nouveau client en 2 minutes</b><span data-i18n="b1d">Il s'inscrit et obtient sa propre copie. Aucune configuration de votre côté.</span></div>
-      <div><b data-i18n="b2t">Une mise à jour, tous les clients</b><span data-i18n="b2d">Publiez une fois. Tout le monde est à jour, avec retour arrière possible.</span></div>
-      <div><b data-i18n="b3t">Votre marque, vos clients</b><span data-i18n="b3d">Votre nom et votre domaine. La relation client reste la vôtre.</span></div>
-    </div>
+    <div class="cta"><a class="btn" href="#check" data-i18n="hero_fit">Vérifiez si votre app convient &rarr;</a><a class="ghost" href="#journey" data-i18n="see_how">Voir comment &ccedil;a marche &darr;</a></div>
 
     
   </div>
@@ -31,6 +24,7 @@ language: 'fr'
   <section><div class="wrap">
     <div class="tag" data-i18n="tag_problem">Le problème</div>
     <h2 class="villain" id="v"><span data-i18n="v1">Un client de plus.</span><span data-i18n="v2">Une configuration de plus.</span></h2>
+    <p class="philo" data-i18n="philo">Les développeurs devraient construire des produits, pas surveiller des serveurs.</p>
     <div class="ba">
       <div class="bcol before">
         <p class="bah" data-i18n="ba_before">Avant SaaShup</p>
@@ -39,7 +33,7 @@ language: 'fr'
           <li><span class="bi" aria-hidden="true">&#128295;</span><span data-i18n="bb2">Une mise à jour, c'est intervenir chez chaque client.</span></li>
           <li><span class="bi" aria-hidden="true">&#128564;</span><span data-i18n="bb3">Chaque heure passée sur les serveurs est une heure en moins pour votre produit.</span></li>
         </ul>
-        <p class="bfoot" data-i18n="bb_foot">Le prix de l'attente : un onboarding lent, des clients sur d'anciennes versions, des soirées perdues à faire tourner les serveurs.</p>
+        <p class="bfoot" data-i18n="bb_foot">Vos clients attendent leur copie pendant des jours, et certains ne commencent jamais. Chaque configuration faite à la main limite le nombre de clients que vous pouvez accepter.</p>
       </div>
       <div class="bcol after">
         <p class="bah" data-i18n="ba_after">Avec SaaShup</p>
@@ -56,7 +50,8 @@ language: 'fr'
 
   <section id="how" aria-labelledby="how-title"><div class="wrap">
     <div class="tag" data-i18n="tag_how">Comment &ccedil;a marche</div>
-    <h2 id="how-title" data-i18n="h2_how">De votre app &agrave; de nombreux clients, sans configuration en plus</h2>
+    <h2 id="how-title" data-i18n="h2_how">Un client de plus. Zéro configuration.</h2>
+    <p class="howsub" data-i18n="how_sub">4 étapes de votre image Docker à un SaaS avec de nombreux clients.</p>
     <div class="stage" id="journey" style="text-align:left;scroll-margin-top:90px">
       <div class="road" role="tablist" aria-label="Comment &ccedil;a marche, &eacute;tape par &eacute;tape">
         <div class="rail" aria-hidden="true"><i id="rail"></i></div>
@@ -174,6 +169,7 @@ language: 'fr'
   </div></section>
 
 </main>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "Démo SaaShup : un guide obtient sa propre copie de Curioo.city", "description": "Un enregistrement d'écran de 40 secondes : un client ouvre Curioo.city, se connecte, commande son portail et obtient sa propre copie sur sa propre adresse, sans configuration de la part du créateur de l'app.", "thumbnailUrl": "https://saashup.com/video/saashup-demo-poster.jpg", "contentUrl": "https://saashup.com/video/saashup-demo.mp4", "uploadDate": "2026-11-18", "duration": "PT39S"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Dois-je tout configurer moi-même ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Vérifiez ci-dessous si votre app convient, saisissez votre image Docker et inscrivez-vous. Les nouveaux clients sont ensuite ajoutés automatiquement. Besoin d'aide ? Contactez-nous et nous la configurerons avec vous."}}, {"@type": "Question", "name": "Quelles apps fonctionnent sur SaaShup ?", "acceptedAnswer": {"@type": "Answer", "text": "Les applications web qui tournent à partir d'une image Docker. Votre app convient si : elle tourne à partir d'une image Docker ; chaque client a besoin de sa propre copie, avec ses propres données ; elle fonctionne sur n'importe quelle adresse web, par exemple votre propre domaine, sans modifier le code.Les apps avec plusieurs services (par exemple app + base de données) fonctionnent aussi : chaque service tourne séparément. Pas sûr ? Vérifiez ci-dessous si votre app convient."}}, {"@type": "Question", "name": "Où sont hébergées mes données ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans des datacenters européens par défaut. D'autres régions sont possibles sur demande."}}, {"@type": "Question", "name": "Puis-je partir ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Aucun verrouillage : votre app reste une image Docker standard, vous pouvez donc la faire tourner n'importe où. Les données de vos clients restent dans votre app : si vous devez les exporter ou les copier, c’est votre app qui le fait. SaaShup n’a pas d’outil d’export séparé."}}, {"@type": "Question", "name": "Combien ça coûte ?", "acceptedAnswer": {"@type": "Answer", "text": "Vous payez pour les clients qui utilisent votre app. Pas de clients, pas de facture. Consultez les offres sur notre page tarifs."}}]}</script>
 <script>
 
