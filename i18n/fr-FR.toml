@@ -281,3 +281,19 @@ other = "expiré"
 [yes-text]
 
 other = "Oui"
+
+[navCheckFit]
+
+other = "Votre app convient ?"
+
+[navOtherProduct]
+other = "Notre autre produit"
+
+[loginLead]
+other = "Connectez-vous avec votre compte Google ou GitHub."
+
+[loginGoogle]
+other = "Continuer avec Google"
+
+[loginGithub]
+other = "Continuer avec GitHub"

@@ -1,4 +1,4 @@
-var planName = "#bronze-btn";
+var planName = "#iron-btn";
 
 
 var tblPrices = {"eur":
@@ -21,7 +21,14 @@ if (window.localStorage.getItem('lang') === null) {
 }
 
 if (window.localStorage.getItem('lang') !== document.documentElement.lang) {
-    location.replace('/' + window.localStorage.getItem('lang'));
+    // Go to the same page in the remembered language (hreflang links), not only to its homepage
+    var wantLang = window.localStorage.getItem('lang');
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + wantLang.split('-')[0] + '"]');
+    var target = '/' + wantLang;
+    if (alt) {
+        try { target = new URL(alt.getAttribute('href'), location.href).pathname; } catch (e) {}
+    }
+    location.replace(target + location.search + location.hash);
 }
 
 function showPrice(_btnPlan)
@@ -86,6 +93,12 @@ $(document).ready(function () {
         showPrice(this);
     });
     showPrice(planName);
+    // Care plan cards: pick the plan in the calculator and scroll to it
+    $("[data-plan]").on('click', function() {
+        $("#" + $(this).data('plan') + "-btn").trigger('click');
+        var calc = document.getElementById('calculator');
+        if (calc) calc.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
     $("#help_app_support").on('click', function(event) {
         event.preventDefault()
         $("#modalNotificationTitle").html(findLang("help_app_support_title", myLang));

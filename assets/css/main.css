@@ -85,7 +85,7 @@ main {
 
 .nbar,
 .navbar {
-  width: min(1180px, calc(100% - 32px));
+  width: min(1280px, calc(100% - 32px));
     margin: 16px auto 0;
   border-radius: 24px;
   box-shadow: 0 18px 60px rgba(16, 32, 51, 0.12);
@@ -125,9 +125,9 @@ main {
 }
 
 .nav-menu {
-  margin-left: 20px;
+  margin-left: 12px;
   padding: 0;
-  gap: 6px;
+  gap: 2px;
   background: transparent;
   border: 0;
   border-radius: 18px;
@@ -141,7 +141,7 @@ main {
   border: 0;
   border-radius: 14px;
   font-weight: 800;
-  padding: 8px 14px !important;
+  padding: 8px 10px !important;
   line-height: 1;
   transition: color 0.15s ease, background 0.15s ease;
 }
@@ -318,6 +318,24 @@ main {
   box-shadow: 0 12px 25px rgba(36, 107, 254, 0.24);
 }
 
+.nav-check {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  margin-right: 8px;
+  color: var(--primary);
+  background: var(--button-soft);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.nav-check:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
 .nav-contact:hover {
   color: white;
   background: var(--primary-dark);
@@ -983,8 +1001,10 @@ iframe {
     gap: 8px;
   }
 
-  .nav-contact {
+  .nav-contact,
+  .nav-check {
     flex: 1 1 150px;
+    margin-right: 0;
   }
 }
 
@@ -1375,4 +1395,40 @@ textarea.form-control {
   .social-grid {
     flex-wrap: wrap;
   }
+}
+
+/* Keep the top bar on one line on mid-size screens */
+/* Desktop: "SaaS engine" sits under the name, so the nav stays one line in every language */
+@media (min-width: 992px) {
+  .nbar .brand-copy { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; gap: 2px; }
+  .nbar .brand-tagline { display: block; font-size: 0.58rem; letter-spacing: 0.12em; }
+}
+
+/* Nav: keep one line in all languages (PR #90). The nav "Check if your app fits" button is hidden on small laptops; it stays in the page. */
+@media (min-width: 992px) and (max-width: 1279.98px) {
+  .nbar .nav-check { display: none; }
+}
+
+/* Nav content fills the pill (it was capped at 1180px and spilled past the right edge) */
+.nbar > .container-fluid {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Desktop nav: the pill is as wide as its content, no empty gap between menu and buttons */
+@media (min-width: 992px) {
+  .nbar { width: max-content; max-width: calc(100% - 32px); }
+  .nbar .navbar-collapse { flex-grow: 0; }
+  .nbar .nav-menu { margin: 0 0 0 12px; width: auto; }
+  .nbar .nav-actions { margin: 0 0 0 28px; padding-top: 0; border-top: 0; flex-wrap: nowrap; }
+}
+/* Small laptops: keep one line in every language */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .nbar .navbar-nav .nav-link > i { display: none; }
+}
+@media (min-width: 992px) and (max-width: 1099.98px) {
+  .nbar .brand-tagline { display: none; }
+  .nbar .navbar-nav .nav-link { padding-left: 7px; padding-right: 7px; }
+  .nbar .nav-actions { margin-left: 16px; }
 }

@@ -1,0 +1,107 @@
+/* Inner pages (Pricing, Contact, Login, Catalog) in the homepage v4 style.
+   Loaded with home-v4.css (tokens, fonts, glow). Scoped to .v4p; existing ids and classes are kept for the scripts. */
+
+.v4p{min-height:100vh;padding-bottom:110px;font:400 17px/1.6 var(--body)}
+.v4p > .section,.v4p > section{position:relative;z-index:1;width:min(1120px,calc(100% - 48px));margin:0 auto;padding:96px 0 0}
+.v4p > .section:first-of-type,.v4p > section:first-of-type{padding-top:72px}
+
+/* Headings */
+.v4p h1,.v4p .hero-title{margin:0 0 18px;font:500 clamp(40px,6.4vw,72px)/1.04 var(--head);letter-spacing:-.025em;color:var(--text);text-transform:none}
+.v4p h2{margin:0;font:500 clamp(30px,4.4vw,48px)/1.08 var(--head);letter-spacing:-.022em;color:var(--text)}
+.v4p h3{font:600 20px/1.25 var(--head);letter-spacing:-.01em;color:var(--text);margin:0 0 6px}
+.v4p .section-heading{max-width:760px;margin:0 0 36px;text-align:left}
+.v4p .hero-text,.v4p .section-copy,.v4p .lead-text{color:var(--muted);font-size:19px;line-height:1.55;max-width:40em;margin:14px 0 0}
+
+/* Section labels: same orange label as "What your customers see" on the homepage */
+.v4p .section-heading > .eyebrow,.v4p .split .eyebrow,.v4p .cta-band .eyebrow,.v4p .login-card > .eyebrow,.v4p .eyebrow:has(+ h1){display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:9px 16px;font:600 15px var(--body);letter-spacing:0;text-transform:none;color:var(--text);border:1px solid var(--line);border-left:4px solid #ff8a3d;border-radius:12px;background:linear-gradient(100deg,var(--bg2) 0%,var(--bg2) 35%,#fff1e5 50%,var(--bg2) 65%,var(--bg2) 100%);background-size:250% 100%;animation:v4-oshine 7s ease-in-out infinite}
+/* Small labels inside cards: quiet blue text */
+.v4p .eyebrow{font:500 13px var(--body);letter-spacing:0;text-transform:none;color:var(--acc);margin:0 0 8px}
+
+/* Cards */
+.v4p .pricing-card,.v4p .pricing-calculator,.v4p .table-responsive,.v4p .contact-form-card,.v4p .login-card,.v4p .catalog-toolbar{background:rgba(255,255,255,.78)!important;border:1px solid var(--line)!important;border-radius:16px!important;box-shadow:0 30px 90px var(--glow)!important;backdrop-filter:blur(8px)}
+.v4p .pricing-card{padding:26px 24px;display:flex;flex-direction:column}
+.v4p .pricing-card > a.btn{margin-top:auto}
+.v4p .pricing-card.featured{border:1.5px solid var(--acc)!important;box-shadow:0 30px 90px rgba(9,121,230,.22)!important}
+.v4p .pricing-card h3{font:600 15px var(--body);letter-spacing:.06em;color:var(--muted)}
+.v4p .pricing-card ul{color:var(--muted);font-size:15.5px}
+.v4p .pricing-card li::before{content:"✓";color:var(--acc)}
+.v4p .price{margin:10px 0 8px;font:600 40px/1.1 var(--head);letter-spacing:-.02em;color:var(--text)}
+.v4p .price small{font-size:15px;font-weight:500}
+.v4p .table-responsive{padding:8px 18px}
+.v4p .table{margin:0;color:var(--text);font-size:15.5px}
+.v4p .table th,.v4p .table td{border-color:var(--line);padding:13px 10px;background:transparent}
+.v4p .table thead th{font:600 13px var(--body);letter-spacing:.06em;color:var(--acc)!important}
+.v4p .table .fa-check{color:var(--acc)}
+.v4p .pricing-calculator{padding:28px}
+.v4p .calculator-result{background:var(--wave);border:1px solid rgba(9,121,230,.2);border-radius:14px}
+.v4p .form-range,.v4p input[type=range]{accent-color:var(--acc);background:transparent;border:0;padding:0;border-radius:0;font:inherit}
+
+/* Buttons: primary like the homepage, outline and soft variants kept */
+.v4p .btn{border-radius:10px;font:600 15px var(--body);padding:12px 18px}
+.v4p .btn-lg{padding:14px 22px;font-size:16px}
+.v4p .btn-outline-primary{background:transparent!important;color:var(--acc)!important;border:1px solid var(--acc)!important;box-shadow:none!important}
+.v4p .btn-outline-primary:hover,.v4p .btn-outline-primary.btn-primary{background:var(--acc)!important;color:#fff!important;opacity:1}
+
+/* Call-to-action band */
+.v4p .cta-band{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-top:96px!important;padding:36px 36px!important;background:linear-gradient(135deg,var(--wave),var(--bg2));border:1px solid rgba(9,121,230,.2);border-radius:18px}
+.v4p .cta-band p:not(.eyebrow){color:var(--muted);margin:12px 0 0}
+
+/* Contact */
+.v4p .contact-form-card{padding:30px}
+.v4p .contact-action-btn,.v4p .social-link{border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);transition:border-color .15s,color .15s}
+.v4p .contact-action-btn:hover,.v4p .social-link:hover{border-color:var(--acc);color:var(--acc)}
+.v4p .contact-action-btn i,.v4p .social-link i{color:var(--acc)}
+.v4p .form-label{font:600 14px var(--body);color:var(--text)}
+.v4p .form-control,.v4p .form-select{border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text);padding:12px 14px;font:400 16px var(--body)}
+.v4p .form-control:focus,.v4p .form-select:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(9,121,230,.18)}
+.v4p .form-note{color:var(--muted);font-size:14px}
+.v4p .split iframe{border:1px solid var(--line)!important;border-radius:14px}
+
+/* Login */
+.v4p.login-shell{display:grid;place-items:center;padding:150px 16px 96px}
+.v4p .login-card{width:min(560px,100%);padding:44px 40px;position:relative;z-index:1}
+.v4p .login-card h1{font-size:clamp(36px,5vw,52px)}
+.v4p .login-button{border-radius:12px;font:600 16px var(--body)}
+
+/* Catalog */
+.v4p .catalog-toolbar{padding:16px;margin-bottom:28px}
+.v4p .hero-visual img{border-radius:16px;box-shadow:0 30px 90px var(--glow)}
+
+/* Dark theme */
+html[data-theme="dark"] .v4p .pricing-card,html[data-theme="dark"] .v4p .pricing-calculator,html[data-theme="dark"] .v4p .table-responsive,html[data-theme="dark"] .v4p .contact-form-card,html[data-theme="dark"] .v4p .login-card,html[data-theme="dark"] .v4p .catalog-toolbar{background:rgba(18,28,46,.78)!important}
+html[data-theme="dark"] .v4p .section-heading > .eyebrow,html[data-theme="dark"] .v4p .split .eyebrow,html[data-theme="dark"] .v4p .cta-band .eyebrow,html[data-theme="dark"] .v4p .login-card > .eyebrow,html[data-theme="dark"] .v4p .eyebrow:has(+ h1){background:linear-gradient(100deg,var(--bg2) 0%,var(--bg2) 35%,#3a2416 50%,var(--bg2) 65%,var(--bg2) 100%);background-size:250% 100%}
+html[data-theme="dark"] .v4p .cta-band{background:linear-gradient(135deg,#12305a,var(--bg2))}
+
+@media (max-width:980px){.v4p .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .v4p > .section,.v4p > section{width:calc(100% - 32px);padding-top:72px}
+  .v4p .pricing-grid,.v4p .pricing-calculator,.v4p .cta-band{grid-template-columns:1fr}
+  .v4p .calculator-plan-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){.v4p .eyebrow{animation:none!important}}
+/* Pricing v5 (Bertrand 18 Nov): Iron first, care plans as add-ons */
+.v4p .iron-start{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;padding:32px 34px}
+.v4p .iron-start > div{display:flex;flex-direction:column;align-items:flex-start}
+.v4p .iron-start .btn{margin-top:10px}
+.v4p .iron-start ul{margin:0}
+.v4p .price-sub{margin:0 0 12px;color:var(--muted);font-size:15px}
+.v4p .price-sub b{color:var(--text);font-weight:600}
+.v4p .care-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.v4p .care-grid .pricing-card > button.btn{margin-top:auto}
+.v4p #calculator{scroll-margin-top:96px}
+@media (max-width:980px){.v4p .care-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:720px){.v4p .iron-start,.v4p .care-grid{grid-template-columns:1fr}.v4p .iron-start{padding:26px 22px;gap:18px}}
+/* Login: centred card, even spacing, Google light / GitHub dark buttons */
+.v4p .login-card{width:min(480px,100%);padding:44px!important;text-align:center}
+.v4p .login-card h1{font-size:clamp(34px,4vw,44px);margin:0 0 10px;line-height:1.1}
+.v4p .login-card .lead-text{margin:0 auto;max-width:34ch;font-size:17px;color:var(--muted)}
+.v4p .login-actions{margin-top:28px;gap:12px}
+.v4p .login-button{min-height:52px;font:600 15.5px var(--body)!important;border-radius:12px!important;box-shadow:none!important}
+.v4p .login-button-google{background:#fff!important;color:#1f2937!important;border:1px solid var(--line)!important}
+.v4p .login-button-google i{color:#4285f4}
+.v4p .login-button-google:hover{border-color:#4285f4!important;background:#f7faff!important}
+.v4p .login-button-github{background:#181717!important;color:#fff!important;border:1px solid #181717!important}
+.v4p .login-button-github:hover{background:#000!important}
+html[data-theme="dark"] .v4p .login-button-github{border-color:rgba(255,255,255,.22)!important}
+@media (max-width:520px){.v4p .login-card{padding:34px 22px!important}}
+

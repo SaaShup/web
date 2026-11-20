@@ -43,10 +43,9 @@
           <a class="nav-link dropdown-toggle" href="#" id="productsMenuLink" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-cubes" aria-hidden="true"></i>
-            Products
+            {{ i18n "navOtherProduct" | default "Our other product" }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="productsMenuLink">
-            <li><a class="dropdown-item" href="https://saashup.com">SaaShup</a></li>
             <li><a class="dropdown-item" href="https://paashup.com">Paashup</a></li>
           </ul>
         </li>
@@ -81,6 +80,7 @@
           </ul>
         </div>
 
+        <a class="btn nav-check" href="{{ "/#check" | relLangURL }}">{{ i18n "navCheckFit" | default "Check if your app fits" }}</a>
         <a class="btn nav-contact" href="{{ "login/" | relLangURL }}">Login</a>
 
         <img id="avatar" class="rounded-circle d-none" width="36" height="36"
