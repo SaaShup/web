@@ -165,3 +165,19 @@ other = "SaaS-Unterstützung"
 [help_saas_support_text]
 
 other = "<p>Wir unterstützen Ihre SaaS vollständig.</p><p>Unser Support-Team kann auf Anfragen zu SaaS-Problemen, Anfragen, Anfragen usw. antworten."
+
+[navCheckFit]
+
+other = "Passt Ihre App?"
+
+[navOtherProduct]
+other = "Unser anderes Produkt"
+
+[loginLead]
+other = "Melden Sie sich mit Ihrem Google- oder GitHub-Konto an."
+
+[loginGoogle]
+other = "Weiter mit Google"
+
+[loginGithub]
+other = "Weiter mit GitHub"

@@ -1,25 +1,35 @@
 <meta charset="utf-8">
-<title>{{ print .Page.Title }}</title>
+{{ $desc := .Params.description | default "Turn your Docker app into a SaaS: every new customer gets their own copy in minutes. European team, hosted in Europe." }}
+<title>{{ .Title }}</title>
 {{ $logo_saashup := resources.Get "images/saashup_logo.svg" }}
 <link rel="icon" href="{{ $logo_saashup.RelPermalink }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Just provide a docker and we run a complete Saas solution">
-<meta name="keywords" content="saas, engine, docker, easy, business, payment, invoicing, single sign-on, scale">
+<meta name="description" content="{{ $desc }}">
+<meta name="keywords" content="saas, docker, docker app, single-tenant, saas platform, hosting in europe, white label, developers">
 <meta name="author" content="LaV">
-<meta name="twitter:title" content="Saashup your simplified SaaS engine platform">
-<meta name="twitter:description"
-  content="The only SAAS PLATFORM SOLUTION that makes it easy to run a DOCKER application. For DEVELOPERS or SMALL ORGANIZATIONS. Who wants a SIMPLIFIED SAAS MANAGEMENT PLATFORM, WITHOUT INFRASTRUCTURE MANAGEMENT, WITH INTEGRATED PAYMENT AND CUSTOMER MANAGEMENT. In an era where WE ARE Caught between LEGAL REGULATIONS AND INCREASING IT COMPLEXITY.">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ $desc }}">
 <meta name="twitter:url" content="https://saashup.com">
 <meta name="twitter:site" content="@saashup">
 <meta name="twitter:creator" content="@saashup" />
 <meta name="twitter:image" content="https://saashup.com/images/logo_saashup.png" />
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Saashup your simplified SaaS engine platform" />
-<meta property="og:description"
-  content="The only SAAS PLATFORM SOLUTION that makes it easy to run a DOCKER application. For DEVELOPERS or SMALL ORGANIZATIONS. Who wants a SIMPLIFIED SAAS MANAGEMENT PLATFORM, WITHOUT INFRASTRUCTURE MANAGEMENT, WITH INTEGRATED PAYMENT AND CUSTOMER MANAGEMENT. In an era where WE ARE Caught between LEGAL REGULATIONS AND INCREASING IT COMPLEXITY." />
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ $desc }}" />
 <meta property="og:image" content="https://saashup.com/images/logo_saashup.png" />
 <meta property="og:url" content="https://saashup.com">
 <meta property="og:type" content="website" />
+{{- if .IsTranslated }}
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="https://saashup.com{{ .RelPermalink }}">
+{{- if eq .Language.Lang "en" }}
+<link rel="alternate" hreflang="x-default" href="https://saashup.com{{ .RelPermalink }}">
+{{- end }}
+{{- end }}
+{{- end }}
+{{- if .IsHome }}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SaaShup","url":"https://saashup.com","logo":"https://saashup.com/images/logo_saashup.png","sameAs":["https://github.com/SaaShup"]}</script>
+{{- end }}
 {{ with site.Params.turnstileSiteKey }}
 <meta name="turnstile-sitekey" content="{{ . }}">
 {{ end }}
@@ -38,6 +48,15 @@
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 {{ $style := resources.Get "css/main.css" }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ if or .Params.homev4 .Params.v4page }}
+<link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+{{ $home := resources.Get "css/home-v4.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $home.RelPermalink }}" integrity="{{ $home.Data.Integrity }}">
+{{ end }}
+{{ if .Params.v4page }}
+{{ $pages := resources.Get "css/pages-v4.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $pages.RelPermalink }}" integrity="{{ $pages.Data.Integrity }}">
+{{ end }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -1,0 +1,22 @@
+# SaaShup
+
+> SaaShup turns a Docker app into a SaaS: every new customer gets their own private copy of the app, on its own address, with no extra setup for the developer. European team, hosted in Europe.
+
+- Each customer gets their own copy (single-tenant), created automatically when they sign up.
+- One release updates every customer, with undo.
+- Your brand and your domain; HTTPS is set up automatically.
+- Built on open-source tools: Docker, Traefik, Cloudflare, Keycloak, Prometheus, Grafana, FlowG.
+
+## Pages
+
+- [Home](https://saashup.com/): how it works, FAQ, check if your app fits
+- [Pricing](https://saashup.com/pricing/)
+- [Contact](https://saashup.com/contact/)
+- [Catalog](https://saashup.com/catalog/): apps already available on SaaShup
+- [French version](https://saashup.com/fr-fr/)
+- [German version](https://saashup.com/de-de/)
+
+## Other
+
+- [Source code on GitHub](https://github.com/SaaShup)
+- [Paashup](https://paashup.com): our other product
